@@ -53,3 +53,4 @@ echo toSlug('Hoàng An');
 - true
 - false
 
+Khanh sua lan n
