@@ -52,3 +52,5 @@ echo toSlug('Hoàng An');
 3. Run validate()
 - true
 - false
+
+- demo git
