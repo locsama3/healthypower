@@ -53,6 +53,4 @@ echo toSlug('Hoàng An');
 - true
 - false
 
-- demo git
-- Tuấn sửa file
-- Tuấn sửa file 2
+- tui xóa hết xog up lại
