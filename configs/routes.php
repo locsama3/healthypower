@@ -31,4 +31,10 @@
     $routes['blogs-category'] = 'blogcategory/index';
 
     $routes['blogs-category-create'] = 'blogcategory/create';
+
+    // routes product
+
+    $routes['products'] = 'product/index';
+
+    $routes['products-create'] = 'product/create';
 ?>
