@@ -51,4 +51,18 @@
     $routes['products-category'] = 'productcategory/index';
 
     $routes['products-category-create'] = 'productcategory/create';
+
+    // routes warehouse
+
+    $routes['warehouse'] = 'warehouse/index';
+
+    $routes['warehouse-create'] = 'warehouse/create';
+
+    $routes['warehouse-store'] = 'warehouse/store';
+
+    $routes['warehouse-edit/.+-(\d+)'] = 'warehouse/edit/$1';
+
+    $routes['warehouse-update/.+-(\d+)'] = 'warehouse/update/$1';
+
+    $routes['warehouse-destroy'] = 'warehouse/destroy';
 ?>
