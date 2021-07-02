@@ -3,8 +3,8 @@
     <script src="{{_WEB_ROOT.'/public/admin/vendor/chart.js\dist\Chart.min.js'}}"></script>
     <script src="{{_WEB_ROOT.'/public/admin/vendor/chart.js.extensions\chartjs-extensions.js'}}"></script>
     <script src="{{_WEB_ROOT.'/public/admin/vendor/chartjs-plugin-datalabels\dist\chartjs-plugin-datalabels.min.js'}}"></script>
-    
-    
+
+ 
 
     <!-- JS Front -->
     <script src="{{_WEB_ROOT.'/public/admin/js/theme.min.js'}}"></script>

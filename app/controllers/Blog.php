@@ -30,6 +30,11 @@ class Blog extends Controller{
 
         $data['dataMeta'] = $this->loadMetaTag();
 
+        $data['libraryJS']['list_js'] = [
+            'ckeditor' => 'ckeditor/ckeditor.js',
+            'changeEditor' => 'changeEditor.js'
+        ];
+
         $data['page_title'] = "Thêm mới bài viết";
 
         return $this->view('layouts.admin_layout', $data);

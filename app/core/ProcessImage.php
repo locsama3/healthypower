@@ -1,9 +1,9 @@
 <?php 	
 	class ProcessImage 
 	{
-	    public function checkImage($file = [], $uploadPath)
+	    static function checkImage($file = [], $uploadPath)
 	    {
-	        if(isset($file['name']) && isset($file['tmp_name']) && isset($file['size'])){
+	        if(!empty($file['name']) && !empty($file['tmp_name']) && !empty($file['size'])){
 	            //Kiem tra hình ảnh và lấy hình ảnh cho vào folder upload
 	            $permited  = array('jpg', 'jpeg', 'png', 'gif');
 
@@ -33,7 +33,7 @@
 	        return false;
 	    }
 
-	    public function del_upload($id, $path = '', $model = '', $field = '')
+	    static function del_upload($id, $path = '', $model = '', $field = '')
 	    {
 	        $del_upload = $this->$model->find($id);
 	        $filePath = $path.$del_upload[$field];

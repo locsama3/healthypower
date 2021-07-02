@@ -15,20 +15,32 @@ class BlogCategory extends Controller{
         $data['content'] = 'admins.blog_categories.index';
 
          
-        // $data['sub_content']['...'] = ...;
+        $data['sub_content']['list_blog_cate'] = $this->blogCateModel->all();
 
         $data['dataMeta'] = $this->loadMetaTag();
 
         $data['page_title'] = "Liệt kê Danh mục Bài viết";
+
+        $data['data_js'] = [
+            'ajax' => 'admins.blog_categories.js'
+        ];
 
         return $this->view('layouts.admin_layout', $data);
     }
 
     public function create()
     {
+        $data['sub_content']['blog_categories'] = $this->blogCateModel->all();
+
         $data['content'] = 'admins.blog_categories.create';
 
         $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['libraryJS']['list_js'] = [
+            'ckeditor' => 'ckeditor/ckeditor.js',
+            'changeEditor' => 'changeEditor.js',
+            'slug' => 'ChangeToSlug.js'
+        ];
 
         $data['page_title'] = "Thêm mới danh mục bài viết";
 
@@ -37,23 +49,146 @@ class BlogCategory extends Controller{
 
     public function store()
     {
-        
+        if ($this->request->isPost()){
+            /*Set rules*/
+            $this->request->rules([
+                'blogCateName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
+            ]);
+
+            //Set message
+            $this->request->message([
+                'blogCateName.required' => 'Tên danh mục không được để trống',
+                'blogCateName.min' => 'Tên danh mục phải lớn hơn 5 ký tự',
+                'blogCateName.max' => 'Tên danh mục phải nhỏ hơn 30 ký tự',
+                'blogCateName.unique' => 'Tên danh mục đã tồn tại trong hệ thống'
+            ]);
+
+            $validate = $this->request->validate();
+            if (!$validate){
+                Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
+                return $this->response->redirect('blogs-category-create');
+
+            }
+        }
+
+        // lấy dữ liệu từ form
+        $dataFields = $this->request->getFields();
+        $dataFile = $this->request->getFiles();
+
+        // đưa data vào
+        $data = [
+            'name' => $dataFields['blogCateName'],
+            'slug' => $dataFields['slug'],
+            'page_title' => $dataFields['pageTitle'],
+            'description' => $dataFields['cate_desc'],
+            'created_at' => date('Y-m-d h:i:s')
+        ];
+
+        if(!empty($dataFields['parentCate'])){
+            $data['parent_id'] = $dataFields['parentCate'];
+        }
+
+        $get_image = $dataFile['image_cate'];
+
+        if($get_image){
+            $uploadPath = "public/uploads/blog_category/";
+            $unique_image = ProcessImage::checkImage($get_image, $uploadPath);
+            if($unique_image){
+                $data['banner'] = $unique_image;
+            }
+        }
+
+        $this->blogCateModel->create($data);
+        Session::flash('msg', 'Thêm danh mục thành công!');
+
+        return $this->response->redirect('blogs-category-create');
     }
 
     public function edit($id)
     {
-        // code...
+        $data['sub_content']['blog_categories'] = $this->blogCateModel->all();
+
+        $data['sub_content']['blog_cate_by_id'] = $this->blogCateModel->find($id);
+
+        $data['content'] = 'admins.blog_categories.edit';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['libraryJS']['list_js'] = [
+            'ckeditor' => 'ckeditor/ckeditor.js',
+            'changeEditor' => 'changeEditor.js',
+            'slug' => 'ChangeToSlug.js'
+        ];
+
+        $data['page_title'] = "Cập nhật danh mục bài viết";
+
+        return $this->view('layouts.admin_layout', $data);
     }
 
     public function update($id)
     {
-        // code...
+        if ($this->request->isPost()){
+            /*Set rules*/
+            $this->request->rules([
+                'blogCateName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
+            ]);
+
+            //Set message
+            $this->request->message([
+                'blogCateName.required' => 'Tên danh mục không được để trống',
+                'blogCateName.min' => 'Tên danh mục phải lớn hơn 5 ký tự',
+                'blogCateName.max' => 'Tên danh mục phải nhỏ hơn 30 ký tự',
+                'blogCateName.unique' => 'Tên danh mục đã tồn tại trong hệ thống'
+            ]);
+
+            $validate = $this->request->validate();
+            if (!$validate){
+                Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
+                return $this->response->redirect('blogs-category-create');
+
+            }
+        }
+
+        // lấy dữ liệu từ form
+        $dataFields = $this->request->getFields();
+        $dataFile = $this->request->getFiles();
+
+        // đưa data vào
+        $data = [
+            'name' => $dataFields['blogCateName'],
+            'slug' => $dataFields['slug'],
+            'page_title' => $dataFields['pageTitle'],
+            'description' => $dataFields['cate_desc'],
+            'updated_at' => date('Y-m-d h:i:s')
+        ];
+
+        if(!empty($dataFields['parentCate'])){
+            $data['parent_id'] = $dataFields['parentCate'];
+        }
+
+        $get_image = $dataFile['image_cate'];
+
+        if(!empty($get_image)){
+            $uploadPath = "public/uploads/blog_category/";
+            $unique_image = ProcessImage::checkImage($get_image, $uploadPath);
+            if($unique_image){
+                $data['banner'] = $unique_image;
+            }
+        }
+
+        $this->blogCateModel->edit($id,$data);
+        Session::flash('msg', 'Bạn đã cập nhật danh mục bài viết!');
+
+        return $this->response->redirect('blogs-category');
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        // code...
-    }
+        // $dataFields = $this->request->getFields();
+        // $id = $dataFields['id'];
+
+        // $this->blogCateModel->destroy($id);
+    }   
 
     public function loadMetaTag()
     {
@@ -83,7 +218,7 @@ class BlogCategory extends Controller{
 
     // public function post_user(){
     //     $userId = 20;
-    //     $request = new Request();
+    //     $this->request = new Request();
     //     if ($request->isPost()){
     //         /*Set rules*/
     //         $request->rules([

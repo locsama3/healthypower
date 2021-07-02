@@ -31,4 +31,9 @@ class BlogCategoryModel extends Model {
     {
         $this->db->table('tbl_blogs_categories')->where('id','=',$id)->delete();
     }
+
+    public function show()
+    {
+        return $this->db->table('tbl_blogs_categories');
+    }
 }

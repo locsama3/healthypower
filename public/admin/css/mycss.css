@@ -1,0 +1,9 @@
+.hide_input_file{
+	opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+
+.delete_item{
+    cursor: pointer;
+}

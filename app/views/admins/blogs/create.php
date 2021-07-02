@@ -32,7 +32,7 @@
             <div class="card mb-3 mb-lg-5">
               <!-- Header -->
               <div class="card-header">
-                <h4 class="card-header-title">Product information</h4>
+                <h4 class="card-header-title"></h4>
               </div>
               <!-- End Header -->
 
@@ -40,7 +40,7 @@
               <div class="card-body">
                 <!-- Form Group -->
                 <div class="form-group">
-                  <label for="productNameLabel" class="input-label">Name <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Products are the goods or services you sell."></i></label>
+                  <label for="productNameLabel" class="input-label">Tiêu đề <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Products are the goods or services you sell."></i></label>
 
                   <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Shirt, t-shirts, etc." aria-label="Shirt, t-shirts, etc.">
                 </div>
@@ -92,12 +92,7 @@
                 <label class="input-label">Description <span class="input-label-secondary">(Optional)</span></label>
 
                 <!-- Quill -->
-                <div class="quill-custom">
-                  <div class="js-quill" style="min-height: 15rem;" data-hs-quill-options='{
-                          "placeholder": "Type your description..."
-                         }'>
-                  </div>
-                </div>
+                <textarea name="short_desc" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả"></textarea>
                 <!-- End Quill -->
               </div>
               <!-- Body -->

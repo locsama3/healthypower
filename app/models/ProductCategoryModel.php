@@ -3,10 +3,10 @@
  * Kế thừa từ class Model
  *
  * */
-class ProductModel extends Model {
+class ProductCategoryModel extends Model {
 
     function tableFill(){
-       return 'shop_products';
+       return 'shop_categories';
     }
 
     function fieldFill(){
@@ -19,16 +19,16 @@ class ProductModel extends Model {
 
     function create($data)
     {
-        $this->db->table('shop_products')->insert($data);
+        $this->db->table('shop_categories')->insert($data);
     }
 
     function edit($id, $data)
     {
-        $this->db->table('shop_products')->where('id','=',$id)->update($data);
+        $this->db->table('shop_categories')->where('id','=',$id)->update($data);
     }
 
     public function destroy($id)
     {
-        $this->db->table('shop_products')->where('id','=',$id)->delete();
+        $this->db->table('shop_categories')->where('id','=',$id)->delete();
     }
 }

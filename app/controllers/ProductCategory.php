@@ -1,32 +1,32 @@
 <?php
-class Product extends Controller{
+class ProductCategory extends Controller{
 
-    public $productModel;
+    public $prodCateModel;
     public $request, $response;
 
     public function __construct(){
-        $this->productModel = $this->model('ProductModel');
+        $this->prodCateModel = $this->model('ProductCategoryModel');
         $this->request = new Request();
         $this->response = new Response();
     }
 
     public function index()
     {
-        $data['content'] = 'admins.product_file.index';
+        $data['content'] = 'admins.product_categories.index';
 
          
         // $data['sub_content']['...'] = ...;
 
         $data['dataMeta'] = $this->loadMetaTag();
 
-        $data['page_title'] = "Danh sách sản phẩm";
+        $data['page_title'] = "Danh mục sản phẩm";
 
         return $this->view('layouts.admin_layout', $data);
     }
 
     public function create()
-    { 
-        $data['content'] = 'admins.product_file.create';
+    {
+        $data['content'] = 'admins.product_categories.create';
 
         $data['dataMeta'] = $this->loadMetaTag();
 
@@ -35,7 +35,7 @@ class Product extends Controller{
             'changeEditor' => 'changeEditor.js'
         ];
 
-        $data['page_title'] = "Thêm mới sản phẩm";
+        $data['page_title'] = "Thêm mới bài viết";
 
         return $this->view('layouts.admin_layout', $data);
     }

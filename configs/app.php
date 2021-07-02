@@ -8,7 +8,8 @@ $config['app'] = [
         'san-pham' => AuthMiddleware::class
     ],
     'globalMiddleware' => [
-        ParamsMiddleware::class
+        ParamsMiddleware::class,
+        VerifyCsrfToken::class
     ],
     'boot' => [
         AppServiceProvider::class

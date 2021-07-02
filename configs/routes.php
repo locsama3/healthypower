@@ -32,9 +32,23 @@
 
     $routes['blogs-category-create'] = 'blogcategory/create';
 
+    $routes['blogs-category-store'] = 'blogcategory/store';
+
+    $routes['blogs-category-edit/.+-(\d+)'] = 'blogcategory/edit/$1';
+
+    $routes['blogs-category-update/.+-(\d+)'] = 'blogcategory/update/$1';
+
+    $routes['blogs-category-destroy'] = 'blogcategory/destroy';
+
     // routes product
 
     $routes['products'] = 'product/index';
 
     $routes['products-create'] = 'product/create';
+
+    // routes products categories
+
+    $routes['products-category'] = 'productcategory/index';
+
+    $routes['products-category-create'] = 'productcategory/create';
 ?>

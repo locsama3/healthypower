@@ -30,6 +30,7 @@
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/admin/css/vendor.min.css">
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/admin/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/admin/css/mycss.css">
     
     <!-- Load thư viện css cần sử dụng -->
      <?php 
@@ -43,20 +44,14 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/admin/css/theme.min.css?v=1.0">
 
+    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/admin/css/sweetalert.css">
+    <script src="<?php echo _WEB_ROOT; ?>/public/admin/js/sweetalert.js"></script>
+
   </head>
 
   <body class="   footer-offset">
     
     <script src="<?php echo _WEB_ROOT; ?>/public/admin/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
-
-    <!-- Load thư viện js cần sử dụng -->
-     <?php 
-
-        if(!empty($libraryJS)){
-            $this->view('blocks.admins.lib_js', $libraryJS); 
-        }
-            
-     ?> 
 
     <!-- load header -->
     <?php 
@@ -90,6 +85,16 @@
         }
             
     ?>
+
+    
+    <!-- Load thư viện js cần sử dụng -->
+     <?php 
+
+        if(!empty($libraryJS)){
+            $this->view('blocks.admins.lib_js', $libraryJS); 
+        }
+            
+     ?> 
 
     <!-- load script thêm -->
     <?php 

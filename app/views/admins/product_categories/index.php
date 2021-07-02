@@ -4,25 +4,15 @@
 
     
     <!-- End Navbar Vertical -->
-    
+
     <main id="content" role="main" class="main">
-      <script type="text/javascript">
-        @php
-          $msg = Session::flash('msg');
-        @endphp
-        @if (!empty($msg))
-          {! 
-            'swal("Thành công!", "'. $msg .'", "success")'
-          !}
-        @endif
-      </script>      
       <!-- Content -->
       <div class="content container-fluid">
         <!-- Page Header -->
         <div class="page-header">
           <div class="row align-items-center mb-3">
             <div class="col-sm mb-2 mb-sm-0">
-              <h1 class="page-header-title">Danh mục Bài viết <span class="badge badge-soft-dark ml-2">1 con số</span></h1>
+              <h1 class="page-header-title">Danh mục sản phẩm <span class="badge badge-soft-dark ml-2">1 con số</span></h1>
 
               <div class="mt-2">
                 <a class="text-body mr-3" href="javascript:;" data-toggle="modal" data-target="#exportProductsModal">
@@ -35,7 +25,7 @@
             </div>
 
             <div class="col-sm-auto">
-              <a class="btn btn-primary" href="{{_WEB_ROOT.'/blogs-category-create'}}">Thêm danh mục</a>
+              <a class="btn btn-primary" href="ecommerce-add-product.html">Thêm danh mục</a>
             </div>
           </div>
           <!-- End Row -->
@@ -53,11 +43,11 @@
                 <i class="tio-chevron-right"></i>
               </a>
             </span>
-            
+
             <!-- Nav -->
             <ul class="nav nav-tabs page-header-tabs" id="pageHeaderTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Danh sách Danh mục</a>
+                <a class="nav-link active" href="#">Danh sách Bài viết</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Đã lưu</a>
@@ -178,7 +168,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                          <span class="mr-2">Lượt</span>
+                          <span class="mr-2">Vendor</span>
 
                           <!-- Checkbox Switch -->
                           <label class="toggle-switch toggle-switch-sm" for="toggleColumn_vendor">
@@ -191,7 +181,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                          <span class="mr-2">Chọn</span>
+                          <span class="mr-2">Stocks</span>
 
                           <!-- Checkbox Switch -->
                           <label class="toggle-switch toggle-switch-sm" for="toggleColumn_stocks">
@@ -230,7 +220,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                          <span class="mr-2">Số lượng</span>
+                          <span class="mr-2">Quantity</span>
 
                           <!-- Checkbox Switch -->
                           <label class="toggle-switch toggle-switch-sm" for="toggleColumn_quantity">
@@ -293,15 +283,17 @@
                     </div>
                   </th>
                   <th class="table-column-pl-0">Tiêu đề</th>
+                  <th>Thời gian đăng</th>
+                  <th>Người tạo</th>
                   <th>Trạng thái</th>
-                  <th>Mô tả</th>
+                  <th>Số lượt xem</th>
+                  <th>Số bình luận</th>
                   <th>Actions</th>
                 </tr>
               </thead>
 
               <tbody>
-                @foreach ($list_blog_cate as $key => $value)
-                <tr id = "blog_category_{{$value['id']}}">
+                <tr>
                   <td class="table-column-pr-0">
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="productsCheck1">
@@ -310,12 +302,13 @@
                   </td>
                   <td class="table-column-pl-0">
                     <a class="media align-items-center" href="ecommerce-product-details.html">
-                      <img class="avatar avatar-lg mr-3" src="{{_WEB_ROOT.'/public/uploads/blog_category/'.$value['banner']}}" alt="Image Description">
+                      <img class="avatar avatar-lg mr-3" src="assets\img\400x400\img4.jpg" alt="Image Description">
                       <div class="media-body">
-                        <h5 class="text-hover-primary mb-0">{{$value['name']}}</h5>
+                        <h5 class="text-hover-primary mb-0">Photive wireless speakers</h5>
                       </div>
                     </a>
                   </td>
+                  <td>Google</td>
                   <td>
                     <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox1">
                       <input type="checkbox" class="toggle-switch-input" id="stocksCheckbox1" checked="">
@@ -324,28 +317,27 @@
                       </span>
                     </label>
                   </td>
-                  <td>{!textShorten($value['description'], 500)!}</td>
+                  <td>2384741241</td>
+                  <td>$65</td>
+                  <td>60</td>
                   <td>
                     <div class="btn-group" role="group">
-                      <a class="btn btn-sm btn-white" 
-                      href="{{_WEB_ROOT.'/blogs-category-edit/cateid-'.$value['id']}}">
+                      <a class="btn btn-sm btn-white" href="ecommerce-product-details.html">
                         <i class="tio-edit"></i> Cập nhật
                       </a>
                       
                       <!-- Unfold -->
                       <div class="hs-unfold btn-group">
                         <a class="js-hs-unfold-invoker btn btn-icon btn-sm btn-white dropdown-toggle dropdown-toggle-empty" href="javascript:;" data-hs-unfold-options='{
-                             "target": "#productsEditDropdown{{$value["id"]}}",
+                             "target": "#productsEditDropdown1",
                              "type": "css-animation",
                              "smartPositionOffEl": "#datatable"
                            }'></a>
 
-                        <div id="productsEditDropdown{{$value['id']}}" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right mt-1">
-                          <button type = "button" class="dropdown-item delete_item"
-                          onclick="confirm('Bạn có chắc chắn muốn xóa?')"
-                          data-cateid = "{{$value['id']}}">
+                        <div id="productsEditDropdown1" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right mt-1">
+                          <a class="dropdown-item" href="#">
                             <i class="tio-delete-outlined dropdown-item-icon"></i> Xóa
-                          </button>
+                          </a>
                           <a class="dropdown-item" href="#">
                             <i class="tio-archive dropdown-item-icon"></i> Lưu
                           </a>
@@ -361,7 +353,6 @@
                     </div>
                   </td>
                 </tr>
-                @endforeach
               </tbody>
             </table>
           </div>

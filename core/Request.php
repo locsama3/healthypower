@@ -57,7 +57,7 @@ class Request{
                     if(is_array($value)){
                         $dataFields[$key] = filter_input(INPUT_POST, $key, FILTER_REQUIRE_ARRAY);
                     }else{
-                        $dataFields[$key] = filter_input(INPUT_POST, $key/*, FILTER_SANITIZE_SPECIAL_CHARS*/);
+                        $dataFields[$key] = filter_input(INPUT_POST, $key);
                     }   
                 }
             }
