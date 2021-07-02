@@ -341,8 +341,7 @@
                            }'></a>
 
                         <div id="productsEditDropdown{{$value['id']}}" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right mt-1">
-                          <button type = "button" class="dropdown-item delete_item"
-                          onclick="confirm('Bạn có chắc chắn muốn xóa?')"
+                          <button id = "cate_{{$value['id']}}"type = "button" class="dropdown-item delete_item"
                           data-cateid = "{{$value['id']}}">
                             <i class="tio-delete-outlined dropdown-item-icon"></i> Xóa
                           </button>
