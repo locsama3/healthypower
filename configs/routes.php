@@ -38,6 +38,8 @@
 
     $routes['blogs-category-update/.+-(\d+)'] = 'blogcategory/update/$1';
 
+    $routes['blogs-category-status'] = 'blogcategory/status';
+
     $routes['blogs-category-destroy'] = 'blogcategory/destroy';
 
     // routes product
@@ -52,6 +54,16 @@
 
     $routes['products-category-create'] = 'productcategory/create';
 
+    $routes['products-category-store'] = 'productcategory/store';
+
+    $routes['products-category-edit/.+-(\d+)'] = 'productcategory/edit/$1';
+
+    $routes['products-category-update/.+-(\d+)'] = 'productcategory/update/$1';
+
+    $routes['products-category-status'] = 'productcategory/status';
+
+    $routes['products-category-destroy'] = 'productcategory/destroy';
+
     // routes warehouse
 
     $routes['warehouse'] = 'warehouse/index';
@@ -63,6 +75,8 @@
     $routes['warehouse-edit/.+-(\d+)'] = 'warehouse/edit/$1';
 
     $routes['warehouse-update/.+-(\d+)'] = 'warehouse/update/$1';
+
+    $routes['warehouse-status'] = 'warehouse/status';
 
     $routes['warehouse-destroy'] = 'warehouse/destroy';
 ?>

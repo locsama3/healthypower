@@ -19,14 +19,14 @@
           console.log(id);
         
         $.ajax({
-          url: '{{_WEB_ROOT."/blogs-category-destroy"}}',
+          url: '{{_WEB_ROOT."/products-category-destroy"}}',
           method: 'POST',
           data: {
             id:id,
             _token:_token
           },
           success:function(data){
-              $('#blog_category_' + id).remove();
+              $('#prod_category_' + id).remove();
               swal("Thành công!", "Bạn đã xóa danh mục bài viết!", "success");
           }
         });
@@ -50,7 +50,7 @@
       }
 
       $.ajax({
-        url: '{{_WEB_ROOT."/blogs-category-status"}}',
+        url: '{{_WEB_ROOT."/products-category-status"}}',
         method: 'POST',
         data: {
           id:id,

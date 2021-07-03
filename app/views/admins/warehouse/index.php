@@ -304,8 +304,8 @@
                 <tr id = "warehouse_{{$value['id']}}">
                   <td class="table-column-pr-0">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="productsCheck1">
-                      <label class="custom-control-label" for="productsCheck1"></label>
+                      <input type="checkbox" class="custom-control-input" id="myCheck{{$value['id']}}">
+                      <label class="custom-control-label" for="myCheck{{$value['id']}}"></label>
                     </div>
                   </td>
                   <td class="table-column-pl-0">
@@ -317,8 +317,9 @@
                     </a>
                   </td>
                   <td>
-                    <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox1">
-                      <input type="checkbox" class="toggle-switch-input" id="stocksCheckbox1" checked="">
+                    <label class="toggle-switch toggle-switch-sm" for="stockStatus{{$value['id']}}">
+                      <input type="checkbox" class="toggle-switch-input stockStatus" value="{{$value['id']}}" id="stockStatus{{$value['id']}}" 
+                      {{ $value['status'] == 1 ? 'checked' : '' }}>
                       <span class="toggle-switch-label">
                         <span class="toggle-switch-indicator"></span>
                       </span>

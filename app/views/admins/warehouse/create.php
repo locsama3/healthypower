@@ -76,14 +76,14 @@
                 </div>
                 <!-- End Liên kết tĩnh -->
 
-                <!-- Tiêu đề -->
+                <!-- Mã kho hàng -->
                 <div class="form-group">
-                  <label for="title" class="input-label">Mã kho hàng <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tên danh mục"></i></label>
+                  <label for="warehouseCode" class="input-label">Mã kho hàng <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tên danh mục"></i></label>
 
-                  <input type="text" class="form-control" name="warehouseCode" id="title" 
-                  placeholder="Tên kho hàng" aria-label="Tên danh mục" >
+                  <input type="text" class="form-control" name="warehouseCode" id="warehouseCode" 
+                  placeholder="Tên kho hàng" aria-label="Tên kho hàng" >
                 </div>
-                <!-- End Tiêu đề -->
+                <!-- End Mã kho hàng -->
 
                 <!-- Tiêu đề website -->
                 <div class="form-group">

@@ -7,7 +7,7 @@
 
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/products-category-store'}}"
+      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/products-category-update/cateid-'.$prod_cate_by_id['id']}}"
       enctype="multipart/form-data">
         {!csrf_field()!}
         <!-- Page Header -->
@@ -16,12 +16,12 @@
             <div class="col-sm mb-2 mb-sm-0">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-no-gutter">
-                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-products.html">Danh mục Bài viết</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Thêm mới danh mục</li>
+                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-products.html">Danh mục Sản phẩm</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Cập nhật danh mục</li>
                 </ol>
               </nav>
 
-              <h1 class="page-header-title">Thêm danh mục bài viết</h1>
+              <h1 class="page-header-title">Cập nhật danh mục sản phẩm</h1>
             </div>
           </div>
           <!-- End Row -->
@@ -40,15 +40,6 @@
               </div>
             @endif
 
-            @php
-              $msg = Session::flash('msg');
-            @endphp
-            @if (!empty($msg))
-              <div class="alert alert-success" role="alert">
-                {{ $msg }}
-              </div>
-            @endif
-
             <div class="card mb-3 mb-lg-5">
               <!-- Header -->
               <div class="card-header">
@@ -63,7 +54,8 @@
                   <label for="title" class="input-label">Tiêu đề <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tên danh mục"></i></label>
 
                   <input type="text" class="form-control" name="prodCateName" id="title" 
-                  placeholder="Tên danh mục" aria-label="Tên danh mục" onkeyup="setTimeout(ChangeToSlug(),2000)">
+                  value="{{ $prod_cate_by_id['category_name'] }}" aria-label="Tên danh mục" 
+                  onkeyup="setTimeout(ChangeToSlug(),2000)">
                   {!form_error('prodCateName', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
                 </div>
                 <!-- End Tiêu đề -->
@@ -72,7 +64,8 @@
                 <div class="form-group">
                   <label for="convert_slug" class="input-label">Liên kết tĩnh <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Liên kết tĩnh"></i></label>
 
-                  <input type="text" class="form-control" name="slug" id="convert_slug" placeholder="" aria-label="">
+                  <input type="text" class="form-control" name="slug" id="convert_slug" 
+                  value="{{ $prod_cate_by_id['category_slug'] }}" aria-label="">
                 </div>
                 <!-- End Liên kết tĩnh -->
 
@@ -81,7 +74,7 @@
                   <label for="prodCateCode" class="input-label">Mã danh mục <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Mã danh mục"></i></label>
 
                   <input type="text" class="form-control" name="prodCateCode" id="prodCateCode" 
-                  placeholder="Mã danh mục" aria-label="Mã danh mục" >
+                  value="{{ $prod_cate_by_id['category_code'] }}" aria-label="Mã danh mục" >
                 </div>
                 <!-- End Mã danh mục -->
 
@@ -89,7 +82,8 @@
                 <div class="form-group">
                   <label for="pageTitle" class="input-label">Tùy chỉnh tiêu đề site <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tiêu đề site"></i></label>
 
-                  <input type="text" class="form-control" name="pageTitle" id="pageTitle" placeholder="" aria-label="">
+                  <input type="text" class="form-control" name="pageTitle" id="pageTitle" 
+                  value="{{ $prod_cate_by_id['page_title'] }}" aria-label="">
                 </div>
                 <!-- End Tiêu đề website -->
 
@@ -97,7 +91,7 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-4">
-                        <label for="parentCate" class="input-label">Thuộc danh mục <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Thuộc chuyên mục"></i></label>
+                        <label for="parentCate" class="input-label">Thuộc chuyên mục <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Thuộc chuyên mục"></i></label>
                       </div>
                       
                       <div class="col-8">
@@ -106,10 +100,16 @@
                           <select name = "parentCate" class="js-select2-custom custom-select" size="1" style="opacity: 0;" data-hs-select2-options='{
                                     "minimumResultsForSearch": "Infinity"
                                   }'>
-                              <option value="">Danh mục chính</option>
+                              <option value="">Chuyên mục chính</option>
 
                             @foreach ($product_categories as $key => $value)
-                              <option value="{{ $value['id'] }}">{{ $value['category_name'] }}</option>
+                              <option value="{{ $value['id'] }}"
+                                @if($value['id'] == $prod_cate_by_id['parent_id'])
+                                  {{ "Selected" }}
+                                @endif
+                              >
+                                {{ $value['category_name'] }}
+                              </option>
                             @endforeach
                             
                           </select>
@@ -120,10 +120,10 @@
                   </div>
                   <!-- End Thuộc chuyên mục -->
                 
-                <label class="input-label">Mô tả danh mục <span class="input-label-secondary">(Tùy chọn)</span></label>
+                <label class="input-label">Mô tả chuyên mục <span class="input-label-secondary">(Tùy chọn)</span></label>
 
                 <!-- Quill -->
-                <textarea name="cate_desc" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                <textarea name="cate_desc" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả">{{ $prod_cate_by_id['description'] }}</textarea>
                 <!-- End Quill -->
               </div>
               <!-- Body -->
@@ -160,6 +160,37 @@
 
               <!-- Body -->
               <div class="card-body">
+                <!-- Gallery -->
+                <div id="fancyboxGallery" class="js-fancybox row justify-content-sm-center gx-2" data-hs-fancybox-options='{
+                       "selector": "#fancyboxGallery .js-fancybox-item"
+                     }'>
+                  <div class="col-6 col-sm-4 col-md-3 mb-3 mb-lg-5">
+                    <!-- Card -->
+                    <div class="card card-sm">
+                      <img class="card-img-top" src="{{_WEB_ROOT.'/public/uploads/prod_category/'.$prod_cate_by_id['image']}}" alt="Image Description">
+
+                      <div class="card-body">
+                        <div class="row text-center">
+                          <div class="col">
+                            <a class="js-fancybox-item text-body" href="javascript:;" data-toggle="tooltip" data-placement="top" title="View" data-src="./assets/img/725x1080/img1.jpg" data-caption="Image #01">
+                              <i class="tio-visible-outlined"></i>
+                            </a>
+                          </div>
+
+                          <div class="col column-divider">
+                            <a class="text-danger" href="javascript:;" data-toggle="tooltip" data-placement="top" title="Delete">
+                              <i class="tio-delete-outlined"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <!-- End Row -->
+                      </div>
+                    </div>
+                    <!-- End Card -->
+                  </div>
+
+                </div>
+                <!-- End Gallery -->
                 <!-- Dropzone -->
                 <div id="attachFilesNewProjectLabel" class="js-dropzone dropzone-custom custom-file-boxed">
                   <div class="dz-message custom-file-boxed-label">
@@ -191,7 +222,7 @@
                 </div>
                 <div class="col-auto">
                   <button type="button" class="btn btn-ghost-light mr-2">Loại bỏ</button>
-                  <button type="submit" class="btn btn-primary">Thêm danh mục</button>
+                  <button type="submit" class="btn btn-primary">Cập nhật danh mục</button>
                 </div>
               </div>
               <!-- End Row -->

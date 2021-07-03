@@ -172,6 +172,17 @@ class Warehouse extends Controller{
         return $this->response->redirect('warehouse');
     }
 
+    public function status()
+    {
+        $dataFields = $this->request->getFields();
+        $id = $dataFields['id'];
+        $status_value = $dataFields['status_value'];
+
+        $data['status'] = $status_value;
+
+        $this->warehouseModel->edit($id,$data);
+    }
+
     public function destroy()
     {
         // $dataFields = $this->request->getFields();
