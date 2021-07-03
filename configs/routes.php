@@ -64,6 +64,22 @@
 
     $routes['products-category-destroy'] = 'productcategory/destroy';
 
+    // routes products supplier
+
+    $routes['supplier'] = 'supplier/index';
+
+    $routes['supplier-create'] = 'supplier/create';
+
+    $routes['supplier-store'] = 'supplier/store';
+
+    $routes['supplier-edit/.+-(\d+)'] = 'supplier/edit/$1';
+
+    $routes['supplier-update/.+-(\d+)'] = 'supplier/update/$1';
+
+    $routes['supplier-status'] = 'supplier/status';
+
+    $routes['supplier-destroy'] = 'supplier/destroy';
+
     // routes warehouse
 
     $routes['warehouse'] = 'warehouse/index';
@@ -79,4 +95,36 @@
     $routes['warehouse-status'] = 'warehouse/status';
 
     $routes['warehouse-destroy'] = 'warehouse/destroy';
+
+    // routes vouchers
+
+    $routes['vouchers'] = 'voucher/index';
+
+    $routes['vouchers-create'] = 'voucher/create';
+
+    $routes['vouchers-store'] = 'voucher/store';
+
+    $routes['vouchers-edit/.+-(\d+)'] = 'voucher/edit/$1';
+
+    $routes['vouchers-update/.+-(\d+)'] = 'voucher/update/$1';
+
+    $routes['vouchers-status'] = 'voucher/status';
+
+    $routes['vouchers-destroy'] = 'voucher/destroy';
+
+    // routes payment-types
+
+    $routes['payment-types'] = 'paymenttype/index';
+
+    $routes['payment-types-create'] = 'paymenttype/create';
+
+    $routes['payment-types-store'] = 'paymenttype/store';
+
+    $routes['payment-types-edit/.+-(\d+)'] = 'paymenttype/edit/$1';
+
+    $routes['payment-types-update/.+-(\d+)'] = 'paymenttype/update/$1';
+
+    $routes['payment-types-status'] = 'paymenttype/status';
+
+    $routes['payment-types-destroy'] = 'paymenttype/destroy';
 ?>

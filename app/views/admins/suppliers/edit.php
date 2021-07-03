@@ -7,7 +7,7 @@
 
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/products-category-store'}}"
+      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/supplier-update/suppid-'.$supplier_by_id['id']}}"
       enctype="multipart/form-data">
         {!csrf_field()!}
         <!-- Page Header -->
@@ -16,12 +16,12 @@
             <div class="col-sm mb-2 mb-sm-0">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-no-gutter">
-                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-products.html">Danh mục Sản phẩm</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Thêm mới danh mục</li>
+                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-products.html">Nhà cung ứng</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Thêm mới nhà cung ứng</li>
                 </ol>
               </nav>
 
-              <h1 class="page-header-title">Thêm danh mục sản phẩm</h1>
+              <h1 class="page-header-title">Thêm nhà cung ứng</h1>
             </div>
           </div>
           <!-- End Row -->
@@ -52,7 +52,7 @@
             <div class="card mb-3 mb-lg-5">
               <!-- Header -->
               <div class="card-header">
-                <h4 class="card-header-title">Thông tin danh mục</h4>
+                <h4 class="card-header-title">Thông tin nhà cung ứng</h4>
               </div>
               <!-- End Header -->
 
@@ -60,11 +60,11 @@
               <div class="card-body">
                 <!-- Tiêu đề -->
                 <div class="form-group">
-                  <label for="title" class="input-label">Tiêu đề <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tên danh mục"></i></label>
+                  <label for="title" class="input-label">Tên nhà cung ứng <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tên nhà cung ứng"></i></label>
 
-                  <input type="text" class="form-control" name="prodCateName" id="title" 
-                  placeholder="Tên danh mục" aria-label="Tên danh mục" onkeyup="setTimeout(ChangeToSlug(),2000)">
-                  {!form_error('prodCateName', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
+                  <input type="text" class="form-control" name="supplierName" id="title" 
+                  value = "{{ $supplier_by_id['supplier_name'] }}" onkeyup="setTimeout(ChangeToSlug(),2000)">
+                  {!form_error('supplierName', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
                 </div>
                 <!-- End Tiêu đề -->
 
@@ -72,58 +72,31 @@
                 <div class="form-group">
                   <label for="convert_slug" class="input-label">Liên kết tĩnh <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Liên kết tĩnh"></i></label>
 
-                  <input type="text" class="form-control" name="slug" id="convert_slug" placeholder="" aria-label="">
+                  <input type="text" class="form-control" name="slug" id="convert_slug" value = "{{ $supplier_by_id['supplier_slug'] }}">
                 </div>
                 <!-- End Liên kết tĩnh -->
 
-                <!-- Mã danh mục -->
+                <!-- Mã nhà cung ứng -->
                 <div class="form-group">
-                  <label for="prodCateCode" class="input-label">Mã danh mục <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Mã danh mục"></i></label>
+                  <label for="supplierCode" class="input-label">Mã nhà cung ứng <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Mã nhà cung ứng"></i></label>
 
-                  <input type="text" class="form-control" name="prodCateCode" id="prodCateCode" 
-                  placeholder="Mã danh mục" aria-label="Mã danh mục" >
+                  <input type="text" class="form-control" name="supplierCode" id="supplierCode" 
+                  value = "{{ $supplier_by_id['supplier_code'] }}">
                 </div>
-                <!-- End Mã danh mục -->
+                <!-- End Mã nhà cung ứng -->
 
                 <!-- Tiêu đề website -->
                 <div class="form-group">
                   <label for="pageTitle" class="input-label">Tùy chỉnh tiêu đề site <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tiêu đề site"></i></label>
 
-                  <input type="text" class="form-control" name="pageTitle" id="pageTitle" placeholder="" aria-label="">
+                  <input type="text" class="form-control" name="pageTitle" id="pageTitle" value = "{{ $supplier_by_id['page_title'] }}">
                 </div>
                 <!-- End Tiêu đề website -->
-
-                <!-- Thuộc chuyên mục -->
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-4">
-                        <label for="parentCate" class="input-label">Thuộc danh mục <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Thuộc chuyên mục"></i></label>
-                      </div>
-                      
-                      <div class="col-8">
-                        <div class="input-group-prepend">
-                          <!-- Select -->
-                          <select name = "parentCate" class="js-select2-custom custom-select" size="1" style="opacity: 0;" data-hs-select2-options='{
-                                    "minimumResultsForSearch": "Infinity"
-                                  }'>
-                              <option value="">Danh mục chính</option>
-
-                            @foreach ($product_categories as $key => $value)
-                              <option value="{{ $value['id'] }}">{{ $value['category_name'] }}</option>
-                            @endforeach
-                            
-                          </select>
-                          <!-- End Select -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Thuộc chuyên mục -->
                 
-                <label class="input-label">Mô tả danh mục <span class="input-label-secondary">(Tùy chọn)</span></label>
+                <label class="input-label">Mô tả nhà cung ứng <span class="input-label-secondary">(Tùy chọn)</span></label>
 
                 <!-- Quill -->
-                <textarea name="cate_desc" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả">{{ $supplier_by_id['description'] }}</textarea>
                 <!-- End Quill -->
               </div>
               <!-- Body -->
@@ -160,14 +133,45 @@
 
               <!-- Body -->
               <div class="card-body">
+                <!-- Gallery -->
+                <div id="fancyboxGallery" class="js-fancybox row justify-content-sm-center gx-2" data-hs-fancybox-options='{
+                       "selector": "#fancyboxGallery .js-fancybox-item"
+                     }'>
+                  <div class="col-6 col-sm-4 col-md-3 mb-3 mb-lg-5">
+                    <!-- Card -->
+                    <div class="card card-sm">
+                      <img class="card-img-top" src="{{_WEB_ROOT.'/public/uploads/supplier/'.$supplier_by_id['image']}}" alt="{{ $supplier_by_id['supplier_name'] }}">
+
+                      <div class="card-body">
+                        <div class="row text-center">
+                          <div class="col">
+                            <a class="js-fancybox-item text-body" href="javascript:;" data-toggle="tooltip" data-placement="top" title="View" data-src="./assets/img/725x1080/img1.jpg" data-caption="Image #01">
+                              <i class="tio-visible-outlined"></i>
+                            </a>
+                          </div>
+
+                          <div class="col column-divider">
+                            <a class="text-danger" href="javascript:;" data-toggle="tooltip" data-placement="top" title="Delete">
+                              <i class="tio-delete-outlined"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <!-- End Row -->
+                      </div>
+                    </div>
+                    <!-- End Card -->
+                  </div>
+
+                </div>
+                <!-- End Gallery -->
                 <!-- Dropzone -->
                 <div id="attachFilesNewProjectLabel" class="js-dropzone dropzone-custom custom-file-boxed">
                   <div class="dz-message custom-file-boxed-label">
                     <img class="avatar avatar-xl avatar-4by3 mb-3" src="{{_WEB_ROOT.'\public\admin\svg\illustrations\browse.svg'}}" alt="Image Description">
                     
-                    <label for = "image_cate" class="btn btn-sm btn-primary">Duyệt hình ảnh</label>
+                    <label for = "image_file" class="btn btn-sm btn-primary">Duyệt hình ảnh</label>
 
-                    <input type="file" name="image" id = "image_cate" class = "hide_input_file">
+                    <input type="file" name="image" id = "image_file" class = "hide_input_file">
                   </div>
                 </div>
                 <!-- End Dropzone -->
@@ -191,7 +195,7 @@
                 </div>
                 <div class="col-auto">
                   <button type="button" class="btn btn-ghost-light mr-2">Loại bỏ</button>
-                  <button type="submit" class="btn btn-primary">Thêm danh mục</button>
+                  <button type="submit" class="btn btn-primary">Cập nhật nhà cung ứng</button>
                 </div>
               </div>
               <!-- End Row -->

@@ -187,7 +187,7 @@
                   <div class="dz-message custom-file-boxed-label">
                     <img class="avatar avatar-xl avatar-4by3 mb-3" src="{{_WEB_ROOT.'\public\admin\svg\illustrations\browse.svg'}}" alt="Image Description">
                     
-                    <label for = "image_cate" class="btn btn-sm btn-primary">Duyệt hình ảnh</label for = "image">
+                    <label for = "image_cate" class="btn btn-sm btn-primary">Duyệt hình ảnh</label>
 
                     <input type="file" name="image_cate" id = "image_cate" class = "hide_input_file">
                   </div>
