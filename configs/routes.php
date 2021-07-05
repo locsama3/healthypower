@@ -125,4 +125,11 @@
     $routes['payment-types-status'] = 'paymenttype/status';
 
     $routes['payment-types-destroy'] = 'paymenttype/destroy';
+
+    // routes customers
+    $routes['customers'] = 'customer/index';
+    
+    $routes['customers-create'] = 'customer/create';
+
+    $routes['customers-edit/.+-(\d+)'] = 'customer/edit/$1';
 ?>
