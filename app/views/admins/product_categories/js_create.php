@@ -13,7 +13,7 @@
       ],
       onSubmit: function (data) {
         var form = document.getElementById('form-ce');
-        form.action = "{{_WEB_ROOT.'/blogs-category-store'}}";
+        form.action = "{{_WEB_ROOT.'/products-category-store'}}";
         form.submit();
       }
     });

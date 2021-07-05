@@ -7,7 +7,7 @@
 
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <form id ="#form-ce" class="content container-fluid" method="POST" enctype="multipart/form-data" action="{{_WEB_ROOT.'/blogs-category-store'}}">
+      <form id ="form-ce" class="content container-fluid" method="POST" enctype="multipart/form-data">
         {!csrf_field()!}
         <!-- Page Header -->
         <div class="page-header">

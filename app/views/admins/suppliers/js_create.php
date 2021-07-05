@@ -7,13 +7,13 @@
       formGroupSelector: '.form-group',
       errorSelector: '.form-message',
       rules: [
-        Validator.isRequired('#title', 'Tên danh mục không được để trống'),
+        Validator.isRequired('#title', 'Tên nhà cung ứng không được để trống'),
         Validator.minLength('#title', 5),
         Validator.maxLength('#title', 88)
       ],
       onSubmit: function (data) {
         var form = document.getElementById('form-ce');
-        form.action = "{{_WEB_ROOT.'/blogs-category-store'}}";
+        form.action = "{{_WEB_ROOT.'/supplier-store'}}";
         form.submit();
       }
     });

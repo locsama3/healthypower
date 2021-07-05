@@ -7,7 +7,7 @@
 
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/payment-types-store'}}"
+      <form id ="form-ce" class="content container-fluid" method="POST" action = ""
       enctype="multipart/form-data">
         {!csrf_field()!}
         <!-- Page Header -->
@@ -64,7 +64,9 @@
 
                   <input type="text" class="form-control" name="paymentName" id="title" 
                   placeholder="Tên phương thức" aria-label="Tên phương thức" onkeyup="setTimeout(ChangeToSlug(),2000)">
-                  {!form_error('paymentName', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
+                  <span class = "form-message">
+                    {!form_error('paymentName')!} 
+                  </span>
                 </div>
                 <!-- End Tiêu đề -->
 

@@ -39,7 +39,12 @@ class PaymentType extends Controller{
         $data['libraryJS']['list_js'] = [
             'ckeditor' => 'ckeditor/ckeditor.js',
             'changeEditor' => 'changeEditor.js',
-            'slug' => 'ChangeToSlug.js'
+            'slug' => 'ChangeToSlug.js',
+            'validate' => 'validate.js'
+        ];
+
+        $data['data_js'] = [
+            'js' => 'admins.payment_types.js_create'
         ];
 
         $data['page_title'] = "Thêm mới phương thức thanh toán";
@@ -112,7 +117,12 @@ class PaymentType extends Controller{
         $data['libraryJS']['list_js'] = [
             'ckeditor' => 'ckeditor/ckeditor.js',
             'changeEditor' => 'changeEditor.js',
-            'slug' => 'ChangeToSlug.js'
+            'slug' => 'ChangeToSlug.js',
+            'validate' => 'validate.js'
+        ];
+
+        $data['data_js'] = [
+            'js' => 'admins.payment_types.js_edit'
         ];
 
         $data['page_title'] = "Cập nhật phương thức thanh toán";

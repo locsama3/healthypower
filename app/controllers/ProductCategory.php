@@ -39,7 +39,12 @@ class ProductCategory extends Controller{
         $data['libraryJS']['list_js'] = [
             'ckeditor' => 'ckeditor/ckeditor.js',
             'changeEditor' => 'changeEditor.js',
-            'slug' => 'ChangeToSlug.js'
+            'slug' => 'ChangeToSlug.js',
+            'validate' => 'validate.js'
+        ];
+
+        $data['data_js'] = [
+            'js' => 'admins.product_categories.js_create'
         ];
 
         $data['page_title'] = "Thêm mới danh mục sản phẩm";
@@ -118,7 +123,12 @@ class ProductCategory extends Controller{
         $data['libraryJS']['list_js'] = [
             'ckeditor' => 'ckeditor/ckeditor.js',
             'changeEditor' => 'changeEditor.js',
-            'slug' => 'ChangeToSlug.js'
+            'slug' => 'ChangeToSlug.js',
+            'validate' => 'validate.js'
+        ];
+
+        $data['data_js'] = [
+            'js' => 'admins.product_categories.js_edit'
         ];
 
         $data['page_title'] = "Cập nhật danh mục bài viết";

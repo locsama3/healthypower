@@ -13,7 +13,9 @@
       ],
       onSubmit: function (data) {
         var form = document.getElementById('form-ce');
-        form.action = "{{_WEB_ROOT.'/blogs-category-store'}}";
+        var id = form.dataset.uptid;
+
+        form.action = "{{_WEB_ROOT.'/blogs-category-update/uptid-'}}" + id;
         form.submit();
       }
     });

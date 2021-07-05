@@ -7,8 +7,7 @@
 
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/warehouse-store'}}"
-      enctype="multipart/form-data">
+      <form id ="form-ce" class="content container-fluid" method="POST" enctype="multipart/form-data">
         {!csrf_field()!}
         <!-- Page Header -->
         <div class="page-header">
@@ -64,7 +63,9 @@
 
                   <input type="text" class="form-control" name="warehouseName" id="title" 
                   placeholder="Tên kho hàng" aria-label="Tên danh mục" onkeyup="setTimeout(ChangeToSlug(),2000)">
-                  {!form_error('warehouseName', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
+                  <span class = "form-message">
+                    {!form_error('warehouseName')!} 
+                  </span>
                 </div>
                 <!-- End Tiêu đề -->
 
