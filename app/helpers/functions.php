@@ -12,6 +12,15 @@ function textShorten($text, $limit = 400)
     return $text;
 }
 
+function format_date($str_date, $date_format)
+{
+    $date = date_create($str_date);
+
+    $your_date = date_format($date, $date_format);
+
+    return $your_date;
+}
+
 
 function csrf_field()
 {

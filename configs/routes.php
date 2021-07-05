@@ -108,8 +108,6 @@
 
     $routes['vouchers-update/.+-(\d+)'] = 'voucher/update/$1';
 
-    $routes['vouchers-status'] = 'voucher/status';
-
     $routes['vouchers-destroy'] = 'voucher/destroy';
 
     // routes payment-types

@@ -137,7 +137,7 @@ class Warehouse extends Controller{
             $validate = $this->request->validate();
             if (!$validate){
                 Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
-                return $this->response->redirect('warehouse-create');
+                return $this->response->redirect('warehouse-edit/editid-'.$id);
 
             }
         }
@@ -153,7 +153,7 @@ class Warehouse extends Controller{
             'slug' => $dataFields['slug'],
             'page_title' => $dataFields['pageTitle'],
             'description' => $dataFields['warehouse_desc'],
-            'created_at' => date('Y-m-d h:i:s')
+            'updated_at' => date('Y-m-d h:i:s')
         ];
 
         $get_image = $dataFile['image'];

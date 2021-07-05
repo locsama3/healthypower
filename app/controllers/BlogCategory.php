@@ -39,7 +39,12 @@ class BlogCategory extends Controller{
         $data['libraryJS']['list_js'] = [
             'ckeditor' => 'ckeditor/ckeditor.js',
             'changeEditor' => 'changeEditor.js',
-            'slug' => 'ChangeToSlug.js'
+            'slug' => 'ChangeToSlug.js',
+            'validate' => 'validate.js'
+        ];
+
+        $data['data_js'] = [
+            'js' => 'admins.blog_categories.js_create'
         ];
 
         $data['page_title'] = "Thêm mới danh mục bài viết";
@@ -51,7 +56,7 @@ class BlogCategory extends Controller{
     {
         if ($this->request->isPost()){
             /*Set rules*/
-            $this->request->rules([
+            $this->request ->rules([
                 'blogCateName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
             ]);
 
@@ -144,7 +149,7 @@ class BlogCategory extends Controller{
             $validate = $this->request->validate();
             if (!$validate){
                 Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
-                return $this->response->redirect('blogs-category-create');
+                return $this->response->redirect('blogs-category-edit/editid-'.$id);
 
             }
         }

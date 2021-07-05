@@ -329,7 +329,7 @@
                   <td>
                     <div class="btn-group" role="group">
                       <a class="btn btn-sm btn-white" 
-                      href="{{_WEB_ROOT.'/blogs-category-edit/cateid-'.$value['id']}}">
+                      href="{{_WEB_ROOT.'/blogs-category-edit/editid-'.$value['id']}}">
                         <i class="tio-edit"></i> Cập nhật
                       </a>
                       

@@ -7,7 +7,7 @@
 
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/supplier-store'}}"
+      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/vouchers-store'}}"
       enctype="multipart/form-data">
         {!csrf_field()!}
         <!-- Page Header -->
@@ -16,12 +16,12 @@
             <div class="col-sm mb-2 mb-sm-0">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-no-gutter">
-                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-products.html">Nhà cung ứng</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Thêm mới nhà cung ứng</li>
+                  <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-products.html">Mã khuyến mãi</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Tạo mã khuyến mãi</li>
                 </ol>
               </nav>
 
-              <h1 class="page-header-title">Thêm nhà cung ứng</h1>
+              <h1 class="page-header-title">Tạo mã khuyến mãi</h1>
             </div>
           </div>
           <!-- End Row -->
@@ -52,7 +52,7 @@
             <div class="card mb-3 mb-lg-5">
               <!-- Header -->
               <div class="card-header">
-                <h4 class="card-header-title">Thông tin nhà cung ứng</h4>
+                <h4 class="card-header-title">Thông tin mã khuyến mãi</h4>
               </div>
               <!-- End Header -->
 
@@ -60,11 +60,11 @@
               <div class="card-body">
                 <!-- Tiêu đề -->
                 <div class="form-group">
-                  <label for="title" class="input-label">Tên nhà cung ứng <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tên nhà cung ứng"></i></label>
+                  <label for="title" class="input-label">Tên mã khuyến mãi <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tên mã khuyến mãi"></i></label>
 
-                  <input type="text" class="form-control" name="supplierName" id="title" 
-                  placeholder="Tên nhà cung ứng" aria-label="Tên nhà cung ứng" onkeyup="setTimeout(ChangeToSlug(),2000)">
-                  {!form_error('supplierName', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
+                  <input type="text" class="form-control" name="voucherName" id="title" 
+                  placeholder="Tên mã khuyến mãi" aria-label="Tên mã khuyến mãi" onkeyup="setTimeout(ChangeToSlug(),2000)" value = "{{ old('voucherName') }}">
+                  {!form_error('voucherName', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
                 </div>
                 <!-- End Tiêu đề -->
 
@@ -72,84 +72,100 @@
                 <div class="form-group">
                   <label for="convert_slug" class="input-label">Liên kết tĩnh <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Liên kết tĩnh"></i></label>
 
-                  <input type="text" class="form-control" name="slug" id="convert_slug" placeholder="" aria-label="">
+                  <input type="text" class="form-control" name="slug" id="convert_slug" placeholder="" aria-label="" value="{{ old('slug') }}">
                 </div>
                 <!-- End Liên kết tĩnh -->
 
-                <!-- Mã nhà cung ứng -->
+                <!-- Mã khuyến mãi -->
                 <div class="form-group">
-                  <label for="supplierCode" class="input-label">Mã nhà cung ứng <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Mã nhà cung ứng"></i></label>
+                  <label for="voucherCode" class="input-label">Mã khuyến mãi <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Mã khuyến mãi"></i></label>
 
-                  <input type="text" class="form-control" name="supplierCode" id="supplierCode" 
-                  placeholder="Mã nhà cung ứng" aria-label="Mã nhà cung ứng" >
+                  <input type="text" class="form-control" name="voucherCode" id="voucherCode" 
+                  placeholder="Mã khuyến mãi" aria-label="Mã khuyến mãi" 
+                  value = "{{ old('voucherCode') }}">
+                  {!form_error('voucherCode', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
                 </div>
-                <!-- End Mã nhà cung ứng -->
+                <!-- End Mã khuyến mãi -->
 
-                <!-- Tiêu đề website -->
+                <!-- Số lượng phát hành -->
                 <div class="form-group">
-                  <label for="pageTitle" class="input-label">Tùy chỉnh tiêu đề site <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tiêu đề site"></i></label>
+                  <label for="max_uses" class="input-label">Số lượng phát hành <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Số lượng phát hành"></i></label>
 
-                  <input type="text" class="form-control" name="pageTitle" id="pageTitle" placeholder="" aria-label="">
+                  <input type="text" class="form-control" name="max_uses" id="max_uses" placeholder="Số lượng phát hành" aria-label="Số lượng phát hành"
+                  value = "{{ old('max_uses') }}">
+                   {!form_error('max_uses', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
                 </div>
-                <!-- End Tiêu đề website -->
-                
-                <label class="input-label">Mô tả nhà cung ứng <span class="input-label-secondary">(Tùy chọn)</span></label>
+                <!-- End Số lượng phát hành -->
+
+                <!-- Số lượng tối đa trên người dùng -->
+                <div class="form-group">
+                  <label for="max_uses_user" class="input-label">Số lượng tối đa trên người dùng <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Số lượng tối đa trên người dùng"></i></label>
+
+                  <input type="text" class="form-control" name="max_uses_user" id="max_uses_user" placeholder="Số lượng tối đa trên người dùng" aria-label="Số lượng tối đa trên người dùng" value = "{{ old('max_uses_user') }}">
+                  {!form_error('max_uses_user', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
+                </div>
+                <!-- End Số lượng tối đa trên người dùng -->
+
+                <!-- Loại mã -->
+                <div class="form-group">
+                  <label for="type" class="input-label">Loại mã</label>
+
+                  <!-- Select -->
+                  <select name = "type" class="js-select2-custom custom-select" size="1" style="opacity: 0;" id="type" data-hs-select2-options='{
+                            "minimumResultsForSearch": "Infinity",
+                            "placeholder": "Chọn loại mã"
+                          }'>
+                    <option label="empty"></option>
+                    <option value="2">Giảm theo phần trăm</option>
+                    <option value="1">Giảm theo số tiền</option>
+                  </select>
+                  <!-- End Select -->
+                  {!form_error('type', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
+                </div>
+                <!-- Loại mã -->
+
+                <!-- Giá trị giảm -->
+                <div class="form-group">
+                  <label for="discount_amount" class="input-label">Giá trị giảm <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Giá trị giảm"></i></label>
+
+                  <input type="number" class="form-control" name="discount_amount" id="discount_amount" placeholder="Giá trị giảm" aria-label="Giá trị giảm"
+                  value = "{{ old('discount_amount') }}">
+                  {!form_error('discount_amount', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
+                </div>
+                <!-- End Giá trị giảm -->
+
+                <!-- Form Group -->
+                <div class="form-group">
+                  <dl class="row align-items-sm-center mb-3">
+                    <dt class="col-sm-4 col-md-3 text-sm-left mb-2 mb-sm-0">Ngày bắt đầu:</dt>
+                    <dd class="col-sm-8 col-md-5 mb-0">
+                      <input type="datetime-local" class="form-control" name="start_date" id="start_date" aria-label="Ngày bắt đầu" value = "{{ old('start_date') }}">
+                    </dd>
+                    {!form_error('start_date', '<span style="margin-left: 10px;color: red; padding-top: 6px; display: block">', '</span>')!}
+                  </dl>
+
+                  <dl class="row align-items-sm-center">
+                    <dt class="col-sm-4 col-md-3 text-sm-left mb-2 mb-sm-0">Ngày kết thúc:</dt>
+                    <dd class="col-sm-8 col-md-5 mb-0">
+                      <input type="datetime-local" class="form-control" name="end_date" id="end_date" aria-label="Ngày kết thúc" value = "{{ old('end_date') }}">
+                    </dd>
+                    {!form_error('end_date', '<span style="margin-left: 10px;color: red; padding-top: 6px; display: block">', '</span>')!}
+                  </dl>
+                </div>
+                <!-- End Form Group -->
+
+                <!-- Mô tả -->
+                <label class="input-label">Mô tả mã khuyến mãi <span class="input-label-secondary">(Tùy chọn)</span></label>
 
                 <!-- Quill -->
-                <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả">{{ old('description') }}</textarea>
                 <!-- End Quill -->
               </div>
               <!-- Body -->
             </div>
             <!-- End Card -->
 
-            <!-- Hình minh họa -->
-            <div class="card mb-3 mb-lg-5">
-              <!-- Header -->
-              <div class="card-header">
-                <h4 class="card-header-title">Ảnh minh họa</h4>
-
-                <!-- Unfold -->
-                <div class="hs-unfold">
-                  <a class="js-hs-unfold-invoker btn btn-sm btn-ghost-secondary" href="javascript:;" data-hs-unfold-options='{
-                       "target": "#mediaDropdown",
-                       "type": "css-animation"
-                     }'>
-                    Thêm hình ảnh từ URL <i class="tio-chevron-down"></i>
-                  </a>
-
-                  <div id="mediaDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right mt-1">
-                    <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#addImageFromURLModal">
-                      <i class="tio-link dropdown-item-icon"></i> Thêm ảnh từ URL
-                    </a>
-                    <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#embedVideoModal">
-                      <i class="tio-youtube-outlined dropdown-item-icon"></i> Nhúng video
-                    </a>
-                  </div>
-                </div>
-                <!-- End Unfold -->
-              </div>
-              <!-- End Header -->
-
-              <!-- Body -->
-              <div class="card-body">
-                <!-- Dropzone -->
-                <div id="attachFilesNewProjectLabel" class="js-dropzone dropzone-custom custom-file-boxed">
-                  <div class="dz-message custom-file-boxed-label">
-                    <img class="avatar avatar-xl avatar-4by3 mb-3" src="{{_WEB_ROOT.'\public\admin\svg\illustrations\browse.svg'}}" alt="Image Description">
-                    
-                    <label for = "image_file" class="btn btn-sm btn-primary">Duyệt hình ảnh</label>
-
-                    <input type="file" name="image" id = "image_file" class = "hide_input_file">
-                  </div>
-                </div>
-                <!-- End Dropzone -->
-              </div>
-              <!-- Body -->
-            </div>
-            <!-- End Hình minh họa -->
-
-          </div>
+           </div>
 
         </div>
         <!-- End Row -->
@@ -164,7 +180,7 @@
                 </div>
                 <div class="col-auto">
                   <button type="button" class="btn btn-ghost-light mr-2">Loại bỏ</button>
-                  <button type="submit" class="btn btn-primary">Thêm nhà cung ứng</button>
+                  <button type="submit" class="btn btn-primary">Thêm mã khuyến mãi</button>
                 </div>
               </div>
               <!-- End Row -->

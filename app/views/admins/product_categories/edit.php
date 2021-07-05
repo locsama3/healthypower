@@ -7,7 +7,7 @@
 
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/products-category-update/cateid-'.$prod_cate_by_id['id']}}"
+      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/products-category-update/uptid-'.$prod_cate_by_id['id']}}"
       enctype="multipart/form-data">
         {!csrf_field()!}
         <!-- Page Header -->

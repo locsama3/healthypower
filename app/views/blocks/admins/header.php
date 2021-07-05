@@ -1625,12 +1625,12 @@
 
           <!-- Tài khoản Admin -->
           <li class="hs-has-sub-menu">
-            <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+            <a id="adminAccountDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkAdminAccountDropdown">
               <i class="tio-user nav-icon"></i> Tài khoản
             </a>
 
             <!-- Dropdown -->
-            <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+            <ul id="navLinkAdminAccountDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminAccountDropdown" style="min-width: 16rem;">
               <li>
                 <a class="dropdown-item" href="referrals.html">
                   <span class="tio-circle nav-indicator-icon"></span> Thêm mới tài khoản
@@ -1651,19 +1651,19 @@
 
           <!-- Sản phẩm -->
           <li class="hs-has-sub-menu">
-            <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+            <a id="prodManageDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkProdManageDropdown">
               <i class="tio-pages-outlined nav-icon"></i> Quản lý sản phẩm
             </a>
 
             <!-- Dropdown -->
-            <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+            <ul id="navLinkProdManageDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodManageDropdown" style="min-width: 16rem;">
               <!-- Sản phẩm -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                <a id="prodMngDropdownProducts" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownProducts">
                   <span class="tio-circle nav-indicator-icon"></span> Sản phẩm
                 </a>
 
-                <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                <ul id="navLinkProdMngDropdownProducts" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProducts" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="users.html">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới sản phẩm
@@ -1680,11 +1680,11 @@
 
               <!-- Danh mục sản phẩm -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
+                <a id="prodMngDropdownProdCate" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownProdCate">
                   <span class="tio-circle nav-indicator-icon"></span> Danh mục sản phẩm <span class="badge badge-primary badge-pill ml-2">5</span>
                 </a>
 
-                <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
+                <ul id="navLinkProdMngDropdownProdCate" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProdCate" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="{{_WEB_ROOT.'/products-category-create'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới danh mục
@@ -1701,11 +1701,11 @@
 
               <!-- Nhà cung ứng -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
+                <a id="prodMngDropdownSuppliers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownSuppliers">
                   <span class="tio-circle nav-indicator-icon"></span> Nhà cung ứng
                 </a>
 
-                <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
+                <ul id="navLinkProdMngDropdownSuppliers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownSuppliers" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="{{_WEB_ROOT.'/supplier-create'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới nhà cung ứng
@@ -1722,11 +1722,11 @@
 
               <!-- Đánh giá sản phẩm -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
+                <a id="prodMngDropdownReviews" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownReviews">
                   <span class="tio-circle nav-indicator-icon"></span> Đánh giá sản phẩm
                 </a>
 
-                <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
+                <ul id="navLinkProdMngDropdownReviews" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownReviews" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="account-settings.html">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Đánh giá sao
@@ -1748,19 +1748,19 @@
 
           <!-- Xuất nhập kho -->
           <li class="hs-has-sub-menu">
-            <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+            <a id="warehousesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkWarehousesDropdown">
               <i class="tio-import-export nav-icon"></i> Quản lý Xuất Nhập kho
             </a>  
 
             <!-- Dropdown -->
-            <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+            <ul id="navLinkWarehousesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdown" style="min-width: 16rem;">
               <!-- Kho hàng -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownWare" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownWare">
+                <a id="warehousesDropdownWare" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownWare">
                   <span class="tio-circle nav-indicator-icon"></span> Kho hàng
                 </a>
 
-                <ul id="navLinkPagesDropdownWare" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownWare" style="min-width: 16rem;">
+                <ul id="navLinkWarehousesDropdownWare" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownWare" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-create'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm Kho hàng
@@ -1777,11 +1777,11 @@
 
               <!-- Nhập kho -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownImport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownImport">
+                <a id="warehousesDropdownImport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownImport">
                   <span class="tio-circle nav-indicator-icon"></span> Nhập kho <span class="badge badge-primary badge-pill ml-2">5</span>
                 </a>
 
-                <ul id="navLinkPagesDropdownImport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownImport" style="min-width: 16rem;">
+                <ul id="navLinkWarehousesDropdownImport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownImport" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="user-profile.html">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách nhập kho
@@ -1798,11 +1798,11 @@
 
               <!-- Xuất kho -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownExport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownExport">
+                <a id="warehousesDropdownExport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownExport">
                   <span class="tio-circle nav-indicator-icon"></span> Xuất kho <span class="badge badge-primary badge-pill ml-2">5</span>
                 </a>
 
-                <ul id="navLinkPagesDropdownExport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownExport" style="min-width: 16rem;">
+                <ul id="navLinkWarehousesDropdownExport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownExport" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="user-profile.html">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Xuất kho
@@ -1825,19 +1825,19 @@
 
           <!-- Khuyến mãi và giảm giá -->
           <li class="hs-has-sub-menu">
-            <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+            <a id="vouchersDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkVouchersDropdown">
               <i class="tio-ticket nav-icon"></i> Khuyến mãi và giảm giá
             </a>
 
             <!-- Dropdown -->
-            <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
-              <!-- Sản phẩm -->
+            <ul id="navLinkVouchersDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="vouchersDropdown" style="min-width: 16rem;">
+              <!-- Mã giảm giá -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                <a id="vouchersDropdownCode" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkVouchersDropdownCode">
                   <span class="tio-circle nav-indicator-icon"></span> Mã giảm giá
                 </a>
 
-                <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                <ul id="navLinkVouchersDropdownCode" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="vouchersDropdownCode" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="{{_WEB_ROOT.'/vouchers-create'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới mã giảm giá
@@ -1850,7 +1850,7 @@
                   </li>
                 </ul>
               </li>
-              <!-- End Sản phẩm -->
+              <!-- End Mã giảm giá -->
               <li class="dropdown-divider"></li>
             </ul>
             <!-- End Dropdown -->
@@ -1859,19 +1859,19 @@
 
           <!-- Đặt hàng -->
           <li class="hs-has-sub-menu">
-            <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
-              <i class="tio-book-bookmarked nav-icon"></i> Quản lý đơn hàng
+            <a id="orderMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkOrderMngDropdown">
+              <i class="tio-book-bookmarked nav-icon"></i> Quản lý đặt hàng
             </a>
 
             <!-- Dropdown -->
-            <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+            <ul id="navLinkOrderMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdown" style="min-width: 16rem;">
               <!-- Đơn hàng -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                <a id="orderMngDropdownOrder" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownOrder">
                   <span class="tio-circle nav-indicator-icon"></span> Đơn hàng
                 </a>
 
-                <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                <ul id="navLinkOrderMngDropdownOrder" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownOrder" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="users.html">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách đơn hàng
@@ -1888,11 +1888,11 @@
 
               <!-- Phương thức thanh toán -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
+                <a id="orderMngDropdownPaymentTypes" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownPaymentTypes">
                   <span class="tio-circle nav-indicator-icon"></span> Phương thức thanh toán <span class="badge badge-primary badge-pill ml-2">5</span>
                 </a>
 
-                <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
+                <ul id="navLinkOrderMngDropdownPaymentTypes" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownPaymentTypes" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="{{_WEB_ROOT.'/payment-types-create'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới phương thức
@@ -1909,11 +1909,11 @@
 
               <!-- Phí vận chuyển -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
+                <a id="orderMngDropdownShipFee" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownShipFee">
                   <span class="tio-circle nav-indicator-icon"></span> Phí vận chuyển
                 </a>
 
-                <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
+                <ul id="navLinkOrderMngDropdownShipFee" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownShipFee" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="account-settings.html">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thiết lập phí vận chuyển
@@ -1934,21 +1934,21 @@
           </li>
           <!-- End Đặt hàng -->
 
-          <!-- Khách hàng -->
+          <!-- Quản lý Khách hàng -->
           <li class="hs-has-sub-menu">
-            <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+            <a id="customersMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkCustomersMngDropdown">
               <i class="tio-group-equal nav-icon"></i> Quản lý Khách hàng
             </a>
 
             <!-- Dropdown -->
-            <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+            <ul id="navLinkCustomersMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdown" style="min-width: 16rem;">
               <!-- Khách hàng -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                <a id="customersMngDropdownCustomers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkCustomersMngDropdownCustomers">
                   <span class="tio-circle nav-indicator-icon"></span> Khách hàng
                 </a>
 
-                <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                <ul id="navLinkCustomersMngDropdownCustomers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdownCustomers" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="users.html">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách khách hàng
@@ -1966,23 +1966,23 @@
             </ul>
             <!-- End Dropdown -->
           </li>
-          <!-- End Khách hàng -->
+          <!-- End Quản lý Khách hàng -->
 
           <!-- Blogs -->
           <li class="hs-has-sub-menu">
-            <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+            <a id="blogsMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkBlogsMngDropdown">
               <i class="tio-book-opened nav-icon"></i> Quản lý Bài viết
             </a>
 
             <!-- Dropdown -->
-            <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+            <ul id="navLinkBlogsMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdown" style="min-width: 16rem;">
               <!-- bài viết -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                <a id="blogsMngDropdownBlogs" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownBlogs">
                   <span class="tio-circle nav-indicator-icon"></span> Bài viết
                 </a>
 
-                <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                <ul id="navLinkBlogsMngDropdownBlogs" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownBlogs" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="{{_WEB_ROOT.'/blogs-create'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới bài viết
@@ -1999,11 +1999,11 @@
 
               <!-- Danh mục bài viết -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
+                <a id="blogsMngDropdownCategory" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownCategory">
                   <span class="tio-circle nav-indicator-icon"></span> Danh mục bài viết <span class="badge badge-primary badge-pill ml-2">5</span>
                 </a>
 
-                <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
+                <ul id="navLinkBlogsMngDropdownCategory" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownCategory" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="{{_WEB_ROOT.'/blogs-category-create'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới danh mục
@@ -2020,11 +2020,11 @@
 
               <!-- Đánh giá bài viết -->
               <li class="hs-has-sub-menu">
-                <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
+                <a id="blogsMngDropdownComments" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownComments">
                   <span class="tio-circle nav-indicator-icon"></span> Bình luận bài viết
                 </a>
 
-                <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
+                <ul id="navLinkBlogsMngDropdownComments" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownComments" style="min-width: 16rem;">
                   <li>
                     <a class="dropdown-item" href="account-settings.html">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách bình luận
@@ -2825,12 +2825,12 @@
 
             <!-- Tài khoản Admin -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+              <a id="adminAccountDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkAdminAccountDropdown">
                 <i class="tio-user nav-icon"></i> Tài khoản
               </a>
 
               <!-- Dropdown -->
-              <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+              <ul id="navLinkAdminAccountDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminAccountDropdown" style="min-width: 16rem;">
                 <li class="navbar-nav-item">
                   <a class="dropdown-item" href="referrals.html">
                     <span class="tio-circle nav-indicator-icon"></span> Thêm mới tài khoản
@@ -2851,19 +2851,19 @@
 
             <!-- Sản phẩm -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+              <a id="prodManageDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkProdManageDropdown">
                 <i class="tio-pages-outlined nav-icon"></i> Quản lý sản phẩm
               </a>
 
               <!-- Dropdown -->
-              <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+              <ul id="navLinkProdManageDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodManageDropdown" style="min-width: 16rem;">
                 <!-- Sản phẩm -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                  <a id="prodMngDropdownProducts" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownProducts">
                     <span class="tio-circle nav-indicator-icon"></span> Sản phẩm
                   </a>
 
-                  <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                  <ul id="navLinkProdMngDropdownProducts" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProducts" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="users.html">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới sản phẩm
@@ -2880,11 +2880,11 @@
 
                 <!-- Danh mục sản phẩm -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
+                  <a id="prodMngDropdownProdCate" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownProdCate">
                     <span class="tio-circle nav-indicator-icon"></span> Danh mục sản phẩm <span class="badge badge-primary badge-pill ml-2">5</span>
                   </a>
 
-                  <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
+                  <ul id="navLinkProdMngDropdownProdCate" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProdCate" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="{{_WEB_ROOT.'/products-category-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới danh mục
@@ -2901,11 +2901,11 @@
 
                 <!-- Nhà cung ứng -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
+                  <a id="prodMngDropdownSuppliers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownSuppliers">
                     <span class="tio-circle nav-indicator-icon"></span> Nhà cung ứng
                   </a>
 
-                  <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
+                  <ul id="navLinkProdMngDropdownSuppliers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownSuppliers" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="{{_WEB_ROOT.'/supplier-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới nhà cung ứng
@@ -2922,11 +2922,11 @@
 
                 <!-- Đánh giá sản phẩm -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
+                  <a id="prodMngDropdownReviews" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownReviews">
                     <span class="tio-circle nav-indicator-icon"></span> Đánh giá sản phẩm
                   </a>
 
-                  <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
+                  <ul id="navLinkProdMngDropdownReviews" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownReviews" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="account-settings.html">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Đánh giá sao
@@ -2948,19 +2948,19 @@
 
             <!-- Xuất nhập kho -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+              <a id="warehousesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkWarehousesDropdown">
                 <i class="tio-import-export nav-icon"></i> Quản lý Xuất Nhập kho
               </a>
 
               <!-- Dropdown -->
-              <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+              <ul id="navLinkWarehousesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdown" style="min-width: 16rem;">
                 <!-- Kho hàng -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownWare" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownWare">
+                  <a id="warehousesDropdownWare" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownWare">
                     <span class="tio-circle nav-indicator-icon"></span> Kho hàng
                   </a>
 
-                  <ul id="navLinkPagesDropdownWare" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownWare" style="min-width: 16rem;">
+                  <ul id="navLinkWarehousesDropdownWare" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownWare" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới Kho hàng
@@ -2977,11 +2977,11 @@
 
                 <!-- Nhập kho -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
+                  <a id="warehousesDropdownImport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownImport">
                     <span class="tio-circle nav-indicator-icon"></span> Nhập kho <span class="badge badge-primary badge-pill ml-2">5</span>
                   </a>
 
-                  <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
+                  <ul id="navLinkWarehousesDropdownImport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownImport" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="user-profile.html">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Nhập
@@ -2998,11 +2998,11 @@
 
                 <!-- Xuất kho -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
+                  <a id="warehousesDropdownExport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownExport">
                     <span class="tio-circle nav-indicator-icon"></span> Xuất kho <span class="badge badge-primary badge-pill ml-2">5</span>
                   </a>
 
-                  <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
+                  <ul id="navLinkWarehousesDropdownExport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownExport" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="user-profile.html">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Xuất
@@ -3024,19 +3024,19 @@
 
             <!-- Khuyến mãi và giảm giá -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+              <a id="vouchersDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkVouchersDropdown">
                 <i class="tio-pages-outlined nav-icon"></i> Khuyến mãi và mã giảm giá
               </a>
 
               <!-- Dropdown -->
-              <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+              <ul id="navLinkVouchersDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="vouchersDropdown" style="min-width: 16rem;">
                 <!-- Mã giảm giá -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                  <a id="vouchersDropdownCode" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkVouchersDropdownCode">
                     <span class="tio-circle nav-indicator-icon"></span> Mã giảm giá
                   </a>
 
-                  <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                  <ul id="navLinkVouchersDropdownCode" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="vouchersDropdownCode" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="{{_WEB_ROOT.'/vouchers-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới mã giảm giá
@@ -3058,19 +3058,19 @@
 
             <!-- Đặt hàng -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+              <a id="orderMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkOrderMngDropdown">
                 <i class="tio-pages-outlined nav-icon"></i> Quản lý đặt hàng
               </a>
 
               <!-- Dropdown -->
-              <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+              <ul id="navLinkOrderMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdown" style="min-width: 16rem;">
                 <!-- Đơn hàng -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                  <a id="orderMngDropdownOrder" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownOrder">
                     <span class="tio-circle nav-indicator-icon"></span> Đơn hàng
                   </a>
 
-                  <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                  <ul id="navLinkOrderMngDropdownOrder" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownOrder" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="users.html">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách đơn hàng
@@ -3087,11 +3087,11 @@
 
                 <!-- Phương thức thanh toán -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
+                  <a id="orderMngDropdownPaymentTypes" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownPaymentTypes">
                     <span class="tio-circle nav-indicator-icon"></span> Phương thức thanh toán <span class="badge badge-primary badge-pill ml-2">5</span>
                   </a>
 
-                  <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
+                  <ul id="navLinkOrderMngDropdownPaymentTypes" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownPaymentTypes" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="{{_WEB_ROOT.'/payment-types-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới phương thức
@@ -3108,11 +3108,11 @@
 
                 <!-- Phí vận chuyển -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
+                  <a id="orderMngDropdownShipFee" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownShipFee">
                     <span class="tio-circle nav-indicator-icon"></span> Phí vận chuyển
                   </a>
 
-                  <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
+                  <ul id="navLinkOrderMngDropdownShipFee" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownShipFee" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="account-settings.html">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới Phí vận chuyển
@@ -3134,95 +3134,32 @@
 
             <!-- Khách hàng -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
-                <i class="tio-pages-outlined nav-icon"></i> Quản lý sản phẩm
+              <a id="customersMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkCustomersMngDropdown">
+                <i class="tio-pages-outlined nav-icon"></i> Quản lý Khách hàng
               </a>
 
               <!-- Dropdown -->
-              <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
-                <!-- Sản phẩm -->
+              <ul id="navLinkCustomersMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdown" style="min-width: 16rem;">
+                <!-- Khách hàng -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
-                    <span class="tio-circle nav-indicator-icon"></span> Sản phẩm
+                  <a id="customersMngDropdownCustomers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkCustomersMngDropdownCustomers">
+                    <span class="tio-circle nav-indicator-icon"></span> Khách hàng
                   </a>
 
-                  <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                  <ul id="navLinkCustomersMngDropdownCustomers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdownCustomers" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="users.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới sản phẩm
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới Khách hàng
                       </a>
                     </li>
                     <li>
                       <a class="dropdown-item" href="users-leaderboard.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách sản phẩm
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Khách hàng
                       </a>
                     </li>
                   </ul>
                 </li>
-                <!-- End Sản phẩm -->
-
-                <!-- Danh mục sản phẩm -->
-                <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
-                    <span class="tio-circle nav-indicator-icon"></span> Danh mục sản phẩm <span class="badge badge-primary badge-pill ml-2">5</span>
-                  </a>
-
-                  <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
-                    <li>
-                      <a class="dropdown-item" href="user-profile.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới danh mục
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="user-profile-teams.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách danh mục
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <!-- End Danh mục sản phẩm -->
-
-                <!-- Nhà cung ứng -->
-                <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
-                    <span class="tio-circle nav-indicator-icon"></span> Nhà cung ứng
-                  </a>
-
-                  <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
-                    <li>
-                      <a class="dropdown-item" href="account-settings.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới nhà cung ứng
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="account-billing.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách nhà cung ứng
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <!-- End Nhà cung ứng -->
-
-                <!-- Đánh giá sản phẩm -->
-                <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
-                    <span class="tio-circle nav-indicator-icon"></span> Đánh giá sản phẩm
-                  </a>
-
-                  <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
-                    <li>
-                      <a class="dropdown-item" href="account-settings.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Đánh giá sao
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="account-billing.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách bình luận
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <!-- End Đánh giá sản phẩm -->
+                <!-- End Khách hàng -->
 
                 <li class="dropdown-divider"></li>
               </ul>  
@@ -3231,19 +3168,19 @@
 
             <!-- Blogs -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="pagesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkPagesDropdown">
+              <a id="blogsMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkBlogsMngDropdown">
                 <i class="tio-pages-outlined nav-icon"></i> Quản lý bài viết
               </a>
 
               <!-- Dropdown -->
-              <ul id="navLinkPagesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdown" style="min-width: 16rem;">
+              <ul id="navLinkBlogsMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdown" style="min-width: 16rem;">
                 <!-- Bài viết nhẹ -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUsers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUsers">
+                  <a id="blogsMngDropdownBlogs" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownBlogs">
                     <span class="tio-circle nav-indicator-icon"></span> Bài viết
                   </a>
 
-                  <ul id="navLinkPagesDropdownUsers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUsers" style="min-width: 16rem;">
+                  <ul id="navLinkBlogsMngDropdownBlogs" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownBlogs" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="{{_WEB_ROOT.'/blogs-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới Bài viết
@@ -3260,11 +3197,11 @@
 
                 <!-- Danh mục Bài viết -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownUserProfile" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownUserProfile">
+                  <a id="blogsMngDropdownCategory" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownCategory">
                     <span class="tio-circle nav-indicator-icon"></span> Danh mục Bài viết <span class="badge badge-primary badge-pill ml-2">5</span>
                   </a>
 
-                  <ul id="navLinkPagesDropdownUserProfile" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownUserProfile" style="min-width: 16rem;">
+                  <ul id="navLinkBlogsMngDropdownCategory" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownCategory" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="{{_WEB_ROOT.'/blogs-category-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới danh mục
@@ -3281,11 +3218,11 @@
 
                 <!-- Bình luận bài viết -->
                 <li class="hs-has-sub-menu navbar-nav-item">
-                  <a id="pagesDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkPagesDropdownAccount">
+                  <a id="blogsMngDropdownComments" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownComments">
                     <span class="tio-circle nav-indicator-icon"></span> Bình luận bài viết
                   </a>
 
-                  <ul id="navLinkPagesDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="pagesDropdownAccount" style="min-width: 16rem;">
+                  <ul id="navLinkBlogsMngDropdownComments" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownComments" style="min-width: 16rem;">
                     <li>
                       <a class="dropdown-item" href="account-settings.html">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Bình luận bài viết
@@ -3362,20 +3299,20 @@
 
            <!-- Tài khoản Admin -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Pages">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Admin Account">
               <i class="tio-user nav-icon"></i>
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Tài khoản</span>
             </a>
 
             <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
               <li class="nav-item">
-                <a class="nav-link " href="referrals.html" title="Referrals">
+                <a class="nav-link " href="referrals.html" title="Add Admin Account">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Thêm mới tài khoản</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="referrals.html" title="Referrals">
+                <a class="nav-link " href="referrals.html" title="List Admin Account">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Danh sách tài khoản</span>
                 </a>
@@ -3386,7 +3323,7 @@
 
           <!-- Sản phẩm -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="ManageProduct">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Product">
               <i class="tio-pages-outlined nav-icon"></i>
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý sản phẩm</span>
             </a>
@@ -3401,13 +3338,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="users.html" title="AddProduct">
+                    <a class="nav-link " href="users.html" title="Add Product">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới sản phẩm </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="users-leaderboard.html" title="ListProduct">
+                    <a class="nav-link " href="users-leaderboard.html" title="List Product">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách sản phẩm </span>
                     </a>
@@ -3417,20 +3354,20 @@
 
               <!-- Danh mục sản phẩm -->
               <li class="navbar-vertical-aside-has-menu ">
-                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="CategoryProduct">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Category Product">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Danh mục sản phẩm <span class="badge badge-primary badge-pill ml-1"></span></span>
                 </a>
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="AddCateProd">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="Add CateProd">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới danh mục</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/products-category'}}" title="ListCateProd">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/products-category'}}" title="List CateProd">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách danh mục</span>
                     </a>
@@ -3447,13 +3384,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/supplier-create'}}" title="AddSupplier">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/supplier-create'}}" title="Add Supplier">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới nhà cung ứng</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/supplier'}}" title="ListSupplier">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/supplier'}}" title="List Supplier">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách nhà cung ứng</span>
                     </a>
@@ -3490,7 +3427,7 @@
 
           <!-- Xuất nhập kho -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="ManageWareHouse">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage WareHouse">
               <i class="tio-import-export nav-icon"></i>
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý xuất nhập kho</span>
             </a>
@@ -3505,13 +3442,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/warehouse-create'}}" title="AddWareHouse">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/warehouse-create'}}" title="Add WareHouse">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới Kho hàng </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/warehouse'}}" title="ListWareHouse">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/warehouse'}}" title="List WareHouse">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách Kho hàng </span>
                     </a>
@@ -3528,13 +3465,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="user-profile.html" title="ListImport">
+                    <a class="nav-link " href="user-profile.html" title="List Import">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách Nhập</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="user-profile-teams.html" title="StaticalImport">
+                    <a class="nav-link " href="user-profile-teams.html" title="Statical Import">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thống kê</span>
                     </a>
@@ -3551,13 +3488,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="user-profile.html" title="ListExport">
+                    <a class="nav-link " href="user-profile.html" title="List Export">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách Xuất</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="user-profile-teams.html" title="StaticalExport">
+                    <a class="nav-link " href="user-profile-teams.html" title="Statical Export">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thống kê</span>
                     </a>
@@ -3571,7 +3508,7 @@
 
           <!-- Khuyến mãi và giảm giá -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="ManageVouchers">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Vouchers">
               <i class="tio-ticket nav-icon"></i>
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Khuyến mãi và giảm giá</span>
             </a>
@@ -3586,13 +3523,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/vouchers-create'}}" title="AddVoucher">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/vouchers-create'}}" title="Add Voucher">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới mã giảm giá </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/vouchers'}}" title="ListVoucher">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/vouchers'}}" title="List Voucher">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách mã giảm giá </span>
                     </a>
@@ -3605,7 +3542,7 @@
 
           <!-- Đặt hàng -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="ManageOrders">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Orders">
               <i class="tio-book-bookmarked nav-icon"></i>
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý Đặt hàng</span>
             </a>
@@ -3613,20 +3550,20 @@
             <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
               <!-- Đơn hàng -->
               <li class="navbar-vertical-aside-has-menu ">
-                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Product">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Orders">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Đơn hàng </span>
                 </a>
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="users.html" title="ListOrder">
+                    <a class="nav-link " href="users.html" title="List Orders">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách đơn hàng </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="users-leaderboard.html" title="StaticalOrder">
+                    <a class="nav-link " href="users-leaderboard.html" title="Statical Orders">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thống kê đơn hàng </span>
                     </a>
@@ -3636,20 +3573,20 @@
 
               <!-- Phương thức thanh toán -->
               <li class="navbar-vertical-aside-has-menu ">
-                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Payment">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Payment Type">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Phương thức thanh toán</span>
                 </a>
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/payment-types-create'}}" title="AddPayment">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/payment-types-create'}}" title="Add Payment Type">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới phương thức</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/payment-types'}}" title="ListPayment">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/payment-types'}}" title="List Payment Type">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách phương thức</span>
                     </a>
@@ -3659,20 +3596,20 @@
 
               <!-- Phí ship -->
               <li class="navbar-vertical-aside-has-menu ">
-                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="ShipFee">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Ship Fee">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Phí vận chuyển <span class="badge badge-primary badge-pill ml-1"></span></span>
                 </a>
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="user-profile.html" title="AddShipfee">
+                    <a class="nav-link " href="user-profile.html" title="Add Ship fee">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới phí vận chuyển</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="user-profile-teams.html" title="ListShipfee">
+                    <a class="nav-link " href="user-profile-teams.html" title="List Ship fee">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách phí vận chuyển</span>
                     </a>
@@ -3686,7 +3623,7 @@
 
           <!-- Khách hàng -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="ManageCustomer">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Customer">
               <i class="tio-group-equal nav-icon"></i>
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý khách hàng</span>
             </a>
@@ -3701,13 +3638,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="users.html" title="AddCustomer">
+                    <a class="nav-link " href="users.html" title="List Customer">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách khách hàng </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="users-leaderboard.html" title="ListCustomer">
+                    <a class="nav-link " href="users-leaderboard.html" title="Statiscal Customer">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thống kê khách hàng </span>
                     </a>
@@ -3720,7 +3657,7 @@
 
           <!-- Blogs -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="ManageBlogs">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Blogs">
               <i class="tio-book-opened nav-icon"></i>
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý bài viết</span>
             </a>
@@ -3728,20 +3665,20 @@
             <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
               <!-- Blog -->
               <li class="navbar-vertical-aside-has-menu ">
-                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Blogsg">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Blogs">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Bài viết </span>
                 </a>
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/blogs-create'}}" title="AddBlogslog">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/blogs-create'}}" title="Add Blogs">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới bài viết </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/blogs'}}" title="ListBlogslog">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/blogs'}}" title="List Blogs">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách bài viết </span>
                     </a>
@@ -3751,20 +3688,20 @@
 
               <!-- Danh mục bài viết -->
               <li class="navbar-vertical-aside-has-menu ">
-                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="CategoryBlog">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Category Blog">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Danh mục bài viết <span class="badge badge-primary badge-pill ml-1"></span></span>
                 </a>
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category-create'}}" title="AddCateBlog">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category-create'}}" title="Add CateBlog">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới danh mục</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category'}}" title="ListCateBlog">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category'}}" title="List CateBlog">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách danh mục</span>
                     </a>
@@ -3774,21 +3711,21 @@
 
               <!-- Bình luận bài viết -->
               <li class="navbar-vertical-aside-has-menu ">
-                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="CommentBlog">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Comment Blog">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Bình luận bài viết</span>
                 </a>
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="ecommerce.html" title="StaticalComment">
+                    <a class="nav-link " href="ecommerce.html" title="Statical Comment">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thống kê bình luận</span>
                     </a>
                   </li>
 
                   <li class="navbar-vertical-aside-has-menu ">
-                    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="ListComment">
+                    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="List Comment">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách Bình luận</span>
                     </a>
@@ -4056,20 +3993,20 @@
 
         <!-- Tài khoản Admin -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Pages">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Admin Account">
             <i class="tio-user nav-icon"></i>
             <span class="nav-compact-title text-truncate">Tài khoản</span>
           </a>
 
           <ul class="js-navbar-vertical-aside-submenu nav nav-sub">    
             <li class="nav-item">
-              <a class="nav-link " href="referrals.html" title="Referrals">
+              <a class="nav-link " href="referrals.html" title="Add Admin Account">
                 <span class="tio-circle nav-indicator-icon"></span>
                 <span class="text-truncate">Thêm mới tài khoản</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="referrals.html" title="Referrals">
+              <a class="nav-link " href="referrals.html" title="List Admin Account">
                 <span class="tio-circle nav-indicator-icon"></span>
                 <span class="text-truncate">Danh sách tài khoản</span>
               </a>
@@ -4080,7 +4017,7 @@
 
         <!-- Sản phẩm -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="ManageProduct">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Product">
             <i class="tio-pages-outlined nav-icon"></i>
             <span class="nav-compact-title text-truncate">Quản lý Sản phẩm</span>
           </a>
@@ -4095,13 +4032,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/products-create'}}" title="AddProduct">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/products-create'}}" title="Add Product">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới sản phẩm</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/products-create'}}" title="ListProduct">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/products-create'}}" title="List Product">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách sản phẩm</span>
                   </a>
@@ -4111,20 +4048,20 @@
 
             <!-- Danh mục sản phẩm -->
             <li class="navbar-vertical-aside-has-menu ">
-              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="CategoryProduct">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Category Product">
                 <span class="tio-circle nav-indicator-icon"></span>
                 <span class="text-truncate">Danh mục sản phẩm</span>
               </a>
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="AddCatePro">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="Add CatePro">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới danh mục</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/products-category'}}" title="ListCateProd">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/products-category'}}" title="List CateProd">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách danh mục</span>
                   </a>
@@ -4141,13 +4078,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/supplier-create'}}" title="AddSupplier">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/supplier-create'}}" title="Add Supplier">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới nhà cung ứng</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/supplier'}}" title="ListSupplier">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/supplier'}}" title="List Supplier">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách nhà cung ứng</span>
                   </a>
@@ -4171,7 +4108,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link " href="ecommerce-manage-reviews.html" title="Manage Comment">
+                  <a class="nav-link " href="ecommerce-manage-reviews.html" title="Comment">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách Bình luận</span>
                   </a>
@@ -4184,13 +4121,13 @@
 
         <!-- Xuất nhập kho -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="ManageWareHouse">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage WareHouse">
             <i class="tio-import-export nav-icon"></i>
             <span class="nav-compact-title text-truncate">Quản lý Xuất Nhập kho</span>
           </a>
 
           <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
-            <!-- Sản phẩm -->
+            <!-- Kho hàng -->
             <li class="navbar-vertical-aside-has-menu ">
               <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="WareHouse">
                 <span class="tio-circle nav-indicator-icon"></span>
@@ -4199,13 +4136,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/warehouse-create'}}" title="AddProduct">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/warehouse-create'}}" title="Add WareHouse">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới kho hàng</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/warehouse'}}" title="ListProduct">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/warehouse'}}" title="List WareHouse">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách kho hàng</span>
                   </a>
@@ -4222,13 +4159,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="users.html" title="ListImport">
+                  <a class="nav-link " href="users.html" title="List Import">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách Nhập</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="users-leaderboard.html" title="StaticalImport">
+                  <a class="nav-link " href="users-leaderboard.html" title="Statical Import">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thống kê</span>
                   </a>
@@ -4245,13 +4182,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="users.html" title="ListExport">
+                  <a class="nav-link " href="users.html" title="List Export">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách Xuất</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="users-leaderboard.html" title="StaticalExport">
+                  <a class="nav-link " href="users-leaderboard.html" title="Statical Export">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thống kê</span>
                   </a>
@@ -4265,13 +4202,13 @@
 
         <!-- Khuyến mãi và giảm giá -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="ManageVouchers">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Vouchers">
             <i class="tio-ticket nav-icon"></i>
             <span class="nav-compact-title text-truncate">Khuyến mãi và giảm giá</span>
           </a>
 
           <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
-            <!-- Sản phẩm -->
+            <!-- Mã giảm giá -->
             <li class="navbar-vertical-aside-has-menu ">
               <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Voucher">
                 <span class="tio-circle nav-indicator-icon"></span>
@@ -4280,13 +4217,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/vouchers-create'}}" title="AddProduct">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/vouchers-create'}}" title="Add Voucher">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới mã khuyến mãi</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/vouchers'}}" title="ListProduct">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/vouchers'}}" title="List Voucher">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách mã khuyến mãi</span>
                   </a>
@@ -4299,7 +4236,7 @@
 
         <!-- Đặt hàng -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="ManageOrders">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Orders">
             <i class="tio-book-bookmarked nav-icon"></i>
             <span class="nav-compact-title text-truncate">Quản lý đặt hàng</span>
           </a>
@@ -4307,20 +4244,20 @@
           <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
             <!-- Đơn hàng -->
             <li class="navbar-vertical-aside-has-menu ">
-              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Order">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Orders">
                 <span class="tio-circle nav-indicator-icon"></span>
                 <span class="text-truncate">Đơn hàng <span class="badge badge-primary badge-pill ml-1"></span></span>
               </a>
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="ListOrder">
+                  <a class="nav-link " href="user-profile-teams.html" title="List Orders">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách đơn hàng</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="StaticalOrder">
+                  <a class="nav-link " href="user-profile-teams.html" title="Statical Orders">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thống kê đơn hàng</span>
                   </a>
@@ -4330,20 +4267,20 @@
 
             <!-- Phương thức thanh toán -->
             <li class="navbar-vertical-aside-has-menu ">
-              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Payment">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Payment Type">
                 <span class="tio-circle nav-indicator-icon"></span>
                 <span class="text-truncate">Phương thức thanh toán <span class="badge badge-primary badge-pill ml-1"></span></span>
               </a>
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/payment-types-create'}}" title="AddPayment">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/payment-types-create'}}" title="Add Payment Type">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới phương thức</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/payment-types'}}" title="ListPayment">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/payment-types'}}" title="List Payment Type">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách phương thức</span>
                   </a>
@@ -4353,20 +4290,20 @@
 
             <!-- Phí ship -->
             <li class="navbar-vertical-aside-has-menu ">
-              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="ShipFee">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Ship Fee">
                 <span class="tio-circle nav-indicator-icon"></span>
                 <span class="text-truncate">Phí vận chuyển <span class="badge badge-primary badge-pill ml-1"></span></span>
               </a>
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="AddShipfee">
+                  <a class="nav-link " href="user-profile-teams.html" title="Add Ship fee">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thiết lập phí vận chuyển</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="ListShipfee">
+                  <a class="nav-link " href="user-profile-teams.html" title="List Ship fee">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách phí vận chuyển</span>
                   </a>
@@ -4379,7 +4316,7 @@
 
         <!-- Khách hàng -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="ManageCustomer">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Customer">
             <i class="tio-group-equal nav-icon"></i>
             <span class="nav-compact-title text-truncate">Quản lý Khách hàng</span>
           </a>
@@ -4394,13 +4331,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="ListCustomer">
+                  <a class="nav-link " href="user-profile-teams.html" title="List Customer">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách khách hàng</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="StaticalCustomer">
+                  <a class="nav-link " href="user-profile-teams.html" title="Statical Customer">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thống kê khách hàng</span>
                   </a>
@@ -4413,7 +4350,7 @@
 
         <!-- Blogs -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="ManageBlogs">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Blogs">
             <i class="tio-book-opened nav-icon"></i>
             <span class="nav-compact-title text-truncate">Quản lý Bài viết</span>
           </a>
@@ -4428,13 +4365,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/blogs-create'}}" title="AddBlogs">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/blogs-create'}}" title="Add Blogs">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới Bài viết</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/blogs'}}" title="ListBlogs">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/blogs'}}" title="List Blogs">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách Bài viết</span>
                   </a>
@@ -4444,20 +4381,20 @@
 
             <!-- Danh mục bài viết -->
             <li class="navbar-vertical-aside-has-menu ">
-              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="CateBlog">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Category Blog">
                 <span class="tio-circle nav-indicator-icon"></span>
                 <span class="text-truncate">Danh mục Bài viết</span>
               </a>
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category-create'}}" title="AddCateBlog">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category-create'}}" title="Add CateBlog">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới danh mục</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category'}}" title="ListCateBlog">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category'}}" title="List CateBlog">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách danh mục</span>
                   </a>
@@ -4467,7 +4404,7 @@
 
             <!-- bình luận -->
             <li class="navbar-vertical-aside-has-menu ">
-              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="CommentBlog">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Comment Blog">
                 <span class="tio-circle nav-indicator-icon"></span>
                 <span class="text-truncate">Bình luận bài viết</span>
               </a>
@@ -4475,13 +4412,13 @@
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 
                 <li class="nav-item">
-                  <a class="nav-link " href="ecommerce-manage-reviews.html" title="ListComment">
+                  <a class="nav-link " href="ecommerce-manage-reviews.html" title="List Comment">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách Bình luận</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="ecommerce.html" title="StaticalComment">
+                  <a class="nav-link " href="ecommerce.html" title="Statical Comment">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thống kê bình luận</span>
                   </a>

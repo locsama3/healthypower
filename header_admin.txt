@@ -1,0 +1,144 @@
+Id và cái quần què gì đó:
+
+Tài khoản admin: 
+	- adminAccountDropdown
+	- navLinkAdminAccountDropdown
+
+Quản lý sản phẩm:
+	- prodManageDropdown
+	- navLinkProdManageDropdown
+  + Sản phẩm
+  	- prodMngDropdownProducts
+  	- navLinkProdMngDropdownProducts
+  + Danh mục sản phẩm
+  	- prodMngDropdownProdCate
+  	- navLinkProdMngDropdownProdCate
+  + Nhà cung ứng:
+  	- prodMngDropdownSuppliers
+  	- navLinkProdMngDropdownSuppliers
+  + Đánh giá sản phẩm
+  	- prodMngDropdownReviews
+  	- navLinkProdMngDropdownReviews
+
+Quản lý xuất nhập kho:
+	- warehousesDropdown
+	- navLinkWarehousesDropdown
+  + Kho hàng
+  	- warehousesDropdownWare
+  	- navLinkWarehousesDropdownWare
+  + Xuất kho
+  	- warehousesDropdownExport
+  	- navLinkWarehousesDropdownExport
+  + Nhập kho
+  	- warehousesDropdownImport
+  	- navLinkWarehousesDropdownImport
+
+Khuyến mãi và mã giảm giá:
+	- vouchersDropdown
+	- navLinkVouchersDropdown
+  + Mã giảm giá
+  	- vouchersDropdownCode
+  	- navLinkVouchersDropdownCode
+
+Đặt hàng:
+	- orderMngDropdown
+	- navLinkOrderMngDropdown
+  + Đơn hàng:
+  	- orderMngDropdownOrder
+  	- navLinkOrderMngDropdownOrder
+  + Phương thức thanh toán:
+  	- orderMngDropdownPaymentTypes
+  	- navLinkOrderMngDropdownPaymentTypes
+  + Phí vận chuyển:
+  	- orderMngDropdownShipFee
+  	- navLinkOrderMngDropdownShipFee
+
+Quản lý Khách hàng:
+	- customersMngDropdown
+	- navLinkCustomersMngDropdown
+  + Khách hàng:
+  	- customersMngDropdownCustomers
+  	- navLinkCustomersMngDropdownCustomers
+
+Quản lý bài viết:
+	- blogsMngDropdown
+	- navLinkBlogsMngDropdown
+  + Bài viết
+  	- blogsMngDropdownBlogs
+  	- navLinkBlogsMngDropdownBlogs
+  + Danh mục bài viết:
+  	- blogsMngDropdownCategory
+  	- navLinkBlogsMngDropdownCategory
+  + Bình luận bài viết:
+  	- blogsMngDropdownComments
+  	- navLinkBlogsMngDropdownComments
+
+
+Title: 
+Tài khoản admin: 
+	- Admin Account
+	- Add Admin Account
+	- List Admin Account
+
+Sản phẩm:
+	- Manage Product
+	- Product
+	- Add Product
+	- List Product
+	- Category Product
+	- Add CateProd
+	- List CateProd
+	- Supplier
+	- Add Supplier
+	- List Supplier
+	- Reviews
+	- Rating
+	- Comment
+
+Xuất nhập kho:
+	- Manage WareHouse
+	- WareHouse
+	- Add WareHouse
+	- List WareHouse
+	- Import
+	- List Import
+	- Statical Import
+	- Export
+	- List Export
+	- Statical Export
+
+Khuyến mãi và giảm giá:
+	- Manage Vouchers
+	- Voucher
+	- Add Voucher
+	- List Voucher
+
+Quản lý đặt hàng:
+	- Manage Orders
+	- Orders
+	- List Orders
+	- Statical Orders
+	- Payment Type
+	- Add Payment Type
+	- List Payment Type
+	- Ship Fee
+	- Add Ship fee
+	- List Ship fee
+
+Quản lý khách hàng:
+	- Manage Customer
+	- Customer
+	- List Customer
+	- Statiscal Customer
+
+Quản lý bài viết:
+	- Manage Blogs
+	- Blogs
+	- Add Blogs
+	- List Blogs
+	- Category Blog
+	- Add CateBlog
+	- List CateBlog
+	- Comment Blog
+	- Statical Comment
+	- List Comment

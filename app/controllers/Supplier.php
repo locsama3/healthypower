@@ -52,7 +52,7 @@ class Supplier extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'supplierName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
+                'supplierName' => 'required|min:5|max:88|unique:shop_suppliers:supllier_name'
             ]);
 
             //Set message
@@ -129,7 +129,7 @@ class Supplier extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'supplierName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
+                'supplierName' => 'required|min:5|max:88|unique:shop_suppliers:supllier_name'
             ]);
 
             //Set message
@@ -143,7 +143,7 @@ class Supplier extends Controller{
             $validate = $this->request->validate();
             if (!$validate){
                 Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
-                return $this->response->redirect('supplier-create');
+                return $this->response->redirect('supplier-edit/editid-'.$id);
 
             }
         }
@@ -159,7 +159,7 @@ class Supplier extends Controller{
             'supplier_slug' => $dataFields['slug'],
             'page_title' => $dataFields['pageTitle'],
             'description' => $dataFields['description'],
-            'created_at' => date('Y-m-d h:i:s')
+            'updated_at' => date('Y-m-d h:i:s')
         ];
 
         if(!empty($dataFields['parentSupplier'])){

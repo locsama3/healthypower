@@ -52,7 +52,7 @@ class ProductCategory extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'prodCateName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
+                'prodCateName' => 'required|min:5|max:88|unique:shop_categories:category_name'
             ]);
 
             //Set message
@@ -131,7 +131,7 @@ class ProductCategory extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'prodCateName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
+                'prodCateName' => 'required|min:5|max:88|unique:shop_categories:category_name'
             ]);
 
             //Set message
@@ -145,7 +145,7 @@ class ProductCategory extends Controller{
             $validate = $this->request->validate();
             if (!$validate){
                 Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
-                return $this->response->redirect('products-category-create');
+                return $this->response->redirect('products-category-edit/editid-'.$id);
 
             }
         }
@@ -161,7 +161,7 @@ class ProductCategory extends Controller{
             'category_slug' => $dataFields['slug'],
             'page_title' => $dataFields['pageTitle'],
             'description' => $dataFields['cate_desc'],
-            'created_at' => date('Y-m-d h:i:s')
+            'updated_at' => date('Y-m-d h:i:s')
         ];
 
         if(!empty($dataFields['parentCate'])){

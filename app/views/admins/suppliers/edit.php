@@ -17,11 +17,11 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-no-gutter">
                   <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-products.html">Nhà cung ứng</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Thêm mới nhà cung ứng</li>
+                  <li class="breadcrumb-item active" aria-current="page">Cập nhật nhà cung ứng</li>
                 </ol>
               </nav>
 
-              <h1 class="page-header-title">Thêm nhà cung ứng</h1>
+              <h1 class="page-header-title">Cập nhật nhà cung ứng</h1>
             </div>
           </div>
           <!-- End Row -->

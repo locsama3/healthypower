@@ -7,8 +7,7 @@
 
     <main id="content" role="main" class="main">
       <!-- Content -->
-      <form class="content container-fluid" method="POST" action = "{{_WEB_ROOT.'/blogs-category-store'}}"
-      enctype="multipart/form-data">
+      <form id ="#form-ce" class="content container-fluid" method="POST" enctype="multipart/form-data" action="{{_WEB_ROOT.'/blogs-category-store'}}">
         {!csrf_field()!}
         <!-- Page Header -->
         <div class="page-header">
@@ -64,7 +63,10 @@
 
                   <input type="text" class="form-control" name="blogCateName" id="title" 
                   placeholder="Tên danh mục" aria-label="Tên danh mục" onkeyup="setTimeout(ChangeToSlug(),2000)">
-                  {!form_error('blogCateName', '<span style="color: red; padding-top: 6px; display: block">', '</span>')!}
+                  <span class = "form-message">
+                    {!form_error('blogCateName')!} 
+                  </span>
+                  
                 </div>
                 <!-- End Tiêu đề -->
 

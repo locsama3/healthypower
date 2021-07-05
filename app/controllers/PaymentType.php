@@ -52,7 +52,7 @@ class PaymentType extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'paymentName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
+                'paymentName' => 'required|min:5|max:88|unique:shop_payment_types:payment_name'
             ]);
 
             //Set message
@@ -125,7 +125,7 @@ class PaymentType extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'paymentName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
+                'paymentName' => 'required|min:5|max:88|unique:shop_payment_types:payment_name'
             ]);
 
             //Set message
@@ -139,7 +139,7 @@ class PaymentType extends Controller{
             $validate = $this->request->validate();
             if (!$validate){
                 Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
-                return $this->response->redirect('payment-types-create');
+                return $this->response->redirect('payment-types-edit/editid-'.$id);
 
             }
         }
@@ -155,7 +155,7 @@ class PaymentType extends Controller{
             'payment_slug' => $dataFields['slug'],
             'page_title' => $dataFields['pageTitle'],
             'description' => $dataFields['description'],
-            'created_at' => date('Y-m-d h:i:s')
+            'updated_at' => date('Y-m-d h:i:s')
         ];
 
         $get_image = $dataFile['image'];

@@ -7,3 +7,9 @@
 .delete_item{
     cursor: pointer;
 }
+
+.form-message{
+    color: red; 
+    padding-top: 6px; 
+    display: block;
+}
