@@ -85,6 +85,7 @@
                 $this->operator = 'AND';
             }
             $this->where .= "$this->operator $field $compare '$value' ";
+            echo $this->where;
             return $this;
         }
 
@@ -121,6 +122,18 @@
                 $this->operator = 'AND';
             }
             $this->where .= "$this->operator $field IS $value ";
+            return $this;
+        }
+
+        // 5.
+        public function whereIN($field, $value)
+        {
+            if(empty($this->where)){
+                $this->operator = 'WHERE';
+            }else{
+                $this->operator = 'AND';
+            }
+            $this->where .= "$this->operator $field IN $value ";
             return $this;
         }
 

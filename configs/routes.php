@@ -129,7 +129,13 @@
     // routes customers
     $routes['customers'] = 'customer/index';
     
-    $routes['customers-create'] = 'customer/create';
+    $routes['customer-create'] = 'customer/create';
 
-    $routes['customers-edit/.+-(\d+)'] = 'customer/edit/$1';
+    $routes['customer-store'] = 'customer/store';
+
+    $routes['customer-edit/.+-(\d+)'] = 'customer/edit/$1';
+
+    $routes['customer-update/.+-(\d+)'] = 'customer/update/$1';
+
+    $routes['customer-destroy'] = 'customer/destroy';
 ?>

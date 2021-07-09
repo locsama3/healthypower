@@ -12,14 +12,14 @@
         <div class="page-header">
             <div class="row align-items-center mb-3">
                 <div class="col-sm mb-2 mb-sm-0">
-                    <h1 class="page-header-title">Customers <span class="badge badge-soft-dark ml-2">97,524</span></h1>
+                    <h1 class="page-header-title">Danh sách khách hàng <span class="badge badge-soft-dark ml-2">97,524</span></h1>
 
                     <div class="mt-2">
                         <a class="text-body mr-3" href="javascript:;" data-toggle="modal" data-target="#importCustomersModal">
-                            <i class="tio-publish mr-1"></i> Import customers
+                            <i class="tio-publish mr-1"></i> Nhập danh sách
                         </a>
                         <a class="text-body mr-3" href="javascript:;" data-toggle="modal" data-target="#exportCustomersModal">
-                            <i class="tio-download-to mr-1"></i> Export
+                            <i class="tio-download-to mr-1"></i> Xuất file
                         </a>
 
                         <!-- Unfold -->
@@ -28,7 +28,7 @@
                        "target": "#moreOptionsDropdown",
                        "type": "css-animation"
                      }'>
-                                More options <i class="tio-chevron-down"></i>
+                                Lựa chọn<i class="tio-chevron-down"></i>
                             </a>
 
                             <div id="moreOptionsDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu mt-1">
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="col-sm-auto">
-                    <a class="btn btn-primary" href="{{ _WEB_ROOT }}/customers-create">Add customers</a>
+                    <a class="btn btn-primary" href="{{ _WEB_ROOT }}/customer-create">Thêm khách hàng</a>
                 </div>
             </div>
             <!-- End Row -->
@@ -70,19 +70,19 @@
                 <!-- Nav -->
                 <ul class="nav nav-tabs page-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">All</a>
+                        <a class="nav-link active" href="#">Tất cả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">New</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mới</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Returning</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Khách trở lại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Abandoned checkouts</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Chưa thanh toán</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Email subscribers</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Đăng ký Email</a>
                     </li>
                 </ul>
                 <!-- End Nav -->
@@ -105,7 +105,7 @@
                                         <i class="tio-search"></i>
                                     </div>
                                 </div>
-                                <input id="datatableSearch" type="search" class="form-control" placeholder="Search orders" aria-label="Search orders">
+                                <input id="datatableSearch" type="search" class="form-control" placeholder="Tìm kiếm" aria-label="Search orders">
                             </div>
                             <!-- End Search -->
                         </form>
@@ -118,10 +118,10 @@
                                 <div class="d-flex align-items-center">
                                     <span class="font-size-sm mr-3">
                                         <span id="datatableCounter">0</span>
-                                        Selected
+                                        Lựa chọn
                                     </span>
-                                    <a class="btn btn-sm btn-outline-danger" href="javascript:;">
-                                        <i class="tio-delete-outlined"></i> Delete
+                                    <a class="btn btn-sm btn-outline-danger btn-delete-customers" href="javascript:;">
+                                        <i class="tio-delete-outlined"></i> Xóa
                                     </a>
                                 </div>
                             </div>
@@ -231,7 +231,7 @@
                                             </div>
 
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <span class="mr-2">Last activity</span>
+                                                <span class="mr-2">Hoạt động gần nhất</span>
 
                                                 <!-- Checkbox Switch -->
                                                 <label class="toggle-switch toggle-switch-sm" for="toggleColumn_last_activity">
@@ -287,21 +287,22 @@
                             <th>Trạng thái tài khoản</th>
                             <th>Số đơn hàng</th>
                             <th>Tổng chi tiêu</th>
-                            <th>Last activity</th>
+                            <th>Hoạt đồng gần nhất</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         @foreach ($list_customers as $customer)
+                        @if ($customer['deleted_at'] == null)
                         <tr>
                             <td class="table-column-pr-0">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="usersDataCheck1">
-                                    <label class="custom-control-label" for="usersDataCheck1"></label>
+                                    <input type="checkbox" class="custom-control-input checkbox-customer" id="usersDataCheck{{ $customer['id'] }}" data-id="{{ $customer['id'] }}">
+                                    <label class="custom-control-label" for="usersDataCheck{{ $customer['id'] }}"></label>
                                 </div>
                             </td>
                             <td class="table-column-pl-0">
-                                <a class="d-flex align-items-center" href="{{ _WEB_ROOT }}/customers-edit/id-{{ $customer['id'] }}">
+                                <a class="d-flex align-items-center" href="{{ _WEB_ROOT }}/customer-edit/id-{{ $customer['id'] }}">
                                     <div class="avatar avatar-circle">
                                         <img class="avatar-img" src="{{ _WEB_ROOT }}/public/uploads/customer/{{ $customer['avatar'] }}" alt="Image Description">
                                     </div>
@@ -342,6 +343,7 @@
                             </td>
                             <td>Aug 17, 2020, 5:48 (ET)</td>
                         </tr>
+                        @endif
                         @endforeach
                     </tbody>
                 </table>
@@ -354,7 +356,7 @@
                 <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
                     <div class="col-sm mb-2 mb-sm-0">
                         <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
-                            <span class="mr-2">Showing:</span>
+                            <span class="mr-2">Hiển thị:</span>
 
                             <!-- Select -->
                             <select id="datatableEntries" class="js-select2-custom" data-hs-select2-options='{
@@ -369,7 +371,7 @@
                             </select>
                             <!-- End Select -->
 
-                            <span class="text-secondary mr-2">of</span>
+                            <span class="text-secondary mr-2">của</span>
 
                             <!-- Pagination Quantity -->
                             <span id="datatableWithPaginationInfoTotalQty"></span>

@@ -81,5 +81,47 @@
     $('#toggleColumn_last_activity').change(function(e) {
       datatable.columns(8).visible(e.target.checked)
     })
+
+    // Khai báo biến xài cho toàn file
+    const url = `{{ _WEB_ROOT }}/customer-destroy`
+    const _token = $('meta[name=csrf-token]').attr("content");
+    let data = []
+
+    // khai báo đối tượng 
+    const btnDeleteCustomer = document.querySelector('.btn-delete-customers')
+
+    btnDeleteCustomer.addEventListener('click', () => {
+      swal({
+          title: "Xóa",
+          text: "Bạn có chắc chắn muốn xóa khách hàng này không?",
+          type: "error",
+          showCancelButton: true,
+          confirmButtonClass: "btn-danger",
+          confirmButtonText: "Xóa",
+          cancelButtonText: "Không",
+          closeOnConfirm: false,
+          closeOnCancel: false
+        },
+        function(isConfirm) {
+          if (isConfirm) {
+            var checkboxCustomers = document.querySelectorAll('.checkbox-customer')
+            checkboxCustomers.forEach((checkbox) => {
+              if (checkbox.checked) {
+                id = checkbox.getAttribute('data-id')
+                data.push(id) 
+              }
+            })
+
+            let form = new FormData();
+            form.append('_id', data)
+            form.append('_token', _token)
+
+            sendData(url, form)
+            redirect('{{ _WEB_ROOT }}/customer')
+          } else {
+            swal("Đóng!", "Không xóa khách hàng này!", "warning");
+          }
+        });
+    })
   })
 </script>

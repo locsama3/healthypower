@@ -27,9 +27,9 @@ class CustomerModel extends Model {
         $this->db->table('shop_customers')->where('id','=',$id)->update($data);
     }
 
-    public function destroy($id)
+    public function deleteAt($id, $data)
     {
-        $this->db->table('shop_customers')->where('id','=',$id)->delete();
+        $this->db->table('shop_customers')->whereIN('id',"($id)")->update($data);
     }
 
     public function show()

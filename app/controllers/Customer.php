@@ -25,6 +25,10 @@ class Customer extends Controller{
             'ajax' => 'admins.customers.js_index'
         ];
 
+        $data['libraryJS']['list_js'] = [
+            'functions' => 'functions.js'
+        ];
+
         return $this->view('layouts.admin_layout', $data);
     }
 
@@ -42,87 +46,110 @@ class Customer extends Controller{
             'ajax' => 'admins.customers.js_create'
         ];
 
+        $data['libraryJS']['list_js'] = [
+            'validate' => 'validate.js'
+        ];
+
         return $this->view('layouts.admin_layout', $data);
     }
 
     public function store()
     {
         if ($this->request->isPost()){
-            /*Set rules*/
-            $this->request->rules([
-                'blogCateName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
-            ]);
+            // Lấy dữ liệu từ form
+            $dataFields = $this->request->getFields();
+            $dataFile = $this->request->getFiles();
 
-            //Set message
-            $this->request->message([
-                'blogCateName.required' => 'Tên danh mục không được để trống',
-                'blogCateName.min' => 'Tên danh mục phải lớn hơn 5 ký tự',
-                'blogCateName.max' => 'Tên danh mục phải nhỏ hơn 30 ký tự',
-                'blogCateName.unique' => 'Tên danh mục đã tồn tại trong hệ thống'
-            ]);
+            if ($dataFields['formInfor'] == 'form-info-account') {
+                /*Set rules*/
+                $this->request->rules([
+                    'firstName' => 'required',
+                    'lastName' => 'required',
+                    'email' => 'required|unique:shop_customers:email',
+                    'phone' => 'unique:shop_customers:phone',
+                ]);
 
-            $validate = $this->request->validate();
-            if (!$validate){
-                Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
-                return $this->response->redirect('blogs-category-create');
+                //Set message
+                $this->request->message([
+                    'firstName.required' => 'Tên danh mục không được để trống',
+                    'lastName.required' => 'Tên danh mục không được để trống',
+                    'email.required' => 'Email không được để trống',
+                    'email.unique' => 'Email đã tồn tại',
+                    'phone.unique' => 'Số điện thoại đã tồn tại',
+                ]);
 
+                $validate = $this->request->validate();
+                if (!$validate){
+                    $message = [
+                        'status' => '0',
+                        'message' => "Đã có lỗi xảy ra. Vui lòng kiểm tra lại.",
+                        'form' => 'form-info-account'
+                    ];
+
+                    $sessionKey = Session::isInvalid();
+                    $error = Session::flash($sessionKey.'_errors');
+                    $message['error'] = $error;
+                    exit(json_encode($message));
+                }
+
+                // đưa data vào
+                $data = [
+                    'fullname' => $dataFields['lastName'].' '.$dataFields['firstName'],
+                    'email' => $dataFields['email'],
+                    'phone' => !empty($dataFields['phone']) ? $dataFields['phone'] : NULL,
+                    'gender' => !empty($dataFields['gender']) ? $dataFields['gender'] : 0,
+                ];
+
+                $get_image = $dataFile['avatarUpload'];
+
+                if($get_image){
+                    $uploadPath = "public/uploads/customer/";
+                    $unique_image = ProcessImage::checkImage($get_image, $uploadPath);
+                    if($unique_image){
+                        $data['avatar'] = $unique_image;
+                    }
+                } else {
+                    $data['avatar'] = 'avatar-default.png';
+                }
+        
+                $result =  $this->customerModel->create($data);
+
+                $message = [
+                    "status" => "1",
+                    'message' => "Thêm thông tin khách hàng thành công!"
+                ];
+        
+                exit(json_encode($message));
             }
-        }
 
-        // lấy dữ liệu từ form
-        $dataFields = $this->request->getFields();
-        $dataFile = $this->request->getFiles();
-
-        // đưa data vào
-        $data = [
-            'name' => $dataFields['blogCateName'],
-            'slug' => $dataFields['slug'],
-            'page_title' => $dataFields['pageTitle'],
-            'description' => $dataFields['cate_desc'],
-            'created_at' => date('Y-m-d h:i:s')
-        ];
-
-        if(!empty($dataFields['parentCate'])){
-            $data['parent_id'] = $dataFields['parentCate'];
-        }
-
-        $get_image = $dataFile['image_cate'];
-
-        if($get_image){
-            $uploadPath = "public/uploads/blog_category/";
-            $unique_image = ProcessImage::checkImage($get_image, $uploadPath);
-            if($unique_image){
-                $data['banner'] = $unique_image;
+            if ($dataFields['formInfor'] == 'form-shipping-address') {
+                
             }
+
+            if ($dataFields['formInfor'] == 'form-billing-address') {
+                
+            }
+            
         }
-
-        $this->customerModel->create($data);
-        Session::flash('msg', 'Thêm danh mục thành công!');
-
-        return $this->response->redirect('blogs-category-create');
     }
 
     public function edit($id)
     {
-        echo $id;
         $data['sub_content']['customer_by_id'] = $this->customerModel->find($id);
 
         $data['content'] = 'admins.customers.edit';
 
         $data['dataMeta'] = $this->loadMetaTag();
 
-        $data['libraryJS']['list_js'] = [
-            'ckeditor' => 'ckeditor/ckeditor.js',
-            'changeEditor' => 'changeEditor.js',
-            'slug' => 'ChangeToSlug.js'
-        ];
-
         $data['page_title'] = "Cập nhật thông tin khách hàng";
 
-        // echo '<pre>';
-        // print_r($data);
-        // echo '</pre>';
-        // die();
+        $data['data_js'] = [
+            'ajax' => 'admins.customers.js_edit'
+        ];
+
+        $data['libraryJS']['list_js'] = [
+            'functions' => 'functions.js'
+        ];
 
         return $this->view('layouts.admin_layout', $data);
     }
@@ -130,58 +157,75 @@ class Customer extends Controller{
     public function update($id)
     {
         if ($this->request->isPost()){
-            /*Set rules*/
-            $this->request->rules([
-                'blogCateName' => 'required|min:5|max:88|unique:tbl_blogs_categories:name'
-            ]);
+            $dataFields = $this->request->getFields();
 
-            //Set message
-            $this->request->message([
-                'blogCateName.required' => 'Tên danh mục không được để trống',
-                'blogCateName.min' => 'Tên danh mục phải lớn hơn 5 ký tự',
-                'blogCateName.max' => 'Tên danh mục phải nhỏ hơn 30 ký tự',
-                'blogCateName.unique' => 'Tên danh mục đã tồn tại trong hệ thống'
-            ]);
+            if (array_key_exists("phone", $dataFields)) {
+                /*Set rules*/
+                $this->request->rules([
+                    'phone' => 'required|min:8|max:11|unique:shop_customers:phone:id='.$id
+                ]);
 
-            $validate = $this->request->validate();
-            if (!$validate){
-                Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại.');
-                return $this->response->redirect('blogs-category-create');
+                //Set message
+                $this->request->message([
+                    'phone.required' => 'Số điện thoại không được để trống',
+                    'phone.min' => 'Số điện thoại phải lớn hơn 8 ký tự',
+                    'phone.max' => 'Số điện thoại phải nhỏ hơn 11 ký tự',
+                    'phone.unique' => 'Số điện thoại đã tồn tại trong hệ thống'
+                ]);
 
+                $validate = $this->request->validate();
+                if (!$validate){
+                    $message = [
+                        'status' => '0',
+                        'message' => "Đã có lỗi xảy ra. Vui lòng kiểm tra lại.",
+                    ];
+
+                    $sessionKey = Session::isInvalid();
+                    $error = Session::flash($sessionKey.'_errors');
+                    $message['error'] = $error;
+                    exit(json_encode($message));
+                }
+
+                $data = ['phone' => $dataFields['phone']];
+                $result = $this->customerModel->edit($id, $data);
+                $message = [
+                    "status" => "1",
+                    'message' => "Cập nhật số điện thoại khách hàng thành công!"
+                ];
+                exit(json_encode($message));
             }
-        }
 
-        // lấy dữ liệu từ form
-        $dataFields = $this->request->getFields();
-        $dataFile = $this->request->getFiles();
-
-        // đưa data vào
-        $data = [
-            'name' => $dataFields['blogCateName'],
-            'slug' => $dataFields['slug'],
-            'page_title' => $dataFields['pageTitle'],
-            'description' => $dataFields['cate_desc'],
-            'updated_at' => date('Y-m-d h:i:s')
-        ];
-
-        if(!empty($dataFields['parentCate'])){
-            $data['parent_id'] = $dataFields['parentCate'];
-        }
-
-        $get_image = $dataFile['image_cate'];
-
-        if(!empty($get_image)){
-            $uploadPath = "public/uploads/blog_category/";
-            $unique_image = ProcessImage::checkImage($get_image, $uploadPath);
-            if($unique_image){
-                $data['banner'] = $unique_image;
+            if (array_key_exists("shipping_address", $dataFields)) {
+                $data = ['shipping_address' => $dataFields['shipping_address']];
+                $result = $this->customerModel->edit($id, $data);
+                $message = [
+                    "status" => "1",
+                    'message' => "Cập nhật địa chỉ giao hàng khách hàng thành công!"
+                ];
+                exit(json_encode($message));
             }
+
+            if (array_key_exists("billing_address", $dataFields)) {
+                $data = ['billing_address' => $dataFields['billing_address']];
+                $result = $this->customerModel->edit($id, $data);
+                $message = [
+                    "status" => "1",
+                    'message' => "Cập nhật địa chỉ giao hàng khách hàng thành công!"
+                ];
+                exit(json_encode($message));
+            }
+
+            if (array_key_exists("fullname", $dataFields)) {
+                $data = ['fullname' => $dataFields['fullname']];
+                $result = $this->customerModel->edit($id, $data);
+                $message = [
+                    "status" => "1",
+                    'message' => "Cập nhật địa chỉ giao hàng khách hàng thành công!"
+                ];
+                exit(json_encode($message));
+            }
+
         }
-
-        $this->customerModel->edit($id,$data);
-        Session::flash('msg', 'Bạn đã cập nhật danh mục bài viết!');
-
-        return $this->response->redirect('blogs-category');
     }
 
     public function status()
@@ -197,10 +241,18 @@ class Customer extends Controller{
 
     public function destroy()
     {
-        // $dataFields = $this->request->getFields();
-        // $id = $dataFields['id'];
+        $dataFields = $this->request->getFields();
 
-        // $this->customerModel->destroy($id);
+        $ids = $dataFields['_id'];
+        $data = [ 'deleted_at' => date('Y-m-d H:i:s')];
+
+        $this->customerModel->deleteAt($ids, $data);
+
+        $message = [
+            "status" => "1",
+            'message' => "Xóa khách hàng thành công!"
+        ];
+        exit(json_encode($message));
     }   
 
     public function loadMetaTag()
@@ -228,45 +280,4 @@ class Customer extends Controller{
             'jquery' => 'jquery.js'
         ];  
     }
-
-    // public function post_user(){
-    //     $userId = 20;
-    //     $this->request = new Request();
-    //     if ($request->isPost()){
-    //         /*Set rules*/
-    //         $request->rules([
-    //             'fullname' => 'required|min:5|max:30',
-    //             'email' => 'required|email|min:6|unique:users:email',
-    //             'password' => 'required|min:3',
-    //             'confirm_password' => 'required|match:password',
-    //             'age' => 'required|callback_check_age'
-    //         ]);
-
-    //         //Set message
-    //         $request->message([
-    //             'fullname.required' => 'Họ tên không được để trống',
-    //             'fullname.min' => 'Họ tên phải lớn hơn 5 ký tự',
-    //             'fullname.max' => 'Họ tên phải nhỏ hơn 30 ký tự',
-    //             'email.required' => 'Email không được để trống',
-    //             'email.email' => 'Định dạng email không hợp lệ',
-    //             'email.min' => 'Email phải lớn hơn 6 ký tự',
-    //             'email.unique' => 'Email đã tồn tại trong hệ thống',
-    //             'password.required' => 'Mật khẩu không được để trống',
-    //             'password.min' => 'Mật khẩu phải lớn hơn 3 ký tự',
-    //             'confirm_password.required' => 'Nhập lại mật khẩu không được để trống',
-    //             'confirm_password.match' => 'Mật khẩu nhập lại không khớp',
-    //             'age.required' => 'Tuổi không được để trống',
-    //             'age.callback_check_age' => 'Tuổi không được nhỏ hơn 20'
-    //         ]);
-
-    //         $validate = $request->validate();
-    //         if (!$validate){
-    //             Session::flash('msg', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại');
-    //         }
-
-    //     }
-
-    //     $response = new Response();
-    //     $response->redirect('home/get_user');
-    // }
 }

@@ -26,7 +26,7 @@ function csrf_field()
 {
     $token = md5(uniqid());
     Session::data('_token', $token);
-    return '<input type="hidden" name="_token" id="_token" value="'.$token.'"/>';
+    return '<input type="hidden" name="_token" id="_token'.$token.'" value="'.$token.'"/>';
 }
 
 function csrf_token()

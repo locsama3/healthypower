@@ -6,20 +6,20 @@
 
 <main id="content" role="main" class="main">
     <!-- Content -->
-    <div class="content container-fluid">
+    <div class="content container-fluid container-edit-customer" data-id="{{ $customer_by_id['id'] }}">
         <!-- Page Header -->
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col-sm mb-2 mb-sm-0">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb breadcrumb-no-gutter">
-                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-customers.html">Customers</a>
+                            <li class="breadcrumb-item"><a class="breadcrumb-link" href="{{ _WEB_ROOT }}/customer">Khách hàng</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Customer details</li>
+                            <li class="breadcrumb-item active" aria-current="page">Thông tin chi tiết</li>
                         </ol>
                     </nav>
 
-                    <h1 class="page-header-title">{{ $customer_by_id['fullname']}}</h1>
+                    <h1 class="page-header-title customer-fullname">{{ $customer_by_id['fullname']}}</h1>
                 </div>
 
                 <div class="col-sm-auto">
@@ -48,11 +48,11 @@
 
                             <div class="mx-3">
                                 <div class="d-flex mb-1">
-                                    <h3 class="mb-0 mr-3">{{ $customer_by_id['fullname']}}</h3>
+                                    <h3 class="mb-0 mr-3 customer-fullname">{{ $customer_by_id['fullname']}}</h3>
 
                                     <!-- Unfold -->
                                     <div class="hs-unfold">
-                                        <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-white rounded-circle" href="javascript:;" data-toggle="tooltip" data-placement="top" title="Edit" data-hs-unfold-options='{
+                                        <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-white rounded-circle" href="javascript:;" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" data-hs-unfold-options='{
                              "target": "#editDropdown",
                              "type": "css-animation"
                            }'>
@@ -64,21 +64,16 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="form-row">
-                                                        <div class="col-sm-6">
-                                                            <label for="firstNameLabel" class="input-label">First name</label>
-                                                            <input type="text" class="form-control" name="firstName" id="firstNameLabel" placeholder="Clarice" aria-label="Clarice" value="Anna">
-                                                        </div>
-
-                                                        <div class="col-sm-6">
-                                                            <label for="lastNameLabel" class="input-label">Last name</label>
-                                                            <input type="text" class="form-control" name="lastName" id="lastNameLabel" placeholder="Boone" aria-label="Boone" value="Richard">
+                                                        <div class="col-sm-12">
+                                                            <label for="lastNameLabel" class="input-label">Họ và Tên</label>
+                                                            <input type="text" class="form-control" name="fullName" id="fullNameLabel" placeholder="Nguyễn Đức Tài" aria-label="Boone" value="{{ $customer_by_id['fullname'] }}">
                                                         </div>
                                                     </div>
                                                     <!-- End Row -->
 
                                                     <div class="d-flex justify-content-end mt-3">
-                                                        <button type="button" class="btn btn-sm btn-white mr-2">Cancel</button>
-                                                        <button type="button" class="btn btn-sm btn-primary">Save</button>
+                                                        <button type="button" class="btn btn-sm btn-white mr-2">Hủy</button>
+                                                        <button type="button" class="btn btn-sm btn-primary btn-edit-fullName">Lưu</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -88,7 +83,7 @@
                                     <!-- End Unfold -->
                                 </div>
 
-                                <span class="font-size-sm">Customer for 3 months</span>
+                                <span class="font-size-sm">Là khách hàng trong 3 tháng</span>
                             </div>
 
                             <div class="d-none d-sm-inline-block ml-auto text-right">
@@ -98,7 +93,7 @@
                            "target": "#actionsDropdown",
                            "type": "css-animation"
                          }'>
-                                        Actions <i class="tio-chevron-down"></i>
+                                        Hoạt động <i class="tio-chevron-down"></i>
                                     </a>
 
                                     <div id="actionsDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu mt-1">
@@ -106,15 +101,15 @@
                                             <i class="tio-email-outlined dropdown-item-icon"></i> Email
                                         </a>
                                         <a class="dropdown-item" href="#">
-                                            <i class="tio-call dropdown-item-icon"></i> Call
+                                            <i class="tio-call dropdown-item-icon"></i> Gọi
                                         </a>
                                         <a class="dropdown-item" href="#">
                                             <i class="tio-sync dropdown-item-icon"></i> Merge
                                         </a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item text-danger" href="#">
+                                        <a class="dropdown-item text-danger btn-delete-customer" href="#">
                                             <i class="tio-delete-outlined dropdown-item-icon text-danger"></i>
-                                            Delete
+                                            Xóa
                                         </a>
                                     </div>
                                 </div>
@@ -123,10 +118,10 @@
                         </div>
                         <!-- End Media -->
 
-                        <label class="input-label">Customer note</label>
+                        <label class="input-label">Ghi chú</label>
 
                         <!-- Quill -->
-                        <textarea name="cate_desc" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                        <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Thêm những điều chúng ta cần nhớ về khách hàng" rows="4"></textarea>
                         <!-- End Quill -->
                     </div>
                     <!-- Body -->
@@ -134,8 +129,8 @@
                     <!-- Footer -->
                     <div class="card-footer">
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-white mr-2">Discard</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-white mr-2">Loại bỏ</button>
+                            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                         </div>
                     </div>
                     <!-- End Footer -->
@@ -148,7 +143,7 @@
                     <div class="card-header">
                         <div class="row justify-content-between align-items-center flex-grow-1">
                             <div class="col-sm mb-3 mb-sm-0">
-                                <h4 class="card-header-title">Orders placed</h4>
+                                <h4 class="card-header-title">Thông tin đặt hàng</h4>
                             </div>
 
                             <div class="col-sm-auto">
@@ -158,16 +153,16 @@
                           "btnClassNames": "btn btn-block btn-white dropdown-toggle justify-content-center"
                         }'>
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#">All orders</a>
+                                        <a class="nav-link active" href="#">Tất cả đơn hàng</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Open</a>
+                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Mới</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Unfulfilled</a>
+                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Chưa hoàn thành</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Unpaid</a>
+                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Chưa thanh toán</a>
                                     </li>
                                 </ul>
                                 <!-- End Nav -->
@@ -177,10 +172,10 @@
                                     <div class="d-flex align-items-center">
                                         <span class="font-size-sm mr-3">
                                             <span id="datatableCounter">0</span>
-                                            Selected
+                                            Lựa chọn
                                         </span>
                                         <a class="btn btn-sm btn-outline-danger" href="javascript:;">
-                                            <i class="tio-delete-outlined"></i> Delete
+                                            <i class="tio-delete-outlined"></i> Xóa
                                         </a>
                                     </div>
                                 </div>
@@ -201,7 +196,7 @@
                                 </span>
                             </div>
 
-                            <input id="datatableSearch" type="search" class="form-control" placeholder="Search orders" aria-label="Search orders">
+                            <input id="datatableSearch" type="search" class="form-control" placeholder="Tìm kiếm đơn hàng" aria-label="Search orders">
                         </div>
                         <!-- End Input Group -->
                     </div>
@@ -233,11 +228,11 @@
                                             <label class="custom-control-label" for="datatableCheckAll"></label>
                                         </div>
                                     </th>
-                                    <th class="table-column-pl-0">Order</th>
-                                    <th>Date</th>
-                                    <th>Payment status</th>
-                                    <th>Total</th>
-                                    <th>Invoice</th>
+                                    <th class="table-column-pl-0">Đơn hàng</th>
+                                    <th>Ngày mua</th>
+                                    <th>Trạng thái</th>
+                                    <th>Tổng</th>
+                                    <th>Hóa đơn</th>
                                 </tr>
                             </thead>
 
@@ -607,12 +602,12 @@
                 <div class="card mb-3 mb-lg-5">
                     <!-- Header -->
                     <div class="card-header">
-                        <h4 class="card-header-title">Timeline</h4>
+                        <h4 class="card-header-title">Dòng thời gian</h4>
 
                         <!-- Checkbox -->
                         <div class="custom-control custom-checkbox font-size-sm">
                             <input id="showCommentsCheckbox" type="checkbox" class="custom-control-input" checked="">
-                            <label class="custom-control-label" for="showCommentsCheckbox">Show comments</label>
+                            <label class="custom-control-label" for="showCommentsCheckbox">Hiển thị sự kiện</label>
                         </div>
                         <!-- End Checkbox -->
                     </div>
@@ -628,7 +623,7 @@
                                     <span class="step-icon step-icon-soft-primary">A</span>
 
                                     <!-- Quill -->
-                                    <textarea name="cate_desc" id="ckeditor2" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                                    <textarea id="exampleFormControlTextarea1" class="form-control" placeholder="Sự kiện kết nối với khách hàng" rows="4"></textarea>
                                     <!-- End Quill -->
                                 </div>
                             </li>
@@ -637,7 +632,7 @@
                             <!-- Step Item -->
                             <li class="step-item">
                                 <div class="step-content-wrapper">
-                                    <small class="step-divider">Wednesday, 19 August</small>
+                                    <small class="step-divider">Thứ năm, ngày 8 tháng 7</small>
                                 </div>
                             </li>
                             <!-- End Step Item -->
@@ -648,7 +643,7 @@
                                     <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
 
                                     <div class="step-content">
-                                        <h5 class="mb-0">You submitted a customer data request.</h5>
+                                        <h5 class="mb-0">Bạn chấp nhận yêu cầu của khách hàng</h5>
                                         <p class="font-size-sm mb-0">10:19 AM</p>
                                     </div>
                                 </div>
@@ -661,7 +656,7 @@
                                     <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
 
                                     <div class="step-content">
-                                        <h5 class="mb-0">You added the email anne@gmail.com to this customer.</h5>
+                                        <h5 class="mb-0">Bạn thêm thông tin Email cho khách hàng này</h5>
                                         <p class="font-size-sm mb-0">10:18 AM</p>
                                     </div>
                                 </div>
@@ -674,7 +669,7 @@
                                     <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
 
                                     <div class="step-content">
-                                        <h5 class="mb-0">You created this customer.</h5>
+                                        <h5 class="mb-0">Bạn đã thêm khách hàng này</h5>
                                         <p class="font-size-sm mb-0">10:18 AM</p>
                                     </div>
                                 </div>
@@ -688,7 +683,7 @@
                 <!-- End Card -->
 
                 <div class="d-none d-lg-block">
-                    <button type="button" class="btn btn-danger">Delete customer</button>
+                    <button type="button" class="btn btn-danger btn-delete-customer">Xóa khách hàng</button>
                 </div>
             </div>
 
@@ -698,26 +693,27 @@
                     <!-- Body -->
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5>Contact info</h5>
-                            <a class="link" href="javascript:;">Edit</a>
+                            <h5>Thông tin liên hệ</h5>
+                            <a class="link btn-edit-info" href="">Chỉnh Sửa</a>
                         </div>
 
                         <ul class="list-unstyled list-unstyled-py-2">
-                            <li>
+                            <li class="d-flex align-items-center">
                                 <i class="tio-online mr-2"></i>
-                                {{ $customer_by_id['email'] }}
+                                <div class="customer-email-info">{{ $customer_by_id['email'] }}</div>
                             </li>
-                            <li>
+                            <li class="d-flex align-items-center">
                                 <i class="tio-android-phone-vs mr-2"></i>
-                                {{ $customer_by_id['phone'] }}
+                                <div class="customer-phone-info">{{ $customer_by_id['phone'] }}</div>
+                                <input type="text" class="form-control form-control-flush" id="customer-phone-info-edit" placeholder="0xxxxxxxx" style="display: none;" value="{{ $customer_by_id['phone']}}">
                             </li>
                         </ul>
 
                         <hr>
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5>Shipping address</h5>
-                            <a class="link" href="javascript:;">Edit</a>
+                            <h5>Địa chỉ giao hàng</h5>
+                            <a class="link btn-edit-shipping-address" href="">Chỉnh Sửa</a>
                         </div>
 
                         <!-- Leaflet (Map) -->
@@ -742,30 +738,23 @@
                         <!-- End Leaflet (Map) -->
 
                         <span class="d-block">
-                            45 Roker Terrace<br>
-                            Latheronwheel<br>
-                            KW5 8NW, London<br>
-                            UK <img class="avatar avatar-xss avatar-circle ml-1" src="{{ _WEB_ROOT }}\public\admin\vendor\flag-icon-css\flags\1x1\gb.svg" alt="Great Britain Flag">
+                            <p class="customer-shipping-address">{{ $customer_by_id['shipping_address'] }}</p>
+                            <input type="text" class="form-control form-control-flush" id="customer-shipping-address-edit" placeholder="Địa chỉ giao hàng" style="display: none;" value="{{ $customer_by_id['shipping_address'] }}">
+                            <img class="avatar avatar-xss avatar-circle ml-1" src="{{ _WEB_ROOT }}\public\admin\vendor\flag-icon-css\flags\1x1\gb.svg" alt="Great Britain Flag">
                         </span>
 
                         <hr>
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <h5>Billing address</h5>
-                            <a class="link" href="javascript:;">Edit</a>
+                            <h5>Địa chỉ thanh toán</h5>
+                            <a class="link btn-edit-billing-address" href="">Chỉnh sửa</a>
                         </div>
 
                         <span class="d-block">
-                            45 Roker Terrace<br>
-                            Latheronwheel<br>
-                            KW5 8NW, London<br>
-                            UK <img class="avatar avatar-xss avatar-circle ml-1" src="{{ _WEB_ROOT }}\public\admin\vendor\flag-icon-css\flags\1x1\gb.svg" alt="Great Britain Flag">
+                            <p class="customer-billing-address">{{ $customer_by_id['billing_address'] }}</p>
+                            <input type="text" class="form-control form-control-flush" id="customer-billing-address-edit" placeholder="Địa chỉ thanh toán" style="display: none;" value="{{ $customer_by_id['billing_address'] }}">
+                            <img class="avatar avatar-xss avatar-circle ml-1" src="{{ _WEB_ROOT }}\public\admin\vendor\flag-icon-css\flags\1x1\gb.svg" alt="Great Britain Flag">
                         </span>
-
-                        <div class="mt-3">
-                            <h5 class="mb-0">Mastercard</h5>
-                            <span class="d-block">Card Number: ************4291</span>
-                        </div>
                     </div>
                     <!-- End Body -->
                 </div>
@@ -775,15 +764,15 @@
                 <div class="card mb-3 mb-lg-5">
                     <!-- Header -->
                     <div class="card-header">
-                        <h5>Email marketing</h5>
-                        <a class="link" href="javascript:;">Edit status</a>
+                        <h5>Đăng ký nhận email</h5>
+                        <a class="link" href="javascript:;">Chỉnh sửa tình trạng</a>
                     </div>
                     <!-- End Header -->
 
                     <!-- Body -->
                     <div class="card-body">
                         <span class="h3">
-                            <span class="badge badge-soft-dark badge-pill">Subscribed</span>
+                            <span class="badge badge-soft-dark badge-pill">Đã đăng ký</span>
                         </span>
                     </div>
                     <!-- Body -->
@@ -794,13 +783,13 @@
                 <div class="card mb-3 mb-lg-5">
                     <!-- Header -->
                     <div class="card-header">
-                        <h4 class="card-header-title">Website activity</h4>
+                        <h4 class="card-header-title">Tương tác với trang web</h4>
                     </div>
                     <!-- End Header -->
 
                     <!-- Body -->
                     <div class="card-body">
-                        <p>Website activity shows you how many times a contact has visited your site and viewed your pages.</p>
+                        <p>Tương tác trang web cho bạn thấy số lần khách hàng truy cập trang web của bạn và xem các trang của bạn.</p>
 
                         <!-- Bar Chart -->
                         <div class="chartjs-custom my-5" style="height: 12rem;">
@@ -871,10 +860,10 @@
                         <!-- Legend Indicators -->
                         <div class="row justify-content-center">
                             <div class="col-auto">
-                                <span class="legend-indicator"></span> Yesterday
+                                <span class="legend-indicator"></span> Hôm qua
                             </div>
                             <div class="col-auto">
-                                <span class="legend-indicator bg-primary"></span> Today
+                                <span class="legend-indicator bg-primary"></span> Hôm nay
                             </div>
                         </div>
                         <!-- End Legend Indicators -->
