@@ -88,7 +88,6 @@
                 $this->operator = 'AND';
             }
             $this->where .= "$this->operator $field $compare '$value' ";
-            echo $this->where;
             return $this;
         }
 
