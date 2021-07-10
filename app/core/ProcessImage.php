@@ -35,7 +35,14 @@
 
 	    static function del_upload($id, $path = '', $model = '', $field = '')
 	    {
-	        $del_upload = $this->$model->find($id);
+	    	if (file_exists(_DIR_ROOT.'/app/models/'.$model.'.php')){
+	            require_once _DIR_ROOT.'/app/models/'.$model.'.php';
+	            if (class_exists($model)){
+	                $Inc_model = new $model();
+	            }
+	        }
+
+	        $del_upload = $Inc_model->find($id);
 	        $filePath = $path.$del_upload[$field];
 	        if (file_exists($filePath)){
 	            unlink($filePath);

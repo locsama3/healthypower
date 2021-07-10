@@ -9,6 +9,8 @@
         public $orderBy = '';
         public $innerJoin = '';
         public $groupBy = '';
+        public $having = '';
+        public $having_operator = '';
 
         public function table($tableName)
         {
@@ -24,6 +26,7 @@
                          $this->innerJoin
                          $this->where
                          $this->groupBy 
+                         $this->having
                          $this->orderBy
                          $this->limit";
             $sqlQuery = trim($sqlQuery);
@@ -162,6 +165,31 @@
                 $this->groupBy = "GROUP BY ". $field;
             }
             
+            return $this;
+        }
+
+        // having
+        // 1.
+        public function having($field, $compare, $value)
+        {
+            if(empty($this->having)){
+                $this->having_operator = 'HAVING';
+            }else{
+                $this->having_operator = 'AND';
+            }
+            $this->where .= "$this->having_operator $field $compare '$value' ";
+            return $this;
+        }
+
+        // 2.
+        public function orHaving($field, $compare, $value)
+        {
+            if(empty($this->having)){
+                $this->having_operator = 'HAVING';
+            }else{
+                $this->having_operator = 'OR';
+            }
+            $this->where .= "$this->having_operator $field $compare '$value' ";
             return $this;
         }
 

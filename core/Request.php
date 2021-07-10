@@ -55,7 +55,7 @@ class Request{
             if(!empty($_POST)){
                 foreach ($_POST as $key => $value) {
                     if(is_array($value)){
-                        $dataFields[$key] = filter_input(INPUT_POST, $key, FILTER_REQUIRE_ARRAY);
+                        $dataFields[$key] = filter_input(INPUT_POST, $key, FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
                     }else{
                         $dataFields[$key] = filter_input(INPUT_POST, $key);
                     }   

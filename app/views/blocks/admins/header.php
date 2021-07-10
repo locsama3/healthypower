@@ -1625,23 +1625,74 @@
 
           <!-- Tài khoản Admin -->
           <li class="hs-has-sub-menu">
-            <a id="adminAccountDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkAdminAccountDropdown">
-              <i class="tio-user nav-icon"></i> Tài khoản
+            <a id="adminDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkAdminDropdown">
+              <i class="tio-user nav-icon"></i> Quản trị viên
             </a>
 
             <!-- Dropdown -->
-            <ul id="navLinkAdminAccountDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminAccountDropdown" style="min-width: 16rem;">
-              <li>
-                <a class="dropdown-item" href="referrals.html">
-                  <span class="tio-circle nav-indicator-icon"></span> Thêm mới tài khoản
+            <ul id="navLinkAdminDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdown" style="min-width: 16rem;">
+              <!-- Tài khoản -->
+              <li class="hs-has-sub-menu">
+                <a id="adminDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownAccount">
+                  <span class="tio-circle nav-indicator-icon"></span> Tài khoản
                 </a>
-              </li>
 
-              <li>
-                <a class="dropdown-item" href="referrals.html">
-                  <span class="tio-circle nav-indicator-icon"></span> Danh sách tài khoản
-                </a>
+                <ul id="navLinkAdminDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownAccount" style="min-width: 16rem;">
+                  <li>
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/admin-accounts-create'}}">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới tài khoản
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/admin-accounts'}}">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách quản trị viên
+                    </a>
+                  </li>
+                </ul>
               </li>
+              <!-- End Tài khoản -->
+
+              <!-- Chức vụ -->
+              <li class="hs-has-sub-menu">
+                <a id="adminDropdownRoles" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownRoles">
+                  <span class="tio-circle nav-indicator-icon"></span> Chức vụ <span class="badge badge-primary badge-pill ml-2">5</span>
+                </a>
+
+                <ul id="navLinkAdminDropdownRoles" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownRoles" style="min-width: 16rem;">
+                  <li>
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/roles-create'}}">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới chức vụ
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/roles'}}">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách chức vụ
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- End Chức vụ -->
+
+              <!-- Quyền hạn -->
+              <li class="hs-has-sub-menu">
+                <a id="adminDropdownPermissions" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownPermissions">
+                  <span class="tio-circle nav-indicator-icon"></span> Quyền hạn
+                </a>
+
+                <ul id="navLinkAdminDropdownPermissions" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownPermissions" style="min-width: 16rem;">
+                  <li>
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/permissions-create'}}">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới quyền hạn
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/permissions'}}">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách quyền hạn
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- End Quyền hạn -->
 
               <li class="dropdown-divider"></li>
             </ul>
@@ -1665,12 +1716,12 @@
 
                 <ul id="navLinkProdMngDropdownProducts" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProducts" style="min-width: 16rem;">
                   <li>
-                    <a class="dropdown-item" href="users.html">
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/products-create'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới sản phẩm
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="users-leaderboard.html">
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/products'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách sản phẩm
                     </a>
                   </li>
@@ -2825,27 +2876,77 @@
 
             <!-- Tài khoản Admin -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="adminAccountDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkAdminAccountDropdown">
-                <i class="tio-user nav-icon"></i> Tài khoản
+              <a id="adminDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkAdminDropdown">
+                <i class="tio-user nav-icon"></i> Quản trị viên
               </a>
 
               <!-- Dropdown -->
-              <ul id="navLinkAdminAccountDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminAccountDropdown" style="min-width: 16rem;">
-                <li class="navbar-nav-item">
-                  <a class="dropdown-item" href="referrals.html">
-                    <span class="tio-circle nav-indicator-icon"></span> Thêm mới tài khoản
+              <ul id="navLinkAdminDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdown" style="min-width: 16rem;">
+                <!-- Tài khoản -->
+                <li class="hs-has-sub-menu navbar-nav-item">
+                  <a id="adminDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownAccount">
+                    <span class="tio-circle nav-indicator-icon"></span> Tài khoản
                   </a>
-                </li>
 
-                <li class="navbar-nav-item">
-                  <a class="dropdown-item" href="referrals.html">
-                    <span class="tio-circle nav-indicator-icon"></span> Danh sách tài khoản
-                  </a>
+                  <ul id="navLinkAdminDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownAccount" style="min-width: 16rem;">
+                    <li>
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/admin-accounts-create'}}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới tài khoản
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/admin-accounts'}}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách quản trị viên
+                      </a>
+                    </li>
+                  </ul>
                 </li>
+                <!-- End Tài khoản -->
+
+                <!-- Chức vụ -->
+                <li class="hs-has-sub-menu navbar-nav-item">
+                  <a id="adminDropdownRoles" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownRoles">
+                    <span class="tio-circle nav-indicator-icon"></span> Chức vụ <span class="badge badge-primary badge-pill ml-2">5</span>
+                  </a>
+
+                  <ul id="navLinkAdminDropdownRoles" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownRoles" style="min-width: 16rem;">
+                    <li>
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/products-category-create'}}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới chức vụ
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/products-category'}}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách chức vụ
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- End Chức vụ -->
+
+                <!-- Quyền hạn -->
+                <li class="hs-has-sub-menu navbar-nav-item">
+                  <a id="adminDropdownPermissions" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="adminDropdownPermissions">
+                    <span class="tio-circle nav-indicator-icon"></span> Quyền hạn
+                  </a>
+
+                  <ul id="adminDropdownPermissions" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownPermissions" style="min-width: 16rem;">
+                    <li>
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/supplier-create'}}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới quyền hạn
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/supplier'}}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách quyền hạn
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- End Quyền hạn -->
 
                 <li class="dropdown-divider"></li>
-              </ul>
-              <!-- End Dropdown -->
+              </ul>  
             </li>
             <!-- End Tài khoản Admin -->
 
@@ -2865,12 +2966,12 @@
 
                   <ul id="navLinkProdMngDropdownProducts" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProducts" style="min-width: 16rem;">
                     <li>
-                      <a class="dropdown-item" href="users.html">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/products-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới sản phẩm
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="users-leaderboard.html">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/products'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách sản phẩm
                       </a>
                     </li>
@@ -3299,23 +3400,79 @@
 
            <!-- Tài khoản Admin -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Admin Account">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Admins">
               <i class="tio-user nav-icon"></i>
-              <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Tài khoản</span>
+              <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản trị viên</span>
             </a>
 
             <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
-              <li class="nav-item">
-                <a class="nav-link " href="referrals.html" title="Add Admin Account">
+              <!-- Tài khoản -->
+              <li class="navbar-vertical-aside-has-menu ">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Admin Account">
                   <span class="tio-circle nav-indicator-icon"></span>
-                  <span class="text-truncate">Thêm mới tài khoản</span>
+                  <span class="text-truncate">Tài khoản </span>
                 </a>
+
+                <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                  <li class="nav-item">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/admin-accounts-create'}}" title="Add Admin Account">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span>
+                      <span class="text-truncate">Thêm mới tài khoản </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/admin-accounts'}}" title="List Admin Account">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span>
+                      <span class="text-truncate">Danh sách quản trị viên </span>
+                    </a>
+                  </li>
+                </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link " href="referrals.html" title="List Admin Account">
+
+              <!-- Chức vụ -->
+              <li class="navbar-vertical-aside-has-menu ">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Roles">
                   <span class="tio-circle nav-indicator-icon"></span>
-                  <span class="text-truncate">Danh sách tài khoản</span>
+                  <span class="text-truncate">Chức vụ <span class="badge badge-primary badge-pill ml-1"></span></span>
                 </a>
+
+                <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                  <li class="nav-item">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/roles-create'}}" title="Add Roles">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span>
+                      <span class="text-truncate">Thêm mới chức vụ</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/roles'}}" title="List Roles">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span>
+                      <span class="text-truncate">Danh sách chức vụ</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Quyền hạn -->
+              <li class="navbar-vertical-aside-has-menu ">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Permissions">
+                  <span class="tio-circle nav-indicator-icon"></span>
+                  <span class="text-truncate">Quyền hạn</span>
+                </a>
+
+                <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                  <li class="nav-item">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/permissions-create'}}" title="Add Permissions">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span>
+                      <span class="text-truncate">Thêm mới quyền hạn</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/permissions'}}" title="List Permissions">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span>
+                      <span class="text-truncate">Danh sách quyền hạn</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
@@ -3338,13 +3495,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="users.html" title="Add Product">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/products-create'}}" title="Add Product">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới sản phẩm </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="users-leaderboard.html" title="List Product">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/products'}}" title="List Product">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách sản phẩm </span>
                     </a>
@@ -3993,23 +4150,79 @@
 
         <!-- Tài khoản Admin -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Admin Account">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Admins">
             <i class="tio-user nav-icon"></i>
-            <span class="nav-compact-title text-truncate">Tài khoản</span>
+            <span class="nav-compact-title text-truncate">Quản trị viên</span>
           </a>
 
-          <ul class="js-navbar-vertical-aside-submenu nav nav-sub">    
-            <li class="nav-item">
-              <a class="nav-link " href="referrals.html" title="Add Admin Account">
+          <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+            <!-- Tài khoản -->
+            <li class="navbar-vertical-aside-has-menu ">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Admin Account">
                 <span class="tio-circle nav-indicator-icon"></span>
-                <span class="text-truncate">Thêm mới tài khoản</span>
+                <span class="text-truncate">Tài khoản <span class="badge badge-primary badge-pill ml-1"></span></span>
               </a>
+
+              <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/admin-accounts-create'}}" title="Add Admin Account">
+                    <span class="tio-circle-outlined nav-indicator-icon"></span>
+                    <span class="text-truncate">Thêm mới tài khoản</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/admin-accounts'}}" title="List Admin Account">
+                    <span class="tio-circle-outlined nav-indicator-icon"></span>
+                    <span class="text-truncate">Danh sách quản trị viên</span>
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link " href="referrals.html" title="List Admin Account">
+
+            <!-- Chức vụ -->
+            <li class="navbar-vertical-aside-has-menu ">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Roles">
                 <span class="tio-circle nav-indicator-icon"></span>
-                <span class="text-truncate">Danh sách tài khoản</span>
+                <span class="text-truncate">Chức vụ</span>
               </a>
+
+              <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/roles-create'}}" title="Add Roles">
+                    <span class="tio-circle-outlined nav-indicator-icon"></span>
+                    <span class="text-truncate">Thêm mới chức vụ</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/roles'}}" title="List Roles">
+                    <span class="tio-circle-outlined nav-indicator-icon"></span>
+                    <span class="text-truncate">Danh sách chức vụ</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Quyền hạn -->
+            <li class="navbar-vertical-aside-has-menu ">
+              <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Permissions">
+                <span class="tio-circle nav-indicator-icon"></span>
+                <span class="text-truncate">Quyền hạn</span>
+              </a>
+
+              <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
+                <li class="nav-item">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/permissions-create'}}" title="Add Permissions">
+                    <span class="tio-circle-outlined nav-indicator-icon"></span>
+                    <span class="text-truncate">Thêm mới quyền hạn</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/permissions'}}" title="List Permissions">
+                    <span class="tio-circle-outlined nav-indicator-icon"></span>
+                    <span class="text-truncate">Danh sách quyền hạn</span>
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>
@@ -4038,7 +4251,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/products-create'}}" title="List Product">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/products'}}" title="List Product">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách sản phẩm</span>
                   </a>

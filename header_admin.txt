@@ -1,8 +1,17 @@
 Id và cái quần què gì đó:
 
 Tài khoản admin: 
-	- adminAccountDropdown
-	- navLinkAdminAccountDropdown
+	- adminDropdown
+	- navLinkAdminDropdown
+  + Tài khoản: 
+  	- adminDropdownAccount
+  	- navLinkAdminDropdownAccount
+  + Chức vụ:
+  	- adminDropdownRoles
+  	- navLinkAdminDropdownRoles
+  + Quyền hạn:
+  	- adminDropdownPermissions
+  	- navLinkAdminDropdownPermissions
 
 Quản lý sản phẩm:
 	- prodManageDropdown
@@ -76,9 +85,19 @@ Quản lý bài viết:
 
 Title: 
 Tài khoản admin: 
+	- Admins
+  + Tài khoản
 	- Admin Account
 	- Add Admin Account
 	- List Admin Account
+  + Chức vụ:
+  	- Roles
+  	- Add Roles
+  	- List Roles
+  + Quyền hạn:
+  	- Permissions
+  	- Add Permissions
+  	- List Permissions
 
 Sản phẩm:
 	- Manage Product

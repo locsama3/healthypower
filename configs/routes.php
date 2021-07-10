@@ -125,4 +125,57 @@
     $routes['payment-types-status'] = 'paymenttype/status';
 
     $routes['payment-types-destroy'] = 'paymenttype/destroy';
+
+    // routes admin account
+    $routes['admin-accounts'] = 'adminaccount/index';
+
+    $routes['admin-accounts-loadtable'] = 'adminaccount/load_table';
+
+    $routes['admin-accounts-create'] = 'adminaccount/create';
+
+    $routes['admin-accounts-cresuccess'] = 'adminaccount/create_success';
+
+    $routes['admin-accounts-store'] = 'adminaccount/store';
+
+    $routes['admin-accounts-status'] = 'adminaccount/status';
+
+    $routes['admin-accounts-change-password'] = 'adminaccount/change_password';
+
+    $routes['admin-accounts-change-address'] = 'adminaccount/change_address';
+
+    $routes['admin-accounts-change-info'] = 'adminaccount/change_info';
+
+    $routes['(.+)asdssmissn'] = 'adminaccount/detail/$1';
+
+    $routes['admin-accounts-destroy'] = 'adminaccount/destroy';
+
+    // routes role
+
+    $routes['roles'] = 'role/index';
+
+    $routes['roles-create'] = 'role/create';
+
+    $routes['roles-store'] = 'role/store';
+
+    $routes['roles-edit/.+-(\d+)'] = 'role/edit/$1';
+
+    $routes['roles-update/.+-(\d+)'] = 'role/update/$1';
+
+    $routes['roles-destroy'] = 'role/destroy';
+
+    // routes permissions
+
+    $routes['permissions'] = 'permission/index';
+
+    $routes['permissions-create'] = 'permission/create';
+
+    $routes['permissions-store'] = 'permission/store';
+
+    $routes['permissions-edit/.+-(\d+)'] = 'permission/edit/$1';
+
+    $routes['permissions-update/.+-(\d+)'] = 'permission/update/$1';
+
+    $routes['permissions-destroy'] = 'permission/destroy';
+
+
 ?>

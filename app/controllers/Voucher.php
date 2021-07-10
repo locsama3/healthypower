@@ -107,7 +107,6 @@ class Voucher extends Controller{
             'max_uses_user' => $dataFields['max_uses_user'],
             'type' => $dataFields['type'],
             'discount_amount' => $dataFields['discount_amount'],
-            'is_fixed' => $dataFields['is_fixed'],
             'start_date' => $dataFields['start_date'],
             'end_date' => $dataFields['end_date'],
             'created_at' => date('Y-m-d h:i:s')
@@ -200,14 +199,14 @@ class Voucher extends Controller{
             'max_uses_user' => $dataFields['max_uses_user'],
             'type' => $dataFields['type'],
             'discount_amount' => $dataFields['discount_amount'],
-            'is_fixed' => $dataFields['is_fixed'],
+            'is_fixed' => 1,
             'start_date' => $dataFields['start_date'],
             'end_date' => $dataFields['end_date'],
             'updated_at' => date('Y-m-d h:i:s')
         ];
 
         $this->voucherModel->edit($id,$data);
-        Session::flash('msg', 'Thêm mã khuyến mãi thành công!');
+        Session::flash('msg', 'Bạn đã cập nhật mã khuyến mãi!');
 
         return $this->response->redirect('vouchers');
     }

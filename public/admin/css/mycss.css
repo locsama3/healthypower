@@ -13,3 +13,12 @@
     padding-top: 6px; 
     display: block;
 }
+
+.my-input{
+    margin-bottom: 0;
+    padding: .54688rem 0.875rem!important;
+}
+
+#list_roles{
+   display: none;
+}
