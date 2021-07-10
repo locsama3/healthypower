@@ -27,8 +27,8 @@ class ProductModel extends Model {
         $this->db->table('shop_products')->where('id','=',$id)->update($data);
     }
 
-    public function destroy($id)
+    public function deleteAt($id, $data)
     {
-        $this->db->table('shop_products')->where('id','=',$id)->delete();
+        $this->db->table('shop_products')->whereIN('id',"($id)")->update($data);
     }
 }
