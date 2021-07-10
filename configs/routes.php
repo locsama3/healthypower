@@ -126,6 +126,7 @@
 
     $routes['payment-types-destroy'] = 'paymenttype/destroy';
 
+<<<<<<< HEAD
     // routes admin account
     $routes['admin-accounts'] = 'adminaccount/index';
 
@@ -178,4 +179,18 @@
     $routes['permissions-destroy'] = 'permission/destroy';
 
 
+=======
+    // routes customers
+    $routes['customers'] = 'customer/index';
+    
+    $routes['customer-create'] = 'customer/create';
+
+    $routes['customer-store'] = 'customer/store';
+
+    $routes['customer-edit/.+-(\d+)'] = 'customer/edit/$1';
+
+    $routes['customer-update/.+-(\d+)'] = 'customer/update/$1';
+
+    $routes['customer-destroy'] = 'customer/destroy';
+>>>>>>> 8b5eb7d083e339d6bb90bff2be440c41996bb4f8
 ?>

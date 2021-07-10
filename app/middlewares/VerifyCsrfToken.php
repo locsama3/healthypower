@@ -9,7 +9,7 @@ class VerifyCsrfToken extends Middlewares {
 
             if(Session::data('_token') != $_token){
                 $response = new Response();
-                Session::flash('error', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại token!');
+                Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại token!');
                 $response->back();
             }
         }

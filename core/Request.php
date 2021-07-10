@@ -169,15 +169,14 @@ class Request{
                         }
 
                         if (!empty($tableName) && !empty($fieldCheck)){
-
                             if (count($rulesArr)==3){
-                                $checkExist = $this->db->query("SELECT $fieldCheck FROM $tableName WHERE $fieldCheck='trim($dataFields[$fieldName])'")->rowCount();
+                                $checkExist = $this->db->query("SELECT $fieldCheck FROM $tableName WHERE $fieldCheck='".trim($dataFields[$fieldName])."'")->rowCount();
                             }elseif (count($rulesArr)==4){
 
                                 if (!empty($rulesArr[3]) && preg_match('~.+?\=.+?~is', $rulesArr[3])){
                                     $conditionWhere = $rulesArr[3];
                                     $conditionWhere = str_replace('=', '<>', $conditionWhere);
-                                    $checkExist = $this->db->query("SELECT $fieldCheck FROM $tableName WHERE $fieldCheck='trim($dataFields[$fieldName])' AND $conditionWhere")->rowCount();
+                                    $checkExist = $this->db->query("SELECT $fieldCheck FROM $tableName WHERE $fieldCheck='".trim($dataFields[$fieldName])."' AND $conditionWhere")->rowCount();
                                 }
                             }
 

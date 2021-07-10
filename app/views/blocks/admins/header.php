@@ -1987,7 +1987,7 @@
 
           <!-- Quản lý Khách hàng -->
           <li class="hs-has-sub-menu">
-            <a id="customersMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkCustomersMngDropdown">
+            <a id="customersMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="{{_WEB_ROOT.'/customer'}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkCustomersMngDropdown">
               <i class="tio-group-equal nav-icon"></i> Quản lý Khách hàng
             </a>
 
@@ -1995,14 +1995,19 @@
             <ul id="navLinkCustomersMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdown" style="min-width: 16rem;">
               <!-- Khách hàng -->
               <li class="hs-has-sub-menu">
-                <a id="customersMngDropdownCustomers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkCustomersMngDropdownCustomers">
+                <a id="customersMngDropdownCustomers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="{{_WEB_ROOT.'/customer'}}" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkCustomersMngDropdownCustomers">
                   <span class="tio-circle nav-indicator-icon"></span> Khách hàng
                 </a>
 
                 <ul id="navLinkCustomersMngDropdownCustomers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdownCustomers" style="min-width: 16rem;">
                   <li>
-                    <a class="dropdown-item" href="users.html">
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/customer'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách khách hàng
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/customer-create'}}">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới khách hàng
                     </a>
                   </li>
                   <li>
