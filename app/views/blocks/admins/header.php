@@ -1995,13 +1995,13 @@
             <ul id="navLinkCustomersMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdown" style="min-width: 16rem;">
               <!-- Khách hàng -->
               <li class="hs-has-sub-menu">
-                <a id="customersMngDropdownCustomers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="{{_WEB_ROOT.'/customer'}}" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkCustomersMngDropdownCustomers">
+                <a id="customersMngDropdownCustomers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkCustomersMngDropdownCustomers">
                   <span class="tio-circle nav-indicator-icon"></span> Khách hàng
                 </a>
 
                 <ul id="navLinkCustomersMngDropdownCustomers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdownCustomers" style="min-width: 16rem;">
                   <li>
-                    <a class="dropdown-item" href="{{_WEB_ROOT.'/customer'}}">
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/customers'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách khách hàng
                     </a>
                   </li>
@@ -3254,13 +3254,18 @@
 
                   <ul id="navLinkCustomersMngDropdownCustomers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdownCustomers" style="min-width: 16rem;">
                     <li>
-                      <a class="dropdown-item" href="users.html">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/customers'}}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Khách hàng
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/customer-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới Khách hàng
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="users-leaderboard.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Khách hàng
+                      <a class="dropdown-item" href="">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thống kê Khách hàng
                       </a>
                     </li>
                   </ul>
@@ -3800,13 +3805,19 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="users.html" title="List Customer">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/customers'}}" title="List Customer">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách khách hàng </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="users-leaderboard.html" title="Statiscal Customer">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/customer-create'}}" title="Statiscal Customer">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span>
+                      <span class="text-truncate">Thêm mới khách hàng </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="" title="Statiscal Customer">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thống kê khách hàng </span>
                     </a>
@@ -4549,13 +4560,19 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="List Customer">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/customers'}}" title="List Customer">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách khách hàng</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="Statical Customer">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/customer-create'}}" title="Add Customer">
+                    <span class="tio-circle-outlined nav-indicator-icon"></span>
+                    <span class="text-truncate">Thêm mới khách hàng</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="" title="Statical Customer">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thống kê khách hàng</span>
                   </a>
