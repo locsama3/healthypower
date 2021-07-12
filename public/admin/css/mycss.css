@@ -22,3 +22,8 @@
 #list_roles{
    display: none;
 }
+
+.no_service{
+    margin-top: 0.65rem;
+    margin-bottom: 0;
+}

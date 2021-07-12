@@ -150,6 +150,8 @@
 
       var modal = $(this);
 
+      console.log(recipient);
+
       // avatar
       modal.find('#editAvatarImgModal').attr("src", "{{_WEB_ROOT.'/public/uploads/avatar/'}}" + recipient.avatar);
 
@@ -181,14 +183,16 @@
       });
 
       // address
+      if(recipient.address1 != ""){
+        var address = recipient.address1.split(',');
 
-      var address = recipient.address1.split(',');
+          modal.find('#editCityLabel').val(address[3].trim());
 
-      modal.find('#editCityLabel').val(address[3].trim());
+          modal.find('#editStateLabel').val(address[2].trim());
 
-      modal.find('#editStateLabel').val(address[2].trim());
-
-      modal.find('#editAddressLine1Label').val(`${address[0]},${address[1]}`);
+          modal.find('#editAddressLine1Label').val(`${address[0]},${address[1]}`);
+      }
+      
 
       // address2
       modal.find('#editAddressLine2Label').val(recipient.address2);
@@ -232,6 +236,23 @@
     // Xử lý riêng mình ên
     // =======================================================
     var _token = $('meta[name=csrf-token]').attr("content");
+
+    function displayError(formId, error) {
+      var form = document.getElementById(formId)
+      var formGroup = form.querySelectorAll(`.form-group`)
+
+      var keys = Object.keys(error)
+
+      // lặp qua từng form group và so sánh field name của input rồi gán lỗi
+      formGroup.forEach(element => {
+        keys.forEach(key => {
+          var inputFieldName = element.querySelector(`[name=${key}]`)
+          if (inputFieldName) {
+            element.querySelector('.form-message').innerHTML = error[key]
+          }
+        })
+      })
+    }
 
     function load_table() {
       $.ajax({
@@ -387,12 +408,13 @@
         url: '{{_WEB_ROOT."/admin-accounts-change-info"}}',
         method: 'post',
         data:form_data,
+        dataType: "JSON",
         contentType:false,
         cache:false,
         processData:false,
         success:function(data){
-          console.log(data);
-          if(data.trim() == 'true'){
+          console.log(typeof data);
+          if(data.status === "1"){
             swal({
               title: "",
               text: "Cập nhật thông tin thành công!",
@@ -408,7 +430,10 @@
               } 
             });
           }else{
-            swal("", "Cập nhật thông tin không thành công", "error");
+            swal("Thất bại!", data.message, "error")
+            if (data.error) {
+              displayError(data.form, data.error);
+            }
           }
         }
       });
