@@ -120,7 +120,7 @@
                                         <span id="datatableCounter">0</span>
                                         Lựa chọn
                                     </span>
-                                    <a class="btn btn-sm btn-outline-danger btn-delete-customers" href="javascript:;">
+                                    <a id="btn-delete-all" class="btn btn-sm btn-outline-danger" href="javascript:;">
                                         <i class="tio-delete-outlined"></i> Xóa
                                     </a>
                                 </div>
@@ -297,7 +297,7 @@
                         <tr>
                             <td class="table-column-pr-0">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input checkbox-customer" id="usersDataCheck{{ $customer['id'] }}" data-id="{{ $customer['id'] }}">
+                                    <input type="checkbox" class="custom-control-input checkbox-input" id="usersDataCheck{{ $customer['id'] }}" value="{{ $customer['id'] }}">
                                     <label class="custom-control-label" for="usersDataCheck{{ $customer['id'] }}"></label>
                                 </div>
                             </td>

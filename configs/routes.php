@@ -48,6 +48,14 @@
 
     $routes['products-create'] = 'product/create';
 
+    $routes['products-store'] = 'product/store';
+
+    $routes['products-edit/.+-(\d+)'] = 'product/edit/$1';
+
+    $routes['products-update/.+-(\d+)'] = 'product/update/$1';
+
+    $routes['products-destroy'] = 'product/destroy';
+
     // routes products categories
 
     $routes['products-category'] = 'productcategory/index';
