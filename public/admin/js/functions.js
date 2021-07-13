@@ -22,6 +22,9 @@ function sendData(url, data) {
                 swal("Thành công!", result.message, "success")
             } else {
                 swal("Thất bại!", result.message, "error")
+                if (result.error) {
+                    displayError(result.form, result.error)
+                }
             }
         })
         .catch(error => {
@@ -33,7 +36,7 @@ function sendData(url, data) {
 function sendDataByJSON(url, data) {
     fetch(url, {
         method: 'POST',
-        headers: { 
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
@@ -44,6 +47,9 @@ function sendDataByJSON(url, data) {
                 swal("Thành công!", result.message, "success")
             } else {
                 swal("Thất bại!", result.message, "error")
+                if (result.error) {
+                    displayError(result.form, result.error)
+                }
             }
         })
         .catch(error => {
@@ -60,39 +66,39 @@ function deleteListItems(url, itemName, location) {
     const btnDeleteAll = document.querySelector('#btn-delete-all')
 
     btnDeleteAll.addEventListener('click', () => {
-      swal({
-          title: "Xóa",
-          text: `Bạn có chắc chắn muốn xóa ${itemName} này không?`,
-          type: "error",
-          showCancelButton: true,
-          confirmButtonClass: "btn-danger",
-          confirmButtonText: "Xóa",
-          cancelButtonText: "Không",
-          closeOnConfirm: false,
-          closeOnCancel: false
+        swal({
+            title: "Xóa",
+            text: `Bạn có chắc chắn muốn xóa ${itemName} này không?`,
+            type: "error",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Xóa",
+            cancelButtonText: "Không",
+            closeOnConfirm: false,
+            closeOnCancel: false
         },
-        function(isConfirm) {
-          if (isConfirm) {
-            var checkboxInputs = document.querySelectorAll('.checkbox-input')
-            checkboxInputs.forEach((checkbox) => {
-              if (checkbox.checked) {
-                id = checkbox.value
-                data.push(id) 
-              }
-            })
+            function (isConfirm) {
+                if (isConfirm) {
+                    var checkboxInputs = document.querySelectorAll('.checkbox-input')
+                    checkboxInputs.forEach((checkbox) => {
+                        if (checkbox.checked) {
+                            id = checkbox.value
+                            data.push(id)
+                        }
+                    })
 
-            let form = new FormData();
-            form.append('_id', data)
-            form.append('_token', _token)
+                    let form = new FormData();
+                    form.append('_id', data)
+                    form.append('_token', _token)
 
-            sendData(url, form)
-            redirect(location, 1000)
-          } else {
-            swal("Đóng!",  `Không xóa ${itemName} này!`, "warning");
-          }
-        });
+                    sendData(url, form)
+                    redirect(location, 1000)
+                } else {
+                    swal("Đóng!", `Không xóa ${itemName} này!`, "warning");
+                }
+            });
     })
-  }
+}
 
 // Hàm xóa 1 phần tử
 function deleteItem(item, url, itemName, location) {
@@ -107,19 +113,37 @@ function deleteItem(item, url, itemName, location) {
         closeOnConfirm: false,
         closeOnCancel: false
     },
-    function(isConfirm) {
-        if (isConfirm) {
-            var _id = item.getAttribute('data-id')
-            const _token = $('meta[name=csrf-token]').attr("content")
+        function (isConfirm) {
+            if (isConfirm) {
+                var _id = item.getAttribute('data-id')
+                const _token = $('meta[name=csrf-token]').attr("content")
 
-            let form = new FormData();
-            form.append('_id', _id)
-            form.append('_token', _token)
+                let form = new FormData();
+                form.append('_id', _id)
+                form.append('_token', _token)
 
-            sendData(url, form)
-            redirect(location, 1000)
-        } else {
-            swal("Đóng!",  `Không xóa ${itemName} này!`, "warning");
-        }
-    });
+                sendData(url, form)
+                redirect(location, 1000)
+            } else {
+                swal("Đóng!", `Không xóa ${itemName} này!`, "warning");
+            }
+        });
+}
+
+// Hàm hiển thị lỗi khi server trả dữ liệu lỗi về client
+function displayError(formId, error) {
+    var form = document.getElementById(formId)
+    var formGroup = form.querySelectorAll(`.form-group`)
+
+    var keys = Object.keys(error)
+
+    // lặp qua từng form group và so sánh field name của input rồi gán lỗi
+    formGroup.forEach(element => {
+        keys.forEach(key => {
+            var inputFieldName = element.querySelector(`[name=${key}]`)
+            if (inputFieldName) {
+                element.querySelector('.form-message').innerHTML = error[key]
+            }
+        })
+    })
 }

@@ -103,7 +103,7 @@
 
                                   <div class="input-group input-group-sm-down-break align-items-center">
                                       <input type="text" class="js-masked-input form-control" name="phone" id="phoneLabel" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx" data-hs-mask-options='{
-                                            "template": "+0(000)000-00-00"
+                                            "template": "(+84) 000 000 000"
                                         }'>
 
                                       <div class="input-group-append">

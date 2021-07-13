@@ -6,26 +6,15 @@
       var customFile = new HSFileAttach($(this)).init();
     });
 
+    // INITIALIZATION OF MASKED INPUT
+    // =======================================================
+    $('.js-masked-input').each(function () {
+      var mask = $.HSCore.components.HSMask.init($(this));
+    });
+
     const _token = $('meta[name=csrf-token]').attr("content");
     const url = "{{ _WEB_ROOT }}/customer-store";
     let checkSubmitSuccess = false;
-
-    function displayError(formId, error) {
-      var form = document.getElementById(formId)
-      var formGroup = form.querySelectorAll(`.form-group`)
-
-      var keys = Object.keys(error)
-
-      // lặp qua từng form group và so sánh field name của input rồi gán lỗi
-      formGroup.forEach(element => {
-        keys.forEach(key => {
-          var inputFieldName = element.querySelector(`[name=${key}]`)
-          if (inputFieldName) {
-            element.querySelector('.form-message').innerHTML = error[key]
-          }
-        })
-      })
-    }
 
     // Mong muốn của chúng ta
     Validator({
@@ -44,7 +33,7 @@
         // form.submit();
         let form = document.getElementById('form-info-account')
         formMessage = form.querySelectorAll('.form-message')
-        console.log(formMessage);
+        
         formMessage.forEach(element => {
           element.innerHTML = ''
         })
@@ -65,25 +54,7 @@
         //       }
         //   }
         // });
-        fetch(url, {
-            method: 'POST',
-            body: formDataInfo
-        })
-            .then(res => res.json())
-            .then(result => {
-                if (result.status == "1") {
-                  swal("Thành công!", result.message, "success")
-                  checkSubmitSuccess = true;
-                } else {
-                  swal("Thất bại!", result.message, "error")
-                  if (result.error) {
-                    displayError(result.form, result.error)
-                  }
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            })
+        sendData(url, formDataInfo)
       }
     });
     

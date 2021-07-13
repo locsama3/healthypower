@@ -8,7 +8,7 @@
   <!-- Content -->
   <div class="content container-fluid">
     <!-- Page Header -->
-    <form action="{{ _WEB_ROOT }}/product/insert_product" method="post" enctype="multipart/form-data" name="formInsert">
+    <form action="{{ _WEB_ROOT }}/product-store" method="post" enctype="multipart/form-data" id="formInsertProduct">
       <div class="page-header">
         <div class="row align-items-center">
           <div class="col-sm mb-2 mb-sm-0">
@@ -42,7 +42,8 @@
               <div class="form-group">
                 <label for="productNameLabel" class="input-label">Tên <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Products are the goods or services you sell."></i></label>
 
-                <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Shirt, t-shirts, etc." aria-label="Shirt, t-shirts, etc.">
+                <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Whey protein, thực phẩm bổ sung, v..v.." aria-label="Shirt, t-shirts, etc.">
+                <span class="form-message"></span>
               </div>
               <!-- End Form Group -->
 
@@ -53,6 +54,7 @@
                     <label for="SKULabel" class="input-label">SKU</label>
 
                     <input type="text" class="form-control" name="SKU" id="SKULabel" placeholder="eg. 348121032" aria-label="eg. 348121032">
+                    <span class="form-message"></span>
                   </div>
                   <!-- End Form Group -->
                 </div>
@@ -83,17 +85,19 @@
                     </div>
 
                     <small class="form-text">Được sử dụng để tính phí vận chuyển khi thanh toán và giá nhãn trong quá trình thực hiện.</small>
+                    <span class="form-message"></span>
                   </div>
                   <!-- End Form Group -->
                 </div>
               </div>
               <!-- End Row -->
-
-              <label class="input-label">Mô tả <span class="input-label-secondary">(lựa chọn)</span></label>
-
-              <!-- Quill -->
-              <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả sản phẩm" style="display: none;"></textarea>
-              <!-- End Quill -->
+              <div class="form-group">
+                <label class="input-label">Mô tả <span class="input-label-secondary">(lựa chọn)</span></label>
+                <!-- Ckeditor -->
+                <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả sản phẩm"></textarea>
+                <!-- End Ckeditor -->
+                <span class="form-message"></span>
+              </div>
             </div>
             <!-- Body -->
           </div>
@@ -129,14 +133,22 @@
 
             <!-- Body -->
             <div class="card-body">
+              <!-- Gallery -->
+              <div id="fancyboxGallery" class="js-fancybox row justify-content-sm-center gx-2" data-hs-fancybox-options='{
+                        "selector": "#fancyboxGallery .js-fancybox-item"
+                      }'>
+              </div>
+              <!-- End Gallery -->
+
               <!-- Dropzone -->
-              <div id="attachFilesNewProjectLabel" class="js-dropzone dropzone-custom custom-file-boxed">
-                <div class="dz-message custom-file-boxed-label">
-                  <img class="avatar avatar-xl avatar-4by3 mb-3" src="{{ _WEB_ROOT }}\public\admin\svg\illustrations\browse.svg" alt="Image Description">
-                  <h5 class="mb-1">Chọn tệp để tải lên</h5>
-                  <p class="mb-2">hoặc</p>
-                  <span class="btn btn-sm btn-primary">Tìm kiếm tệp</span>
+              <div class="form-group">
+                <div id="drop-area">
+                  <img class="avatar avatar-xl avatar-4by3 mb-3" src="{{ _WEB_ROOT }}/public/admin/svg/illustrations/browse.svg" alt="Image Description">
+                  <p>Thêm hoặc thả tệp để upload</p>
+                  <input type="file" id="fileElem" name="fileImg" multiple accept="image/*">
+                  <label class="button-input-files">Tìm kiếm tệp</label>  
                 </div>
+                <span class="form-message"></span>
               </div>
               <!-- End Dropzone -->
             </div>
@@ -412,6 +424,7 @@
                     <!-- End Select -->
                   </div>
                 </div>
+                <span class="form-message"></span>
               </div>
               <!-- End Form Group -->
 
@@ -470,6 +483,7 @@
                   @endforeach
                 </select>
                 <!-- End Select -->
+                <span class="form-message"></span>
               </div>
               <!-- End Form Group -->
 
@@ -488,6 +502,7 @@
                   @endforeach
                 </select>
                 <!-- End Select -->
+                <span class="form-message"></span>
               </div>
               <!-- Form Group -->
 
@@ -511,10 +526,12 @@
                 <span class="form-text">Add this product to a collection so it’s easy to find in your store.</span>
               </div>
               <!-- Form Group -->
+              <div class="form-group">
+                <label for="tagsLabel" class="input-label">Tags</label>
 
-              <label for="tagsLabel" class="input-label">Tags</label>
-
-              <input type="text" class="js-tagify tagify-form-control form-control" name="tagsName" id="tagsLabel" placeholder="Thêm vào nhãn" aria-label="Enter tags here">
+                <input type="text" class="js-tagify tagify-form-control form-control" name="tagsName" id="tagsLabel" placeholder="Thêm vào nhãn" aria-label="Enter tags here">
+                <span class="form-message"></span>
+              </div>            
             </div>
             <!-- End Body -->
           </div>

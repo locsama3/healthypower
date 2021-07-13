@@ -4,12 +4,14 @@ class Product extends Controller{
     public $productModel;
     public $prodCateModel;
     public $supplierModel;
+    public $productGalleryModel;
     public $request, $response;
 
     public function __construct(){
         $this->productModel = $this->model('ProductModel');
         $this->prodCateModel = $this->model('ProductCategoryModel');
         $this->supplierModel = $this->model('SupplierModel');
+        $this->productGalleryModel = $this->model('ProductGalleryModel');
         $this->request = new Request();
         $this->response = new Response();
     }
@@ -54,7 +56,8 @@ class Product extends Controller{
         $data['libraryJS']['list_js'] = [
             'ckeditor' => 'ckeditor/ckeditor.js',
             'changeEditor' => 'changeEditor.js',
-            'validate' => 'validate.js'
+            'validate' => 'validate.js',
+            'function' => 'functions.js'
         ];
 
         $data['page_title'] = "Thêm mới sản phẩm";
@@ -64,7 +67,86 @@ class Product extends Controller{
 
     public function store()
     {
-        
+        if ($this->request->isPost()){
+            // Lấy dữ liệu từ form
+            $dataFields = $this->request->getFields();
+
+            /*Set rules*/
+            $this->request->rules([
+                'productName' => 'required',
+                'weightName' => 'required',
+                'productPrice' => 'required',
+                'supplierProductId' => 'required',
+                'categoryProductId' => 'required',
+                'file' => 'required',
+            ]);
+
+            //Set message
+            $this->request->message([
+                'productName.required' => 'Tên sản phẩm không được để trống',
+                'weightName.required' => 'khối lượng sản phẩm không được để trống',
+                'productPrice.required' => 'Giá sản phẩm không được để trống',
+                'supplierProductId.required' => 'Nhà cung cấp không dược để trống',
+                'categoryProductId.required' => 'Loại sản phẩm không được để trống',
+                'file.required' => 'Cần tối thiểu ít nhất 1 tệp hình',
+            ]);
+
+            $validate = $this->request->validate();
+            if (!$validate){
+                $message = [
+                    'status' => '0',
+                    'message' => "Đã có lỗi xảy ra, Vui lòng kiểm tra lại."
+                ];
+
+                $sessionKey = Session::isInvalid();
+                $error = Session::flash($sessionKey.'_errors');
+                $message['error'] = $error;
+                exit(json_encode($message));
+            }
+
+            // đưa data vào
+            $data = [
+                'product_name'      => $dataFields['productName'],
+                'product_code'      => $dataFields['SKU'],
+                'list_price'        => $dataFields['productPrice'],
+                'supplier_id'       => $dataFields['supplierProductId'],
+                'category_id'       => $dataFields['categoryProductId'],
+                'weight'            => $dataFields['weightName'],
+                'product_slug'      => '',
+                'description'       => !empty($dataFields['description']) ? $dataFields['description'] : "",
+                'standard_cost'     => !empty($dataFields['standard_cost']) ? $dataFields['standard_cost'] : null,
+                'quantity_per_unit' => !empty($dataFields['quantity_per_unit']) ? $dataFields['quantity_per_unit'] : 0,
+                'discontinued'      => !empty($dataFields['discontinued']) ? $dataFields['discontinued'] : 1,
+                'is_featured'       => !empty($dataFields['is_featured']) ? $dataFields['is_featured'] : null,
+                'is_new'            => !empty($dataFields['is_new']) ? $dataFields['is_new'] : null
+            ];
+
+            $get_images = $dataFields['file'];
+            $uploadPath = "public/uploads/products/";
+
+            if($get_images){
+                $data['image'] = ProcessImage::uploadImageBySrc($get_images[0], $uploadPath);
+                unset($get_images[0]);
+            }
+
+            // thêm sản phẩm mới
+            $result = $this->productModel->create($data);
+            
+            // xử lý thêm hình ảnh vào gallery
+            $dataGallery['product_id'] = $result;
+
+            foreach($get_images as $image) {
+                $dataGallery['image'] = ProcessImage::uploadImageBySrc($image, $uploadPath);
+                $insertGallery = $this->productGalleryModel->create($dataGallery);
+            }
+
+            $message = [
+                "status" => "1",
+                'message' => "Thêm sản phẩm mới thành công!"
+            ];
+    
+            exit(json_encode($message));
+        }
     }
 
     public function edit($id)
@@ -107,11 +189,11 @@ class Product extends Controller{
     public function loadMetaTag()
     {
         return $dataMeta = [
-            'meta_title' => 'Bài viết',
-            'meta_desc' => 'blogs, bài viết, dinh dưỡng, sức khỏe',
+            'meta_title' => 'Sản phẩm',
+            'meta_desc' => 'Thêm sản phẩm, thông tin sản phẩm',
             'meta_keywords' => 'heathy, whey, vitamin, oars',
             'url_canonical' => _WEB_ROOT,
-            'meta_author' => 'Lộc sama',
+            'meta_author' => 'healthy power',
             'image_og' => 'favicon.ico'
         ];  
     }

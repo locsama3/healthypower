@@ -47,7 +47,8 @@ class Customer extends Controller{
         ];
 
         $data['libraryJS']['list_js'] = [
-            'validate' => 'validate.js'
+            'validate' => 'validate.js',
+            'functions' => 'functions.js'
         ];
 
         return $this->view('layouts.admin_layout', $data);

@@ -20,6 +20,7 @@ class ProductModel extends Model {
     function create($data)
     {
         $this->db->table('shop_products')->insert($data);
+        return $this->db->lastId();
     }
 
     function edit($id, $data)
