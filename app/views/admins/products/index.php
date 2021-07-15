@@ -304,7 +304,7 @@
                 </div>
               </td>
               <td class="table-column-pl-0" style=" max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
-                <a class="media align-items-center" href="{{ _WEB_ROOT }}/product-edit/proid-{{ $product['id'] }}">
+                <a class="media align-items-center" href="{{ _WEB_ROOT }}/products-edit/proid-{{ $product['id'] }}">
                   <img class="avatar avatar-lg mr-3" src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}" alt="Image Description">
                   <div class="media-body">
                     <h5 class="text-hover-primary mb-0">{{ $product['product_name'] }}</h5>
@@ -321,7 +321,7 @@
               <td>Google</td>
               <td>
                 <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox{{ $product['id'] }}">
-                  <input type="checkbox" class="toggle-switch-input" id="stocksCheckbox{{ $product['id'] }}" <?php echo ($product['discontinued'] == 1) ? 'checked' : '' ?>>
+                  <input type="checkbox" class="toggle-switch-input" id="stocksCheckbox{{ $product['id'] }}" <?php echo ($product['status'] == 1) ? 'checked' : '' ?>>
                   <span class="toggle-switch-label">
                     <span class="toggle-switch-indicator"></span>
                   </span>
@@ -333,7 +333,7 @@
               <td>2</td>
               <td>
                 <div class="btn-group" role="group">
-                  <a class="btn btn-sm btn-white" href="{{ _WEB_ROOT }}/product/edit_product/proid-{{ $product['product_id'] }}">
+                  <a class="btn btn-sm btn-white" href="{{ _WEB_ROOT }}/products-edit/proid-{{ $product['id'] }}">
                     <i class="tio-edit"></i> Sửa
                   </a>
 

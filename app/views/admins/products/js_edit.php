@@ -75,7 +75,7 @@ $(document).on('ready', function() {
 
     function removeFile(element) {
       while (element.parentElement) {
-        if (element.parentElement.matches(".card-image-wrapper")) {
+        if (element.parentElement.matches(".card-image-wrapper")){
           element.parentElement.remove();
         }
       }
@@ -124,7 +124,7 @@ $(document).on('ready', function() {
       imgUploads = [];
       imageCards = document.querySelectorAll(`.${classCardImg}`)
       imageCards.forEach(card => {
-          imgUploads.push(card.src);
+          imgUploads.push(card.src)
       })
 
       newData = {
@@ -137,14 +137,14 @@ $(document).on('ready', function() {
       return newData;
     }
     
-    const formInsertProduct = document.querySelector('#formInsertProduct')
+    const formUpdateProduct = document.querySelector('#formUpdateProduct')
+    const id = formUpdateProduct.getAttribute('data-id')
     const _token = $('meta[name=csrf-token]').attr("content")
-    const url = "{{ _WEB_ROOT }}/products-store"
-    const urlListProduct = "{{ _WEB_ROOT }}/products"
+    const url = "{{ _WEB_ROOT }}/products-update/proid-" + id
 
     // Mong muốn của chúng ta
     Validator({
-      form: '#formInsertProduct',
+      form: '#formUpdateProduct',
       formGroupSelector: '.form-group',
       errorSelector: '.form-message',
       rules: [
@@ -153,13 +153,11 @@ $(document).on('ready', function() {
         Validator.isRequired('#priceNameLabel', 'Vui lòng nhập giá sản phẩm'),
         Validator.isRequired('#supplierLabel', 'Vui lòng nhập nhà cung cấp sản phẩm'),
         Validator.isRequired('#categoryLabel', 'Vui lòng nhập loại sản phẩm'),
-        Validator.isRequired('#fileElem', 'Vui lòng thêm tối thiểu 1 hình ảnh đại diện'),
       ],
       onSubmit: function(data) {
         formData = handleDataUpload(data, _token, "card-img-top");
         formData.description = CKEDITOR.instances['ckeditor1'].getData();
         console.log(formData);
-
         /**
          * không dùng fetch ở đây vì fetch bắt buộc dùng FormData hoặc Json
          * Như vậy thì sẽ vi phạm _token
@@ -174,7 +172,6 @@ $(document).on('ready', function() {
             let result = JSON.parse(response);
             if (result.status == "1") {
               swal("Thành công!", result.message, "success")
-              redirect(urlListProduct, 1000)
             } else {
               swal("Thất bại!", result.message, "error")
                 if (result.error) {

@@ -94,7 +94,7 @@
               <div class="form-group">
                 <label class="input-label">Mô tả <span class="input-label-secondary">(lựa chọn)</span></label>
                 <!-- Ckeditor -->
-                <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả sản phẩm"></textarea>
+                <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả sản phẩm" style="display: none;"></textarea>
                 <!-- End Ckeditor -->
                 <span class="form-message"></span>
               </div>
@@ -441,17 +441,58 @@
               <hr class="my-4">
 
               <!-- Toggle Switch -->
-              <label class="row toggle-switch" for="availabilitySwitch1">
-                <span class="col-8 col-sm-9 toggle-switch-content">
-                  <span class="text-dark">Còn hàng</span>
-                </span>
-                <span class="col-4 col-sm-3">
-                  <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch1">
-                  <span class="toggle-switch-label ml-auto">
-                    <span class="toggle-switch-indicator"></span>
+              <div class="form-group">
+                <label class="row toggle-switch" for="availabilitySwitch1">
+                  <span class="col-8 col-sm-9 toggle-switch-content">
+                    <span class="text-dark">Còn hàng</span>
                   </span>
-                </span>
-              </label>
+                  <span class="col-4 col-sm-3">
+                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch1" name="discontinued">
+                    <span class="toggle-switch-label ml-auto">
+                      <span class="toggle-switch-indicator"></span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="row toggle-switch" for="availabilitySwitch2">
+                  <span class="col-8 col-sm-9 toggle-switch-content">
+                    <span class="text-dark">Hiển thị</span>
+                  </span>
+                  <span class="col-4 col-sm-3">
+                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch2" name="status" checked>
+                    <span class="toggle-switch-label ml-auto">
+                      <span class="toggle-switch-indicator"></span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="row toggle-switch" for="availabilitySwitch3">
+                  <span class="col-8 col-sm-9 toggle-switch-content">
+                    <span class="text-dark">Sản phẩm mới</span>
+                  </span>
+                  <span class="col-4 col-sm-3">
+                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch3" name="isNew">
+                    <span class="toggle-switch-label ml-auto">
+                      <span class="toggle-switch-indicator"></span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="row toggle-switch" for="availabilitySwitch4">
+                  <span class="col-8 col-sm-9 toggle-switch-content">
+                    <span class="text-dark">Sản phẩm nổi bật</span>
+                  </span>
+                  <span class="col-4 col-sm-3">
+                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch4" name="isFeatured">
+                    <span class="toggle-switch-label ml-auto">
+                      <span class="toggle-switch-indicator"></span>
+                    </span>
+                  </span>
+                </label>
+              </div>             
               <!-- End Toggle Switch -->
             </div>
             <!-- Body -->

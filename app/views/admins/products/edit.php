@@ -8,18 +8,18 @@
     <!-- Content -->
     <div class="content container-fluid">
         <!-- Page Header -->
-        <form action="{{ _WEB_ROOT }}/product-store" method="post" enctype="multipart/form-data" id="formInsertProduct">
+        <form method="post" enctype="multipart/form-data" id="formUpdateProduct" data-id="{{ $product_by_id['id'] }}">
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col-sm mb-2 mb-sm-0">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb breadcrumb-no-gutter">
                                 <li class="breadcrumb-item"><a class="breadcrumb-link" href="ecommerce-products.html">Sản phẩm</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Thêm sản phẩm</li>
+                                <li class="breadcrumb-item active" aria-current="page">Chỉnh sửa sản phẩm</li>
                             </ol>
                         </nav>
 
-                        <h1 class="page-header-title">Thêm sản phẩm</h1>
+                        <h1 class="page-header-title">Chỉnh sửa sản phẩm</h1>
                     </div>
                 </div>
                 <!-- End Row -->
@@ -42,7 +42,7 @@
                             <div class="form-group">
                                 <label for="productNameLabel" class="input-label">Tên <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Products are the goods or services you sell."></i></label>
 
-                                <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Whey protein, thực phẩm bổ sung, v..v.." aria-label="Shirt, t-shirts, etc.">
+                                <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Whey protein, thực phẩm bổ sung, v..v.." aria-label="Shirt, t-shirts, etc." value="{{ $product_by_id['product_name'] }}">
                                 <span class="form-message"></span>
                             </div>
                             <!-- End Form Group -->
@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                         <label for="SKULabel" class="input-label">SKU</label>
 
-                                        <input type="text" class="form-control" name="SKU" id="SKULabel" placeholder="eg. 348121032" aria-label="eg. 348121032">
+                                        <input type="text" class="form-control" name="SKU" id="SKULabel" placeholder="eg. 348121032" aria-label="eg. 348121032" value="{{ $product_by_id['product_code'] }}">
                                         <span class="form-message"></span>
                                     </div>
                                     <!-- End Form Group -->
@@ -65,7 +65,7 @@
                                         <label for="weightLabel" class="input-label">khối lượng</label>
 
                                         <div class="input-group input-group-merge">
-                                            <input type="text" class="form-control" name="weightName" id="weightLabel" placeholder="0.0" aria-label="0.0">
+                                            <input type="text" class="form-control" name="weightName" id="weightLabel" placeholder="0.0" aria-label="0.0" value="{{ $product_by_id['weight'] }}">
                                             <div class="input-group-append">
                                                 <!-- Select -->
                                                 <div id="weightSelect" class="select2-custom select2-custom-right">
@@ -94,7 +94,7 @@
                             <div class="form-group">
                                 <label class="input-label">Mô tả <span class="input-label-secondary">(lựa chọn)</span></label>
                                 <!-- Ckeditor -->
-                                <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả sản phẩm"></textarea>
+                                <textarea name="description" id="ckeditor1" cols="30" rows="10" placeholder="Mô tả sản phẩm">{{ $product_by_id['description'] }}</textarea>
                                 <!-- End Ckeditor -->
                                 <span class="form-message"></span>
                             </div>
@@ -135,8 +135,60 @@
                         <div class="card-body">
                             <!-- Gallery -->
                             <div id="fancyboxGallery" class="js-fancybox row justify-content-sm-center gx-2" data-hs-fancybox-options='{
-                        "selector": "#fancyboxGallery .js-fancybox-item"
-                      }'>
+                                "selector": "#fancyboxGallery .js-fancybox-item"
+                            }'>
+                                <div class="col-6 col-sm-4 col-md-3 mb-3 mb-lg-5 card-image-wrapper">
+                                    <!-- Card -->
+                                    <div class="card card-sm">
+                                        <img class="card-img-top" src="{{ _WEB_ROOT.'/public/uploads/products/'.$product_by_id['image'] }}" alt="Image Description">
+    
+                                        <div class="card-body">
+                                        <div class="row text-center">
+                                            <div class="col">
+                                            <a class="js-fancybox-item text-body" href="javascript:;" data-toggle="tooltip" data-placement="top" title="View" data-src="{{ _WEB_ROOT }}/public/admin/img/1920x1080/img1.jpg" data-caption="Image #02">
+                                                <i class="tio-visible-outlined"></i>
+                                            </a>
+                                            </div>
+    
+                                            <div class="col column-divider">
+                                            <div class="text-danger" data-toggle="tooltip" data-placement="top" title="Delete" onclick="removeFile(this)">
+                                                <i class="tio-delete-outlined"></i>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row -->
+                                        </div>
+                                    </div>
+                                    <!-- End Card -->
+                                </div>
+                                @if (!empty($list_gallery))
+                                @foreach ($list_gallery as $img)
+                                <div class="col-6 col-sm-4 col-md-3 mb-3 mb-lg-5 card-image-wrapper">
+                                    <!-- Card -->
+                                    <div class="card card-sm">
+                                        <img class="card-img-top" src="{{ _WEB_ROOT.'/public/uploads/products/'.$img['image'] }}" alt="Image Description">
+    
+                                        <div class="card-body">
+                                        <div class="row text-center">
+                                            <div class="col">
+                                            <a class="js-fancybox-item text-body" href="javascript:;" data-toggle="tooltip" data-placement="top" title="View" data-src="{{ _WEB_ROOT }}/public/admin/img/1920x1080/img1.jpg" data-caption="Image #02">
+                                                <i class="tio-visible-outlined"></i>
+                                            </a>
+                                            </div>
+    
+                                            <div class="col column-divider">
+                                            <div class="text-danger" data-toggle="tooltip" data-placement="top" title="Delete" onclick="removeFile(this)">
+                                                <i class="tio-delete-outlined"></i>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Row -->
+                                        </div>
+                                    </div>
+                                    <!-- End Card -->
+                                </div>
+                                @endforeach
+                                @endif
                             </div>
                             <!-- End Gallery -->
 
@@ -274,16 +326,16 @@
                                 <label for="priceNameLabel" class="input-label">Giá</label>
 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="productPrice" id="priceNameLabel" placeholder="0.00" aria-label="0.00">
+                                    <input type="text" class="form-control" name="productPrice" id="priceNameLabel" placeholder="0.00" aria-label="0.00" value="{{ $product_by_id['list_price'] }}">
 
                                     <div class="input-group-append">
                                         <!-- Select -->
                                         <div id="priceSelect" class="select2-custom select2-custom-right">
                                             <select class="js-select2-custom custom-select" size="1" style="opacity: 0;" data-hs-select2-options='{
-                                    "dropdownParent": "#priceSelect",
-                                    "dropdownAutoWidth": true,
-                                    "width": true
-                                  }'>
+                                            "dropdownParent": "#priceSelect",
+                                            "dropdownAutoWidth": true,
+                                            "width": true
+                                        }'>
                                                 <option value="USD" selected="">USD</option>
                                                 <option value="AED">AED</option>
                                                 <option value="AFN">AFN</option>
@@ -441,17 +493,74 @@
                             <hr class="my-4">
 
                             <!-- Toggle Switch -->
-                            <label class="row toggle-switch" for="availabilitySwitch1">
+                            <div class="form-group">
+                                <label class="row toggle-switch" for="availabilitySwitch1">
+                                    <span class="col-8 col-sm-9 toggle-switch-content">
+                                        <span class="text-dark">Còn hàng</span>
+                                    </span>
+                                    <span class="col-4 col-sm-3">
+                                        @if ($product_by_id['discontinued'] == 1)
+                                        <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch1" checked name="discontinued">
+                                        @else
+                                        <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch1" name="discontinued">
+                                        @endif
+                                        <span class="toggle-switch-label ml-auto">
+                                            <span class="toggle-switch-indicator"></span>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="row toggle-switch" for="availabilitySwitch2">
                                 <span class="col-8 col-sm-9 toggle-switch-content">
-                                    <span class="text-dark">Còn hàng</span>
+                                    <span class="text-dark">Hiển thị</span>
                                 </span>
                                 <span class="col-4 col-sm-3">
-                                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch1">
+                                    @if ($product_by_id['status'] == 1)
+                                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch2" checked name="status">
+                                    @else
+                                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch2" name="status">
+                                    @endif
                                     <span class="toggle-switch-label ml-auto">
                                         <span class="toggle-switch-indicator"></span>
                                     </span>
                                 </span>
-                            </label>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="row toggle-switch" for="availabilitySwitch3">
+                                <span class="col-8 col-sm-9 toggle-switch-content">
+                                    <span class="text-dark">Sản phẩm mới</span>
+                                </span>
+                                <span class="col-4 col-sm-3">
+                                    @if ($product_by_id['is_new'] == 1)
+                                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch3" checked  name="isNew">
+                                    @else
+                                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch3"  name="isNew">
+                                    @endif
+                                    <span class="toggle-switch-label ml-auto">
+                                        <span class="toggle-switch-indicator"></span>
+                                    </span>
+                                </span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="row toggle-switch" for="availabilitySwitch4">
+                                <span class="col-8 col-sm-9 toggle-switch-content">
+                                    <span class="text-dark">Sản phẩm nổi bật</span>
+                                </span>
+                                <span class="col-4 col-sm-3">
+                                    @if ($product_by_id['is_featured'] == 1)
+                                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch4" checked name="isFeatured">
+                                    @else
+                                    <input type="checkbox" class="toggle-switch-input" id="availabilitySwitch4" name="isFeatured">
+                                    @endif
+                                    <span class="toggle-switch-label ml-auto">
+                                        <span class="toggle-switch-indicator"></span>
+                                    </span>
+                                </span>
+                                </label>
+                            </div>
                             <!-- End Toggle Switch -->
                         </div>
                         <!-- Body -->
@@ -479,7 +588,11 @@
                           }'>
                                     <option label="empty"></option>
                                     @foreach ($list_suppliers as $supplier)
+                                    @if ($product_by_id['supplier_id'] == $supplier['id'])
+                                    <option value="{{ $supplier['id'] }}" selected>{{ $supplier['supplier_name'] }}</option>
+                                    @else 
                                     <option value="{{ $supplier['id'] }}">{{ $supplier['supplier_name'] }}</option>
+                                    @endif
                                     @endforeach
                                 </select>
                                 <!-- End Select -->
@@ -498,7 +611,11 @@
                           }'>
                                     <option label="empty"></option>
                                     @foreach ($list_prod_cates as $cate)
+                                    @if ($product_by_id['category_id'] == $cate['id'])
+                                    <option value="{{ $cate['id'] }}" selected>{{ $cate['category_name'] }}</option>
+                                    @else 
                                     <option value="{{ $cate['id'] }}">{{ $cate['category_name'] }}</option>
+                                    @endif
                                     @endforeach
                                 </select>
                                 <!-- End Select -->
