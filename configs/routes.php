@@ -199,4 +199,6 @@
 
     $routes['customer-destroy'] = 'customer/destroy';
 
+    // routes delivery
+    $routes['deliveries'] = 'delivery/index';
 ?>

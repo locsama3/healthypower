@@ -273,10 +273,14 @@ class AdminAccount extends Controller{
     public function change_info()
     {
         if ($this->request->isPost()){
+            $dataFields = $this->request->getFields();
+
+            $id = $dataFields['id'];
+
             /*Set rules*/
             $this->request ->rules([
                 'fullName' => 'required|min:5|max:88',
-                'email' => 'required|email|min:5|unique:acl_users:email',
+                'email' => 'required|email|min:5|unique:acl_users:email:id='.$id,
                 'jobTitle' => 'required'
             ]);
 
@@ -294,8 +298,16 @@ class AdminAccount extends Controller{
 
             $validate = $this->request->validate();
             if (!$validate){
-                echo "false";
-                return false;
+                $message = [
+                    'status' => '0',
+                    'message' => "Đã có lỗi xảy ra. Vui lòng kiểm tra lại.",
+                    'form' => 'form-edit1'
+                ];
+
+                $sessionKey = Session::isInvalid();
+                $error = Session::flash($sessionKey.'_errors');
+                $message['error'] = $error;
+                exit(json_encode($message));
             }
         }
 
@@ -319,7 +331,6 @@ class AdminAccount extends Controller{
 
         if(!empty($get_image)){
             $uploadPath = "public/uploads/avatar/";
-            ProcessImage::del_upload($id, $uploadPath, 'AdminAccountModel', 'avatar');
             $unique_image = ProcessImage::checkImage($get_image, $uploadPath);
             if($unique_image){
                 $data['avatar'] = $unique_image;
@@ -338,7 +349,12 @@ class AdminAccount extends Controller{
         
         self::update_user_permission($id, $permissions);
 
-        echo "true";
+        $message = [
+            "status" => "1",
+            'message' => "Cập nhật thông tin thành công!"
+        ];
+
+        exit(json_encode($message));
     }
 
     public function update_user_role($user_id, $role)
