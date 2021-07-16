@@ -54,6 +54,8 @@
 
     $routes['products-update/.+-(\d+)'] = 'product/update/$1';
 
+    $routes['products-status'] = 'product/status';
+
     $routes['products-destroy'] = 'product/destroy';
 
     // routes products categories

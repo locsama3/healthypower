@@ -145,13 +145,13 @@
                                         <div class="card-body">
                                         <div class="row text-center">
                                             <div class="col">
-                                            <a class="js-fancybox-item text-body" href="javascript:;" data-toggle="tooltip" data-placement="top" title="View" data-src="{{ _WEB_ROOT }}/public/admin/img/1920x1080/img1.jpg" data-caption="Image #02">
+                                            <a class="js-fancybox-item text-body" href="javascript:;" data-placement="top" title="View" data-src="{{ _WEB_ROOT }}/public/admin/img/1920x1080/img1.jpg" data-caption="Image #02">
                                                 <i class="tio-visible-outlined"></i>
                                             </a>
                                             </div>
     
                                             <div class="col column-divider">
-                                            <div class="text-danger" data-toggle="tooltip" data-placement="top" title="Delete" onclick="removeFile(this)">
+                                            <div class="text-danger btn-delete-card-img" data-placement="top" title="Delete" onclick="removeFile(this)">
                                                 <i class="tio-delete-outlined"></i>
                                             </div>
                                             </div>
@@ -171,13 +171,13 @@
                                         <div class="card-body">
                                         <div class="row text-center">
                                             <div class="col">
-                                            <a class="js-fancybox-item text-body" href="javascript:;" data-toggle="tooltip" data-placement="top" title="View" data-src="{{ _WEB_ROOT }}/public/admin/img/1920x1080/img1.jpg" data-caption="Image #02">
+                                            <a class="js-fancybox-item text-body" href="javascript:;" data-placement="top" title="View" data-src="{{ _WEB_ROOT }}/public/admin/img/1920x1080/img1.jpg" data-caption="Image #02">
                                                 <i class="tio-visible-outlined"></i>
                                             </a>
                                             </div>
     
                                             <div class="col column-divider">
-                                            <div class="text-danger" data-toggle="tooltip" data-placement="top" title="Delete" onclick="removeFile(this)">
+                                            <div class="text-danger btn-delete-card-img" data-placement="top" title="Delete">
                                                 <i class="tio-delete-outlined"></i>
                                             </div>
                                             </div>

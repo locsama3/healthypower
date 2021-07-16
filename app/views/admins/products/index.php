@@ -318,10 +318,16 @@
                   @endif
                 @endforeach
               </td>
-              <td>Google</td>
+              <td style=" max-width: 150px; overflow: hidden; text-overflow: ellipsis;">
+                @foreach ($list_suppliers as $supplier)
+                  @if ($supplier['id'] == $product['supplier_id'])
+                    {{ $supplier['supplier_name'] }}
+                  @endif
+                @endforeach
+              </td>
               <td>
-                <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox{{ $product['id'] }}">
-                  <input type="checkbox" class="toggle-switch-input" id="stocksCheckbox{{ $product['id'] }}" <?php echo ($product['status'] == 1) ? 'checked' : '' ?>>
+                <label class="toggle-switch toggle-switch-sm">
+                  <input type="checkbox" class="toggle-switch-input btn-switch-status" data-id="{{ $product['id'] }}" id="stocksCheckbox{{ $product['id'] }}" <?php echo ($product['status'] == 1) ? 'checked' : '' ?>>
                   <span class="toggle-switch-label">
                     <span class="toggle-switch-indicator"></span>
                   </span>

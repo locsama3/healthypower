@@ -211,6 +211,9 @@
             $tableName = $this->tableName;
             $insertStatus = $this->insertData($tableName, $data);
 
+            // reset field
+            $this->resetQuery();
+
             return $insertStatus;
         }
 
@@ -230,6 +233,9 @@
 
             $updateStatus = $this->updateData($tableName, $data, $whereUpdate);
 
+            // reset field
+            $this->resetQuery();
+
             return $updateStatus; 
         }
 
@@ -242,6 +248,9 @@
             $tableName = $this->tableName;
 
             $deleteStatus = $this->deleteData($tableName, $whereDelete);
+
+            // reset field
+            $this->resetQuery();
 
             return $deleteStatus; 
         }

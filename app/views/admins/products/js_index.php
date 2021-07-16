@@ -83,7 +83,32 @@
 
         // Khai báo biến xài cho toàn file
         const url = `{{ _WEB_ROOT }}/products-destroy`
+        const urlStatus = `{{ _WEB_ROOT }}/products-status`
         const currentUrl = "{! getCurURL() !}"
+        const btnSwitchStatus = document.querySelectorAll('.btn-switch-status')
+        const _token = $('meta[name=csrf-token]').attr("content")
+        
+        btnSwitchStatus.forEach(btn => {
+            btn.addEventListener('click', () => {
+                id = btn.getAttribute('data-id')
+                status = btn.getAttribute('checked')
+
+                if (status) {
+                    var prodStatus = 1;
+                    btn.removeAttribute("checked");
+                } else {
+                    var prodStatus = 0;
+                    btn.setAttribute("checked", true);
+                }
+
+                form = new FormData()
+                form.append('_token', _token)
+                form.append('_id', id)
+                form.append('status', prodStatus)
+
+                sendData(urlStatus, form)
+            })
+        })
 
         // Xử lý xóa các danh sách các sản phẩm
         deleteListItems(url, "sản phẩm", currentUrl)
@@ -95,5 +120,7 @@
                 deleteItem(element, url, "sản phẩm", currentUrl)
             })
         });
+
+
     });
 </script>

@@ -90,6 +90,16 @@
     font-size: 14px;
 } 
 
+.btn-delete-card-img:hover {
+    cursor: pointer;
+}
+
+.btn-delete-card-img:hover i {
+    color: #ff0044;
+}
+
+/* end custom dropzone */
+
 .no_service{
     margin-top: 0.65rem;
     margin-bottom: 0;
