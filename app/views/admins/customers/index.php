@@ -313,33 +313,15 @@
                             </td>
                             <td>{{ $customer['email'] }}</td>
                             <td>{{ $customer['phone'] }}</td>
-                            <td>Tỉnh, thành phố<span class="text-hide">Code: GB</span></td>
+                            <td class="province" data-id="{{ $customer['province_id'] }}"></td>
                             <td>
                                 <span class="legend-indicator bg-success"></span>Active
                             </td>
                             <td>
                                 Tổng đơn hàng
-                                <?php
-                                    // $orderNum = 0; 
-                                    // foreach ($countOrders as $count) {
-                                    //     if ($customer['customer_id'] == $count['customer_id']) {
-                                    //         $orderNum = $count['totalOrder'];
-                                    //     }
-                                    // }
-                                    // echo $orderNum;
-                                ?>
                             </td>
                             <td>
-                                    Tổng chi tiêu
-                                <?php
-                                    // $total = 0; 
-                                    // foreach ($totalBills as $bill) {
-                                    //     if ($customer['customer_id'] == $bill['customer_id']) {
-                                    //         $total = $bill['totalBill'];
-                                    //     }
-                                    // }
-                                    // echo number_format($total);
-                                ?>
+                                Tổng chi tiêu
                             </td>
                             <td>Aug 17, 2020, 5:48 (ET)</td>
                         </tr>

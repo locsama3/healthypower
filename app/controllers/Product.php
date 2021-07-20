@@ -82,6 +82,9 @@ class Product extends Controller{
                 'supplierProductId' => 'required',
                 'categoryProductId' => 'required',
                 'file'              => 'required',
+                'length'            => 'required',
+                'width'             => 'required',
+                'height'            => 'required',
             ]);
 
             //Set message
@@ -92,6 +95,9 @@ class Product extends Controller{
                 'supplierProductId.required'    => 'Nhà cung cấp không dược để trống',
                 'categoryProductId.required'    => 'Loại sản phẩm không được để trống',
                 'file.required'                 => 'Cần tối thiểu ít nhất 1 tệp hình',
+                'length.required'               => 'Chiều dài sản phẩm không được để trống',
+                'width.required'                => 'Chiều rộng sản phẩm không được để trống',
+                'height.required'               => 'Chiều cao sản phẩm không được để trống',
             ]);
 
             $validate = $this->request->validate();
@@ -115,6 +121,9 @@ class Product extends Controller{
                 'supplier_id'       => $dataFields['supplierProductId'],
                 'category_id'       => $dataFields['categoryProductId'],
                 'weight'            => $dataFields['weightName'],
+                'length'            => (int)$dataFields['length'],
+                'width'             => (int)$dataFields['width'],
+                'height'            => (int)$dataFields['height'],
                 'product_slug'      => '',
                 'description'       => !empty($dataFields['description']) ? $dataFields['description'] : "",
                 'standard_cost'     => !empty($dataFields['standard_cost']) ? $dataFields['standard_cost'] : null,
@@ -201,6 +210,9 @@ class Product extends Controller{
                 'supplierProductId' => 'required',
                 'categoryProductId' => 'required',
                 'file'              => 'required',
+                'length'            => 'required',
+                'width'             => 'required',
+                'height'            => 'required',
             ]);
 
             //Set message
@@ -211,6 +223,9 @@ class Product extends Controller{
                 'supplierProductId.required'    => 'Nhà cung cấp không dược để trống',
                 'categoryProductId.required'    => 'Loại sản phẩm không được để trống',
                 'file.required'                 => 'Cần tối thiểu ít nhất 1 tệp hình',
+                'length.required'               => 'Chiều dài sản phẩm không được để trống',
+                'width.required'                => 'Chiều rộng sản phẩm không được để trống',
+                'height.required'               => 'Chiều cao sản phẩm không được để trống',
             ]);
 
             $validate = $this->request->validate();
@@ -234,6 +249,9 @@ class Product extends Controller{
                 'supplier_id'       => $dataFields['supplierProductId'],
                 'category_id'       => $dataFields['categoryProductId'],
                 'weight'            => $dataFields['weightName'],
+                'length'            => (int)$dataFields['length'],
+                'width'             => (int)$dataFields['width'],
+                'height'            => (int)$dataFields['height'],
                 'description'       => !empty($dataFields['description']) ? $dataFields['description'] : "",
                 'discontinued'      => ($dataFields['discontinued'] != '') ? 1 : 0,
                 'status'            => ($dataFields['status'] != '') ? 1 : 0,

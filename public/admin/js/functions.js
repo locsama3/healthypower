@@ -18,10 +18,18 @@ function sendData(url, data) {
     })
         .then(res => res.json())
         .then(result => {
+            console.log(result);
             if (result.status == "1") {
-                swal("Thành công!", result.message, "success")
+                if (result.message) {
+                    swal("Thành công!", result.message, "success")
+                }
+                if (result.location) {
+                    redirect(result.location, result.time)
+                }
             } else {
-                swal("Thất bại!", result.message, "error")
+                if (result.message) {
+                    swal("Thất bại!", result.message, "error")
+                }
                 if (result.error) {
                     displayError(result.form, result.error)
                 }
@@ -45,6 +53,9 @@ function sendDataByJSON(url, data) {
         .then(result => {
             if (result.status == "1") {
                 swal("Thành công!", result.message, "success")
+                if (result.location) {
+                    redirect(result.location, result.time)
+                }
             } else {
                 swal("Thất bại!", result.message, "error")
                 if (result.error) {
@@ -131,8 +142,8 @@ function deleteItem(item, url, itemName, location) {
 }
 
 // Hàm hiển thị lỗi khi server trả dữ liệu lỗi về client
-function displayError(formId, error) {
-    var form = document.getElementById(formId)
+function displayError(Selectorform, error) {
+    var form = document.querySelector(Selectorform)
     var formGroup = form.querySelectorAll(`.form-group`)
 
     var keys = Object.keys(error)

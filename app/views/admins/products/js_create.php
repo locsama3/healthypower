@@ -48,8 +48,12 @@ $(document).on('ready', function() {
         Validator.isRequired('#supplierLabel', 'Vui lòng nhập nhà cung cấp sản phẩm'),
         Validator.isRequired('#categoryLabel', 'Vui lòng nhập loại sản phẩm'),
         Validator.isRequired('#fileElem', 'Vui lòng thêm tối thiểu 1 hình ảnh đại diện'),
+        Validator.isRequired('#lengthLabel', 'Vui lòng nhập chiều cao sản phẩm'),
+        Validator.isRequired('#widthLabel', 'Vui lòng nhập chiều rộng sản phẩm'),
+        Validator.isRequired('#heightLabel', 'Vui lòng nhập chiều cao sản phẩm'),
       ],
       onSubmit: function(data) {
+        console.log(data);
         formData = handleDataUpload(data, _token, "card-img-top");
         formData.description = CKEDITOR.instances['ckeditor1'].getData();
         console.log(formData);

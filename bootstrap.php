@@ -96,4 +96,12 @@ require_once 'core/Controller.php'; //Load base controller
 require_once 'core/Request.php'; //Load Request
 
 require_once 'core/Response.php'; //Load Response
-//abc
+
+//nhúng thư viện phpmailer vào để dùng
+require_once "libs/PHPMailer-master/src/PHPMailer.php"; 
+
+require_once "libs/PHPMailer-master/src/SMTP.php";
+
+require_once 'libs/PHPMailer-master/src/Exception.php'; 
+
+require_once 'core/Mailer.php';  //Load Mailer

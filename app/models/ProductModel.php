@@ -33,7 +33,7 @@ class ProductModel extends Model {
         $this->db->table('shop_products')->whereIN('id',"($id)")->update($data);
     }
 
-    function findOne($field, $id) {
-        return $this->db->table('shop_products')->where($field,'=',$id)->first();
+    function findOne($field, $value) {
+        return $this->db->table('shop_products')->where($field,'=',$value)->first();
     }
 }

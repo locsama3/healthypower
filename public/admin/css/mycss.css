@@ -98,6 +98,18 @@
     color: #ff0044;
 }
 
+.card-display {
+    opacity: 0.9;
+}
+
+.card-hint {
+    filter: brightness(50%)
+}
+
+.card-active {
+    filter: brightness(90%)
+}
+
 /* end custom dropzone */
 
 .no_service{

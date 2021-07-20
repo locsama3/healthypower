@@ -14,7 +14,7 @@
             $this->view('blocks.clients.meta', $dataMeta); 
         }
             
-     ?> 
+    ?>
 
     <!-- Title -->
     <title>
@@ -46,6 +46,9 @@
         }
             
      ?> 
+
+    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/admin/css/sweetalert.css">
+    <script src="<?php echo _WEB_ROOT; ?>/public/admin/js/sweetalert.js"></script>
 
   </head>
 

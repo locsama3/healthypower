@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="header container">
-      <div class="row">
+      <div class="row header-wrapper">
         <div class="col-lg-2 col-sm-3 col-md-2 col-xs-12"> 
           <!-- Header Logo --> 
           <a class="logo" title="Magento Commerce" href="index.html"><img alt="Magento Commerce" src="{{_WEB_ROOT.'/public/clients/images/logo.png'}}" width="50%"></a> 
@@ -74,51 +74,93 @@
           <!-- End Search-col --> 
         </div>
         <!-- Top Cart -->
-        <div class="col-lg-3 col-sm-5 col-md-4 col-xs-12">
-          <div class="top-cart-contain">
-            <div class="mini-cart">
-              <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a href="shopping_cart.html"> <i class="icon-cart"></i>
+        <div class="col-lg-3 col-sm-5 col-md-4 col-xs-12 d-flex align-items-center justify-content-center">
+          @if (!empty(Session::data('user_login')))
+          <div class="user_login" style="display: flex; align-items: center; justify-content: center; position: relative">
+            <div class="user_avatar" style="border-radius: 50%; width: 34px; height: 34px; overflow: hidden; margin-right: 8px">
+              <img src="{{ _WEB_ROOT }}/public/uploads/customer/{{ Session::data('user_data')['user_avatar'] }}" alt="logo" style="width: 100%;">
+            </div>
+            <div class="user_account" style="display: flex; align-items: center; justify-content: center">
+                <p style="font-size: 12px; margin-right: 6px; margin-bottom: 0">{{ Session::data('user_data')['username'] }}</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down" width="14" height="14" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </div>
+            <div class="user_more_info" style="position:absolute; top: 100%; left: 0; right:0">
+                <ul class="user_more_info_list">
+                    <div class="user_more_info_item">
+                        <a href="{{ _WEB_ROOT }}/customer-order" class="user_more_info_link">
+                            Đơn hàng của tôi
+                        </a>    
+                    </div>
+                    <div class="user_more_info_item">
+                        <a href="{{ _WEB_ROOT }}/customer-notification" class="user_more_info_link">
+                            Thông báo của tôi
+                        </a>    
+                    </div>
+                    <div class="user_more_info_item">
+                        <a href="{{ _WEB_ROOT }}/customer-account" class="user_more_info_link">
+                            Tài khoản của tôi
+                        </a>    
+                    </div>
+                    <div class="user_more_info_item">
+                        <a href="{{ _WEB_ROOT }}/dang-xuat" class="user_more_info_link">
+                            Thoát tài khoản
+                        </a>    
+                    </div>
+                </ul>
+            </div>
+          </div>
+          @else
+          <div class="signup"><a title="Login" href="{{ _WEB_ROOT }}/dang-ky"><span>Sign up Now</span></a></div>
+          <span class="or"> | </span>
+          <div class="login"><a title="Login" href="{{ _WEB_ROOT }}/dang-nhap"><span>Log In</span></a></div>
+          @endif
+        </div>
+        <div class="top-cart-contain">
+          <div class="mini-cart">
+            <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> 
+              <a href="shopping_cart.html" class="d-flex justify-content-center align-items-center"> 
+                <i class="icon-cart"></i>
                 <div class="cart-box"><span class="title">My Cart</span><span id="cart-total"> 2 </span></div>
-                </a></div>
-              <div>
-                <div class="top-cart-content arrow_box">
-                  <div class="block-subtitle">Recently added item(s)</div>
-                  <ul id="cart-sidebar" class="mini-products-list">
-                    <li class="item even"> <a class="product-image" href="#" title="Downloadable Product "><img alt="Downloadable Product " src="{{_WEB_ROOT.'/public/clients/products-images/product1.jpg'}}" width="80"></a>
-                      <div class="detail-item">
-                        <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
-                          <p class="product-name"> <a href="#" title="Downloadable Product">Downloadable Product </a> </p>
-                        </div>
-                        <div class="product-details-bottom"> <span class="price">$100.00</span> <span class="title-desc">Qty:</span> <strong>1</strong> </div>
+              </a>
+            </div>
+            <div>
+              <div class="top-cart-content arrow_box">
+                <div class="block-subtitle">Recently added item(s)</div>
+                <ul id="cart-sidebar" class="mini-products-list">
+                  <li class="item even"> <a class="product-image" href="#" title="Downloadable Product "><img alt="Downloadable Product " src="{{_WEB_ROOT.'/public/clients/products-images/product1.jpg'}}" width="80"></a>
+                    <div class="detail-item">
+                      <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
+                        <p class="product-name"> <a href="#" title="Downloadable Product">Downloadable Product </a> </p>
                       </div>
-                    </li>
-                    <li class="item last odd"> <a class="product-image" href="#" title="  Sample Product "><img alt="  Sample Product " src="{{_WEB_ROOT.'/public/clients/products-images/product11.jpg'}}" width="80"></a>
-                      <div class="detail-item">
-                        <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
-                          <p class="product-name"> <a href="#" title="  Sample Product "> Sample Product </a> </p>
-                        </div>
-                        <div class="product-details-bottom"> <span class="price">$320.00</span> <span class="title-desc">Qty:</span> <strong>2</strong> </div>
+                      <div class="product-details-bottom"> <span class="price">$100.00</span> <span class="title-desc">Qty:</span> <strong>1</strong> </div>
+                    </div>
+                  </li>
+                  <li class="item last odd"> <a class="product-image" href="#" title="  Sample Product "><img alt="  Sample Product " src="{{_WEB_ROOT.'/public/clients/products-images/product11.jpg'}}" width="80"></a>
+                    <div class="detail-item">
+                      <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
+                        <p class="product-name"> <a href="#" title="  Sample Product "> Sample Product </a> </p>
                       </div>
-                    </li>
-                  </ul>
-                  <div class="top-subtotal">Subtotal: <span class="price">$420.00</span></div>
-                  <div class="actions">
-                    <button class="btn-checkout" type="button"><span>Checkout</span></button>
-                    <button class="view-cart" type="button"><span>View Cart</span></button>
-                  </div>
+                      <div class="product-details-bottom"> <span class="price">$320.00</span> <span class="title-desc">Qty:</span> <strong>2</strong> </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="top-subtotal">Subtotal: <span class="price">$420.00</span></div>
+                <div class="actions">
+                  <button class="btn-checkout" type="button"><span>Checkout</span></button>
+                  <button class="view-cart" type="button"><span>View Cart</span></button>
                 </div>
               </div>
             </div>
-            <div id="ajaxconfig_info" style="display:none"> <a href="#/"></a>
-              <input value="" type="hidden">
-              <input id="enable_module" value="1" type="hidden">
-              <input class="effect_to_cart" value="1" type="hidden">
-              <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
-            </div>
           </div>
-          <div class="signup"><a title="Login" href="login.html"><span>Sign up Now</span></a></div>
-          <span class="or"> | </span>
-          <div class="login"><a title="Login" href="login.html"><span>Log In</span></a></div>
+          <div id="ajaxconfig_info" style="display:none"> <a href="#/"></a>
+            <input value="" type="hidden">
+            <input id="enable_module" value="1" type="hidden">
+            <input class="effect_to_cart" value="1" type="hidden">
+            <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
+          </div>
         </div>
         <!-- End Top Cart --> 
       </div>

@@ -58,6 +58,73 @@ function catchEvent() {
             removeFile(element)
         })
     })
+
+    let list_img = document.querySelectorAll('.card-image-wrapper')
+    console.log(list_img);
+
+    var current = null
+    for (let i of list_img) {
+        i.draggable = true
+        i.querySelector('img').draggable = false
+
+        i.addEventListener('dragstart', (e) => {
+            current = e.target
+            current.querySelector('img').classList.add('card-display')
+
+            for (let it of list_img) {
+                if (it != current) {
+                    it.querySelector('img').classList.add('card-hint')
+                }
+            }
+        })
+
+        i.addEventListener('dragenter', (e) => {
+            if (e.target != current) {
+                i.querySelector('img').classList.add('card-active')
+            }
+        })
+
+        i.addEventListener('dragleave', (e) => {
+            e.target.classList.remove('card-active')
+        })
+
+        i.addEventListener("dragend", function () {
+            for (let it of list_img) {
+                it.querySelector('img').classList.remove("card-hint");
+                it.querySelector('img').classList.remove("card-active");
+            }
+        });
+
+        i.addEventListener("dragover", function (e) {
+            e.preventDefault();
+        });
+
+        i.addEventListener("drop", function (e) {
+            e.preventDefault();
+            list_img = document.querySelectorAll('.card-image-wrapper')
+            console.log("trước thay đổi");
+            console.log(list_img);
+            
+            if (i != current) {
+                let currentpos = 0, droppedpos = 0;
+                for (let it = 0; it < list_img.length; it++) {
+                    if (current == list_img[it]) { currentpos = it; }
+                    if (i == list_img[it]) { droppedpos = it; }
+                }
+                console.log("currentpos: " + currentpos);
+                console.log("droppedpos: " + droppedpos);
+                if (currentpos < droppedpos) {
+                    i.parentNode.insertBefore(current, i.nextElementSibling);
+                } else {
+                    i.parentNode.insertBefore(current, i);
+                }
+            }
+
+            list_img = document.querySelectorAll('.card-image-wrapper')
+            console.log("đã thay đổi");
+            console.log(list_img);
+        });
+    }
 }
 
 function previewFile(file) {
@@ -119,3 +186,5 @@ function handleDataUpload(data, token, classCardImg) {
 
     return newData;
 }
+
+

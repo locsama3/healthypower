@@ -13,8 +13,7 @@ class Customer extends Controller{
     public function index()
     {
         $data['content'] = 'admins.customers.index';
-
-         
+       
         $data['sub_content']['list_customers'] = $this->customerModel->all();
 
         $data['dataMeta'] = $this->loadMetaTag();
@@ -32,26 +31,345 @@ class Customer extends Controller{
         return $this->view('layouts.admin_layout', $data);
     }
 
-    public function create()
-    {
-        // $data['sub_content']['customers'] = $this->customerModel->all();
-
-        $data['content'] = 'admins.customers.create';
+    public function login() {
+        $data['content'] = 'clients.customers.login';
 
         $data['dataMeta'] = $this->loadMetaTag();
 
-        $data['page_title'] = "Thêm mới khách hàng";
+        $data['page_title'] = "Đăng nhập";
 
         $data['data_js'] = [
-            'ajax' => 'admins.customers.js_create'
+            'js' => 'clients.customers.js_login'
         ];
 
         $data['libraryJS']['list_js'] = [
-            'validate' => 'validate.js',
-            'functions' => 'functions.js'
+            'functions'     => 'functions.js',
+            'validate'      => 'validate.js'
         ];
 
-        return $this->view('layouts.admin_layout', $data);
+        return $this->view('layouts.client_layout', $data);
+    }
+
+    public function register() {
+        $data['content'] = 'clients.customers.register';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = "Đăng ký";
+
+        $data['data_js'] = [
+            'js' => 'clients.customers.js_register'
+        ];
+
+        $data['libraryJS']['list_js'] = [
+            'functions'     => 'functions.js',
+            'validate'      => 'validate.js'
+        ];
+
+        return $this->view('layouts.client_layout', $data);
+    }
+
+    public function validate() {
+        if ($this->request->isPost()){
+            // Lấy dữ liệu từ form
+            $dataFields = $this->request->getFields();
+
+            /*Set rules*/
+            $this->request->rules([
+                'email'       => 'required|email',
+                'password'    => 'required|min:5|max:12',
+            ]);
+
+            //Set message
+            $this->request->message([
+                'email.required'        => 'Email không được để trống',
+                'email.email'           => 'Không đúng định dạng email',
+                'password.required'     => 'mật khẩu không được để trống',
+                'password.min'          => 'mật khẩu phải lớn hơn 5 ký tự',
+                'password.max'          => 'mật khẩu phải nhỏ hơn 12 ký tự'
+            ]);
+
+            $validate = $this->request->validate();
+            if (!$validate){
+                $message = [
+                    'status'    => '0',
+                    'message'   => "Đã có lỗi xảy ra, Vui lòng kiểm tra lại."
+                ];
+
+                $sessionKey = Session::isInvalid();
+                $error = Session::flash($sessionKey.'_errors');
+                $message['error'] = $error;
+                exit(json_encode($message));
+            }
+
+            $count = $this->customerModel->countRow('email',$dataFields['email']);
+
+            if (!$count) {
+                $message = [
+                    'status'    => '0',
+                    'message'   => "Email Không tồn tại trong hệ thống",
+                    'form'      => '#formLogin',
+                    'error'     => [ "email" => "Không tồn tại tài khoản email trong hệ thống" ]
+                ];
+                exit(json_encode($message));
+            } 
+            
+            $user = $this->customerModel->findOne("email",$dataFields['email']);
+
+            if ($user['password'] != md5($dataFields['password'])) {
+                $message = [
+                    'status'    => '0',
+                    'message'   => "Nhập sai mật khẩu",
+                    'form'      => '#formLogin',
+                    'error'     => [ "password" => "Nhập sai mật khẩu người dùng" ]
+                ];
+                exit(json_encode($message));
+            }
+           
+            Session::data('user_login', true);
+            Session::data('user_data', [
+                'username'      => $user['fullname'],
+                'user_email'    => $user['email'],
+                'user_avatar'   => $user['avatar']
+            ]);
+
+            $message = [
+                'status'    => '1',
+                'message'   => "Đăng nhập thành công",
+                'location'  => _WEB_ROOT,
+                'time'      => 1000
+            ];
+            exit(json_encode($message));
+        }
+    }
+
+    public function logout() {
+        Session::delete('user_login');
+        Session::delete('user_data');
+
+        $this->response->back();
+    }
+
+    public function forgot_password () {
+        $data['content'] = 'clients.customers.forgot_password';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = "Đặt lại mật khẩu";
+
+        $data['data_js'] = [
+            'js' => 'clients.customers.js_forgot_pass'
+        ];
+
+        $data['libraryJS']['list_js'] = [
+            'validate'      => 'validate.js'
+        ];
+
+        return $this->view('layouts.client_layout', $data);
+    }
+
+    public function send_mail() {
+        if ($this->request->isPost()){
+            // Lấy dữ liệu từ form
+            $dataFields = $this->request->getFields();
+
+            /*Set rules*/
+            $this->request->rules([
+                'email'       => 'required|email'
+            ]);
+
+            //Set message
+            $this->request->message([
+                'email.required'        => 'Email không được để trống',
+                'email.email'           => 'Không đúng định dạng email'
+            ]);
+
+            $validate = $this->request->validate();
+            
+            if (!$validate){
+                $sessionKey = Session::isInvalid();
+                $error = Session::flash($sessionKey . '_errors');
+
+                Session::flash('errors', $error);
+                $this->response->back();
+            }
+
+            $count = $this->customerModel->countRow('email',$dataFields['email']);
+
+            if (!$count) {
+                $message = [ "email" => "Không tồn tại tài khoản email trong hệ thống" ];
+                $sessionKey = Session::isInvalid();
+                $old = Session::flash($sessionKey . '_old');
+
+                Session::flash('errors', $message);
+                Session::flash('old', $old);
+
+                $this->response->back();
+            }
+
+            $user = $this->customerModel->findOne('email', $dataFields['email']);
+
+            $mailer = new Mailer();
+
+            $random = mt_rand(100000,999999);
+
+            $data = [
+                'subject' => 'Đặt lại mật khẩu',
+                'content' => '<strong>Mã xác nhận đặt lại mật khẩu của bạn là: ' . $random."<strong>",
+                'attachments' => [ 'file' => 'public/uploads/customer/'.$user['avatar'] ]
+            ];
+
+            $mailer->sendMail($user['email'], $user['fullname'], $data);
+            
+
+            if ($mailer) {
+                Session::data('resetPassCode', $random);
+                Session::data('user_id', $user['id']);
+                
+                $this->response->redirect('ma-dat-lai');
+            } else {
+                echo 'lỗi gửi mail';
+            }
+        }
+    }
+
+    public function check_code() {
+        $data['content'] = 'clients.customers.checkcode';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = "Xác nhận mã đặt lại";
+
+        $data['data_js'] = [
+            'js' => 'clients.customers.js_checkcode'
+        ];
+
+        $data['libraryJS']['list_js'] = [
+            'functions'     => 'functions.js',
+            'validate'      => 'validate.js'
+        ];
+
+        return $this->view('layouts.client_layout', $data);
+    }
+
+    public function validate_code() {
+        if ($this->request->isPost()){
+            // Lấy dữ liệu từ form
+            $dataFields = $this->request->getFields();
+
+            /*Set rules*/
+            $this->request->rules([
+                'code'       => 'required|min:6|max:6'
+            ]);
+
+            //Set message
+            $this->request->message([
+                'code.required'      => 'Vui lòng nhập mã xác thực đã được gửi vào mail của bạn',
+                'code.min'           => 'Vui lòng nhập tối thiểu 6 ký tự',
+                'code.max'           => 'Vui lòng nhập tối đa 6 ký tự'
+            ]);
+
+            $validate = $this->request->validate();
+            
+            if (!$validate){
+                $message = [
+                    'status'    => '0',
+                ];
+
+                $sessionKey = Session::isInvalid();
+                $error = Session::flash($sessionKey.'_errors');
+                $message['error'] = $error;
+                exit(json_encode($message));
+            }
+
+            if ($dataFields['code'] == Session::data('resetPassCode')) {
+                Session::delete('resetPassCode');
+                $message = [
+                    'status'     => '1',
+                    'location'   => _WEB_ROOT."/dat-lai-mat-khau",
+                    'time'       => 1000
+                ];
+
+                exit(json_encode($message));
+            } else {
+                $message = [
+                    'status'    => '0',
+                    'error'    => [ "code"  => "Mã xác thực không chính xác, vui lòng nhập lại" ],
+                    'form'      => '#formCode'
+                ];
+                
+                exit(json_encode($message));
+            }
+
+        }
+    }
+
+    public function reset() {
+        $data['content'] = 'clients.customers.reset';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = "Nhập lại mật khẩu";
+
+        $data['data_js'] = [
+            'js' => 'clients.customers.js_reset'
+        ];
+
+        $data['libraryJS']['list_js'] = [
+            'functions'     => 'functions.js',
+            'validate'      => 'validate.js'
+        ];
+
+        return $this->view('layouts.client_layout', $data);
+    }
+
+    public function update_pass() {
+        if ($this->request->isPost()){
+            $dataFields = $this->request->getFields();
+
+            /*Set rules*/
+            $this->request->rules([
+                'password'          => 'required|min:6',
+                'confirm-password'  => 'required|match:password',
+            ]);
+
+            //Set message
+            $this->request->message([
+                'password.required'         => 'Mật khẩu không được để trống',
+                'password.min'              => 'Mật khẩu phải lớn hơn 6 ký tự',
+                'confirm-password.required' => 'Mật khẩu nhập lại không được để trống',
+                'confirm-password.match'    => 'Mật khẩu nhập lại không trùng khớp'
+            ]);
+
+            $validate = $this->request->validate();
+            if (!$validate){
+                $message = [
+                    'status' => '0'
+                ];
+
+                $sessionKey = Session::isInvalid();
+                $error = Session::flash($sessionKey.'_errors');
+                $message['error'] = $error;
+
+                exit(json_encode($message));
+            }
+
+            $id = Session::data('user_id');
+            $data = ['password' => md5($dataFields['password'])];
+
+            $result = $this->customerModel->edit($id, $data);
+
+            Session::delete('user_id');
+
+            $message = [
+                "status"    => "1",
+                'message'   => "Cập nhật mật khẩu thành công!",
+                "location"  => _WEB_ROOT."/dang-nhap",
+                "time"      => 1500
+            ];
+
+            exit(json_encode($message));
+        }
     }
 
     public function store()
@@ -65,26 +383,26 @@ class Customer extends Controller{
                 /*Set rules*/
                 $this->request->rules([
                     'firstName' => 'required',
-                    'lastName' => 'required',
-                    'email' => 'required|unique:shop_customers:email',
-                    'phone' => 'unique:shop_customers:phone',
+                    'lastName'  => 'required',
+                    'email'     => 'required|unique:shop_customers:email',
+                    'phone'     => 'unique:shop_customers:phone',
                 ]);
 
                 //Set message
                 $this->request->message([
-                    'firstName.required' => 'Tên danh mục không được để trống',
-                    'lastName.required' => 'Tên danh mục không được để trống',
-                    'email.required' => 'Email không được để trống',
-                    'email.unique' => 'Email đã tồn tại',
-                    'phone.unique' => 'Số điện thoại đã tồn tại',
+                    'firstName.required'    => 'Tên danh mục không được để trống',
+                    'lastName.required'     => 'Tên danh mục không được để trống',
+                    'email.required'        => 'Email không được để trống',
+                    'email.unique'          => 'Email đã tồn tại',
+                    'phone.unique'          => 'Số điện thoại đã tồn tại',
                 ]);
 
                 $validate = $this->request->validate();
                 if (!$validate){
                     $message = [
-                        'status' => '0',
-                        'message' => "Đã có lỗi xảy ra. Vui lòng kiểm tra lại.",
-                        'form' => 'form-info-account'
+                        'status'    => '0',
+                        'message'   => "Đã có lỗi xảy ra. Vui lòng kiểm tra lại.",
+                        'form'      => 'form-info-account'
                     ];
 
                     $sessionKey = Session::isInvalid();
@@ -124,10 +442,6 @@ class Customer extends Controller{
             }
 
             if ($dataFields['formInfor'] == 'form-shipping-address') {
-                
-            }
-
-            if ($dataFields['formInfor'] == 'form-billing-address') {
                 
             }
             
@@ -227,40 +541,13 @@ class Customer extends Controller{
             }
 
         }
-    }
-
-    public function status()
-    {
-        $dataFields = $this->request->getFields();
-        $id = $dataFields['id'];
-        $status_value = $dataFields['status_value'];
-
-        $data['status'] = $status_value;
-
-        $this->customerModel->edit($id,$data);
-    }
-
-    public function destroy()
-    {
-        $dataFields = $this->request->getFields();
-
-        $ids = $dataFields['_id'];
-        $data = [ 'deleted_at' => date('Y-m-d H:i:s')];
-
-        $this->customerModel->deleteAt($ids, $data);
-
-        $message = [
-            "status" => "1",
-            'message' => "Xóa khách hàng thành công!"
-        ];
-        exit(json_encode($message));
-    }   
+    }  
 
     public function loadMetaTag()
     {
         return $dataMeta = [
             'meta_title' => 'Khách hàng',
-            'meta_desc' => 'danh sách khách hàng, thông tin, trạng thái',
+            'meta_desc' => 'thông tin khách hàng, thông tin, trạng thái',
             'meta_keywords' => 'heathy, whey, vitamin, oars',
             'url_canonical' => _WEB_ROOT,
             'meta_author' => 'nhóm không tên',

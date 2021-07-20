@@ -20,6 +20,7 @@ class CustomerModel extends Model {
     function create($data)
     {
         $this->db->table('shop_customers')->insert($data);
+        return $this->db->lastId();
     }
 
     function edit($id, $data)
@@ -32,8 +33,12 @@ class CustomerModel extends Model {
         $this->db->table('shop_customers')->whereIN('id',"($id)")->update($data);
     }
 
-    public function show()
+    function findOne($field, $value) {
+        return $this->db->table('shop_customers')->where($field,'=',$value)->first();
+    }
+
+    public function countRow($field, $value)
     {
-        return $this->db->table('shop_customers');
+        return $this->db->table('shop_customers')->where($field,'=',$value)->count();
     }
 }

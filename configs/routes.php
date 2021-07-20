@@ -8,199 +8,221 @@
     // routes clients
 
     $routes['trang-chu'] = 'home/index';
+    
     $routes['tim-kiem'] = 'home/search';
 
     $routes['list'] = 'home/list';
 
     $routes['chi-tiet-sp/.+-(\d+)'] = 'products/product_details/$1'; //function gi_do($as)
 
+    $routes['dang-nhap'] = 'customer/login';
+
+    $routes['dang-ky'] = 'customer/register';
+
+    $routes['xac-thuc-nguoi-dung'] = 'customer/validate';
+
+    $routes['dang-xuat'] = 'customer/logout';
+
+    $routes['quen-mat-khau'] = 'customer/forgot_password';
+
+    $routes['gui-ma-xac-thuc'] = 'customer/send_mail';
+
+    $routes['ma-dat-lai'] = 'customer/check_code';
+
+    $routes['xac-thuc-ma-dat-lai'] = 'customer/validate_code';
+
+    $routes['dat-lai-mat-khau'] = 'customer/reset';
+
+    $routes['chinh-sua-mat-khau-moi'] = 'customer/update_pass';
+
+
     /* ---------------------------------------------------------------------------------------- */
 
     // routes admin
 
-    $routes['dashboard'] = 'dashboard/index';
+    $routes['dashboard'] = 'admin/dashboard/index';
 
     // routes blogs
 
-    $routes['blogs'] = 'blog/index';
+    $routes['blogs'] = 'admin/blog/index';
 
-    $routes['blogs-create'] = 'blog/create';
+    $routes['blogs-create'] = 'admin/blog/create';
     
     // routes blogs categories
 
-    $routes['blogs-category'] = 'blogcategory/index';
+    $routes['blogs-category'] = 'admin/blogcategory/index';
 
-    $routes['blogs-category-create'] = 'blogcategory/create';
+    $routes['blogs-category-create'] = 'admin/blogcategory/create';
 
-    $routes['blogs-category-store'] = 'blogcategory/store';
+    $routes['blogs-category-store'] = 'admin/blogcategory/store';
 
-    $routes['blogs-category-edit/.+-(\d+)'] = 'blogcategory/edit/$1';
+    $routes['blogs-category-edit/.+-(\d+)'] = 'admin/blogcategory/edit/$1';
 
-    $routes['blogs-category-update/.+-(\d+)'] = 'blogcategory/update/$1';
+    $routes['blogs-category-update/.+-(\d+)'] = 'admin/blogcategory/update/$1';
 
-    $routes['blogs-category-status'] = 'blogcategory/status';
+    $routes['blogs-category-status'] = 'admin/blogcategory/status';
 
-    $routes['blogs-category-destroy'] = 'blogcategory/destroy';
+    $routes['blogs-category-destroy'] = 'admin/blogcategory/destroy';
 
     // routes product
 
-    $routes['products'] = 'product/index';
+    $routes['products'] = 'admin/product/index';
 
-    $routes['products-create'] = 'product/create';
+    $routes['products-create'] = 'admin/product/create';
 
-    $routes['products-store'] = 'product/store';
+    $routes['products-store'] = 'admin/product/store';
 
-    $routes['products-edit/.+-(\d+)'] = 'product/edit/$1';
+    $routes['products-edit/.+-(\d+)'] = 'admin/product/edit/$1';
 
-    $routes['products-update/.+-(\d+)'] = 'product/update/$1';
+    $routes['products-update/.+-(\d+)'] = 'admin/product/update/$1';
 
-    $routes['products-status'] = 'product/status';
+    $routes['products-status'] = 'admin/product/status';
 
-    $routes['products-destroy'] = 'product/destroy';
+    $routes['products-destroy'] = 'admin/product/destroy';
 
     // routes products categories
 
-    $routes['products-category'] = 'productcategory/index';
+    $routes['products-category'] = 'admin/productcategory/index';
 
-    $routes['products-category-create'] = 'productcategory/create';
+    $routes['products-category-create'] = 'admin/productcategory/create';
 
-    $routes['products-category-store'] = 'productcategory/store';
+    $routes['products-category-store'] = 'admin/productcategory/store';
 
-    $routes['products-category-edit/.+-(\d+)'] = 'productcategory/edit/$1';
+    $routes['products-category-edit/.+-(\d+)'] = 'admin/productcategory/edit/$1';
 
-    $routes['products-category-update/.+-(\d+)'] = 'productcategory/update/$1';
+    $routes['products-category-update/.+-(\d+)'] = 'admin/productcategory/update/$1';
 
-    $routes['products-category-status'] = 'productcategory/status';
+    $routes['products-category-status'] = 'admin/productcategory/status';
 
-    $routes['products-category-destroy'] = 'productcategory/destroy';
+    $routes['products-category-destroy'] = 'admin/productcategory/destroy';
 
     // routes products supplier
 
-    $routes['supplier'] = 'supplier/index';
+    $routes['supplier'] = 'admin/supplier/index';
 
-    $routes['supplier-create'] = 'supplier/create';
+    $routes['supplier-create'] = 'admin/supplier/create';
 
-    $routes['supplier-store'] = 'supplier/store';
+    $routes['supplier-store'] = 'admin/supplier/store';
 
-    $routes['supplier-edit/.+-(\d+)'] = 'supplier/edit/$1';
+    $routes['supplier-edit/.+-(\d+)'] = 'admin/supplier/edit/$1';
 
-    $routes['supplier-update/.+-(\d+)'] = 'supplier/update/$1';
+    $routes['supplier-update/.+-(\d+)'] = 'admin/supplier/update/$1';
 
-    $routes['supplier-status'] = 'supplier/status';
+    $routes['supplier-status'] = 'admin/supplier/status';
 
-    $routes['supplier-destroy'] = 'supplier/destroy';
+    $routes['supplier-destroy'] = 'admin/supplier/destroy';
 
     // routes warehouse
 
-    $routes['warehouse'] = 'warehouse/index';
+    $routes['warehouse'] = 'admin/warehouse/index';
 
-    $routes['warehouse-create'] = 'warehouse/create';
+    $routes['warehouse-create'] = 'admin/warehouse/create';
 
-    $routes['warehouse-store'] = 'warehouse/store';
+    $routes['warehouse-store'] = 'admin/warehouse/store';
 
-    $routes['warehouse-edit/.+-(\d+)'] = 'warehouse/edit/$1';
+    $routes['warehouse-edit/.+-(\d+)'] = 'admin/warehouse/edit/$1';
 
-    $routes['warehouse-update/.+-(\d+)'] = 'warehouse/update/$1';
+    $routes['warehouse-update/.+-(\d+)'] = 'admin/warehouse/update/$1';
 
-    $routes['warehouse-status'] = 'warehouse/status';
+    $routes['warehouse-status'] = 'admin/warehouse/status';
 
-    $routes['warehouse-destroy'] = 'warehouse/destroy';
+    $routes['warehouse-destroy'] = 'admin/warehouse/destroy';
 
     // routes vouchers
 
-    $routes['vouchers'] = 'voucher/index';
+    $routes['vouchers'] = 'admin/voucher/index';
 
-    $routes['vouchers-create'] = 'voucher/create';
+    $routes['vouchers-create'] = 'admin/voucher/create';
 
-    $routes['vouchers-store'] = 'voucher/store';
+    $routes['vouchers-store'] = 'admin/voucher/store';
 
-    $routes['vouchers-edit/.+-(\d+)'] = 'voucher/edit/$1';
+    $routes['vouchers-edit/.+-(\d+)'] = 'admin/voucher/edit/$1';
 
-    $routes['vouchers-update/.+-(\d+)'] = 'voucher/update/$1';
+    $routes['vouchers-update/.+-(\d+)'] = 'admin/voucher/update/$1';
 
-    $routes['vouchers-destroy'] = 'voucher/destroy';
+    $routes['vouchers-destroy'] = 'admin/voucher/destroy';
 
     // routes payment-types
 
-    $routes['payment-types'] = 'paymenttype/index';
+    $routes['payment-types'] = 'admin/paymenttype/index';
 
-    $routes['payment-types-create'] = 'paymenttype/create';
+    $routes['payment-types-create'] = 'admin/paymenttype/create';
 
-    $routes['payment-types-store'] = 'paymenttype/store';
+    $routes['payment-types-store'] = 'admin/paymenttype/store';
 
-    $routes['payment-types-edit/.+-(\d+)'] = 'paymenttype/edit/$1';
+    $routes['payment-types-edit/.+-(\d+)'] = 'admin/paymenttype/edit/$1';
 
-    $routes['payment-types-update/.+-(\d+)'] = 'paymenttype/update/$1';
+    $routes['payment-types-update/.+-(\d+)'] = 'admin/paymenttype/update/$1';
 
-    $routes['payment-types-status'] = 'paymenttype/status';
+    $routes['payment-types-status'] = 'admin/paymenttype/status';
 
-    $routes['payment-types-destroy'] = 'paymenttype/destroy';
+    $routes['payment-types-destroy'] = 'admin/paymenttype/destroy';
 
     // routes admin account
-    $routes['admin-accounts'] = 'adminaccount/index';
+    $routes['admin-accounts'] = 'admin/adminaccount/index';
 
-    $routes['admin-accounts-loadtable'] = 'adminaccount/load_table';
+    $routes['admin-accounts-loadtable'] = 'admin/adminaccount/load_table';
 
-    $routes['admin-accounts-create'] = 'adminaccount/create';
+    $routes['admin-accounts-create'] = 'admin/adminaccount/create';
 
-    $routes['admin-accounts-cresuccess'] = 'adminaccount/create_success';
+    $routes['admin-accounts-cresuccess'] = 'admin/adminaccount/create_success';
 
-    $routes['admin-accounts-store'] = 'adminaccount/store';
+    $routes['admin-accounts-store'] = 'admin/adminaccount/store';
 
-    $routes['admin-accounts-status'] = 'adminaccount/status';
+    $routes['admin-accounts-status'] = 'admin/adminaccount/status';
 
-    $routes['admin-accounts-change-password'] = 'adminaccount/change_password';
+    $routes['admin-accounts-change-password'] = 'admin/adminaccount/change_password';
 
-    $routes['admin-accounts-change-address'] = 'adminaccount/change_address';
+    $routes['admin-accounts-change-address'] = 'admin/adminaccount/change_address';
 
-    $routes['admin-accounts-change-info'] = 'adminaccount/change_info';
+    $routes['admin-accounts-change-info'] = 'admin/adminaccount/change_info';
 
-    $routes['(.+)asdssmissn'] = 'adminaccount/detail/$1';
+    $routes['(.+)asdssmissn'] = 'admin/adminaccount/detail/$1';
 
-    $routes['admin-accounts-destroy'] = 'adminaccount/destroy';
+    $routes['admin-accounts-destroy'] = 'admin/adminaccount/destroy';
 
     // routes role
 
-    $routes['roles'] = 'role/index';
+    $routes['roles'] = 'admin/role/index';
 
-    $routes['roles-create'] = 'role/create';
+    $routes['roles-create'] = 'admin/role/create';
 
-    $routes['roles-store'] = 'role/store';
+    $routes['roles-store'] = 'admin/role/store';
 
-    $routes['roles-edit/.+-(\d+)'] = 'role/edit/$1';
+    $routes['roles-edit/.+-(\d+)'] = 'admin/role/edit/$1';
 
-    $routes['roles-update/.+-(\d+)'] = 'role/update/$1';
+    $routes['roles-update/.+-(\d+)'] = 'admin/role/update/$1';
 
-    $routes['roles-destroy'] = 'role/destroy';
+    $routes['roles-destroy'] = 'admin/role/destroy';
 
     // routes permissions
 
-    $routes['permissions'] = 'permission/index';
+    $routes['permissions'] = 'admin/permission/index';
 
-    $routes['permissions-create'] = 'permission/create';
+    $routes['permissions-create'] = 'admin/permission/create';
 
-    $routes['permissions-store'] = 'permission/store';
+    $routes['permissions-store'] = 'admin/permission/store';
 
-    $routes['permissions-edit/.+-(\d+)'] = 'permission/edit/$1';
+    $routes['permissions-edit/.+-(\d+)'] = 'admin/permission/edit/$1';
 
-    $routes['permissions-update/.+-(\d+)'] = 'permission/update/$1';
+    $routes['permissions-update/.+-(\d+)'] = 'admin/permission/update/$1';
 
-    $routes['permissions-destroy'] = 'permission/destroy';
+    $routes['permissions-destroy'] = 'admin/permission/destroy';
 
 
     // routes customers
-    $routes['customers'] = 'customer/index';
+    $routes['customers'] = 'admin/customer/index';
     
-    $routes['customer-create'] = 'customer/create';
+    $routes['customer-create'] = 'admin/customer/create';
 
-    $routes['customer-store'] = 'customer/store';
+    $routes['customer-store'] = 'admin/customer/store';
 
-    $routes['customer-edit/.+-(\d+)'] = 'customer/edit/$1';
+    $routes['customer-edit/.+-(\d+)'] = 'admin/customer/edit/$1';
 
-    $routes['customer-update/.+-(\d+)'] = 'customer/update/$1';
+    $routes['customer-update/.+-(\d+)'] = 'admin/customer/update/$1';
 
-    $routes['customer-destroy'] = 'customer/destroy';
+    $routes['customer-destroy'] = 'admin/customer/destroy';
 
     // routes delivery
-    $routes['deliveries'] = 'delivery/index';
+    $routes['deliveries'] = 'admin/delivery/index';
 ?>

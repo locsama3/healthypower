@@ -86,6 +86,43 @@
     const url = `{{ _WEB_ROOT }}/customer-destroy`
     const currentUrl = "{! getCurURL() !}"
 
+    // API
+    function load_province() {
+      var url = "https://online-gateway.ghn.vn/shiip/public-api/master-data/province";
+      fetch(url, {
+          headers:{
+            "Token":"897b0fc3-e1e2-11eb-9389-f656af98cb33",
+            "Content-Type": "application/json"
+          }
+      })
+          .then(res => res.json())
+          .then(result => {
+            let dataProvince = result.data
+            let provinces = document.querySelectorAll('.province')
+
+            provinces.forEach(province => {
+              dataProvince.forEach(data => {
+                if (province.getAttribute('data-id') == data.ProvinceID) {
+                  province.innerHTML = data.ProvinceName;
+                }
+              })
+            })
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          })
+    }
+
+    // load tỉnh thành phố
+    load_province();
+    
+    let pagination = document.querySelectorAll('.paginate_item')
+    for (let i = 1; i < pagination.length-1; i++) {
+      pagination[i].addEventListener('click', () => {
+        load_province();
+      })
+    }
+
     // Xử lý xóa danh sách khách hàng
     deleteListItems(url, "Khách hàng", currentUrl)
   })

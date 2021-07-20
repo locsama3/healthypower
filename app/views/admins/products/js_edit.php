@@ -48,6 +48,9 @@ $(document).on('ready', function() {
         Validator.isRequired('#priceNameLabel', 'Vui lòng nhập giá sản phẩm'),
         Validator.isRequired('#supplierLabel', 'Vui lòng nhập nhà cung cấp sản phẩm'),
         Validator.isRequired('#categoryLabel', 'Vui lòng nhập loại sản phẩm'),
+        Validator.isRequired('#lengthLabel', 'Vui lòng nhập chiều cao sản phẩm'),
+        Validator.isRequired('#widthLabel', 'Vui lòng nhập chiều rộng sản phẩm'),
+        Validator.isRequired('#heightLabel', 'Vui lòng nhập chiều cao sản phẩm'),
       ],
       onSubmit: function(data) {
         formData = handleDataUpload(data, _token, "card-img-top");

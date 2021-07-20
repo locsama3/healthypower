@@ -90,6 +90,41 @@
                   <!-- End Form Group -->
                 </div>
               </div>
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <!-- Form Group -->
+                  <div class="form-group">
+                    <label for="SKULabel" class="input-label">Chiều dài (cm)</label>
+
+                    <input type="text" class="form-control" name="length" id="lengthLabel" placeholder="50" aria-label="eg. 348121032">
+                    <span class="form-message"></span>
+                  </div>
+                  <!-- End Form Group -->
+                </div>
+
+                <div class="col-sm-4">
+                  <!-- Form Group -->
+                  <div class="form-group">
+                    <label for="SKULabel" class="input-label">Chiều rộng (cm)</label>
+
+                    <input type="text" class="form-control" name="width" id="widthLabel" placeholder="30" aria-label="eg. 348121032">
+                    <span class="form-message"></span>
+                  </div>
+                  <!-- End Form Group -->
+                </div>
+
+                <div class="col-sm-4">
+                  <!-- Form Group -->
+                  <div class="form-group">
+                    <label for="SKULabel" class="input-label">Chiều cao (cm)</label>
+
+                    <input type="text" class="form-control" name="height" id="heightLabel" placeholder="50" aria-label="eg. 348121032">
+                    <span class="form-message"></span>
+                  </div>
+                  <!-- End Form Group -->
+                </div>
+              </div>
               <!-- End Row -->
               <div class="form-group">
                 <label class="input-label">Mô tả <span class="input-label-secondary">(lựa chọn)</span></label>
@@ -549,12 +584,12 @@
 
               <!-- Form Group -->
               <div class="form-group">
-                <label for="collectionsLabel" class="input-label">Collections</label>
+                <label for="collectionsLabel" class="input-label">Bộ sưu tập</label>
 
                 <!-- Select -->
                 <select class="js-select2-custom custom-select" size="1" style="opacity: 0;" id="collectionsLabel" data-hs-select2-options='{
                             "minimumResultsForSearch": "Infinity",
-                            "placeholder": "Select collections"
+                            "placeholder": "Lựa chọn bộ sưu tập"
                           }'>
                   <option label="empty"></option>
                   <option value="Winter">Winter</option>

@@ -64,6 +64,28 @@
             return false;
         }
 
+        // Đếm bản ghi
+        public function count()
+        {
+            $sqlQuery = "SELECT $this->selectField 
+                         FROM $this->tableName 
+                         $this->innerJoin
+                         $this->where 
+                         $this->orderBy
+                         $this->limit";
+            $sqlQuery = trim($sqlQuery);
+            $query = $this->query($sqlQuery);
+
+            // reset field
+            $this->resetQuery();
+
+            if(!empty($query)){
+                return $query->rowCount();
+            }   
+
+            return false;
+        }
+
         // Chọn cột
         public function select($field='*')
         {
