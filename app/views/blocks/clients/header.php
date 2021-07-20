@@ -6,11 +6,13 @@
         <div class="row"> 
           <!-- Header Language -->
           <div class="col-xs-6">
+            <div class="welcome-msg hidden-xs"> Healthy Power </div>
             <div class="dropdown block-language-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" class="block-language dropdown-toggle" href="#"> <img src="{{_WEB_ROOT.'/public/clients/images/english.png'}}" alt="language"> English <span class="caret"></span> </a>
               <ul class="dropdown-menu" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="{{_WEB_ROOT.'/public/clients/images/vietnam.jpg'}}" alt="language"> Việt Nam </a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="{{_WEB_ROOT.'/public/clients/images/english.png'}}" alt="language"> English </a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="{{_WEB_ROOT.'/public/clients/images/francais.png'}}" alt="language"> French </a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="{{_WEB_ROOT.'/public/clients/images/german.png'}}" alt="language"> German </a></li>
+                <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="{{_WEB_ROOT.'/public/clients/images/francais.png'}}" alt="language"> French </a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="{{_WEB_ROOT.'/public/clients/images/german.png'}}" alt="language"> German </a></li> -->
               </ul>
             </div>
             <!-- End Header Language --> 
@@ -18,21 +20,21 @@
             <div class="dropdown block-currency-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" class="block-currency dropdown-toggle" href="#"> USD <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> £ - Pound </a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> đ - VND </a></li>
+                <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> € - Euro </a></li> -->
               </ul>
             </div>
             <!-- End Header Currency -->
-            <div class="welcome-msg hidden-xs"> Default welcome msg! </div>
+            <!-- <div class="welcome-msg hidden-xs"> Healthy Power </div> -->
           </div>
           <div class="col-xs-6"> 
             <!-- Header Top Links -->
             <div class="toplinks">
               <div class="links">
-                <div class="myaccount"><a title="My Account" href="login.html"><span class="hidden-xs">My Account</span></a></div>
-                <div class="wishlist"><a title="My Wishlist" href="wishlist.html"><span class="hidden-xs">Wishlist</span></a></div>
-                <div class="check"><a title="Checkout" href="checkout.html"><span class="hidden-xs">Checkout</span></a></div>
-                <div class="phone hidden-xs">1 800 123 1234</div>
+                <div class="myaccount"><a title="My Account" href="login.html"><span class="hidden-xs">Tài khoản</span></a></div>
+                <div class="wishlist"><a title="My Wishlist" href="wishlist.html"><span class="hidden-xs">Danh sách yêu thích</span></a></div>
+                <div class="check"><a title="Checkout" href="checkout.html"><span class="hidden-xs">Thanh toán</span></a></div>
+                <div class="phone hidden-xs">0123 456 789</div>
               </div>
             </div>
             <!-- End Header Top Links --> 
@@ -52,7 +54,7 @@
           <div class="search-box">
             <form action="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/furniture/cat" method="POST" id="search_mini_form" name="Categories">
               <select name="category_id" class="cate-dropdown hidden-xs">
-                <option value="0">All Categories</option>
+                <option value="0">Tất cả</option>
                 <option value="36">Camera</option>
                 <option value="37">Electronics</option>
                 <option value="42">&nbsp;&nbsp;&nbsp;Cell Phones</option>
@@ -67,8 +69,8 @@
                 <option value="40">Televisions</option>
                 <option value="41">Featured</option>
               </select>
-              <input type="text" placeholder="Search here..." value="" maxlength="70" class="" name="search" id="search">
-              <button id="submit-button" class="search-btn-bg"><span>Search</span></button>
+              <input type="text" placeholder="Tìm kiếm..." value="" maxlength="70" class="" name="search" id="search">
+              <button id="submit-button" class="search-btn-bg"><span>Tìm kiếm</span></button>
             </form>
           </div>
           <!-- End Search-col --> 
@@ -160,6 +162,7 @@
             <input id="enable_module" value="1" type="hidden">
             <input class="effect_to_cart" value="1" type="hidden">
             <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
+        
           </div>
         </div>
         <!-- End Top Cart --> 
@@ -183,7 +186,7 @@
               <ul style="display:none;" class="submenu">
                 <li>
                   <ul class="topnav">
-                    <li class="level0 nav-6 level-top first parent"> <a class="level-top" href="index.html"> <span>Home</span> </a>
+                    <li class="level0 nav-6 level-top first parent"> <a class="level-top" href="index.html"> <span>Trang chủ</span> </a>
                       <ul class="level0">
                         <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/fashion/index.html"><span>Fashion Store</span></a> </li>
                         <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/digital/index.html"><span>Digital Store</span></a> </li>
@@ -234,9 +237,12 @@
           <!--navmenu--> 
         </div>
         <!--End mobile-menu --> 
-        <a class="logo-small" title="Magento Commerce" href="index.html"><img alt="Magento Commerce" src="{{_WEB_ROOT.'/public/clients/images/logo-small.png'}}"></a>
+        <a class="logo-small" title="Magento Commerce" href="index.html">
+          <!-- <img alt="Magento Commerce" src="{{_WEB_ROOT.'/public/clients/images/logo-healthypower.jpg'}}"> -->
+          <span>Healthy</span>
+        </a>
         <ul id="nav" class="hidden-xs">
-          <li class="level0 parent drop-menu"><a href="index.html" class="active"><span>Home</span> </a>
+          <li class="level0 parent drop-menu"><a href="index.html" class="active"><span>Trang chủ</span> </a>
             <ul class="level1">
               <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/fashion/index.html"><span>Fashion Store</span></a> </li>
               <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/digital/index.html"><span>Digital Store</span></a> </li>
@@ -561,7 +567,7 @@
               <!--level0-wrapper2--> 
             </div>
           </li>
-          <li class="level0 parent drop-menu"><a href="blog.html"><span>Blog</span> </a>
+          <li class="level0 parent drop-menu"><a href="blog.html"><span>Bài viết</span> </a>
             <ul style="display: none;" class="level1">
               <li class="level1 first"><a href="blog_posts_table_view.html"><span>Table View</span></a> </li>
               <li class="level1 parent"><a href="blog_single_post.html"><span>Single Post</span></a> </li>
@@ -598,3 +604,4 @@
     </div>
   </nav>
   <!-- end nav -->
+</div>

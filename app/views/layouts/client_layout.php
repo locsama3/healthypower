@@ -32,7 +32,7 @@
     <!-- CSS Style -->
 
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/styles.css" type="text/css">
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/revslider.css" type="text/css">
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/owl.theme.css" type="text/css">

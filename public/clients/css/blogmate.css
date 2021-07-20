@@ -890,7 +890,7 @@ blockquote cite a, blockquote cite a:visited, blockquote cite a:visited {
 /*============ Blog end ============*/
 #postComment .field{ margin-bottom:10px;}
 @media only screen and (min-width: 480px) and (max-width: 567px) {
-.comment-form textarea; {
+.comment-form textarea {
 width:250px;
 }
 }
