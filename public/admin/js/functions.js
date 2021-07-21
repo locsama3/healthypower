@@ -148,6 +148,7 @@ function displayError(Selectorform, error) {
 
     var keys = Object.keys(error)
 
+
     // lặp qua từng form group và so sánh field name của input rồi gán lỗi
     formGroup.forEach(element => {
         keys.forEach(key => {
@@ -158,3 +159,48 @@ function displayError(Selectorform, error) {
         })
     })
 }
+
+
+function updateListItems(url, location) {
+    console.log(1);
+    const _token = $('meta[name=csrf-token]').attr("content")
+    let id_array = []
+
+    
+    swal({
+        title: "Cập nhật",
+        text: `Bạn có chắc chắn muốn cập nhật không?`,
+        type: "info",
+        showCancelButton: true,
+        confirmButtonClass: "btn-success",
+        confirmButtonText: "Cập nhật",
+        cancelButtonText: "Không",
+        closeOnConfirm: false,
+        closeOnCancel: false
+        },
+        function(isConfirm) {
+            if (isConfirm) {
+                var checkboxInputs = document.querySelectorAll('.checked-update')
+                var data = document.querySelector('#selectorStatus').value; 
+                checkboxInputs.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        id = checkbox.value
+                        id_array.push(id) 
+                    }
+                })
+
+                let form = new FormData();
+                form.append('_id', id_array)
+                form.append('_content', data)
+                form.append('_token', _token)
+
+                sendData(url, form)
+                redirect(location, 700)
+            } else {
+                swal("Đóng!",  `Không cập nhật theo yêu cầu !`, "warning");
+            }
+        });
+   
+} 
+
+

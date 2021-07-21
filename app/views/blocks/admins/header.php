@@ -231,7 +231,7 @@
   <div class="navbar-nav-wrap">
     <div class="navbar-brand-wrapper">
       <!-- Logo -->
-      <a class="navbar-brand" href="index.html" aria-label="Front">
+      <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
         <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo.svg'}}" alt="Logo">
         <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo-short.svg'}}" alt="Logo">
       </a>
@@ -985,7 +985,7 @@
       <!-- Logo -->
       
       
-        <a class="navbar-brand" href="index.html" aria-label="Front">
+        <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
           <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo.svg'}}" alt="Logo">
         </a>
       
@@ -1924,7 +1924,7 @@
 
                 <ul id="navLinkOrderMngDropdownOrder" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownOrder" style="min-width: 16rem;">
                   <li>
-                    <a class="dropdown-item" href="users.html">
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/order'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách đơn hàng
                     </a>
                   </li>
@@ -2112,7 +2112,7 @@
       <div class="navbar-nav-wrap">
         <div class="navbar-brand-wrapper">
           <!-- Logo -->
-          <a class="navbar-brand" href="index.html" aria-label="Front">
+          <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
             <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo-white.svg'}}" alt="Logo">
           </a>
           <!-- End Logo -->
@@ -3178,7 +3178,7 @@
 
                   <ul id="navLinkOrderMngDropdownOrder" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownOrder" style="min-width: 16rem;">
                     <li>
-                      <a class="dropdown-item" href="users.html">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/order'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách đơn hàng
                       </a>
                     </li>
@@ -3367,7 +3367,7 @@
         <!-- Logo -->
         
         
-          <a class="navbar-brand" href="index.html" aria-label="Front">
+          <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
             <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo.svg'}}" alt="Logo">
             <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo-short.svg'}}" alt="Logo">
           </a>
@@ -3724,7 +3724,7 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="users.html" title="List Orders">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/order'}}" title="List Orders">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách đơn hàng </span>
                     </a>
@@ -4130,7 +4130,7 @@
       <!-- Logo -->
       
       
-        <a class="navbar-brand" href="index.html" aria-label="Front">
+        <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
           <img class="navbar-brand-logo-short" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo-short.svg'}}" alt="Logo">
         </a>
       
@@ -4480,7 +4480,7 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="List Orders">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/order'}}" title="List Orders">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách đơn hàng</span>
                   </a>

@@ -317,11 +317,13 @@
                             <td>
                                 <span class="legend-indicator bg-success"></span>Active
                             </td>
+                           
                             <td>
-                                Tổng đơn hàng
+                                {{$customer['total_order']}}
                             </td>
                             <td>
-                                Tổng chi tiêu
+                                {! number_format($customer['total_order_price']) !} đ
+                                
                             </td>
                             <td>Aug 17, 2020, 5:48 (ET)</td>
                         </tr>

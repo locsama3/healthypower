@@ -17,7 +17,6 @@
 
     $routes['dang-nhap'] = 'customer/login';
 
-    $routes['dang-ky'] = 'customer/register';
 
     $routes['xac-thuc-nguoi-dung'] = 'customer/validate';
 
@@ -68,6 +67,7 @@
 
     $routes['products'] = 'admin/product/index';
 
+
     $routes['products-create'] = 'admin/product/create';
 
     $routes['products-store'] = 'admin/product/store';
@@ -77,6 +77,7 @@
     $routes['products-update/.+-(\d+)'] = 'admin/product/update/$1';
 
     $routes['products-status'] = 'admin/product/status';
+
 
     $routes['products-destroy'] = 'admin/product/destroy';
 
@@ -215,6 +216,7 @@
     
     $routes['customer-create'] = 'admin/customer/create';
 
+
     $routes['customer-store'] = 'admin/customer/store';
 
     $routes['customer-edit/.+-(\d+)'] = 'admin/customer/edit/$1';
@@ -225,4 +227,23 @@
 
     // routes delivery
     $routes['deliveries'] = 'admin/delivery/index';
+
+    // routes orders
+    
+    $routes['order'] = 'admin/orderhandling/index';
+
+    $routes['order-update'] = 'admin/orderhandling/update_status';
+
+    $routes['order-detail/.+-(\d+)'] = 'admin/orderhandling/show/$1';
+    
+
+    $routes['detail-edit'] = 'admin/orderhandling/edit';
+
+    $routes['detail-load-address'] = 'admin/orderhandling/load_address';
+    
+    $routes['detail-edit-contact'] = 'admin/orderhandling/update_contact';
+    
+    $routes['detail-load-contact'] = 'admin/orderhandling/load_contact'
+    
+
 ?>

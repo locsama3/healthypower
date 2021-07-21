@@ -237,6 +237,7 @@
                             </thead>
 
                             <tbody>
+                                @foreach($order_by_id as $order)
                                 <tr>
                                     <td class="table-column-pr-0">
                                         <div class="custom-control custom-checkbox">
@@ -245,312 +246,20 @@
                                         </div>
                                     </td>
                                     <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#35463</a>
+                                        <a href="{{_WEB_ROOT}}/order-detail/id-{{$order['id']}}">#{{$order['id']}}</a>
                                     </td>
-                                    <td>Aug 17, 2020</td>
+                                    <td>{{$order['order_date']}}</td>
                                     <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
+                                        {! $order['order_status'] !}
                                     </td>
-                                    <td>$256.39</td>
+                                    <td>{! number_format($order['total']) !} đ</td>
                                     <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
+                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal{{$order['id']}}">
+                                            <i class="tio-receipt-outlined mr-1"></i> Xem hóa đơn
                                         </a>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck2">
-                                            <label class="custom-control-label" for="ordersCheck2"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#23513</a>
-                                    </td>
-                                    <td>Aug 17, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
-                                    </td>
-                                    <td>$2,125.00</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck3">
-                                            <label class="custom-control-label" for="ordersCheck3"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#62311</a>
-                                    </td>
-                                    <td>Aug 03, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
-                                    </td>
-                                    <td>$532.99</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck4">
-                                            <label class="custom-control-label" for="ordersCheck4"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#12453</a>
-                                    </td>
-                                    <td>July 29, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-warning">
-                                            <span class="legend-indicator bg-warning"></span>Pending
-                                        </span>
-                                    </td>
-                                    <td>$1,035.02</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck5">
-                                            <label class="custom-control-label" for="ordersCheck5"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#84223</a>
-                                    </td>
-                                    <td>July 11, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
-                                    </td>
-                                    <td>$68.53</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck6">
-                                            <label class="custom-control-label" for="ordersCheck6"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#46542</a>
-                                    </td>
-                                    <td>July 04, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
-                                    </td>
-                                    <td>$100.00</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck7">
-                                            <label class="custom-control-label" for="ordersCheck7"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a class="text-danger" href="ecommerce-order-details.html">#35378</a>
-                                        <i class="tio-warning text-warning"></i>
-                                    </td>
-                                    <td>June 27, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-warning">
-                                            <span class="legend-indicator bg-warning"></span>Pending
-                                        </span>
-                                    </td>
-                                    <td class="text-danger">$89.46</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck8">
-                                            <label class="custom-control-label" for="ordersCheck8"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a class="text-danger" href="ecommerce-order-details.html">#24562</a>
-                                        <i class="tio-warning text-warning"></i>
-                                    </td>
-                                    <td>June 15, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-warning">
-                                            <span class="legend-indicator bg-warning"></span>Pending
-                                        </span>
-                                    </td>
-                                    <td class="text-danger">$3,535.46</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck9">
-                                            <label class="custom-control-label" for="ordersCheck9"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#78531</a>
-                                    </td>
-                                    <td>June 12, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
-                                    </td>
-                                    <td>$23.89</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck10">
-                                            <label class="custom-control-label" for="ordersCheck10"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#34634</a>
-                                    </td>
-                                    <td>June 02, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
-                                    </td>
-                                    <td>$77.00</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck11">
-                                            <label class="custom-control-label" for="ordersCheck11"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a class="text-danger" href="ecommerce-order-details.html">#93817</a>
-                                        <i class="tio-warning text-warning"></i>
-                                    </td>
-                                    <td>May 30, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-warning">
-                                            <span class="legend-indicator bg-warning"></span>Pending
-                                        </span>
-                                    </td>
-                                    <td class="text-danger">$77.00</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck12">
-                                            <label class="custom-control-label" for="ordersCheck12"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#43113</a>
-                                    </td>
-                                    <td>May 25, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
-                                    </td>
-                                    <td>$1,421.47</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="table-column-pr-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="ordersCheck13">
-                                            <label class="custom-control-label" for="ordersCheck13"></label>
-                                        </div>
-                                    </td>
-                                    <td class="table-column-pl-0">
-                                        <a href="ecommerce-order-details.html">#12412</a>
-                                    </td>
-                                    <td>May 16, 2020</td>
-                                    <td>
-                                        <span class="badge badge-soft-success">
-                                            <span class="legend-indicator bg-success"></span>Paid
-                                        </span>
-                                    </td>
-                                    <td>$45.00</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-white" href="javascript:;" data-toggle="modal" data-target="#invoiceReceiptModal">
-                                            <i class="tio-receipt-outlined mr-1"></i> Invoice
-                                        </a>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -593,7 +302,7 @@
                             </div>
                         </div>
                         <!-- End Pagination -->
-                    </div>
+                    </div>  
                     <!-- End Footer -->
                 </div>
                 <!-- End Card -->
@@ -1193,7 +902,8 @@
 <!-- End Welcome Message Modal -->
 
 <!-- Invoice Modal -->
-<div class="modal fade" id="invoiceReceiptModal" tabindex="-1" role="dialog" aria-hidden="true">
+@foreach($order_by_id as $data)
+<div class="modal fade" id="invoiceReceiptModal{{$data['id']}}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <!-- Header -->
@@ -1221,26 +931,27 @@
             <!-- Body -->
             <div class="modal-body pt-3 pb-sm-5 px-sm-5">
                 <div class="text-center mb-5">
-                    <h2 class="mb-1">Invoice from Front</h2>
-                    <span class="d-block">Invoice #3682303</span>
+                    <h2 class="mb-1">Hóa đơn</h2>
+                    <span class="d-block">#{{ $data['id'] }}</span>
                 </div>
 
                 <div class="row mb-6">
                     <div class="col-md-4 mb-3">
-                        <small class="text-cap">Amount paid:</small>
-                        <span class="text-dark">$316.8</span>
+                        <small class="text-cap">Tổng cộng:</small>
+                        <span class="text-dark">{! number_format($data['total']) !}</span>
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <small class="text-cap">Date paid:</small>
-                        <span class="text-dark">April 22, 2020</span>
+                        <small class="text-cap">Ngày thanh toán:</small>
+                        <span class="text-dark"></span>
+                        {{ $data['order_date'] }}
                     </div>
 
                     <div class="col-md-4 mb-3">
-                        <small class="text-cap">Payment method:</small>
+                        <small class="text-cap">Phương thức thanh toán:</small>
                         <div class="d-flex align-items-center">
                             <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\brands\mastercard.svg" alt="Image Description">
-                            <span class="text-dark">&bull;&bull;&bull;&bull; 4242</span>
+                            <span class="text-dark">&bull;&bull;&bull;&bull;{{substr($data['payment_code'], -4)}}</span>
                         </div>
                     </div>
                 </div>
@@ -1250,38 +961,39 @@
                 <ul class="list-group mb-4">
                     <li class="list-group-item text-dark">
                         <div class="d-flex justify-content-between align-items-center">
-                            <span>Payment to Front</span>
-                            <span>$264.00</span>
+                            <span>Tạm thu</span>
+                            <span>{! number_format($data['total'] - $data['shipping_fee']) !} đ</span>
                         </div>
                     </li>
 
                     <li class="list-group-item text-dark">
                         <div class="d-flex justify-content-between align-items-center">
-                            <span>Tax fee</span>
-                            <span>$52.8</span>
+                            <span>Phí ship</span>
+                            <span>{! number_format($data['shipping_fee']) !} đ</span>
                         </div>
                     </li>
 
                     <li class="list-group-item list-group-item-light text-dark">
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="font-weight-bold">Amount paid</span>
-                            <span class="font-weight-bold">$316.8</span>
+                            <span class="font-weight-bold">Tổng cộng</span>
+                            <span class="font-weight-bold">{! number_format($data['total']) !} đ</span>
                         </div>
                     </li>
                 </ul>
 
                 <div class="d-flex justify-content-end">
-                    <a class="btn btn-sm btn-white mr-2" href="#"><i class="tio-download-to mr-1"></i> PDF</a>
-                    <a class="btn btn-sm btn-white" href="#"><i class="tio-print mr-1"></i> Print Details</a>
+                    <a class="btn btn-sm btn-white mr-2" href="#"><i class="tio-download-to mr-1"></i>Xuất PDF</a>
+                    <a class="btn btn-sm btn-white" href="#"><i class="tio-print mr-1"></i>In hóa đơn</a>
                 </div>
 
                 <hr class="my-5">
 
-                <p class="modal-footer-text">If you have any questions, contact us at <a href="mailto:example@gmail.com">example@gmail.com</a> or call at <a href="#">+1 898 34-5492</a></p>
+                <p class="modal-footer-text">Nếu bạn có bất cứ thắc mắc gì, vui lòng liên hệ <a href="mailto:example@gmail.com">example@gmail.com</a> hoặc gọi ngay <a href="#">+1 898 34-5492</a></p>
             </div>
             <!-- End Body -->
         </div>
     </div>
 </div>
+@endforeach
 <!-- End Invoice Modal -->
 <!-- ========== END SECONDARY CONTENTS ========== -->

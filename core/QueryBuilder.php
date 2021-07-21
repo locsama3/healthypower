@@ -255,7 +255,7 @@
 
             $updateStatus = $this->updateData($tableName, $data, $whereUpdate);
 
-            // reset field
+
             $this->resetQuery();
 
             return $updateStatus; 
@@ -271,7 +271,6 @@
 
             $deleteStatus = $this->deleteData($tableName, $whereDelete);
 
-            // reset field
             $this->resetQuery();
 
             return $deleteStatus; 

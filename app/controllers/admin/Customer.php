@@ -4,20 +4,42 @@ class Customer extends Controller
 
     public $customerModel;
     public $request, $response;
+    public $orderModel;
 
     public function __construct()
     {
         $this->customerModel = $this->model('CustomerModel');
+        $this->orderModel = $this->model('OrderModel');
         $this->request = new Request();
         $this->response = new Response();
     }
 
     public function index()
     {
+        
         $data['content'] = 'admins.customers.index';
 
-
+         
         $data['sub_content']['list_customers'] = $this->customerModel->all();
+
+        $i = 0;
+        
+        foreach($data['sub_content']['list_customers'] as $customer){
+            $total = 0;
+            $data['sub_content']['list_customers'][$i]['total_order'] = $this->orderModel->getRow($customer['id']);
+    
+            $customerById = $this->customerModel->getOrderByIdCustomer($customer['id']);
+            $j = 0;
+            foreach($customerById as $value){
+                $orderDetailById = $this->orderModel->getOrderDetailById($value['id']);
+                $total += totalPrice($orderDetailById, $customerById[$j]['shipping_fee'])[0];
+                $j++;
+            }
+            
+            $data['sub_content']['list_customers'][$i]['total_order_price'] = $total;
+            $i++;
+        }
+        
 
         $data['dataMeta'] = $this->loadMetaTag();
 
@@ -163,6 +185,22 @@ class Customer extends Controller
     {
         $data['sub_content']['customer_by_id'] = $this->customerModel->find($id);
 
+        $data['sub_content']['order_by_id'] = $this->customerModel->getOrderByIdCustomer($id);
+
+        
+        $i=0;
+
+        foreach($data['sub_content']['order_by_id'] as $order){
+            $order_detail = $this->orderModel->getOrderDetailById($order['id']);
+            $data['sub_content']['order_by_id'][$i]['order_status'] = status($order['order_status']);
+            $total = totalPrice($order_detail, $order['shipping_fee']);
+            $data['sub_content']['order_by_id'][$i]['total'] = $total[0];
+            $i++;
+        }
+        
+        
+
+     
         $data['content'] = 'admins.customers.edit';
 
         $data['dataMeta'] = $this->loadMetaTag();

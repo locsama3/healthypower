@@ -15,6 +15,7 @@ class Controller{
 
         return false;
     }
+    
 
     public function view($view, $data=[]){
 

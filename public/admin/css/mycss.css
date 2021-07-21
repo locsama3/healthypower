@@ -23,6 +23,7 @@
    display: none;
 }
 
+
 /* style for dropzone */
 
 #drop-area {
@@ -115,4 +116,24 @@
 .no_service{
     margin-top: 0.65rem;
     margin-bottom: 0;
+}
+@keyframes fade {
+    0%{
+        opacity: 0;
+        transform: scale3d(.75, .75, .75);
+    }
+    40%{
+        opacity: 0.4;
+        /* transform: scale3d(.75, .75, 1); */
+    }
+    100%{
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+.fadeAnimation{
+    animation: fade 2s;
+}
+.dflex{
+    display:flex;
 }
