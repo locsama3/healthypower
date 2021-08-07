@@ -74,7 +74,11 @@
                                   @endphp
                                   @endif
                               @endforeach
-                              <div style="width:<?php echo $total/$count*20; ?>%" class="rating"></div>
+                              @if($count != 0)
+                              <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                              @else
+                              <div style="width:0%" class="rating"></div>
+                              @endif
                               </div>
                             </div>
                             <div class="price-box"> 
@@ -168,7 +172,11 @@
                                   @endphp
                                   @endif
                               @endforeach
-                              <div style="width:<?php echo $total/$count*20; ?>%" class="rating"></div>
+                              @if($count != 0)
+                              <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                              @else
+                              <div style="width:0%" class="rating"></div>
+                              @endif
                               </div>
                             </div>
                             <div class="price-box"> 
@@ -270,7 +278,11 @@
                           @endphp
                           @endif
                       @endforeach
-                      <div style="width:<?php echo $total/$count*20; ?>%" class="rating"></div>
+                      @if($count != 0)
+                      <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                      @else
+                      <div style="width:0%" class="rating"></div>
+                      @endif
                       </div>
                     </div>
                     <div class="price-box"> 
@@ -460,7 +472,11 @@
                             @endphp
                             @endif
                         @endforeach
-                        <div style="width:<?php echo $total/$count*20; ?>%" class="rating"></div>
+                        @if($count != 0)
+                        <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                        @else
+                        <div style="width:0%" class="rating"></div>
+                        @endif
                         </div>
                       </div>
                       <div class="price-box"> 

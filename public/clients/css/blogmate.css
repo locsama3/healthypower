@@ -39,6 +39,7 @@
 }
 .blog_entry .featured-thumb a {
 	display: block;
+	text-align: center;
 }
 .blog_entry .featured-thumb a img {
 	max-width: 100%;
@@ -231,6 +232,12 @@
 	margin: 0 20px 10px 0;
 	position: relative;
 }
+
+.featured-thumb img {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
 .popular-posts h4 {
 	font-size: 13px;
 	line-height: 18px;
@@ -358,9 +365,27 @@
 }
 .entry-content {
 	margin-bottom: 20px;
+	text-align: justify;
+}
+
+.entry-content p img {
+    width: 100%;
+}
+
+.entry-content p {
+    font-size: 17px;
+}
+
+.entry-content li {
+    font-size: 17px;
+}
+
+.entry-content ul {
+    list-style: circle;
+    margin: 0 0 1.5em 1.5em;
 }
 .entry-content, .entry-footer {
-	padding: 0px
+	padding: 0px;
 }
 /* Standard Post Format */
 .entry__standard {

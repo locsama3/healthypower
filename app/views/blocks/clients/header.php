@@ -15,7 +15,7 @@
           <!-- Header Language -->
           <div class="col-xs-6">
             <div class="welcome-msg hidden-xs"> Healthy Power </div>
-            <div class="dropdown block-language-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" class="block-language dropdown-toggle" href="#"> <img src="{{_WEB_ROOT.'/public/clients/images/english.png'}}" alt="language"> English <span class="caret"></span> </a>
+            <div class="dropdown block-language-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" class="block-language dropdown-toggle" href="#"> <img src="{{_WEB_ROOT.'/public/clients/images/vietnam.jpg'}}" alt="language"> Việt Nam <span class="caret"></span> </a>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="{{_WEB_ROOT.'/public/clients/images/vietnam.jpg'}}" alt="language"> Việt Nam </a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="{{_WEB_ROOT.'/public/clients/images/english.png'}}" alt="language"> English </a></li>
@@ -25,7 +25,7 @@
             </div>
             <!-- End Header Language --> 
             <!-- Header Currency -->
-            <div class="dropdown block-currency-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" class="block-currency dropdown-toggle" href="#"> USD <span class="caret"></span></a>
+            <div class="dropdown block-currency-wrapper"> <a role="button" data-toggle="dropdown" data-target="#" class="block-currency dropdown-toggle" href="#"> VND <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> $ - Dollar </a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> đ - VND </a></li>
@@ -73,7 +73,7 @@
                 @endforeach
               </select>
               <input type="text" placeholder="Tìm kiếm sản phẩm" value="{{ (!empty($old) && array_key_exists('search', $old)) ? $old['search'] : '' }}" maxlength="70" class="" name="search" id="search">
-              <button id="submit-button" type="submit" class="search-btn-bg"><span>Tìm kiếm</span></button>
+              <button id="submit-button" type="submit" class="search-btn-bg">Tìm kiếm</button>
             </form>
           </div>
           <!-- End Search-col --> 
@@ -111,7 +111,7 @@
                     </div>
                     <div class="user_more_info_item">
                         <a href="{{ _WEB_ROOT }}/dang-xuat" class="user_more_info_link">
-                            Thoát tài khoản
+                            Đăng xuất
                         </a>    
                     </div>
                 </ul>
@@ -156,7 +156,10 @@
                 <ul id="cart-sidebar" class="mini-products-list">
                   @if(!empty(Session::data('cart')))
                   @foreach(Session::data('cart') as $data)
-                  <li class="item even"> <a class="product-image" href="#" title="Downloadable Product "><img alt="Downloadable Product " src="{{_WEB_ROOT.'/public/uploads/products/'.$data['image']}}" width="80"></a>
+                  <li class="item even"> 
+                    <a class="product-image" href="#" title="Downloadable Product ">
+                      <img alt="Downloadable Product " src="{{_WEB_ROOT.'/public/uploads/products/'.$data['image']}}" width="80">
+                    </a>
                     <div class="detail-item">
                       <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
                         <p class="product-name"> {{$data['product_name']}} </p>
@@ -179,7 +182,7 @@
             <input value="" type="hidden">
             <input id="enable_module" value="1" type="hidden">
             <input class="effect_to_cart" value="1" type="hidden">
-            <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
+            <input class="title_shopping_cart" value="Đi tới giỏ hàng" type="hidden">
         
           </div>
         </div>
@@ -199,47 +202,19 @@
             <li>
               <div class="menutop">
                 <div class="toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></div>
-                <h2>Menu</h2>
+                <h2>Thanh công cụ</h2>
               </div>
               <ul style="display:none;" class="submenu">
                 <li>
                   <ul class="topnav">
-                    <li class="level0 nav-6 level-top first parent"> <a class="level-top" href="index.html"> <span>Trang chủ</span> </a>
-                      <ul class="level0">
-                        <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/fashion/index.html"><span>Fashion Store</span></a> </li>
-                        <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/digital/index.html"><span>Digital Store</span></a> </li>
-                        <li class="level1"><a href="index.html"><span>Furniture Store</span></a> </li>
-                        <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/jewellery/index.html"><span>Jewellery Store</span></a> </li>
-                      </ul>
+                    <li class="level0 nav-6 level-top first parent"> 
+                      <a class="level-top" href="{{_WEB_ROOT}}"> <span>Trang chủ</span> </a>
                     </li>
-                    <li class="level0 nav-6 level-top"> <a class="level-top" href="#"> <span>Pages</span> </a>
-                      <ul class="level0">
-                        <li class="level1 first"><a href="grid.html"><span>Grid</span></a></li>
-                        <li class="level1 nav-10-2"> <a href="list.html"> <span>List</span> </a> </li>
-                        <li class="level1 nav-10-3"> <a href="product_detail.html"> <span>Product Detail</span> </a> </li>
-                        <li class="level1 nav-10-4"> <a href="shopping_cart.html"> <span>Shopping Cart</span> </a> </li>
-                        <li class="level1 first parent"><a href="checkout.html"><span>Checkout</span></a>
-                          <ul class="level2">
-                            <li class="level2 nav-2-1-1 first"><a href="checkout_method.html"><span>Checkout Method</span></a></li>
-                            <li class="level2 nav-2-1-5 last"><a href="checkout_billing-info.html"><span>Checkout Billing Info</span></a></li>
-                          </ul>
-                        </li>
-                        <li class="level1 nav-10-4"> <a href="wishlist.html"> <span>Wishlist</span> </a> </li>
-                        <li class="level1"> <a href="dashboard.html"> <span>Dashboard</span> </a> </li>
-                        <li class="level1"> <a href="multiple_addresses.html"> <span>Multiple Addresses</span> </a> </li>
-                        <li class="level1"> <a href="about.html"> <span>About us</span> </a> </li>
-                        <li class="level1"><a href="compare.html"><span>Compare</span></a></li>
-                        <li class="level1"><a href="delivery.html"><span>Delivery</span></a> </li>
-                        <li class="level1"><a href="faq.html"><span>FAQ</span></a> </li>
-                        <li class="level1"><a href="quick_view.html"><span>Quick View</span></a> </li>
-                        <li class="level1"><a href="newsletter.html"><span>Newsletter</span></a> </li>
-                        <li class="level1"><a href="contact_us.html"><span>Contact us</span></a> </li>
-                        <li class="level1"><a href="sitemap.html"><span>Sitemap</span></a> </li>
-                        <li class="level1"><a href="404error.html"><span>404 Error Page</span></a> </li>
-                      </ul>
+                    <li class="level0 nav-6 level-top"> 
+                      <a class="level-top" href="#"> <span>Giới thiệu</span> </a>
                     </li>
-                    <li class="level0 nav-7 level-top parent"> <a class="level-top" href="grid.html"> <span>Fashion</span> </a> </li>
-                    <li class="level0 nav-8 level-top parent"> <a class="level-top" href="grid.html"> <span>Women</span> </a> </li>
+                    <li class="level0 nav-7 level-top parent"> <a class="level-top" href="grid.html"> <span>Sản phẩm</span> </a> </li>
+                    <li class="level0 nav-8 level-top parent"> <a class="level-top" href="grid.html"> <span>Liên hệ</span> </a> </li>
                     <li class="level0 parent drop-menu">
                       <a href="{{_WEB_ROOT.'/bai-viet'}}">
                         <span>Bài viết</span> 
@@ -263,20 +238,15 @@
           <!--navmenu--> 
         </div>
         <!--End mobile-menu --> 
-        <a class="logo-small" title="Magento Commerce" href="index.html">
+        <a class="logo-small" title="Magento Commerce" href="{{_WEB_ROOT}}">
           <!-- <img alt="Magento Commerce" src="{{_WEB_ROOT.'/public/clients/images/logo-healthypower.jpg'}}"> -->
           <span>Healthy</span>
         </a>
         <ul id="nav" class="hidden-xs">
-          <li class="level0 parent drop-menu"><a href="index.html" class="active"><span>Trang chủ</span> </a>
-            <ul class="level1">
-              <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/fashion/index.html"><span>Fashion Store</span></a> </li>
-              <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/digital/index.html"><span>Digital Store</span></a> </li>
-              <li class="level1"><a href="index.html"><span>Furniture Store</span></a> </li>
-              <li class="level1"><a href="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/jewellery/index.html"><span>Jewellery Store</span></a> </li>
-            </ul>
+          <li class="level0 parent drop-menu">
+            <a href="{{_WEB_ROOT}}" class="active"><span>Trang chủ</span> </a>
           </li>
-          <li class="level0 parent drop-menu"><a href="#"><span>Pages</span> </a>
+          <li class="level0 parent drop-menu"><a href="#"><span>Giới thiệu</span> </a>
             <ul class="level1">
               <li class="level1 first"><a href="grid.html"><span>Grid</span></a></li>
               <li class="level1 nav-10-2"> <a href="list.html"> <span>List</span> </a> </li>
@@ -302,7 +272,7 @@
               <li class="level1"><a href="404error.html"><span>404 Error Page</span></a> </li>
             </ul>
           </li>
-          <li class="level0 nav-5 level-top first"> <a href="grid.html" class="level-top"> <span>Women</span> </a>
+          <li class="level0 nav-5 level-top first"> <a href="grid.html" class="level-top"> <span>Sản phẩm</span> </a>
             <div class="level0-wrapper dropdown-6col" style="display:none;">
               <div class="level0-wrapper2">
                 <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
@@ -369,7 +339,7 @@
               </div>
             </div>
           </li>
-          <li class="level0 nav-7 level-top parent"> <a href="grid.html" class="level-top"> <span>Men</span> </a>
+          <li class="level0 nav-7 level-top parent"> <a href="grid.html" class="level-top"> <span>Liên hệ</span> </a>
             <div class="level0-wrapper dropdown-6col" style="display: none;">
               <div class="level0-wrapper2"> 
                 <!--nav-block nav-block-center-->
@@ -434,165 +404,6 @@
               </div>
             </div>
           </li>
-          <li class="level0 nav-5 level-top first"> <a class="level-top" href="grid.html"> <span>Electronics</span> </a>
-            <div style="display:none;" class="level0-wrapper dropdown-6col">
-              <div class="level0-wrapper2">
-                <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col"> 
-                  <!--mega menu-->
-                  <ul class="level3">
-                    <li class="level3 nav-6-1 parent item"> <a href="grid.html"><span>Mobiles</span></a> 
-                      <!--sub sub category-->
-                      
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Samsung</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Nokia</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>iPhone</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Sony</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                      </ul>
-                      <!--level1--> 
-                      
-                      <!--sub sub category-->
-                      <div class="cat-img"><img src="{{_WEB_ROOT.'/public/clients/images/e-img1.jpg'}}" alt="Mobiles"></div>
-                    </li>
-                    <!--level1 nav-6-1 parent item-->
-                    
-                    <li class="level1 nav-6-1 parent item"> <a href="grid.html"><span>Mobiles Accesories</span></a> 
-                      <!--sub sub category-->
-                      
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Mobile Memory Cards</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Cases &amp; Covers</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Mobile Headphones</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Bluetooth Headsets</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                      </ul>
-                      <!--level1--> 
-                      
-                      <!--sub sub category-->
-                      <div class="cat-img"><img src="{{_WEB_ROOT.'/public/clients/images/e-img2.jpg'}}" alt="Mobiles Accesories"></div>
-                    </li>
-                    <!--level1 nav-6-1 parent item-->
-                    
-                    <li class="level1 nav-6-1 parent item"> <a href="grid.html"><span>Cameras</span></a> 
-                      <!--sub sub category-->
-                      
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Camcorders</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Point &amp; Shoot</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Digital SLR</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Camera Accesories</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                      </ul>
-                      <!--level1--> 
-                      
-                      <!--sub sub category-->
-                      <div class="cat-img"><img src="{{_WEB_ROOT.'/public/clients/images/e-img3.jpg'}}" alt="Cameras"></div>
-                    </li>
-                    <!--level1 nav-6-1 parent item-->
-                    
-                    <li class="level1 nav-6-1 parent item"> <a href="grid.html"><span>Audio &amp; Video</span></a> 
-                      <!--sub sub category-->
-                      
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>MP3 Players</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>IPods</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Speakers</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Video Players</span></a> </li>
-                        <!--level2 nav-6-1-1-->
-                      </ul>
-                      <!--level1--> 
-                      <!--sub sub category-->
-                      <div class="cat-img"><img src="{{_WEB_ROOT.'/public/clients/images/e-img4.jpg'}}" alt="Audio &amp; Video"></div>
-                    </li>
-                    <!--level1 nav-6-1 parent item-->
-                  </ul>
-                  <!--level0--> 
-                </div>
-                <!--nav-block nav-block-center-->
-                <div class="nav-block nav-block-right std grid12-4">
-                  <p><a href="#"><img class="fade-on-hover" src="{{_WEB_ROOT.'/public/clients/images/nav-img1.jpg'}}" alt="nav img"></a></p>
-                  <h3 class="heading">Responsive Magento Theme</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor.</p>
-                  <p><a class="btn-button-st" title="Shop collection now" href="#">Shop collection now</a></p>
-                </div>
-                <!--nav-block nav-block-right std grid12-4--> 
-              </div>
-            </div>
-          </li>
-          <li class="level0 nav-5 level-top parent"><a href="grid.html"><span>Furniture </span> </a>
-            <div class="level0-wrapper dropdown-6col" style="display: none;">
-              <div class="level0-wrapper2">
-                <div class="nav-block nav-block-center">
-                  <ul class="level0">
-                    <li class="level1 nav-6-1 parent item"> <a href="grid.html"><span>Living Room</span></a> 
-                      <!--sub sub category-->
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Racks &amp; Cabinets</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Sofas</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Chairs</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Tables</span></a> </li>
-                      </ul>
-                      <!--sub sub category--> 
-                    </li>
-                    <li class="level1 nav-6-1 parent item"> <a href="grid.html"><span>Dining &amp; Bar</span></a> 
-                      <!--sub sub category-->
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Dining Table Sets</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Serving Trolleys</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Bar Counters</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Dining Cabinets</span></a> </li>
-                      </ul>
-                      <!--sub sub category--> 
-                    </li>
-                    <li class="level1 nav-6-1 parent item"> <a href="grid.html"><span>Bedroom</span></a> 
-                      <!--sub sub category-->
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Coats</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Beds</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Chest of Drawers</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Wardrobes &amp; Almirahs</span></a> </li>
-                      </ul>
-                      <!--sub sub category--> 
-                    </li>
-                    <li class="level1 nav-6-1 parent item"> <a href="grid.html"><span>Kitchen</span></a> 
-                      <!--sub sub category-->
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Kitchen Racks</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Kitchen Fillings</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Wall Units</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Benches &amp; Stools</span></a> </li>
-                      </ul>
-                      <!--sub sub category--> 
-                    </li>
-                    <li class="level1 nav-6-1 parent item"> <a href="grid.html"><span>Kitchen</span></a> 
-                      <!--sub sub category-->
-                      <ul class="level1">
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Ray Ban</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Fasttrack</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Police</span></a> </li>
-                        <li class="level2 nav-6-1-1"> <a href="grid.html"><span>Oakley</span></a> </li>
-                      </ul>
-                      <!--sub sub category--> 
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!--level0-wrapper2--> 
-            </div>
-          </li>
           <li class="level0 parent drop-menu">
             <a href="{{_WEB_ROOT.'/bai-viet'}}">
               <span>Bài viết</span> 
@@ -609,7 +420,7 @@
               @endforeach
             </ul>
           </li>
-          <li class="nav-custom-link level0 level-top parent"> <a class="level-top" href="#"><span>Custom</span></a>
+          <li class="nav-custom-link level0 level-top parent"> <a class="level-top" href="#"><span>Đối tác</span></a>
             <div class="level0-wrapper custom-menu" style="left: 0px; display: none;">
               <div class="header-nav-dropdown-wrapper clearer">
                 <div class="grid12-5">

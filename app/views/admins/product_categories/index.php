@@ -326,7 +326,7 @@
                       </span>
                     </label>
                   </td>
-                  <td>{!textShorten($value['description'], 500)!}</td>
+                  <td>{!textShorten($value['description'], 100)!}</td>
                   <td>
                     <div class="btn-group" role="group">
                       <a class="btn btn-sm btn-white" 

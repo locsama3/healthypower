@@ -82,29 +82,35 @@ class Cart extends Controller{
         $data = Session::data('cart');
        
         $product = $this->productModel->find($id);
-        
-        
-        if(empty(Session::data('cart')) || ! array_key_exists($id, Session::data('cart'))){
-            
-            $product['qty'] = 1;
-            Session::data('cart', $product, $id);
-            
-            
-            $this->totalProduct(); 
-            
-            
-        }else{
-            $product['qty'] = $data[$id]['qty'] + 1;
+        $dataFields = $this->request->getFields();
+        if(!empty($dataFields['qty'])){
+            $product['qty'] = $data[$id]['qty'] + $dataFields['qty'];
            
             Session::data('cart', $product, $id);
   
             $this->totalProduct();
-           
-           
+        }else{
+            if(empty(Session::data('cart')) || ! array_key_exists($id, Session::data('cart'))){
+            
+                $product['qty'] = 1;
+                Session::data('cart', $product, $id);
+                
+                
+                $this->totalProduct(); 
+                        
+            }else{
+                $product['qty'] = $data[$id]['qty'] + 1;
+               
+                Session::data('cart', $product, $id);
+      
+                $this->totalProduct();
+               
+            }
         }
-        
+           
         return $this->response->redirect('gio-hang');
     }
+
     public function getShippingFee(){
         $dataFields = $this->request->getFields();
         Session::data('shipping_fee', $dataFields['shipping_fee']);

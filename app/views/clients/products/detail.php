@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="product-view wow">
                     <div class="product-essential">
-                        <form action="{{_WEB_ROOT }}/cap-nhat-gio-hang/id-{{ $product['id'] }}" method="post" id="product_addtocart_form">
+                        <form action="{{_WEB_ROOT }}/them-gio-hang/id-{{ $product['id'] }}" method="post" id="product_addtocart_form">
                             <div class="product-img-box col-lg-6 col-sm-6 col-xs-12">
                                 <ul class="moreview" id="moreview">
                                     <li class="moreview_thumb thumb_1"> 
@@ -28,8 +28,16 @@
                                         <span class="roll-over">Di chuyển chuột vào hình ảnh để phóng to</span> 
                                         <img style="position: absolute;" class="zoomImg" src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}">
                                     </li>
+
+                                    @php
+                                        $i = 1;
+                                    @endphp
+
                                     @foreach ($list_gallary as $image)
-                                    <li class="moreview_thumb thumb_2 moreview_thumb_active"> 
+                                    @php
+                                        $i++;
+                                    @endphp
+                                    <li class="moreview_thumb thumb_{{$i}} moreview_thumb_active"> 
                                         <img class="moreview_thumb_image" src="{{ _WEB_ROOT }}/public/uploads/products/{{ $image['image'] }}"> 
                                         <img class="moreview_source_image" src="{{ _WEB_ROOT }}/public/uploads/products/{{ $image['image'] }}" alt=""> 
                                         <span class="roll-over">Di chuyển chuột vào hình ảnh để phóng to</span> 
@@ -37,7 +45,10 @@
                                     </li>
                                     @endforeach
                                 </ul>
-                                <div class="moreview-control"> <a style="right: 42px;" href="javascript:void(0)" class="moreview-prev"></a> <a style="right: 42px;" href="javascript:void(0)" class="moreview-next"></a> </div>
+                                <div class="moreview-control"> 
+                                    <a style="right: 42px;" href="javascript:void(0)" class="moreview-prev"></a> 
+                                    <a style="right: 42px;" href="javascript:void(0)" class="moreview-next"></a> 
+                                </div>
                             </div>
 
                             <!-- end: more-images -->
@@ -60,7 +71,11 @@
                                             @endphp
                                             @endif
                                         @endforeach
-                                        <div style="width:<?php echo $total/$count*20; ?>%" class="rating"></div>
+                                        @if($count != 0)
+                                        <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                                        @else
+                                        <div style="width:0%" class="rating"></div>
+                                        @endif
                                     </div>
                                     <p class="rating-links"> <a href="#">{{ $count }} Đánh giá</a> <span class="separator"></span></p>
                                 </div>
@@ -99,7 +114,7 @@
                                             <div class="custom pull-left">
                                                 <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
                                                 <!-- <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty"> -->
-                                                <input type="number" class="input-text" id="qty" min="1" name="qty[<?=$product['id']?>]">
+                                                <input type="number" class="input-text" id="qty" min="1" name="qty">
                                                 <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
                                             </div>
                                         </div>
@@ -289,8 +304,11 @@
                                                                             @endphp
                                                                             @endif
                                                                         @endforeach
-                                                                        <div style="width:<?php echo $total/$count*20; ?>%" class="rating"></div>
-                                                                        </div>
+                                                                        @if($count != 0)
+                                                                            <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                                                                            @else
+                                                                            <div style="width:0%" class="rating"></div>
+                                                                            @endif
                                                                     </div>
                                                                     <div class="price-box">
                                                                         <p class="special-price"> 
@@ -357,7 +375,7 @@
                                                         <div class="images-container"> <a class="product-image" title="Sample Product" href="hi-tiet-san-pham/id-{{ $product['id'] }}"> <img src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}" class="img-responsive" alt="a" /> </a></a>
                                                             <div class="actions">
                                                                 <div class="actions-inner">
-                                                                    <button type="button" title="Add to Cart" class="button btn-cart"><span>Thêm vào giỏ</span></button>
+                                                                    <button type="button" title="Thêm vào giỏ hàng" class="button btn-cart"><span>Thêm vào giỏ</span></button>
                                                                     <ul class="add-to-links">
                                                                         <li><a title="Add to Wishlist" class="link-wishlist" href="wishlist.html"><span>Thêm vào mục yêu thích</span></a></li>
                                                                         <li><a title="Add to Compare" class="link-compare" href="compare.html"><span>Thêm vào so sánh</span></a></li>
