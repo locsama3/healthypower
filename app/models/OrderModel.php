@@ -68,8 +68,5 @@ class OrderModel extends Model {
         $row = $result->rowCount();
         return $row;
     }
-
-    
-            
     
 }

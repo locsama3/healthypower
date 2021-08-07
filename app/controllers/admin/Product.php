@@ -173,7 +173,7 @@ class Product extends Controller{
 
         $data['sub_content']['list_suppliers'] = $this->supplierModel->all();
 
-        $data['sub_content']['list_gallery'] = $this->productGalleryModel->findByIdAndSort("product_id",$id, "position");
+        $data['sub_content']['list_gallery'] = $this->productGalleryModel->findByField(["product_id: $id"], "position : ASC");
 
         $data['content'] = 'admins.products.edit';
 
@@ -260,8 +260,8 @@ class Product extends Controller{
                 'is_new'            => ($dataFields['isNew'] != '') ? 1 : 0
             ];
 
-            $productById = $this->productModel->findOne("id", $id);
-            $proGallaryById = $this->productGalleryModel->findById("product_id", $id);
+            $productById = $this->productModel->findOne(["id: $id"]);
+            $proGallaryById = $this->productGalleryModel->findByField(["product_id: ". $id]);
 
             $uploadPath = "public/uploads/products/";
             $proGallary = [];
@@ -272,7 +272,7 @@ class Product extends Controller{
             $proGallary = $proGallaryById;
             array_push($proGallary, ["image" => $productById['image']]);
 
-            // tạo mảng trung gian lưu trữ ảnh được upload lên server
+            // tạo mảng trung gian lưu trữ ảnh cũ được upload lên server
             foreach ($dataFields['file'] as $key => $fileImg) {
                 if (strpos($fileImg, "/public/uploads/products/") != false) {
                     array_push($listImgUploadInGallery,str_replace(_WEB_ROOT."/public/uploads/products/", "", $fileImg));
@@ -338,13 +338,13 @@ class Product extends Controller{
                         ];
 
                         $this->productGalleryModel->create($dataGallery);
-                        break;
+                        continue;
                     }
 
                     foreach ($proGallary as $image) {
                         if ($image['image'] == $imgName) {
                             if ($image['position'] != $key) {   
-                                $dataGallery['position']  = $key;
+                                $dataGallery = ['position' => $key ];
                                 $idGallery = $image['id'];
 
                                 $this->productGalleryModel->edit($idGallery, $dataGallery);

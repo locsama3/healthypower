@@ -3,6 +3,29 @@
         // INITIALIZATION OF DATATABLES
         // =======================================================
         var datatable = $.HSCore.components.HSDatatables.init($('#datatableProduct'), {
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'copy',
+                    className: 'd-none'
+                },
+                {
+                    extend: 'excel',
+                    className: 'd-none'
+                },
+                {
+                    extend: 'csv',
+                    className: 'd-none'
+                },
+                {
+                    extend: 'pdf',
+                    className: 'd-none'
+                },
+                {
+                    extend: 'print',
+                    className: 'd-none'
+                },
+            ],
             select: {
                 style: 'multi',
                 selector: 'td:first-child input[type="checkbox"]',
@@ -18,6 +41,26 @@
                     '<p class="mb-0">No data to show</p>' +
                     '</div>'
             }
+        });
+
+        $('#export-copy').click(function () {
+            datatable.button('.buttons-copy').trigger()
+        });
+
+        $('#export-excel').click(function () {
+            datatable.button('.buttons-excel').trigger()
+        });
+
+        $('#export-csv').click(function () {
+            datatable.button('.buttons-csv').trigger()
+        });
+
+        $('#export-pdf').click(function () {
+            datatable.button('.buttons-pdf').trigger()
+        });
+
+        $('#export-print').click(function () {
+            datatable.button('.buttons-print').trigger()
         });
 
         $('.js-datatable-filter').on('change', function() {
@@ -120,7 +163,6 @@
                 deleteItem(element, url, "sản phẩm", currentUrl)
             })
         });
-
 
     });
 </script>

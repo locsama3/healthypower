@@ -9,7 +9,7 @@
 
               <div class="mt-2">
                 <a class="text-body mr-3" href="javascript:;" data-toggle="modal" data-target="#exportOrdersModal">
-                  <i class="tio-download-to mr-1"></i> Export
+                  <i class="tio-download-to mr-1"></i> Xuất file
                 </a>
 
                 <!-- Unfold -->
@@ -18,7 +18,7 @@
                        "target": "#moreOptionsDropdown",
                        "type": "css-animation"
                      }'>
-                    More options <i class="tio-chevron-down"></i>
+                    Lựa chọn khác <i class="tio-chevron-down"></i>
                   </a>
 
                   <div id="moreOptionsDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu mt-1">
@@ -120,7 +120,7 @@
                         <i class="tio-search"></i>
                       </div>
                     </div>
-                    <input id="datatableSearch" type="search" class="form-control" placeholder="Search orders" aria-label="Search orders">
+                    <input id="datatableSearch" type="search" class="form-control" placeholder="Tìm kiếm đơn hàng" aria-label="Search orders">
                   </div>
                   <!-- End Search -->
                 </form>
@@ -148,21 +148,21 @@
                          "target": "#usersExportDropdown",
                          "type": "css-animation"
                        }'>
-                      <i class="tio-download-to mr-1"></i> Export
+                      <i class="tio-download-to mr-1"></i> Xuất file
                     </a>
 
                     <div id="usersExportDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm-right">
-                      <span class="dropdown-header">Options</span>
+                      <span class="dropdown-header">Lựa chọn</span>
                       <a id="export-copy" class="dropdown-item" href="javascript:;">
                         <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\illustrations\copy.svg" alt="Image Description">
-                        Copy
+                        Sao chép
                       </a>
                       <a id="export-print" class="dropdown-item" href="javascript:;">
                         <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\illustrations\print.svg" alt="Image Description">
-                        Print
+                        In
                       </a>
                       <div class="dropdown-divider"></div>
-                      <span class="dropdown-header">Download options</span>
+                      <span class="dropdown-header"> Lựa chọn xuất file</span>
                       <a id="export-excel" class="dropdown-item" href="javascript:;">
                         <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\brands\excel.svg" alt="Image Description">
                         Excel
@@ -187,7 +187,7 @@
                          "target": "#showHideDropdown",
                          "type": "css-animation"
                        }'>
-                      <i class="tio-table mr-1"></i> Columns <span class="badge badge-soft-dark rounded-circle ml-1">7</span>
+                      <i class="tio-table mr-1"></i> Số cột <span class="badge badge-soft-dark rounded-circle ml-1">7</span>
                     </a>
 
                     <div id="showHideDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right dropdown-card" style="width: 15rem;">
@@ -574,7 +574,7 @@
             <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
               <div class="col-sm mb-2 mb-sm-0">
                 <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
-                  <span class="mr-2">Showing:</span>
+                  <span class="mr-2">Hiển thị:</span>
 
                   <!-- Select -->
                   <select id="datatableEntries" class="js-select2-custom" data-hs-select2-options='{
@@ -591,7 +591,7 @@
                   </select>
                   <!-- End Select -->
 
-                  <span class="text-secondary mr-2">of</span>
+                  <span class="text-secondary mr-2">của</span>
 
                   <!-- Pagination Quantity -->
                   <span id="datatableWithPaginationInfoTotalQty"></span>

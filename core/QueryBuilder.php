@@ -54,7 +54,7 @@
                          $this->limit";
             $sqlQuery = trim($sqlQuery);
             $query = $this->query($sqlQuery);
-
+            
             // reset field
             $this->resetQuery();
 
@@ -110,7 +110,13 @@
             }else{
                 $this->operator = 'AND';
             }
-            $this->where .= "$this->operator $field $compare '$value' ";
+
+            if ($value == 'null') {
+                $this->where .= "$this->operator $field is null ";                
+            } else {
+                $this->where .= "$this->operator $field $compare '$value' ";
+            }
+
             return $this;
         }
 

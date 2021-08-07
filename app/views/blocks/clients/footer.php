@@ -4,31 +4,12 @@
       <div class="container">
         <div class="slider-items-products">
           <div id="brand-logo-slider" class="product-flexslider hidden-buttons">
-            <div class="slider-items slider-width-col6"> 
+            <div class="slider-items slider-width-col6">
+              @foreach ($list_suppliers as $supplier)
               <!-- Item -->
-              <div class="item"> <a href="#x"><img src="{{_WEB_ROOT.'/public/clients/images/b-logo1.png'}}" alt="Image"></a> </div>
-              <!-- End Item --> 
-              <!-- Item -->
-              <div class="item"> <a href="#x"><img src="{{_WEB_ROOT.'/public/clients/images/b-logo2.png'}}" alt="Image"></a> </div>
-              <!-- End Item --> 
-              <!-- Item -->
-              <div class="item"> <a href="#x"><img src="{{_WEB_ROOT.'/public/clients/images/b-logo3.png'}}" alt="Image"></a> </div>
-              <!-- End Item --> 
-              <!-- Item -->
-              <div class="item"> <a href="#x"><img src="{{_WEB_ROOT.'/public/clients/images/b-logo4.png'}}" alt="Image"></a> </div>
-              <!-- End Item --> 
-              <!-- Item -->
-              <div class="item"> <a href="#x"><img src="{{_WEB_ROOT.'/public/clients/images/b-logo5.png'}}" alt="Image"></a> </div>
-              <!-- End Item --> 
-              <!-- Item -->
-              <div class="item"> <a href="#x"><img src="{{_WEB_ROOT.'/public/clients/images/b-logo6.png'}}" alt="Image"></a> </div>
-              <!-- End Item --> 
-              <!-- Item -->
-              <div class="item"> <a href="#x"><img src="{{_WEB_ROOT.'/public/clients/images/b-logo1.png'}}" alt="Image"></a> </div>
-              <!-- End Item --> 
-              <!-- Item -->
-              <div class="item"> <a href="#x"><img src="{{_WEB_ROOT.'/public/clients/images/b-logo4.png'}}" alt="Image"></a> </div>
-              <!-- End Item --> 
+              <div class="item"> <a href="#x"><img style="width: 100%;" src="{{ _WEB_ROOT }}/public/uploads/brands/{{ $supplier['image'] }}" alt="Image"></a> </div>
+              <!-- End Item -->
+              @endforeach
             </div>
           </div>
         </div>
@@ -79,8 +60,8 @@
         <h4>Contact us</h4>
         <div class="contacts-info">
           <address>
-          <i class="add-icon">&nbsp;</i>123 Main Street, Anytown, <br>
-          &nbsp;CA 12345  USA
+            <i class="add-icon">&nbsp;</i>123 Main Street, Anytown, <br>
+            &nbsp;CA 12345 USA
           </address>
           <div class="phone-footer"><i class="phone-icon">&nbsp;</i> +1 800 123 1234</div>
           <div class="email-footer"><i class="email-icon">&nbsp;</i> <a href="mailto:support@magikcommerce.com">support@magikcommerce.com</a> </div>
@@ -99,96 +80,115 @@
       </div>
     </div>
   </footer>
-  <!-- End Footer --> 
-</div>
-<div class="social">
-  <ul>
-    <li class="fb"><a href="#"></a></li>
-    <li class="tw"><a href="#"></a></li>
-    <li class="googleplus"><a href="#"></a></li>
-    <li class="rss"><a href="#"></a></li>
-    <li class="pintrest"><a href="#"></a></li>
-    <li class="linkedin"><a href="#"></a></li>
-    <li class="youtube"><a href="#"></a></li>
-  </ul>
-</div>
 
-<!-- JavaScript --> 
-<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/jquery.min.js'}}"></script> 
-<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/bootstrap.min.js'}}"></script> 
- 
-<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/common.js'}}"></script> 
-<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/revslider.js'}}"></script> 
-<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/owl.carousel.min.js'}}"></script> 
-<script type='text/javascript'>
-jQuery(document).ready(function(){
-jQuery('#rev_slider_4').show().revolution({
-dottedOverlay: 'none',
-delay: 5000,
-startwidth: 1170,
-startheight: 580,
+  <!-- End Footer -->
+  </div>
+  <div class="social">
+    <ul>
+      <li class="fb"><a href="#"></a></li>
+      <li class="tw"><a href="#"></a></li>
+      <li class="googleplus"><a href="#"></a></li>
+      <li class="rss"><a href="#"></a></li>
+      <li class="pintrest"><a href="#"></a></li>
+      <li class="linkedin"><a href="#"></a></li>
+      <li class="youtube"><a href="#"></a></li>
+    </ul>
+  </div>
 
-hideThumbs: 200,
-thumbWidth: 200,
-thumbHeight: 50,
-thumbAmount: 2,
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
-navigationType: 'thumb',
-navigationArrows: 'solo',
-navigationStyle: 'round',
+  <!-- JavaScript -->
+  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/jquery.min.js'}}"></script>
+  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/bootstrap.min.js'}}"></script>
 
-touchenabled: 'on',
-onHoverStop: 'on',
+  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/common.js'}}"></script>
+  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/revslider.js'}}"></script>
+  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/owl.carousel.min.js'}}"></script>
+  <script type='text/javascript'>
+    jQuery(document).ready(function() {
+      jQuery('#rev_slider_4').show().revolution({
+        dottedOverlay: 'none',
+        delay: 5000,
+        startwidth: 1170,
+        startheight: 580,
 
-swipe_velocity: 0.7,
-swipe_min_touches: 1,
-swipe_max_touches: 1,
-drag_block_vertical: false,
+        hideThumbs: 200,
+        thumbWidth: 200,
+        thumbHeight: 50,
+        thumbAmount: 2,
 
-spinner: 'spinner0',
-keyboardNavigation: 'off',
+        navigationType: 'thumb',
+        navigationArrows: 'solo',
+        navigationStyle: 'round',
 
-navigationHAlign: 'center',
-navigationVAlign: 'bottom',
-navigationHOffset: 0,
-navigationVOffset: 20,
+        touchenabled: 'on',
+        onHoverStop: 'on',
 
-soloArrowLeftHalign: 'left',
-soloArrowLeftValign: 'center',
-soloArrowLeftHOffset: 20,
-soloArrowLeftVOffset: 0,
+        swipe_velocity: 0.7,
+        swipe_min_touches: 1,
+        swipe_max_touches: 1,
+        drag_block_vertical: false,
 
-soloArrowRightHalign: 'right',
-soloArrowRightValign: 'center',
-soloArrowRightHOffset: 20,
-soloArrowRightVOffset: 0,
+        spinner: 'spinner0',
+        keyboardNavigation: 'off',
 
-shadow: 0,
-fullWidth: 'on',
-fullScreen: 'off',
+        navigationHAlign: 'center',
+        navigationVAlign: 'bottom',
+        navigationHOffset: 0,
+        navigationVOffset: 20,
 
-stopLoop: 'off',
-stopAfterLoops: -1,
-stopAtSlide: -1,
+        soloArrowLeftHalign: 'left',
+        soloArrowLeftValign: 'center',
+        soloArrowLeftHOffset: 20,
+        soloArrowLeftVOffset: 0,
 
-shuffle: 'off',
+        soloArrowRightHalign: 'right',
+        soloArrowRightValign: 'center',
+        soloArrowRightHOffset: 20,
+        soloArrowRightVOffset: 0,
 
-autoHeight: 'off',
-forceFullWidth: 'on',
-fullScreenAlignForce: 'off',
-minFullScreenHeight: 0,
-hideNavDelayOnMobile: 1500,
+        shadow: 0,
+        fullWidth: 'on',
+        fullScreen: 'off',
 
-hideThumbsOnMobile: 'off',
-hideBulletsOnMobile: 'off',
-hideArrowsOnMobile: 'off',
-hideThumbsUnderResolution: 0,
+        stopLoop: 'off',
+        stopAfterLoops: -1,
+        stopAtSlide: -1,
 
-hideSliderAtLimit: 0,
-hideCaptionAtLimit: 0,
-hideAllCaptionAtLilmit: 0,
-startWithSlide: 0,
-fullScreenOffsetContainer: ''
-});
-});
-</script>
+        shuffle: 'off',
+
+        autoHeight: 'off',
+        forceFullWidth: 'on',
+        fullScreenAlignForce: 'off',
+        minFullScreenHeight: 0,
+        hideNavDelayOnMobile: 1500,
+
+        hideThumbsOnMobile: 'off',
+        hideBulletsOnMobile: 'off',
+        hideArrowsOnMobile: 'off',
+        hideThumbsUnderResolution: 0,
+
+        hideSliderAtLimit: 0,
+        hideCaptionAtLimit: 0,
+        hideAllCaptionAtLilmit: 0,
+        startWithSlide: 0,
+        fullScreenOffsetContainer: ''
+      });
+
+      const url = `{{ _WEB_ROOT }}/danh-sach-san-pham`
+      var token = $('meta[name=csrf-token]').attr("content")
+      btnSearch = document.querySelector('#submit-button')
+      tokenSearch = document.querySelector('#_tokenSearch')
+
+      btnSearch.addEventListener('click', (e) => {
+        e.preventDefault();
+        tokenSearch.value = token
+        formSearch = document.querySelector('#search_mini_form')
+
+        formData = new FormData(formSearch)
+
+        formSearch.action = url
+        formSearch.submit()
+      })
+    });
+  </script>

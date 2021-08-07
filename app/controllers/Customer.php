@@ -12,13 +12,15 @@ class Customer extends Controller{
 
     public function index()
     {
-        $data['content'] = 'admins.customers.index';
-       
-        $data['sub_content']['list_customers'] = $this->customerModel->all();
+        $data['content'] = 'clients.customers.index';
+
+        $user_email = Session::data('user_data')['user_email'];
+
+        $data['sub_content']['customer'] = $this->customerModel->findOne(['email: '. $user_email]);
 
         $data['dataMeta'] = $this->loadMetaTag();
 
-        $data['page_title'] = "Danh sách khách hàng";
+        $data['page_title'] = "Thông tin khách hàng";
 
         $data['data_js'] = [
             'ajax' => 'admins.customers.js_index'
@@ -28,7 +30,7 @@ class Customer extends Controller{
             'functions' => 'functions.js'
         ];
 
-        return $this->view('layouts.admin_layout', $data);
+        return $this->view('layouts.client_layout', $data);
     }
 
     public function login() {
@@ -70,10 +72,12 @@ class Customer extends Controller{
     }
 
     public function validate() {
+        
         if ($this->request->isPost()){
             // Lấy dữ liệu từ form
             $dataFields = $this->request->getFields();
 
+            
             /*Set rules*/
             $this->request->rules([
                 'email'       => 'required|email',
@@ -114,7 +118,7 @@ class Customer extends Controller{
                 exit(json_encode($message));
             } 
             
-            $user = $this->customerModel->findOne("email",$dataFields['email']);
+            $user = $this->customerModel->findOne(["email: ".$dataFields['email']]);
 
             if ($user['password'] != md5($dataFields['password'])) {
                 $message = [
@@ -125,28 +129,98 @@ class Customer extends Controller{
                 ];
                 exit(json_encode($message));
             }
-           
+
+            if (!empty($dataFields['save'])) {
+                setcookie('usercookie', $dataFields['email'], time() + 7776000);
+            } 
+
             Session::data('user_login', true);
             Session::data('user_data', [
+                'id_user'       => $user['id'],
                 'username'      => $user['fullname'],
                 'user_email'    => $user['email'],
-                'user_avatar'   => $user['avatar']
+                'user_avatar'   => $user['avatar'],
+                'user_phone'    => $user['phone']
             ]);
-
+            
             $message = [
                 'status'    => '1',
                 'message'   => "Đăng nhập thành công",
                 'location'  => _WEB_ROOT,
                 'time'      => 1000
             ];
+            
+            exit(json_encode($message));
+        }
+    }
+
+    public function validate_register() {
+        if ($this->request->isPost()){
+            // Lấy dữ liệu từ form
+            $dataFields = $this->request->getFields();
+
+            /*Set rules*/
+            $this->request->rules([
+                'first_name'        => 'required',
+                'last_name'         => 'required',
+                'email'             => 'required|email|unique:shop_customers:email',
+                'password'          => 'required|min:6|max:20',
+                'confirm_password'  => 'required|match:password',
+                'terms'             => 'required',
+            ]);
+
+            //Set message
+            $this->request->message([
+                'first_name.required'           => 'Tên không được để trống',
+                'last_name.required'            => 'Họ không được để trống',
+                'email.required'                => 'Email không được để trống',
+                'email.email'                   => 'Không đúng định dạng email',
+                'email.unique'                  => 'Email đã tồn tại trong hệ thống',
+                'password.required'             => 'mật khẩu không được để trống',
+                'password.min'                  => 'mật khẩu phải lớn hơn 6 ký tự',
+                'password.max'                  => 'mật khẩu phải nhỏ hơn 20 ký tự',
+                'confirm_password.required'     => 'Mật khẩu nhập lại không được để trống',
+                'terms.required'                => 'Điều khoản không được để trống',
+            ]);
+
+            $validate = $this->request->validate();
+            if (!$validate){
+                $message = [
+                    'status'    => '0',
+                    'form'      => '#formRegister'
+                ];
+
+                $sessionKey = Session::isInvalid();
+                $error = Session::flash($sessionKey.'_errors');
+                $message['error'] = $error;
+                exit(json_encode($message));
+            }
+
+            // đưa data vào
+            $data = [
+                'fullname'  => $dataFields['last_name'] . ' ' . $dataFields['first_name'],
+                'email'     => $dataFields['email'],
+                'password'  => md5($dataFields['password']),
+                'avatar'    => 'avatar-default.png',
+            ];
+
+            $result =  $this->customerModel->create($data);
+
+            $message = [
+                "status"    => "1",
+                'message'   => "Thêm thông tin khách hàng thành công!",
+                'location'  => _WEB_ROOT.'/dang-nhap',
+                'time'      => 1000,
+            ];
+
             exit(json_encode($message));
         }
     }
 
     public function logout() {
-        Session::delete('user_login');
-        Session::delete('user_data');
+        Session::delete();
 
+        setcookie("usercookie");
         $this->response->back();
     }
 
@@ -207,7 +281,7 @@ class Customer extends Controller{
                 $this->response->back();
             }
 
-            $user = $this->customerModel->findOne('email', $dataFields['email']);
+            $user = $this->customerModel->findOne(["email: ". $dataFields['email']]);
 
             $mailer = new Mailer();
 
@@ -216,7 +290,7 @@ class Customer extends Controller{
             $data = [
                 'subject' => 'Đặt lại mật khẩu',
                 'content' => '<strong>Mã xác nhận đặt lại mật khẩu của bạn là: ' . $random."<strong>",
-                'attachments' => [ 'file' => 'public/uploads/customer/'.$user['avatar'] ]
+                // 'attachments' => [ 'file' => 'public/uploads/customer/'.$user['avatar'] ]
             ];
 
             $mailer->sendMail($user['email'], $user['fullname'], $data);

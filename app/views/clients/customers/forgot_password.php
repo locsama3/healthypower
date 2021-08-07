@@ -1,12 +1,13 @@
 <?php 
-    $errors = [];
+    $errors = Session::flash('errors');
+    $old = Session::flash('old');
+    
     if (empty($errors)) {
-        $errors = Session::flash('errors');
+        $errors = [];
     }
     
-    $old = [];
     if (empty($old)) {
-        $old = Session::flash('old');
+        $old = [];
     }
 ?>
 <section class="main-container col1-layout">
@@ -25,7 +26,7 @@
                                     {! csrf_field()!}
                                     <div class="form-group form-label-group">
                                         <input id="inputEmail" name="email" class="form-control" placeholder="Nhập địa chỉ email" autofocus value="{{ (!empty($old) && array_key_exists('email', $old)) ? $old['email'] : '' }}">
-                                        <span class="form-message">{{ (!empty($errors) && array_key_exists('email', $errors)) ? $errors['email'] : ''  }}</span>
+                                        <span class="form-message">{{ (!empty($errors) ?? null && array_key_exists('email', $errors) ?? null) ? $errors['email'] : ''  }}</span>
                                     </div>
 
                                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Tiếp theo</button>

@@ -65,7 +65,7 @@
                                         <label for="weightLabel" class="input-label">khối lượng</label>
 
                                         <div class="input-group input-group-merge">
-                                            <input type="text" class="form-control" name="weightName" id="weightLabel" placeholder="0.0" aria-label="0.0" value="{{ $product_by_id['weight'] }}">
+                                            <input type="text" class="form-control" name="weightName" id="weightLabel" placeholder="0.0" aria-label="0.0" value="{{ number_format($product_by_id['weight'], 2) }}">
                                             <div class="input-group-append">
                                                 <!-- Select -->
                                                 <div id="weightSelect" class="select2-custom select2-custom-right">
@@ -361,7 +361,7 @@
                                 <label for="priceNameLabel" class="input-label">Giá</label>
 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="productPrice" id="priceNameLabel" placeholder="0.00" aria-label="0.00" value="{{ $product_by_id['list_price'] }}">
+                                    <input type="text" class="form-control" name="productPrice" id="priceNameLabel" placeholder="0.00" aria-label="0.00" value="{{ number_format($product_by_id['list_price'], 0, ',', '.') }}">
 
                                     <div class="input-group-append">
                                         <!-- Select -->
@@ -371,7 +371,7 @@
                                             "dropdownAutoWidth": true,
                                             "width": true
                                         }'>
-                                                <option value="USD" selected="">USD</option>
+                                                <option value="USD">USD</option>
                                                 <option value="AED">AED</option>
                                                 <option value="AFN">AFN</option>
                                                 <option value="ALL">ALL</option>
@@ -496,7 +496,7 @@
                                                 <option value="UGX">UGX</option>
                                                 <option value="UYU">UYU</option>
                                                 <option value="UZS">UZS</option>
-                                                <option value="VND">VND</option>
+                                                <option value="VND" selected>VND</option>
                                                 <option value="VUV">VUV</option>
                                                 <option value="WST">WST</option>
                                                 <option value="XAF">XAF</option>

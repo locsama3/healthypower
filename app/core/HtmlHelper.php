@@ -18,3 +18,5 @@ class HtmlHelper{
         echo '<button type="submit" class="'.$class.'">'.$label.'</button>';
     }
 }
+
+?>

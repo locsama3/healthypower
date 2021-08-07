@@ -17,6 +17,7 @@
                 </div>
                 <div class="col-2 registered-users"><strong>Đăng nhập</strong>
                     <form action="" method="post" id="formLogin">
+                        
                         <div class="content">
                             <ul class="form-list">
                                 <li>
@@ -32,6 +33,10 @@
                                         <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="password" placeholder="Nhập mật khẩu"><br>
                                         <span class="form-message"></span>
                                     </div>
+                                </li>
+                                <li class="d-flex text-align-center">
+                                    <input type="checkbox" name="save" style="margin: 0 6px;">
+                                    <span>Ghi nhớ trạng thái đăng nhập trên trình duyệt này</span>
                                 </li>
                             </ul>
                             <div class="buttons-set">

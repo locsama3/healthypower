@@ -143,8 +143,10 @@
 
         let formDataInfo = new FormData(form);
         formDataInfo.append('_token', _token)
+
+        data._token = _token
         
-        sendData(url, formDataInfo)
+        sendDataByJSON(url, data)
       }
     });
     

@@ -53,10 +53,10 @@ $(document).on('ready', function() {
         Validator.isRequired('#heightLabel', 'Vui lòng nhập chiều cao sản phẩm'),
       ],
       onSubmit: function(data) {
-        console.log(data);
         formData = handleDataUpload(data, _token, "card-img-top");
         formData.description = CKEDITOR.instances['ckeditor1'].getData();
-        console.log(formData);
+
+        console.log(data);
 
         /**
          * không dùng fetch ở đây vì fetch bắt buộc dùng FormData hoặc Json

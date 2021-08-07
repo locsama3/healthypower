@@ -859,7 +859,7 @@
                  "type": "css-animation"
                }'>
               <div class="avatar avatar-sm avatar-circle">
-                <img class="avatar-img" src="{{_WEB_ROOT.'/public/admin/img/160x160/img6.jpg'}}" alt="Image Description">
+                <img class="avatar-img" src="{{_WEB_ROOT.'/public/uploads/avatar/'.Session::data('user_data_admin')['user_avatar'] ?? null}}" alt="Image Description">
                 <span class="avatar-status avatar-sm-status avatar-status-success"></span>
               </div>
             </a>
@@ -868,11 +868,11 @@
               <div class="dropdown-item-text">
                 <div class="media align-items-center">
                   <div class="avatar avatar-sm avatar-circle mr-2">
-                    <img class="avatar-img" src="{{_WEB_ROOT.'/public/admin/img/160x160/img6.jpg'}}" alt="Image Description">
+                    <img class="avatar-img" src="{{_WEB_ROOT.'/public/uploads/avatar/'.Session::data('user_data_admin')['user_avatar'] ?? null}}" alt="Image Description">
                   </div>
                   <div class="media-body">
-                    <span class="card-title h5">Mark Williams</span>
-                    <span class="card-text">mark@example.com</span>
+                    <span class="card-title h5">{{ Session::data('user_data_admin')['user_name'] ?? null }}</span>
+                    <span class="card-text">{{ Session::data('user_data_admin')['user_email'] ?? null }}</span>
                   </div>
                 </div>
               </div>
@@ -966,7 +966,7 @@
 
               <div class="dropdown-divider"></div>
 
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="{{_WEB_ROOT.'/admin/user/logout'}}">
                 <span class="text-truncate pr-2" title="Sign out">Đăng xuất</span>
               </a>
             </div>
@@ -1469,7 +1469,7 @@
                  "type": "css-animation"
                }'>
               <div class="avatar avatar-sm avatar-circle">
-                <img class="avatar-img" src="{{_WEB_ROOT.'/public/admin/img/160x160/img6.jpg'}}" alt="Image Description">
+                <img class="avatar-img" src="{{_WEB_ROOT.'/public/uploads/avatar/'.Session::data('user_data_admin')['user_avatar'] ?? null}}" alt="Image Description">
                 <span class="avatar-status avatar-sm-status avatar-status-success"></span>
               </div>
             </a>
@@ -1478,11 +1478,11 @@
               <div class="dropdown-item-text">
                 <div class="media align-items-center">
                   <div class="avatar avatar-sm avatar-circle mr-2">
-                    <img class="avatar-img" src="{{_WEB_ROOT.'/public/admin/img/160x160/img6.jpg'}}" alt="Image Description">
+                    <img class="avatar-img" src="{{_WEB_ROOT.'/public/uploads/avatar/'.Session::data('user_data_admin')['user_avatar'] ?? null}}" alt="Image Description">
                   </div>
                   <div class="media-body">
-                    <span class="card-title h5">Mark Williams</span>
-                    <span class="card-text">mark@example.com</span>
+                    <span class="card-title h5">{{ Session::data('user_data_admin')['user_name'] ?? null }}</span>
+                    <span class="card-text">{{ Session::data('user_data_admin')['user_email'] ?? null }}</span>
                   </div>
                 </div>
               </div>
@@ -2715,7 +2715,7 @@
                      "type": "css-animation"
                    }'>
                   <div class="avatar avatar-sm avatar-circle">
-                    <img class="avatar-img" src="{{_WEB_ROOT.'/public/admin/img/160x160/img6.jpg'}}" alt="Image Description">
+                    <img class="avatar-img" src="{{_WEB_ROOT.'/public/uploads/avatar/'.Session::data('user_data_admin')['user_avatar'] ?? null}}" alt="Image Description">
                     <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                   </div>
                 </a>
@@ -2724,11 +2724,11 @@
                   <div class="dropdown-item-text">
                     <div class="media align-items-center">
                       <div class="avatar avatar-sm avatar-circle mr-2">
-                        <img class="avatar-img" src="{{_WEB_ROOT.'/public/admin/img/160x160/img6.jpg'}}" alt="Image Description">
+                        <img class="avatar-img" src="{{_WEB_ROOT.'/public/uploads/avatar/'.Session::data('user_data_admin')['user_avatar'] ?? null}}" alt="Image Description">
                       </div>
                       <div class="media-body">
-                        <span class="card-title h5">Mark Williams</span>
-                        <span class="card-text">mark@example.com</span>
+                        <span class="card-title h5">{{ Session::data('user_data_admin')['user_name'] ?? null }}</span>
+                        <span class="card-text">{{ Session::data('user_data_admin')['user_email'] ?? null }}</span>
                       </div>
                     </div>
                   </div>

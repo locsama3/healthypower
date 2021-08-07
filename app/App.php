@@ -45,15 +45,16 @@ class App{
         $url = $this->__routes->handleRoute($url);
 
         //Middleware App
-        $this->handleGlobalMiddleware($this->__db);
+        $this->handleGlobalMiddleware($url, $this->__db);
         $this->handleRouteMiddleware($this->__routes->getUri(), $this->__db);
-
+        $this->handleRouteAdminMiddleware($url, $this->__db);
         //App Service Provider
         $this->handleAppServiceProvider($this->__db);
+        
 
         $urlArr = array_filter(explode('/',$url));
         $urlArr = array_values($urlArr);
-
+        
         $urlCheck = '';
         if (!empty($urlArr)){
             foreach ($urlArr as $key=>$item){
@@ -75,7 +76,6 @@ class App{
 
             $urlArr = array_values($urlArr);
         }
-
 
         //Xử lý controller
         if (!empty($urlArr[0])){
@@ -138,10 +138,11 @@ class App{
         extract($data);
         require_once 'errors/'.$name.'.php';
     }
-
+   
     public function handleRouteMiddleware($routeKey, $db){
         global $config;
         $routeKey = trim($routeKey);
+
         if (!empty($config['app']['routeMiddleware'])){
             $routeMiddleWareArr = $config['app']['routeMiddleware'];
             foreach ($routeMiddleWareArr as $key=>$middleWareItem){
@@ -158,30 +159,74 @@ class App{
             }
         }
     }
-
-    public function handleGlobalMiddleware($db){
+    public function handleRouteAdminMiddleware($url, $db){
         global $config;
-        if (!empty($config['app']['globalMiddleware'])){
-            $globalMiddleWareArr = $config['app']['globalMiddleware'];
-            foreach ($globalMiddleWareArr as $key=>$middleWareItem){
-                if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
-                    require_once 'app/middlewares/'.$middleWareItem.'.php';
-                    if (class_exists($middleWareItem)){
-                        $middleWareObject = new $middleWareItem();
-                        if (!empty($db)){
-                            $middleWareObject->db = $db;
-                        }
-
-                        $middleWareObject->handle();
-                    }
+        
+        if (!empty($config['app']['routeAdminMiddleware'])){
+            
+     
+            if (strpos($url, 'admin') !== false && $url != 'admin/user/login' && $url != 'admin/user/validatelogin') {
+                
+                require_once 'app/middlewares/AuthAdminMiddleware.php';
+                $middleWareObject = new AuthAdminMiddleware();
+                if (!empty($db)){
+                    $middleWareObject->db = $db;
                 }
+                $middleWareObject->handle();
             }
         }
     }
+    
+    // public function handleGlobalMiddleware($db){
+    //     global $config;
+    //     if (!empty($config['app']['globalMiddleware'])){
+    //         $globalMiddleWareArr = $config['app']['globalMiddleware'];
+           
+    //         foreach ($globalMiddleWareArr as $key=>$middleWareItem){
+    //             if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
+    //                 require_once 'app/middlewares/'.$middleWareItem.'.php';
+    //                 if (class_exists($middleWareItem)){
+    //                     $middleWareObject = new $middleWareItem();
+    //                     if (!empty($db)){
+    //                         $middleWareObject->db = $db;
+    //                     }
+    //                     $middleWareObject->handle();
+    //                 }
+    //             }
+    //         }
+            
+    //     }
+        
+    // }
+    public function handleGlobalMiddleware($url, $db){
+        global $config;
+        if (!empty($config['app']['globalMiddleware'])){
+            $globalMiddleWareArr = $config['app']['globalMiddleware'];
+           
+            foreach ($globalMiddleWareArr as $key=>$middleWareItem){
+                if($middleWareItem == 'VerifyCsrfToken' && strpos($url, 'admin') !== false && $url != 'admin/user/login' && $url != 'admin/user/validatelogin'){
+                    if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
+                        require_once 'app/middlewares/'.$middleWareItem.'.php';
+                        if (class_exists($middleWareItem)){
+                            $middleWareObject = new $middleWareItem();
+                            if (!empty($db)){
+                                $middleWareObject->db = $db;
+                            }
+                            $middleWareObject->handle();
+                        }
+                    }
+                }
+                    
+            }
+            
+        }
+        
+    }
+    
+   
 
     public function handleAppServiceProvider($db){
         global $config;
-
         if (!empty($config['app']['boot'])){
             $serviceProviderArr = $config['app']['boot'];
             foreach ($serviceProviderArr as $serviceName){

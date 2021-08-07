@@ -1,8 +1,7 @@
 <script>
     $(document).on('ready', function() {
-        const url = "{{ _WEB_ROOT }}/xac-thuc-nguoi-dung"
+        const urlLogin = "{{ _WEB_ROOT }}/xac-thuc-nguoi-dung"
         const _token = $('meta[name=csrf-token]').attr("content")
-
         // Mong muốn của chúng ta
         Validator({
             form: '#formLogin',
@@ -16,12 +15,10 @@
                 Validator.maxLength('input[name="password"]', 12),
             ],
             onSubmit: function(data) {
-                let form = new FormData()
+                let form = new FormData(document.querySelector('#formLogin'))
                 form.append('_token', _token)
-                form.append('email', data.email)
-                form.append('password', data.password)
 
-                sendData(url, form)
+                sendData(urlLogin, form)
             }
         });
     })

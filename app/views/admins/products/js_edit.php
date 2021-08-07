@@ -35,7 +35,7 @@ $(document).on('ready', function() {
     const id = formUpdateProduct.getAttribute('data-id')
     const _token = $('meta[name=csrf-token]').attr("content")
     const url = "{{ _WEB_ROOT }}/products-update/proid-" + id
-    catchEvent()
+    catchEvent('card-image-wrapper')
 
     // Mong muốn của chúng ta
     Validator({
@@ -53,6 +53,8 @@ $(document).on('ready', function() {
         Validator.isRequired('#heightLabel', 'Vui lòng nhập chiều cao sản phẩm'),
       ],
       onSubmit: function(data) {
+        arr = data.productPrice.split('.')
+        data.productPrice = Number(arr.join(''))
         formData = handleDataUpload(data, _token, "card-img-top");
         formData.description = CKEDITOR.instances['ckeditor1'].getData();
         console.log(formData);

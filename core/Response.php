@@ -17,4 +17,5 @@ class Response{
         header("Location: ".$url);
         exit;
     }
+    
 }

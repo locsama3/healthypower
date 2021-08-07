@@ -47,4 +47,112 @@ abstract class Model extends Database {
         return false;
 
     }
+
+    // lấy 1 bản ghi cho phép nhiều điều kiện
+    function findOne($conditions) 
+    {
+        $tableName = $this->tableFill();
+        $fieldSelect = $this->fieldFill();
+
+        if (empty($fieldSelect)){
+            $fieldSelect = '*';
+        }
+
+        foreach($conditions as $condition) { 
+            $arr = explode(':', $condition);
+            $field = trim($arr[0]);
+            $value = trim($arr[1]);
+        
+            $this->db->where($field, '=', $value);
+        }
+        
+        return $this->db->select($fieldSelect)->table($tableName)->first();
+    }
+
+    // lấy tất cả bản ghi cho phép nhiều điều kiện
+    function findByField ($conditions, $orderBy = '', $limit = '') {
+        $tableName = $this->tableFill();
+        $fieldSelect = $this->fieldFill();
+
+        if (empty($fieldSelect)){
+            $fieldSelect = '*';
+        }
+
+        $arrayCompare = [
+            '<=>', '>=' , '<=', '!=', '>', '<' , ':', '{in}'
+        ];
+        $compare = '';
+
+        foreach($conditions as $condition) {
+            foreach ($arrayCompare as $comp) {
+                $find = strpos($condition, $comp);
+                if ($find != false) {
+                    $compare = $comp;
+                    break;
+                }
+            } 
+
+            $arr = explode($compare, $condition);
+            $field = trim($arr[0]);
+            $value = trim($arr[1]);
+
+            if ($compare == ':') {
+                $compare = '=';
+            }
+
+            if ($compare == '!=') {
+                $compare = '<>';
+            }
+
+            if ($compare == '{in}') {
+                $this->db->whereIn($field, "($value)");
+                continue;
+            }
+
+            if ($compare == '<=>') {
+                $this->db->whereLike($field, "%$value%");
+                continue;
+            }
+        
+            $this->db->where($field, $compare, $value);
+        }
+
+        if (!empty($orderBy)) {
+            $arr = explode(':', $orderBy);
+            $field = trim($arr[0]);
+            $type = trim($arr[1]);
+
+            $this->db->orderBy($field, $type);
+        }
+
+        if (!empty($limit)) {
+            $arr = explode(':', $limit);
+            $number = trim($arr[0]);
+            $offset = trim($arr[1]);
+
+            $this->db->limit($number, $offset);
+        }
+        
+        return $this->db->select($fieldSelect)->table($tableName)->get();
+    }
+
+    // Đếm bản ghi cho phép nhiều điều kiện
+    function countIf($conditions) {
+        $tableName = $this->tableFill();
+        $fieldSelect = $this->fieldFill();
+
+        if (empty($fieldSelect)){
+            $fieldSelect = '*';
+        }
+
+        foreach($conditions as $condition) { 
+            $arr = explode(':', $condition);
+            $field = trim($arr[0]);
+            $value = trim($arr[1]);
+        
+            $this->db->where($field, '=', $value);
+        }
+        
+        return $this->db->select($fieldSelect)->table($tableName)->count();
+    }
 }

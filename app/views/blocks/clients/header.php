@@ -1,4 +1,12 @@
+<?php 
+    $old = Session::flash('old');
+    
+    if (empty($old)) {
+        $old = [];
+    }
+?>
 <div class="page">
+
 <!-- Header -->
   <header class="header-container">
     <div class="header-top">
@@ -46,31 +54,26 @@
       <div class="row header-wrapper">
         <div class="col-lg-2 col-sm-3 col-md-2 col-xs-12"> 
           <!-- Header Logo --> 
-          <a class="logo" title="Magento Commerce" href="index.html"><img alt="Magento Commerce" src="{{_WEB_ROOT.'/public/clients/images/logo.png'}}" width="50%"></a> 
+          <a class="logo" title="Magento Commerce" href="{{ _WEB_ROOT }}"><img alt="Magento Commerce" src="{{_WEB_ROOT.'/public/clients/images/logo.png'}}" width="50%"></a> 
           <!-- End Header Logo --> 
         </div>
         <div class="col-lg-7 col-sm-4 col-md-6 col-xs-12"> 
           <!-- Search-col -->
           <div class="search-box">
-            <form action="http://htmldemo.magikcommerce.com/ecommerce/inspire-html-template/furniture/cat" method="POST" id="search_mini_form" name="Categories">
+            <form method="POST" id="search_mini_form" name="Categories">
+              <input type="hidden" name="_token" id="_tokenSearch" value="">
               <select name="category_id" class="cate-dropdown hidden-xs">
                 <option value="0">Tất cả</option>
-                <option value="36">Camera</option>
-                <option value="37">Electronics</option>
-                <option value="42">&nbsp;&nbsp;&nbsp;Cell Phones</option>
-                <option value="43">&nbsp;&nbsp;&nbsp;Cameras</option>
-                <option value="44">&nbsp;&nbsp;&nbsp;Laptops</option>
-                <option value="45">&nbsp;&nbsp;&nbsp;Hard Drives</option>
-                <option value="46">&nbsp;&nbsp;&nbsp;Monitors</option>
-                <option value="47">&nbsp;&nbsp;&nbsp;Mouse</option>
-                <option value="48">&nbsp;&nbsp;&nbsp;Digital Cameras</option>
-                <option value="38">Desktops</option>
-                <option value="39">Computer Parts</option>
-                <option value="40">Televisions</option>
-                <option value="41">Featured</option>
+                @foreach ($list_prod_cates as $category)
+                @if ((!empty($old) && array_key_exists('category_id', $old)) && $old['category_id'] == $category['id'])
+                <option value="{{ $category['id'] }}" selected>{{ $category['category_name'] }}</option>
+                @else
+                <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
+                @endif
+                @endforeach
               </select>
-              <input type="text" placeholder="Tìm kiếm..." value="" maxlength="70" class="" name="search" id="search">
-              <button id="submit-button" class="search-btn-bg"><span>Tìm kiếm</span></button>
+              <input type="text" placeholder="Tìm kiếm sản phẩm" value="{{ (!empty($old) && array_key_exists('search', $old)) ? $old['search'] : '' }}" maxlength="70" class="" name="search" id="search">
+              <button id="submit-button" type="submit" class="search-btn-bg"><span>Tìm kiếm</span></button>
             </form>
           </div>
           <!-- End Search-col --> 
@@ -102,7 +105,7 @@
                         </a>    
                     </div>
                     <div class="user_more_info_item">
-                        <a href="{{ _WEB_ROOT }}/customer-account" class="user_more_info_link">
+                        <a href="{{ _WEB_ROOT }}/thong-tin-tai-khoan" class="user_more_info_link">
                             Tài khoản của tôi
                         </a>    
                     </div>
@@ -115,9 +118,9 @@
             </div>
           </div>
           @else
-          <div class="signup"><a title="Login" href="{{ _WEB_ROOT }}/dang-ky"><span>Sign up Now</span></a></div>
+          <div class="signup"><a title="Đăng ký" href="{{ _WEB_ROOT }}/dang-ky"><span>Đăng ký</span></a></div>
           <span class="or"> | </span>
-          <div class="login"><a title="Login" href="{{ _WEB_ROOT }}/dang-nhap"><span>Log In</span></a></div>
+          <div class="login"><a title="Đăng nhập" href="{{ _WEB_ROOT }}/dang-nhap"><span>Đăng nhập</span></a></div>
           @endif
         </div>
         <div class="top-cart-contain">
@@ -125,34 +128,49 @@
             <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> 
               <a href="shopping_cart.html" class="d-flex justify-content-center align-items-center"> 
                 <i class="icon-cart"></i>
-                <div class="cart-box"><span class="title">My Cart</span><span id="cart-total"> 2 </span></div>
+                <div class="cart-box"><span class="title">Giỏ hàng</span>
+                  <span id="cart-total">  
+                    @php
+                  
+                      if(Session::data('cart') != null)
+                      {
+                        $array = Session::data('cart');
+                        $result = array_reduce($array,function($a, $b){
+                          return $a + $b['qty'];
+                        }, 0);
+                        echo $result;
+                      }
+                      else
+                      {
+                        echo 0;
+                      }
+                      
+                    @endphp
+                  </span>
+              </div>
               </a>
             </div>
             <div>
               <div class="top-cart-content arrow_box">
-                <div class="block-subtitle">Recently added item(s)</div>
+                <!-- <div class="block-subtitle">Recently added item(s)</div> -->
                 <ul id="cart-sidebar" class="mini-products-list">
-                  <li class="item even"> <a class="product-image" href="#" title="Downloadable Product "><img alt="Downloadable Product " src="{{_WEB_ROOT.'/public/clients/products-images/product1.jpg'}}" width="80"></a>
+                  @if(!empty(Session::data('cart')))
+                  @foreach(Session::data('cart') as $data)
+                  <li class="item even"> <a class="product-image" href="#" title="Downloadable Product "><img alt="Downloadable Product " src="{{_WEB_ROOT.'/public/uploads/products/'.$data['image']}}" width="80"></a>
                     <div class="detail-item">
                       <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
-                        <p class="product-name"> <a href="#" title="Downloadable Product">Downloadable Product </a> </p>
+                        <p class="product-name"> {{$data['product_name']}} </p>
                       </div>
-                      <div class="product-details-bottom"> <span class="price">$100.00</span> <span class="title-desc">Qty:</span> <strong>1</strong> </div>
+                      <div class="product-details-bottom"> <span class="price">{! number_format($data['list_price']) !} đ</span><span class="title-desc">Qty:</span> <strong>{{$data['qty']}}</strong> </div>
                     </div>
                   </li>
-                  <li class="item last odd"> <a class="product-image" href="#" title="  Sample Product "><img alt="  Sample Product " src="{{_WEB_ROOT.'/public/clients/products-images/product11.jpg'}}" width="80"></a>
-                    <div class="detail-item">
-                      <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
-                        <p class="product-name"> <a href="#" title="  Sample Product "> Sample Product </a> </p>
-                      </div>
-                      <div class="product-details-bottom"> <span class="price">$320.00</span> <span class="title-desc">Qty:</span> <strong>2</strong> </div>
-                    </div>
-                  </li>
+                  @endforeach
+                  @endif
                 </ul>
-                <div class="top-subtotal">Subtotal: <span class="price">$420.00</span></div>
+                <div class="top-subtotal">Subtotal: <span class="price">{! number_format(Session::data('total') ?? null) !} đ</span></div>
                 <div class="actions">
-                  <button class="btn-checkout" type="button"><span>Checkout</span></button>
-                  <button class="view-cart" type="button"><span>View Cart</span></button>
+                  <button class="btn-checkout" type="button"><span>Thanh toán</span></button>
+                  <button class="view-cart" onclick="location.href=`{{_WEB_ROOT.'/gio-hang'}}`;" type="button"><span>Xem giỏ hàng</span></button>
                 </div>
               </div>
             </div>

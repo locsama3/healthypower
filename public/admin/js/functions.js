@@ -6,7 +6,7 @@ function redirect(url = "", time = 2000) {
     }
 
     setTimeout(() => {
-        window.location = url;
+        window.location = url;  
     }, time)
 }
 
@@ -18,7 +18,6 @@ function sendData(url, data) {
     })
         .then(res => res.json())
         .then(result => {
-            console.log(result);
             if (result.status == "1") {
                 if (result.message) {
                     swal("Thành công!", result.message, "success")
@@ -52,12 +51,16 @@ function sendDataByJSON(url, data) {
         .then(res => res.json())
         .then(result => {
             if (result.status == "1") {
-                swal("Thành công!", result.message, "success")
+                if (result.message) {
+                    swal("Thành công!", result.message, "success")
+                }
                 if (result.location) {
                     redirect(result.location, result.time)
                 }
             } else {
-                swal("Thất bại!", result.message, "error")
+                if (result.message) {
+                    swal("Thất bại!", result.message, "error")
+                }
                 if (result.error) {
                     displayError(result.form, result.error)
                 }
@@ -144,9 +147,11 @@ function deleteItem(item, url, itemName, location) {
 // Hàm hiển thị lỗi khi server trả dữ liệu lỗi về client
 function displayError(Selectorform, error) {
     var form = document.querySelector(Selectorform)
+    console.log(form);
     var formGroup = form.querySelectorAll(`.form-group`)
 
     var keys = Object.keys(error)
+
 
 
     // lặp qua từng form group và so sánh field name của input rồi gán lỗi
@@ -200,7 +205,12 @@ function updateListItems(url, location) {
                 swal("Đóng!",  `Không cập nhật theo yêu cầu !`, "warning");
             }
         });
-   
+
 } 
+
+
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+}
 
 

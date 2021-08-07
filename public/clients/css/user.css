@@ -1,0 +1,193 @@
+.card{
+    padding: 7px;
+    margin: 7px;
+    background-color: white;
+}
+.card-header a{
+    font-size: 15px;
+    padding-left: 25px;
+}
+.card-boy-list{
+    padding-left: 35px;
+    margin: 5px;
+}
+.card-boy-list li{
+    padding: 2px;
+    margin: 2px;
+    font-size: 15px;
+}
+
+.block-user{
+    width: 100%;
+    padding: 2%;
+    background-color: rgb(242, 246, 250);
+
+}
+.block-user-left{
+        height: auto;
+        padding: 1.5%;
+}
+.avatar{
+    display: block;
+    text-align: center;
+}
+.avatar-img img{
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(133, 243, 197);
+    border-radius: 50%;
+}
+.avatar-name{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.block-user-right{
+    background-color: white;
+    height: auto;
+    padding: 2%;
+    padding-left: 5%;
+}
+.user{
+    padding-left: 5%;
+}
+.user-img{
+    position: relative;
+}
+.user-img p{
+    position: absolute;
+    bottom: 5px;
+    left: 100px;
+}
+.user-info p, .user-info-edit{
+    font-size: 16px;
+    margin: 15px;
+    padding: 5px;
+}
+.btn-edit-user{
+    font-size: 16px;
+    margin-left: 20px;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+}
+.form-group label{
+    margin: 5px;
+    font-weight: normal;
+}
+
+/* address */
+.row-address{
+    margin: 50px 7px;
+    font-size: 15px;
+}
+.form-edit-address, .add-address{
+    position: absolute;
+    top: -20%;
+    right: 30%;
+    width: 70%;
+    height: auto;
+    font-size: 15px; 
+    display: none;
+    background-color: white;
+    padding: 5%;
+    border: 1px solid green;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+/* payment */
+.add-card{
+    position: absolute;
+    top: -100px;
+    right: 30%;
+    width: 80%;
+    height: 60vh;
+    font-size: 15px; 
+    display: none;
+    background-color: white;
+    padding: 5%;
+    border: 1px solid green;
+    border-radius: 10px;
+    z-index: 10;
+    overflow: scroll;
+}
+/* reset mk */
+.btn-code-confirm{
+    position: absolute;
+    right: 0%;
+    top: 47.5%;
+}
+
+/* donhang */
+.list-order{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    /* background-color: rgb(233, 245, 234); */
+}
+.list-order div {
+    width: 20%;
+    display: block;
+    font-size: 15px;
+    justify-content: space-between;
+}
+.list-order div p{
+    padding: 5px 0px;
+    margin: 0;
+}
+.list-order div :nth-child(4){
+    padding-left: 20%;
+}
+.list-order-detail{
+    display: none;
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+}
+
+.block{
+    width: 100%;
+    padding: 20px;
+    background-color: rgb(242, 244, 248);
+
+}
+.block-top{
+    margin-bottom: 10px;
+}
+.block-top span{
+    font-size: 15px;
+    margin-left: 15px;
+}
+.block-top span:nth-child(4){
+    margin-left: 50px;
+}
+.block-mid{
+    display: flex;
+}
+.block-mid img{
+    width: 75px;
+    height: 75px;
+    margin-right: 20px;
+}
+.block-mid div p{
+    font-size: 15px;
+}
+.block-mid .cash{
+    margin-left: 50px;
+    /* margin-top: 10%; */
+}
+.cash p{
+    font-size: 20px;
+}
+.block-bottom p{
+    font-size: 15px;
+    margin-top: 20px;
+}
+.fa-star{
+    color: yellow;
+}
+.crimson{
+    color: crimson;
+}
