@@ -6,7 +6,7 @@ function redirect(url = "", time = 2000) {
     }
 
     setTimeout(() => {
-        window.location = url;
+        window.location = url;  
     }, time)
 }
 
@@ -144,9 +144,11 @@ function deleteItem(item, url, itemName, location) {
 // Hàm hiển thị lỗi khi server trả dữ liệu lỗi về client
 function displayError(Selectorform, error) {
     var form = document.querySelector(Selectorform)
+    console.log(form);
     var formGroup = form.querySelectorAll(`.form-group`)
 
     var keys = Object.keys(error)
+
 
 
     // lặp qua từng form group và so sánh field name của input rồi gán lỗi
@@ -200,7 +202,12 @@ function updateListItems(url, location) {
                 swal("Đóng!",  `Không cập nhật theo yêu cầu !`, "warning");
             }
         });
-   
+
 } 
+
+
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+}
 
 

@@ -2,7 +2,6 @@
     $(document).on('ready', function() {
         const url = "{{ _WEB_ROOT }}/xac-thuc-nguoi-dung"
         const _token = $('meta[name=csrf-token]').attr("content")
-
         // Mong muốn của chúng ta
         Validator({
             form: '#formLogin',
@@ -20,7 +19,6 @@
                 form.append('_token', _token)
                 form.append('email', data.email)
                 form.append('password', data.password)
-
                 sendData(url, form)
             }
         });

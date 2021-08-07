@@ -1,5 +1,5 @@
-  <!-- offer banner section -->
-  <div class="offer-banner-section">
+ <!-- offer banner section -->
+ <div class="offer-banner-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-xs-12 col-md-4 col-sm-4 wow"><a href="#"><img alt="offer banner1" src="{{_WEB_ROOT.'/public/clients/images/promo-banner1.jpg'}}"></a></div>

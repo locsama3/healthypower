@@ -34,9 +34,12 @@ class ProductModel extends Model {
     }
 
 
+
     function findOne($field, $value) {
         return $this->db->table('shop_products')->where($field,'=',$value)->first();
     }
+
+    
     public function updateQuantity($id, $quantity, $compare){
         $sql = "UPDATE ".$this->tableFill()." SET quantity_per_unit = quantity_per_unit ".$compare." $quantity 
                 WHERE id = $id";

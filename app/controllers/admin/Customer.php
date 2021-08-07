@@ -26,19 +26,23 @@ class Customer extends Controller
         
         foreach($data['sub_content']['list_customers'] as $customer){
             $total = 0;
+
+            $data['sub_content']['list_customers'][$i]['total_order'] = 0;
+
             $data['sub_content']['list_customers'][$i]['total_order'] = $this->orderModel->getRow($customer['id']);
-    
+            
             $customerById = $this->customerModel->getOrderByIdCustomer($customer['id']);
             $j = 0;
             foreach($customerById as $value){
                 $orderDetailById = $this->orderModel->getOrderDetailById($value['id']);
-                $total += totalPrice($orderDetailById, $customerById[$j]['shipping_fee'])[0];
+                $total += OrderHelper::totalPrice($orderDetailById, $customerById[$j]['shipping_fee'])[0];
                 $j++;
             }
             
             $data['sub_content']['list_customers'][$i]['total_order_price'] = $total;
             $i++;
         }
+        
         
 
         $data['dataMeta'] = $this->loadMetaTag();
@@ -188,12 +192,13 @@ class Customer extends Controller
         $data['sub_content']['order_by_id'] = $this->customerModel->getOrderByIdCustomer($id);
 
         
+        
         $i=0;
 
         foreach($data['sub_content']['order_by_id'] as $order){
             $order_detail = $this->orderModel->getOrderDetailById($order['id']);
-            $data['sub_content']['order_by_id'][$i]['order_status'] = status($order['order_status']);
-            $total = totalPrice($order_detail, $order['shipping_fee']);
+            $data['sub_content']['order_by_id'][$i]['order_status'] = OrderHelper::status($order['order_status']);
+            $total = OrderHelper::totalPrice($order_detail, $order['shipping_fee']);
             $data['sub_content']['order_by_id'][$i]['total'] = $total[0];
             $i++;
         }
@@ -330,6 +335,7 @@ class Customer extends Controller
         exit(json_encode($message));
     }
 
+    
     public function loadMetaTag()
     {
         return $dataMeta = [

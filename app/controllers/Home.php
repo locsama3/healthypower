@@ -2,16 +2,19 @@
 class Home extends Controller{
 
     public $province, $data;
+    public $productModel;
+    public $request, $response;
 
     public function __construct(){
         $this->province = $this->model('HomeModel');
+        $this->productModel = $this->model('ProductModel');
     }
 
     public function index()
     {
         $data['content'] = 'clients.index';
 
-         
+        $data['sub_content']['product'] = $this->productModel->all();
         // $data['sub_content']['...'] = ...;
 
         $data['dataMeta'] = $this->loadMetaTag();

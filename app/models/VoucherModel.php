@@ -36,4 +36,18 @@ class VoucherModel extends Model {
     {
         return $this->db->table('shop_vouchers')->whereIs('deleted_at', 'NULL')->get();
     }
+    public function countRow($field, $condition,$value)
+    {
+        return $this->db->table('shop_vouchers')->where($field,$condition,$value)->count();
+    }
+
+    public function findByField($field, $value){
+        return $this->db->table('shop_vouchers')->where($field,'=',$value)->get();
+    }
+    public function countRowWhere($user_id, $voucher_id){
+        return $this->db->table('shop_customer_vouchers')->where('customer_id','=',$user_id)->where('voucher_id','=',$voucher_id)->count();
+    }
+    public function countRowById($user_id, $field, $condition, $value){
+        return $this->db->table('shop_vouchers')->where('id','=',$user_id)->where($field, $condition, $value)->count();
+    }
 }

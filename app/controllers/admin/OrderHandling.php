@@ -35,8 +35,8 @@ class OrderHandling extends Controller{
         foreach($data['sub_content']['list_orders'] as $dataField){
             $total = 0;
             $detailById = $this->orderModel->getOrderDetailById($dataField['order_id']);
-            $statusCurrent = status($dataField['order_status']);
-            $total =  totalPrice($detailById, $dataField['shipping_fee']);
+            $statusCurrent = OrderHelper::status($dataField['order_status']);
+            $total =  OrderHelper::totalPrice($detailById, $dataField['shipping_fee']);
             $data['sub_content']['list_orders'][$i]['total'] = $total[0];
             $data['sub_content']['list_orders'][$i]['status'] = $statusCurrent;
             $i++;
@@ -75,11 +75,11 @@ class OrderHandling extends Controller{
         $data['sub_content']['orderById'] = $this->orderModel->getOrderById($id);
       
         
-        $total = totalPrice($data['sub_content']['detailById'], $data['sub_content']['orderById'][0]['shipping_fee']);
+        $total = OrderHelper::totalPrice($data['sub_content']['detailById'], $data['sub_content']['orderById'][0]['shipping_fee']);
 
         $data['sub_content']['orderById'] = $data['sub_content']['orderById'][0];
         $data['sub_content']['orderById']['order_id'] = $id;
-        $data['sub_content']['orderById']['status'] = status($data['sub_content']['orderById']['order_status']);
+        $data['sub_content']['orderById']['status'] = OrderHelper::status($data['sub_content']['orderById']['order_status']);
         
       
         array_push($data['sub_content']['orderById'], array('total'=>$total[0]));

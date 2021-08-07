@@ -1,4 +1,5 @@
 <div class="page">
+
 <!-- Header -->
   <header class="header-container">
     <div class="header-top">
@@ -125,34 +126,49 @@
             <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> 
               <a href="shopping_cart.html" class="d-flex justify-content-center align-items-center"> 
                 <i class="icon-cart"></i>
-                <div class="cart-box"><span class="title">My Cart</span><span id="cart-total"> 2 </span></div>
+                <div class="cart-box"><span class="title">Giỏ hàng</span>
+                  <span id="cart-total">  
+                    @php
+                  
+                      if(Session::data('cart') != null)
+                      {
+                        $array = Session::data('cart');
+                        $result = array_reduce($array,function($a, $b){
+                          return $a + $b['qty'];
+                        }, 0);
+                        echo $result;
+                      }
+                      else
+                      {
+                        echo 0;
+                      }
+                      
+                    @endphp
+                  </span>
+              </div>
               </a>
             </div>
             <div>
               <div class="top-cart-content arrow_box">
-                <div class="block-subtitle">Recently added item(s)</div>
+                <!-- <div class="block-subtitle">Recently added item(s)</div> -->
                 <ul id="cart-sidebar" class="mini-products-list">
-                  <li class="item even"> <a class="product-image" href="#" title="Downloadable Product "><img alt="Downloadable Product " src="{{_WEB_ROOT.'/public/clients/products-images/product1.jpg'}}" width="80"></a>
+                  @if(!empty(Session::data('cart')))
+                  @foreach(Session::data('cart') as $data)
+                  <li class="item even"> <a class="product-image" href="#" title="Downloadable Product "><img alt="Downloadable Product " src="{{_WEB_ROOT.'/public/uploads/products/'.$data['image']}}" width="80"></a>
                     <div class="detail-item">
                       <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
-                        <p class="product-name"> <a href="#" title="Downloadable Product">Downloadable Product </a> </p>
+                        <p class="product-name"> {{$data['product_name']}} </p>
                       </div>
-                      <div class="product-details-bottom"> <span class="price">$100.00</span> <span class="title-desc">Qty:</span> <strong>1</strong> </div>
+                      <div class="product-details-bottom"> <span class="price">{! number_format($data['list_price']) !} đ</span><span class="title-desc">Qty:</span> <strong>{{$data['qty']}}</strong> </div>
                     </div>
                   </li>
-                  <li class="item last odd"> <a class="product-image" href="#" title="  Sample Product "><img alt="  Sample Product " src="{{_WEB_ROOT.'/public/clients/products-images/product11.jpg'}}" width="80"></a>
-                    <div class="detail-item">
-                      <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
-                        <p class="product-name"> <a href="#" title="  Sample Product "> Sample Product </a> </p>
-                      </div>
-                      <div class="product-details-bottom"> <span class="price">$320.00</span> <span class="title-desc">Qty:</span> <strong>2</strong> </div>
-                    </div>
-                  </li>
+                  @endforeach
+                  @endif
                 </ul>
-                <div class="top-subtotal">Subtotal: <span class="price">$420.00</span></div>
+                <div class="top-subtotal">Subtotal: <span class="price">{! number_format(Session::data('total') ?? null) !} đ</span></div>
                 <div class="actions">
-                  <button class="btn-checkout" type="button"><span>Checkout</span></button>
-                  <button class="view-cart" type="button"><span>View Cart</span></button>
+                  <button class="btn-checkout" type="button"><span>Thanh toán</span></button>
+                  <button class="view-cart" onclick="location.href=`{{_WEB_ROOT.'/gio-hang'}}`;" type="button"><span>Xem giỏ hàng</span></button>
                 </div>
               </div>
             </div>

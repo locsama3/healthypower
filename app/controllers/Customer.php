@@ -70,10 +70,12 @@ class Customer extends Controller{
     }
 
     public function validate() {
+        
         if ($this->request->isPost()){
             // Lấy dữ liệu từ form
             $dataFields = $this->request->getFields();
 
+            
             /*Set rules*/
             $this->request->rules([
                 'email'       => 'required|email',
@@ -128,25 +130,26 @@ class Customer extends Controller{
            
             Session::data('user_login', true);
             Session::data('user_data', [
+                'id_user'       => $user['id'],
                 'username'      => $user['fullname'],
                 'user_email'    => $user['email'],
-                'user_avatar'   => $user['avatar']
+                'user_avatar'   => $user['avatar'],
+                'user_phone'    => $user['phone']
             ]);
-
+            
             $message = [
                 'status'    => '1',
                 'message'   => "Đăng nhập thành công",
                 'location'  => _WEB_ROOT,
                 'time'      => 1000
             ];
+            
             exit(json_encode($message));
         }
     }
 
     public function logout() {
-        Session::delete('user_login');
-        Session::delete('user_data');
-
+        Session::delete();
         $this->response->back();
     }
 
@@ -216,7 +219,7 @@ class Customer extends Controller{
             $data = [
                 'subject' => 'Đặt lại mật khẩu',
                 'content' => '<strong>Mã xác nhận đặt lại mật khẩu của bạn là: ' . $random."<strong>",
-                'attachments' => [ 'file' => 'public/uploads/customer/'.$user['avatar'] ]
+                // 'attachments' => [ 'file' => 'public/uploads/customer/'.$user['avatar'] ]
             ];
 
             $mailer->sendMail($user['email'], $user['fullname'], $data);

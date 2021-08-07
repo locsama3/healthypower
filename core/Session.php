@@ -4,9 +4,15 @@ class Session{
      * data(key, value) => set session
      * data(key) => get session
      * */
-    static public function data($key='', $value=''){
+    static public function data($key='', $value='', $keyArray=''){
         $sessionKey = self::isInvalid();
-
+        if(!empty($keyArray)){
+            if (!empty($key)){
+                $_SESSION[$sessionKey][$key][$keyArray] = $value; //set session
+                return true;
+            }
+            return false;
+        }
         if (!empty($value)){
             if (!empty($key)){
                 $_SESSION[$sessionKey][$key] = $value; //set session
@@ -41,6 +47,16 @@ class Session{
             return false;
         }else{
             unset($_SESSION[$sessionKey]);
+            return true;
+        }
+        return false;
+    }
+
+
+    static public function deleteById($key='', $id){
+        $sessionKey = self::isInvalid();
+        if (!empty($key) && !empty($id)){
+            unset($_SESSION[$sessionKey][$key][$id]);
             return true;
         }
         return false;

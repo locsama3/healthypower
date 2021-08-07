@@ -37,6 +37,9 @@
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/owl.theme.css" type="text/css">
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/clients/css/buttonLoader.css" type="text/css">
+  
+    
     
     <!-- Load thư viện css cần sử dụng -->
      <?php 

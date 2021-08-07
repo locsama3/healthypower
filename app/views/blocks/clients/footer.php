@@ -114,12 +114,16 @@
 </div>
 
 <!-- JavaScript --> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
 <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/jquery.min.js'}}"></script> 
 <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/bootstrap.min.js'}}"></script> 
  
 <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/common.js'}}"></script> 
 <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/revslider.js'}}"></script> 
-<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/owl.carousel.min.js'}}"></script> 
+<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/owl.carousel.min.js'}}"></script>
+<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/jquery.buttonLoader.min.js'}}"></script>
+<script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/jquery.buttonLoader.js'}}"></script> 
 <script type='text/javascript'>
 jQuery(document).ready(function(){
 jQuery('#rev_slider_4').show().revolution({

@@ -146,8 +146,8 @@ class Voucher extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'voucherName' => 'required|min:5|max:88|unique:shop_vouchers:voucher_name',
-                'voucherCode' => 'required|min:3|max:30|unique:shop_vouchers:voucher_code',
+                'voucherName' => 'required|min:5|max:88|unique:shop_vouchers:voucher_name:id='.$id.'',
+                'voucherCode' => 'required|min:3|max:30|unique:shop_vouchers:voucher_code:id='.$id.'',
                 'max_uses' => 'required|min:1',
                 'max_uses_user' => 'required|min:1',
                 'type' => 'required',

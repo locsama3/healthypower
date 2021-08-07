@@ -87,6 +87,9 @@ if (!empty($allHelpers)){
     }
 }
 
+
+
+
 require_once 'core/Model.php'; //Load Base Model
 
 require_once 'core/Template.php'; //Load Template

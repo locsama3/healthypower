@@ -34,10 +34,44 @@
 
     $routes['chinh-sua-mat-khau-moi'] = 'customer/update_pass';
 
+    // routes cart
+
+    $routes['gio-hang'] = 'cart/index';
+
+    $routes['them-gio-hang/.+-(\d+)'] = 'cart/store/$1';
+
+    $routes['cap-nhat-gio-hang'] = 'cart/update';
+
+    $routes['get-shipping-fee'] = 'cart/getshippingfee';
+    
+    $routes['xoa-het-gio-hang'] = 'cart/clearcart';
+    
+    $routes['xoa-tung-san-pham/.+-(\d+)'] = 'cart/delete/$1';
+    
+    $routes['kiem-tra-voucher'] = 'cart/handlevoucher';
+
+    $routes['xoa-voucher'] = 'cart/deletevoucher';
+
+    $routes['thanh-toan'] = 'cart/checkout';
+
+    $routes['handle-checkout'] = 'cart/successcart';
+
+    $routes['payment'] = 'cart/payment';
+
+    $routes['create-vnpay'] = 'cart/createpayment';
+
+    $routes['payment-post'] = 'cart/postpayment';
+
+    $routes['vnpay/return'] = 'cart/vnpayreturn';
+
+    $routes['ket-thuc-thanh-toan-online'] = 'cart/clearpayment';
+
+    $routes['hoan-tat-don-hang'] = 'cart/success';
 
     /* ---------------------------------------------------------------------------------------- */
 
     // routes admin
+
 
     $routes['dashboard'] = 'admin/dashboard/index';
 
@@ -224,6 +258,11 @@
     $routes['customer-update/.+-(\d+)'] = 'admin/customer/update/$1';
 
     $routes['customer-destroy'] = 'admin/customer/destroy';
+
+    // routes login user
+
+    
+
 
     // routes delivery
     $routes['deliveries'] = 'admin/delivery/index';
