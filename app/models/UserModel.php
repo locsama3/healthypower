@@ -36,10 +36,7 @@ class UserModel extends Model {
     {
         return $this->db->table('acl_users')->where($field,$condition,$value)->count();
     }
-
-    public function findByField($field, $value){
-        return $this->db->table('acl_users')->where($field,'=',$value)->get();
-    }
+    
     public function countRowWhere($user_id, $voucher_id){
         return $this->db->table('shop_customer_vouchers')->where('customer_id','=',$user_id)->where('voucher_id','=',$voucher_id)->count();
     }

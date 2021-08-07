@@ -65,7 +65,7 @@ class User extends Controller{
                 ];
                 exit(json_encode($message));
             }
-            $check_pass_user = $this->userModel->findUserInvalid($dataFields['email'], $dataFields['password']);
+            $check_pass_user = $this->userModel->findUserInvalid($dataFields['email'], md5($dataFields['password']));
             
             if(!$check_pass_user){
                 $message = [
@@ -76,7 +76,7 @@ class User extends Controller{
                 ];
                 exit(json_encode($message));
             }
-            $user = $this->userModel->findByField('email', $dataFields['email']);
+            $user = $this->userModel->findByField(['email: '. $dataFields['email']]);
            
             if(!$user[0]['status']){
                 $message = [

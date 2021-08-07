@@ -61,6 +61,21 @@ class Request{
                     }   
                 }
             }
+
+            // Xử lý lấy dữ liệu gửi bằng JSON
+            if (!empty(file_get_contents('php://input'))) {
+                $data = json_decode(file_get_contents('php://input'), true);
+
+                if (!empty($data)) {
+                    foreach ($data as $key => $value) {
+                        if(is_array($value)){
+                            $dataFields[$key] = filter_input(INPUT_POST, $key, FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+                        }else{
+                            $dataFields[$key] = $value;
+                        }   
+                    }
+                }
+            }
         }
 
         return $dataFields;

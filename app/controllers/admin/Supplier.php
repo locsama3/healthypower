@@ -13,7 +13,6 @@ class Supplier extends Controller{
     public function index()
     {
         $data['content'] = 'admins.suppliers.index';
-
          
         $data['sub_content']['list_supplier'] = $this->supplierModel->all();
 
@@ -57,7 +56,7 @@ class Supplier extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'supplierName' => 'required|min:5|max:88|unique:shop_suppliers:supllier_name'
+                'supplierName' => 'required|min:5|max:88|unique:shop_suppliers:supplier_name'
             ]);
 
             //Set message
@@ -139,7 +138,7 @@ class Supplier extends Controller{
         if ($this->request->isPost()){
             /*Set rules*/
             $this->request->rules([
-                'supplierName' => 'required|min:5|max:88|unique:shop_suppliers:supllier_name'
+                'supplierName' => 'required|min:5|max:88|unique:shop_suppliers:supplier_name'
             ]);
 
             //Set message

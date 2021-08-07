@@ -34,6 +34,10 @@
                                         <span class="form-message"></span>
                                     </div>
                                 </li>
+                                <li class="d-flex text-align-center">
+                                    <input type="checkbox" name="save" style="margin: 0 6px;">
+                                    <span>Ghi nhớ trạng thái đăng nhập trên trình duyệt này</span>
+                                </li>
                             </ul>
                             <div class="buttons-set">
                                 <button id="send2" name="send" type="submit" class="button login"><span>Đăng nhập</span></button>

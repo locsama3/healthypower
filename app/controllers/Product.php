@@ -5,6 +5,11 @@ class Product extends Controller{
     public $prodCateModel;
     public $supplierModel;
     public $productGalleryModel;
+    public $productReviewModel;
+    public $productDiscountModel;
+    public $productViewModel;
+    public $importModel;
+    public $exportModel;
     public $request, $response;
 
     public function __construct(){
@@ -12,17 +17,60 @@ class Product extends Controller{
         $this->prodCateModel = $this->model('ProductCategoryModel');
         $this->supplierModel = $this->model('SupplierModel');
         $this->productGalleryModel = $this->model('ProductGalleryModel');
+        $this->productReviewModel = $this->model('ProductReviewModel');
+        $this->productDiscountModel = $this->model('ProductDiscountModel');
+        $this->productViewModel = $this->model('ProductViewModel');
+        $this->importModel = $this->model('ImportModel');
+        $this->exportModel = $this->model('ExportModel');
         $this->request = new Request();
         $this->response = new Response();
     }
 
-    public function index()
-    {
-        $data['content'] = 'admins.products.index';
+    public function list() {
+        $conditions = ["deleted_at: null", 'status: 1'];
 
-        $data['sub_content']['list_products'] = $this->productModel->all();
+        if ($this->request->isPost()) {
+            // Lấy dữ liệu từ form
+            $dataFields = $this->request->getFields();
 
-        $data['sub_content']['list_prod_cates'] = $this->prodCateModel->all();
+            $validate = $this->request->validate();
+
+            if (!empty($validate)) {
+                $sessionKey = Session::isInvalid();
+                $old = Session::flash($sessionKey . '_old');
+                Session::flash('old', $old);
+            }
+
+            if (!empty($dataFields['category_id'])) {
+                $cateId = $dataFields['category_id'];
+                $cateCondition = 'category_id : '.$cateId;
+                array_push($conditions, $cateCondition);
+            }
+            
+            if (!empty($dataFields['search'])) {
+                $search = $dataFields['search'];
+                $searchCondition = 'product_name <=> '.$search;
+                array_push($conditions, $searchCondition);
+            }
+        }
+
+        if ($this->request->isGet()) {
+            $dataFields = $this->request->getFields();
+
+            if (!empty($dataFields['danhmuc'])) {
+                $cateId = $dataFields['danhmuc'];
+                $cateCondition = 'category_id : '.$cateId;
+                array_push($conditions, $cateCondition);
+            }
+        }
+
+        $data['content'] = 'clients.products.list';
+    
+        $data['sub_content']['list_products'] = $this->productModel->findByField($conditions, '', '15:0');
+
+        $data['sub_content']['list_reviews'] = $this->productReviewModel->all();
+
+        $data['sub_content']['list_discounts'] = $this->productDiscountModel->all();
 
         $data['sub_content']['list_suppliers'] = $this->supplierModel->all();
 
@@ -31,388 +79,138 @@ class Product extends Controller{
         $data['page_title'] = "Danh sách sản phẩm";
 
         $data['data_js'] = [
-            'ajax' => 'admins.products.js_index'
+            'ajax' => 'clients.products.js_list'
         ];
 
-        $data['libraryJS']['list_js'] = [
-            'functions' => 'functions.js'
-        ];
-
-        return $this->view('layouts.admin_layout', $data);
+        return $this->view('layouts.client_layout', $data);
     }
 
-    public function create()
-    { 
-        $data['content'] = 'admins.products.create';
+    public function detail($id) {
+        // truy vấn sản phẩm chính
+        $data['sub_content']['product'] = $this->productModel->findOne(["id : $id", "deleted_at: null"]);
 
-        $data['sub_content']['list_prod_cates'] = $this->prodCateModel->all();
+        $info_import = $this->importModel->importInfo($id);
+        $info_export = $this->exportModel->exportInfo($id);
 
-        $data['sub_content']['list_suppliers'] = $this->supplierModel->all();
-
-        $data['dataMeta'] = $this->loadMetaTag();
-
-        $data['data_js'] = [
-            'ajax' => 'admins.products.js_create'
-        ];
-
-        $data['libraryJS']['list_js'] = [
-            'ckeditor'      => 'ckeditor/ckeditor.js',
-            'changeEditor'  => 'changeEditor.js',
-            'validate'      => 'validate.js',
-            'function'      => 'functions.js',
-            'upload'        => 'uploadImg.js',
-        ];
-
-        $data['page_title'] = "Thêm mới sản phẩm";
-
-        return $this->view('layouts.admin_layout', $data);
-    }
-
-    public function store()
-    {
-        if ($this->request->isPost()){
-            // Lấy dữ liệu từ form
-            $dataFields = $this->request->getFields();
-
-            /*Set rules*/
-            $this->request->rules([
-                'productName'       => 'required',
-                'weightName'        => 'required',
-                'productPrice'      => 'required',
-                'supplierProductId' => 'required',
-                'categoryProductId' => 'required',
-                'file'              => 'required',
-                'length'            => 'required',
-                'width'             => 'required',
-                'height'            => 'required',
-            ]);
-
-            //Set message
-            $this->request->message([
-                'productName.required'          => 'Tên sản phẩm không được để trống',
-                'weightName.required'           => 'khối lượng sản phẩm không được để trống',
-                'productPrice.required'         => 'Giá sản phẩm không được để trống',
-                'supplierProductId.required'    => 'Nhà cung cấp không dược để trống',
-                'categoryProductId.required'    => 'Loại sản phẩm không được để trống',
-                'file.required'                 => 'Cần tối thiểu ít nhất 1 tệp hình',
-                'length.required'               => 'Chiều dài sản phẩm không được để trống',
-                'width.required'                => 'Chiều rộng sản phẩm không được để trống',
-                'height.required'               => 'Chiều cao sản phẩm không được để trống',
-            ]);
-
-            $validate = $this->request->validate();
-            if (!$validate){
-                $message = [
-                    'status'    => '0',
-                    'message'   => "Đã có lỗi xảy ra, Vui lòng kiểm tra lại."
-                ];
-
-                $sessionKey = Session::isInvalid();
-                $error = Session::flash($sessionKey.'_errors');
-                $message['error'] = $error;
-                exit(json_encode($message));
+        $qty_import = 0;
+        if (!empty($info_import)) {
+            foreach ($info_import as $import) {
+                $qty_import += $import['quantity']; 
             }
-
-            // đưa data vào
-            $data = [
-                'product_name'      => $dataFields['productName'],
-                'product_code'      => $dataFields['SKU'],
-                'list_price'        => $dataFields['productPrice'],
-                'supplier_id'       => $dataFields['supplierProductId'],
-                'category_id'       => $dataFields['categoryProductId'],
-                'weight'            => $dataFields['weightName'],
-                'length'            => (int)$dataFields['length'],
-                'width'             => (int)$dataFields['width'],
-                'height'            => (int)$dataFields['height'],
-                'product_slug'      => '',
-                'description'       => !empty($dataFields['description']) ? $dataFields['description'] : "",
-                'standard_cost'     => !empty($dataFields['standard_cost']) ? $dataFields['standard_cost'] : null,
-                'quantity_per_unit' => !empty($dataFields['quantity_per_unit']) ? $dataFields['quantity_per_unit'] : 0,
-                'discontinued'      => ($dataFields['discontinued'] != '') ? 1 : 0,
-                'status'            => ($dataFields['status'] != '') ? 1 : 0,
-                'is_featured'       => ($dataFields['isFeatured'] != '') ? 1 : 0,
-                'is_new'            => ($dataFields['isNew'] != '') ? 1 : 0
-            ];
-
-            $get_images = $dataFields['file'];
-            $uploadPath = "public/uploads/products/";
-
-            if($get_images){
-                $data['image'] = ProcessImage::uploadImageBySrc($get_images[0], $uploadPath);
-                unset($get_images[0]);
-            }
-
-            // thêm sản phẩm mới
-            $result = $this->productModel->create($data);
-            
-            // xử lý thêm hình ảnh vào gallery
-            $dataGallery['product_id'] = $result;
-            $pos = 0;
-
-            foreach($get_images as $image) {
-                $dataGallery['image'] = ProcessImage::uploadImageBySrc($image, $uploadPath);
-                $pos ++;
-                $dataGallery['position'] = $pos;
-                $this->productGalleryModel->create($dataGallery);
-            }
-
-            $message = [
-                "status"    => "1",
-                'message'   => "Thêm sản phẩm mới thành công!"
-            ];
-    
-            exit(json_encode($message));
         }
-    }
 
-    public function edit($id)
-    {
-        $data['sub_content']['product_by_id'] = $this->productModel->find($id);
-
-        $data['sub_content']['list_prod_cates'] = $this->prodCateModel->all();
-
-        $data['sub_content']['list_suppliers'] = $this->supplierModel->all();
-
-        $data['sub_content']['list_gallery'] = $this->productGalleryModel->findByIdAndSort("product_id",$id, "position");
-
-        $data['content'] = 'admins.products.edit';
-
-        $data['dataMeta'] = $this->loadMetaTag();
-
-        $data['page_title'] = "Cập nhật thông tin sản phẩm";
-
-        $data['data_js'] = [
-            'ajax' => 'admins.products.js_edit',
-        ];
-
-        $data['libraryJS']['list_js'] = [
-            'functions'     => 'functions.js',
-            'validate'      => 'validate.js',
-            'ckeditor'      => 'ckeditor/ckeditor.js',
-            'changeEditor'  => 'changeEditor.js',
-            'upload'        => 'uploadImg.js',
-        ];
-
-        return $this->view('layouts.admin_layout', $data);
-    }
-
-    public function update($id)
-    {
-        if ($this->request->isPost()){
-            // Lấy dữ liệu từ form
-            $dataFields = $this->request->getFields();
-
-            /*Set rules*/
-            $this->request->rules([
-                'productName'       => 'required',
-                'weightName'        => 'required',
-                'productPrice'      => 'required',
-                'supplierProductId' => 'required',
-                'categoryProductId' => 'required',
-                'file'              => 'required',
-                'length'            => 'required',
-                'width'             => 'required',
-                'height'            => 'required',
-            ]);
-
-            //Set message
-            $this->request->message([
-                'productName.required'          => 'Tên sản phẩm không được để trống',
-                'weightName.required'           => 'khối lượng sản phẩm không được để trống',
-                'productPrice.required'         => 'Giá sản phẩm không được để trống',
-                'supplierProductId.required'    => 'Nhà cung cấp không dược để trống',
-                'categoryProductId.required'    => 'Loại sản phẩm không được để trống',
-                'file.required'                 => 'Cần tối thiểu ít nhất 1 tệp hình',
-                'length.required'               => 'Chiều dài sản phẩm không được để trống',
-                'width.required'                => 'Chiều rộng sản phẩm không được để trống',
-                'height.required'               => 'Chiều cao sản phẩm không được để trống',
-            ]);
-
-            $validate = $this->request->validate();
-            if (!$validate){
-                $message = [
-                    'status'  => '0',
-                    'message' => "Đã có lỗi xảy ra, Vui lòng kiểm tra lại."
-                ];
-
-                $sessionKey = Session::isInvalid();
-                $error = Session::flash($sessionKey.'_errors');
-                $message['error'] = $error;
-                exit(json_encode($message));
+        $qty_export = 0;
+        if (!empty($info_export)) {
+            foreach ($info_export as $export) {
+                $qty_export += $export['quantity']; 
             }
+        }
 
-            // đưa data vào
-            $data = [
-                'product_name'      => $dataFields['productName'],
-                'product_code'      => $dataFields['SKU'],
-                'list_price'        => $dataFields['productPrice'],
-                'supplier_id'       => $dataFields['supplierProductId'],
-                'category_id'       => $dataFields['categoryProductId'],
-                'weight'            => $dataFields['weightName'],
-                'length'            => (int)$dataFields['length'],
-                'width'             => (int)$dataFields['width'],
-                'height'            => (int)$dataFields['height'],
-                'description'       => !empty($dataFields['description']) ? $dataFields['description'] : "",
-                'discontinued'      => ($dataFields['discontinued'] != '') ? 1 : 0,
-                'status'            => ($dataFields['status'] != '') ? 1 : 0,
-                'is_featured'       => ($dataFields['isFeatured'] != '') ? 1 : 0,
-                'is_new'            => ($dataFields['isNew'] != '') ? 1 : 0
-            ];
+        $quantity = $qty_import - $qty_export;
+        $data['sub_content']['product']['quantity'] = $quantity;
 
-            $productById = $this->productModel->findOne("id", $id);
-            $proGallaryById = $this->productGalleryModel->findById("product_id", $id);
+        // truy vấn  sản phẩm liên quan
+        $cateId = $data['sub_content']['product']['category_id'];
+        $conditions = [ 'category_id: '. $cateId, "deleted_at: null", 'status: 1', 'discontinued: 1', "id != $id" ];
+        $random = mt_rand(0, 2);
 
-            $uploadPath = "public/uploads/products/";
-            $proGallary = [];
-            $listImgUploadInGallery = [];
-            $checkDelete = false;
+        $data['sub_content']['list_related_products'] = $this->productModel->findByField($conditions, '', "8: $random");
 
-            // tạo mảng trung gian lưu trữ ảnh trong gallery và ảnh đại diện
-            $proGallary = $proGallaryById;
-            array_push($proGallary, ["image" => $productById['image']]);
-
-            // tạo mảng trung gian lưu trữ ảnh được upload lên server
-            foreach ($dataFields['file'] as $key => $fileImg) {
-                if (strpos($fileImg, "/public/uploads/products/") != false) {
-                    array_push($listImgUploadInGallery,str_replace(_WEB_ROOT."/public/uploads/products/", "", $fileImg));
-                }
-            }      
-            
-            // Kiểm tra người dùng có xóa ảnh cũ không
-            if (count($proGallary) != count($listImgUploadInGallery)) {
-                $checkDelete = true;
+        $customerModel = Load::model('CustomerModel');
+        // truy vấn sản phẩm người dùng đã xem
+        if (Session::data('user_login') == true) {
+            $user = $customerModel->findOne(["email: ".Session::data('user_data')['user_email']]);
+    
+            $list_viewed_id = $this->productViewModel->findByField(["customer_id:". $user['id'], 'product_id != '.$id], 'viewed_at:desc');
+    
+            $str_product_id = '';
+            foreach ($list_viewed_id as $viewed) {
+                $str_product_id .= ','.$viewed['product_id'];
             }
+            $str_product_id = substr($str_product_id, 1);
+            $conditions = [ 'id {in}' . $str_product_id, "deleted_at: null" ];
+    
+            $data['sub_content']['list_viewed_products'] = $this->productModel->findByField($conditions);
+        }
 
-            // Nếu người dùng xóa thì xử lý xóa ảnh trong gallery
-            if ($checkDelete) {
-                foreach ($proGallary as $key => $image) {
-                    $pos = array_search($image['image'], $listImgUploadInGallery);
-                    
-                    if ($pos === false) {
-                        if ($image['image'] == $productById['image']) {
-                            unlink("public/uploads/products/".$productById['image']);
-                        } else {
-                            $this->productGalleryModel->destroy($image['id']);
-                            unlink("public/uploads/products/".$image['image']);
-                            unset($proGallary[$key]);
-                        }
-                    }
-                }
+        // truy vấn hình ảnh gallary
+        $data['sub_content']['list_gallary'] = $this->productGalleryModel->findByField(['product_id :' . $id]);
+
+        // truy vấn danh sách reviews cho sản phẩm chính
+        $data['sub_content']['reviews'] = $this->productReviewModel->findByField(['product_id : '.$id], 'created_at:desc');
+
+        if (!empty($data['sub_content']['reviews'])) {
+            $str_customer_id = '';
+            foreach ($data['sub_content']['reviews'] as $review) {
+                $str_customer_id .= ','.$review['customer_id'];
             }
+            $str_customer_id = substr($str_customer_id, 1);
 
-            // xóa phần tử ảnh đại diện ra khỏi mảng chung gian
-            array_pop($proGallary);
+            $data['sub_content']['customers'] = $customerModel->findByField(['id {in}'.$str_customer_id]);
+        }
 
-            // TH hình ảnh đại diện đã thay đổi
-            if ($dataFields['file'][0] != _WEB_ROOT."/public/uploads/products/".$productById['image']) {
-                // TH hình đại diện mới thuộc hình cũ trong gallery
-                if (strpos($dataFields['file'][0], "/public/uploads/products/") != false) {
-                    $data['image'] = $listImgUploadInGallery[0];
+        // truy vấn danh sách đánh giá cho nhiều sản phẩm
+        $str_product_id = $id;
 
-                    foreach ($proGallary as $key => $image) {
-                        if ($data['image'] == $image['image']) {
-                            $this->productGalleryModel->destroy($image['id']);
-                            unset($proGallary[$key]);
-                            break;
-                        }
-                    }
-                } else { // TH hình đại diện được người dùng tải mới lên
-                    $data['image'] = ProcessImage::uploadImageBySrc($dataFields['file'][0], $uploadPath);
-                }
+        foreach ($data['sub_content']['list_related_products'] as $related) {
+            $str_product_id .= ','.$related['id'];
+        }
+
+        if (Session::data('user_login') == true) {
+            foreach ($data['sub_content']['list_viewed_products'] as $viewed) {
+                $str_product_id .= ','.$viewed['id'];
             } 
-
-            // xóa phần tử ảnh đại diện ra khỏi mảng ban đầu
-            unset($dataFields['file'][0]);
-            
-            // Xử lý upload ảnh mới vào gallery
-            foreach ($dataFields['file'] as $key => $fileImg) {
-                if (strpos($fileImg, "/public/uploads/products/") != false) {
-                    $imgName = str_replace(_WEB_ROOT."/public/uploads/products/", "", $fileImg);
-
-                    if ($imgName == $productById['image']) {
-                        $dataGallery = [
-                            'image'        => $productById['image'],
-                            'position'     => $key,
-                            'product_id'   => $id
-                        ];
-
-                        $this->productGalleryModel->create($dataGallery);
-                        break;
-                    }
-
-                    foreach ($proGallary as $image) {
-                        if ($image['image'] == $imgName) {
-                            if ($image['position'] != $key) {   
-                                $dataGallery['position']  = $key;
-                                $idGallery = $image['id'];
-
-                                $this->productGalleryModel->edit($idGallery, $dataGallery);
-                                break;
-                            }
-                        }
-                    }
-                } else {
-                    $dataGallery = [
-                        'image'      => ProcessImage::uploadImageBySrc($fileImg, $uploadPath),
-                        'position'   => $key,
-                        'product_id' => $id
-                    ];
-
-                    $this->productGalleryModel->create($dataGallery);
-                }
-            }  
-            
-            // chỉnh sửa sản phẩm
-            $result = $this->productModel->edit($id, $data);
-
-            $message = [
-                "status"  => "1",
-                'message' => "Cập nhật sản phẩm mới thành công!"
-            ];
-    
-            exit(json_encode($message));
         }
-    }
 
-    public function status()
-    {
-        $dataFields = $this->request->getFields();
-        $id = $dataFields['_id'];
-        $status_value = $dataFields['status'];
+        $data['sub_content']['list_reviews'] = $this->productReviewModel->findByField(['product_id {in}' . $str_product_id]);
 
-        $data['status'] = $status_value;
+        // truy vấn danh sách giảm giá cho nhiều sản phẩm
+        $conditions = ['product_id {in}' . $str_product_id, "start_date <= ".date('Y-m-d H:i:s'), "end_date >= ".date('Y-m-d H:i:s')];
+        $data['sub_content']['list_discounts'] = $this->productDiscountModel->findByField($conditions);
 
-        $this->productModel->edit($id,$data);
 
-        $message = [
-            "status"    => "1",
-            'message'   => "Cập nhật trạng thái sản phẩm mới thành công!"
+        // xử lý lưu vào bảng shop_product_viewed
+        if (Session::data('user_login') == true) {
+            $find_old_viewed = $this->productViewModel->findOne(["product_id : $id"]);
+
+            if (!empty($find_old_viewed)) {
+                $deleteView = $this->productViewModel->destroy($find_old_viewed['id']);
+            }
+
+            $count_viewed = $this->productViewModel->countIf(['customer_id:'.$user['id']]);
+
+            if ($count_viewed == 10) {
+                $last_viewed = $this->productViewModel->findOne(['customer_id: '.$user['id']]);
+                $deleteLastView = $this->productViewModel->destroy($last_viewed['id']);
+            }
+
+            $dataView = [
+                'product_id'   => $id,
+                'customer_id'  => $user['id'],
+            ];
+
+            $insertView = $this->productViewModel->create($dataView);
+        }
+
+        // load
+        $data['content'] = 'clients.products.detail';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = $data['sub_content']['product']['product_name'];
+
+        $data['data_js'] = [
+            'ajax' => 'clients.products.js_detail'
         ];
 
-        exit(json_encode($message));
-    }
-
-    public function destroy()
-    {
-        $dataFields = $this->request->getFields();
-
-        $ids = $dataFields['_id'];
-        $data = [ 'deleted_at' => date('Y-m-d H:i:s')];
-
-        $this->productModel->deleteAt($ids, $data);
-
-        $message = [
-            "status"    => "1",
-            'message'   => "Xóa sản phẩm thành công!"
-        ];
-        exit(json_encode($message));
+        return $this->view('layouts.client_layout', $data);
     }
 
     public function loadMetaTag()
     {
         return $dataMeta = [
             'meta_title'    => 'Sản phẩm',
-            'meta_desc'     => 'Thêm sản phẩm, thông tin sản phẩm',
+            'meta_desc'     => 'chi tiết sản phẩm, thông tin sản phẩm',
             'meta_keywords' => 'heathy, whey, vitamin, oars',
             'url_canonical' => _WEB_ROOT,
             'meta_author'   => 'healthy power',

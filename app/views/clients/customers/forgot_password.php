@@ -1,12 +1,13 @@
 <?php 
-    $errors = [];
+    $errors = Session::flash('errors');
+    $old = Session::flash('old');
+    
     if (empty($errors)) {
-        $errors = Session::flash('errors');
+        $errors = [];
     }
     
-    $old = [];
     if (empty($old)) {
-        $old = Session::flash('old');
+        $old = [];
     }
 ?>
 <section class="main-container col1-layout">

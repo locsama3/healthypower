@@ -1,17 +1,94 @@
 <?php
 class Home extends Controller{
-
-    public $province, $data;
     public $productModel;
+    public $productReviewModel;
+    public $productDiscountModel;
+    public $productCategoryModel;
+    public $importModel;
+    public $exportModel;
     public $request, $response;
 
     public function __construct(){
-        $this->province = $this->model('HomeModel');
         $this->productModel = $this->model('ProductModel');
+        $this->productReviewModel = $this->model('ProductReviewModel');
+        $this->productDiscountModel = $this->model('ProductDiscountModel');
+        $this->productCategoryModel = $this->model('ProductCategoryModel');
+        $this->importModel = $this->model('ImportModel');
+        $this->exportModel = $this->model('ExportModel');
+        $this->request = new Request();
+        $this->response = new Response();
     }
 
     public function index()
     {
+        // truy vấn danh mục sản phẩm
+        $random = mt_rand(0,3);
+        $data['sub_content']['list_categories'] = $this->productCategoryModel->findByField([], '', "6:$random");
+
+        // truy vấn những sản phẩm mới nhất
+        $conditions = ["deleted_at: null", 'status: 1', 'is_new: 1'];
+
+        $data['sub_content']['list_lastest'] = $this->productModel->findByField($conditions, 'created_at:desc');
+
+        // truy vấn những sản phẩm nổi bật
+        $conditions = ["deleted_at: null", 'status: 1', 'is_featured: 1'];
+        $random = mt_rand(0,2);
+
+        $data['sub_content']['list_featured'] = $this->productModel->findByField($conditions, '', "8:$random");
+
+        // truy vấn những sản phẩm bán chạy nhất
+        $lastmonth = mktime(0, 0, 0, date("m")-1, date("d"), date("Y"));
+        $startDate = date('Y-m-d H:i:s', $lastmonth);
+        $endDate = date('Y-m-d H:i:s');
+
+        $bestseller = $this->exportModel->bestseller($startDate, $endDate);
+
+        $str_product_id = '';
+
+        foreach ($bestseller as $product) {
+            $str_product_id .= ','.$product['product_id'];
+        }
+        $str_product_id = substr($str_product_id, 1);
+
+        $data['sub_content']['list_bestseller'] = $this->productModel->findByField(['id {in}' . $str_product_id]);
+
+        // truy vấn danh sách đánh giá cho nhiều sản phẩm
+        $str_product_id = [];
+
+        foreach ($data['sub_content']['list_lastest'] as $related) {
+            array_push($str_product_id, $related['id']);
+        }
+
+        foreach ($data['sub_content']['list_featured'] as $viewed) {
+            array_push($str_product_id, $viewed['id']);
+        } 
+
+        foreach ($bestseller as $product) {
+            array_push($str_product_id,$product['product_id']);
+        }
+
+        $str_product_id = implode(',',array_unique($str_product_id));
+
+        $data['sub_content']['list_reviews'] = $this->productReviewModel->findByField(['product_id {in}' . $str_product_id]);
+
+        // truy vấn danh sách giảm giá cho nhiều sản phẩm
+        $conditions = ['product_id {in}' . $str_product_id, "start_date <= ".date('Y-m-d H:i:s'), "end_date >= ".date('Y-m-d H:i:s')];
+
+        $data['sub_content']['list_discounts'] = $this->productDiscountModel->findByField($conditions);
+
+        // Load
+        $data['content'] = 'clients.index';
+
+        $data['dataMeta'] = $this->loadMetaTag();
+
+        $data['page_title'] = $this->loadTitle();
+
+        $data['data_slider']['list_slider'] = $this->loadSlider();
+
+        return $this->view('layouts.client_layout', $data);
+    }
+
+    public function simple () {
         $data['content'] = 'clients.index';
 
         $data['sub_content']['product'] = $this->productModel->all();

@@ -128,6 +128,50 @@
                             <!-- End Datatable Info -->
 
                             <!-- Unfold -->
+                            <div class="hs-unfold mr-2">
+                                <a class="js-hs-unfold-invoker btn btn-sm btn-white dropdown-toggle" href="javascript:;"
+                                    data-hs-unfold-options='{
+                                        "target": "#usersExportDropdown",
+                                        "type": "css-animation"
+                                    }'>
+                                    <i class="tio-download-to mr-1"></i> Xuất file
+                                </a>
+
+                                <div id="usersExportDropdown"
+                                    class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-sm-right">
+                                    <span class="dropdown-header">Lựa chọn</span>
+                                    <a id="export-copy" class="dropdown-item" href="javascript:;">
+                                        <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\illustrations\copy.svg"
+                                            alt="Image Description">
+                                        Copy
+                                    </a>
+                                    <a id="export-print" class="dropdown-item" href="javascript:;">
+                                        <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\illustrations\print.svg"
+                                            alt="Image Description">
+                                        In
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <span class="dropdown-header">Tải về</span>
+                                    <a id="export-excel" class="dropdown-item" href="javascript:;">
+                                        <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\brands\excel.svg"
+                                            alt="Image Description">
+                                        Excel
+                                    </a>
+                                    <a id="export-csv" class="dropdown-item" href="javascript:;">
+                                    <img class="avatar avatar-xss avatar-4by3 mr-2"
+                                        src="{{ _WEB_ROOT }}\public\admin\svg\components\placeholder-csv-format.svg" alt="Image Description">
+                                        .CSV
+                                    </a>
+                                    <a id="export-pdf" class="dropdown-item" href="javascript:;">
+                                        <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\brands\pdf.svg"
+                                            alt="Image Description">
+                                        PDF
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End Unfold -->
+
+                            <!-- Unfold -->
                             <div class="hs-unfold">
                                 <a class="js-hs-unfold-invoker btn btn-white" href="javascript:;" data-hs-unfold-options='{
                          "target": "#showHideDropdown",
@@ -258,7 +302,7 @@
             <div class="table-responsive datatable-custom">
                 <table id="datatableCustomer" class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
                      "columnDefs": [{
-                        "targets": [0],
+                        "targets": [0, 7],
                         "orderable": false
                       }],
                      "order": [],

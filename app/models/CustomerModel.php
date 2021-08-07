@@ -33,10 +33,6 @@ class CustomerModel extends Model {
         $this->db->table('shop_customers')->whereIN('id',"($id)")->update($data);
     }
 
-    function findOne($field, $value) {
-        return $this->db->table('shop_customers')->where($field,'=',$value)->first();
-    }
-
     public function countRow($field, $value)
     {
         return $this->db->table('shop_customers')->where($field,'=',$value)->count();

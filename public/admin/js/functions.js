@@ -18,7 +18,6 @@ function sendData(url, data) {
     })
         .then(res => res.json())
         .then(result => {
-            console.log(result);
             if (result.status == "1") {
                 if (result.message) {
                     swal("Thành công!", result.message, "success")
@@ -52,12 +51,16 @@ function sendDataByJSON(url, data) {
         .then(res => res.json())
         .then(result => {
             if (result.status == "1") {
-                swal("Thành công!", result.message, "success")
+                if (result.message) {
+                    swal("Thành công!", result.message, "success")
+                }
                 if (result.location) {
                     redirect(result.location, result.time)
                 }
             } else {
-                swal("Thất bại!", result.message, "error")
+                if (result.message) {
+                    swal("Thất bại!", result.message, "error")
+                }
                 if (result.error) {
                     displayError(result.form, result.error)
                 }

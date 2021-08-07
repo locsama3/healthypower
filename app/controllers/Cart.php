@@ -203,7 +203,7 @@ class Cart extends Controller{
         Session::data('total', $total);
         
     }
-    public function update(){
+    public function update($id){
         $dataFields = $this->request->getFields();
        
         $cart = Session::data('cart');
@@ -211,7 +211,7 @@ class Cart extends Controller{
         foreach($dataFields['qty'] as $productId => $qty){
             $cart[$productId]['qty'] = $qty;
           
-            Session::data('cart', $cart);  
+            Session::data('cart', $cart, $id);  
             $this->totalProduct();
         }
      
@@ -265,7 +265,7 @@ class Cart extends Controller{
             ];
             exit(json_encode($message));
         }
-        $over_voucher = $this->voucherModel->findByField('voucher_code',$code);
+        $over_voucher = $this->voucherModel->findByField(['voucher_code: '.$code]);
         
         if ($over_voucher[0]['uses'] == $over_voucher[0]['max_uses']) {
             $message = [
@@ -275,7 +275,7 @@ class Cart extends Controller{
             exit(json_encode($message));
         }
         
-        $voucher = $this->voucherModel->findByField('voucher_code',$code);
+        $voucher = $this->voucherModel->findByField(['voucher_code: '.$code]);
         $voucher_id = $voucher[0]['id'];
         $data_update = [
             'uses' => $voucher[0]['uses'] + 1

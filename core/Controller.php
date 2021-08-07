@@ -25,7 +25,6 @@ class Controller{
 
         extract($data);
 
-
         $contentView = null;
 
         if (preg_match('~^layouts~', $view)){

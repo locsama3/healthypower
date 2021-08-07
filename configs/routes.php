@@ -11,12 +11,19 @@
     
     $routes['tim-kiem'] = 'home/search';
 
-    $routes['list'] = 'home/list';
+    // routes products clients
 
-    $routes['chi-tiet-sp/.+-(\d+)'] = 'products/product_details/$1'; //function gi_do($as)
+    $routes['danh-sach-san-pham'] = 'product/list';
+
+    $routes['chi-tiet-san-pham/.+-(\d+)'] = 'product/detail/$1'; //function gi_do($as)
+
+    // routes user clients
 
     $routes['dang-nhap'] = 'customer/login';
 
+    $routes['dang-ky'] = 'customer/register';
+
+    $routes['xac-thuc-dang-ky'] = 'customer/validate_register';
 
     $routes['xac-thuc-nguoi-dung'] = 'customer/validate';
 
@@ -34,6 +41,8 @@
 
     $routes['chinh-sua-mat-khau-moi'] = 'customer/update_pass';
 
+    $routes['thong-tin-tai-khoan'] = 'customer/index';
+    
     // routes cart
 
     $routes['gio-hang'] = 'cart/index';

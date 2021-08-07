@@ -39,8 +39,8 @@
           },
           language: {
             zeroRecords: '<div class="text-center p-4">' +
-                '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
-                '<p class="mb-0">No data to show</p>' +
+                '<img class="mb-3" src="{{ _WEB_ROOT }}/public/admin/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
+                '<p class="mb-0">Chưa có dữ liệu nào</p>' +
                 '</div>'
           }
         });
@@ -79,8 +79,8 @@
           },
           language: {
             zeroRecords: '<div class="text-center p-4">' +
-                '<img class="mb-3" src="./assets/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
-                '<p class="mb-0">No data to show</p>' +
+                '<img class="mb-3" src="{{ _WEB_ROOT }}/public/admin/svg/illustrations/sorry.svg" alt="Image Description" style="width: 7rem;">' +
+                '<p class="mb-0">Chưa có dữ liệu nào</p>' +
                 '</div>'
           }
         });
