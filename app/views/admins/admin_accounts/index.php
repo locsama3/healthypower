@@ -24,7 +24,7 @@
             </div>
 
             <div class="col-sm-auto">
-              <a class="btn btn-primary" href="users-add-user.html">
+              <a class="btn btn-primary" href="{{_WEB_ROOT}}/admin-accounts-create">
                 <i class="tio-user-add mr-1"></i> Thêm quản trị viên
               </a>
             </div>

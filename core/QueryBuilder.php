@@ -30,6 +30,7 @@
                          $this->orderBy
                          $this->limit";
             $sqlQuery = trim($sqlQuery);
+
             $query = $this->query($sqlQuery);
 
             // reset field
@@ -255,7 +256,7 @@
 
             $updateStatus = $this->updateData($tableName, $data, $whereUpdate);
 
-
+            // reset field
             $this->resetQuery();
 
             return $updateStatus; 
@@ -271,6 +272,7 @@
 
             $deleteStatus = $this->deleteData($tableName, $whereDelete);
 
+            // reset field
             $this->resetQuery();
 
             return $deleteStatus; 
@@ -283,6 +285,9 @@
             $this->where = '';
             $this->operator = '';
             $this->selectField = '*';
+            $this->groupBy = '';
+            $this->having_operator = '';
+            $this->having = '';
             $this->limit = '';
             $this->orderBy = '';
             $this->innerJoin = '';

@@ -51,7 +51,7 @@
                         <select name = "provinceShop" id = "provinceShop" class="js-select2-custom custom-select load_province" size="1" style="opacity: 1;" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity"
                                 }'>
-                            <option value="" disabled="" selected="">---Chọn Tỉnh/Thành phố---</option>
+                            <option value="" disabled="" selected="">Hãy chọn Tỉnh/Thành phố</option>
                           
                         </select>
                         <!-- End Select -->
@@ -76,7 +76,7 @@
                         <select name = "districtShop" id = "districtShop" class="js-select2-custom custom-select" size="1" style="opacity: 1;" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity"
                                 }'>
-                            <option value="" disabled="" selected="">---Chọn Quận/Huyện---</option>
+                            <option value="" disabled="" selected="">Hãy chọn Quận/Huyện</option>
                           
                         </select>
                         <!-- End Select -->   
@@ -101,7 +101,7 @@
                         <select name = "wardShop" id = "wardShop" class="js-select2-custom custom-select" size="1" style="opacity: 1;" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity"
                                 }'>
-                            <option value="" disabled="" selected="">---Chọn Xã/Phường/Thị trấn---</option>
+                            <option value="" disabled="" selected="">Hãy chọn Xã/Phường/Thị trấn</option>
                           
                         </select>
                         <!-- End Select -->
@@ -141,7 +141,7 @@
                         <select name = "province" id = "province" class="js-select2-custom custom-select  load_province" size="1" style="opacity: 1;" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity"
                                 }'>
-                            <option value="" disabled="" selected="">---Chọn Tỉnh/Thành phố---</option>
+                            <option value="" disabled="" selected="">Hãy chọn Tỉnh/Thành phố</option>
                           
                         </select>
                         <!-- End Select -->
@@ -166,7 +166,7 @@
                         <select name = "district" id = "district" class="js-select2-custom custom-select" size="1" style="opacity: 1;" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity"
                                 }'>
-                            <option value="" disabled="" selected="">---Chọn Quận/Huyện---</option>
+                            <option value="" disabled="" selected="">Hãy chọn Quận/Huyện</option>
                           
                         </select>
                         <!-- End Select -->
@@ -191,7 +191,7 @@
                         <select name = "ward" id = "ward" class="js-select2-custom custom-select" size="1" style="opacity: 1;" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity"
                                 }'>
-                            <option value="" disabled="" selected="">---Chọn Xã/Phường/Thị trấn---</option>
+                            <option value="" disabled="" selected="">Hãy chọn Xã/Phường/Thị trấn</option>
                           
                         </select>
                         <!-- End Select -->

@@ -17,7 +17,6 @@
 
     $routes['dang-nhap'] = 'customer/login';
 
-
     $routes['xac-thuc-nguoi-dung'] = 'customer/validate';
 
     $routes['dang-xuat'] = 'customer/logout';
@@ -34,6 +33,14 @@
 
     $routes['chinh-sua-mat-khau-moi'] = 'customer/update_pass';
 
+    // routes bài viết
+    $routes['bai-viet'] = 'blog/show_blogs';
+
+    $routes['muc-bai-viet/trang-(.+)'] = 'blog/blog_on_page/$1';
+
+    $routes['bai-viet/(.+)'] = 'blog/show_blog_detail/$1';
+    
+    $routes['danh-muc-bai-viet/(.+)'] = 'blog/show_category_home/$1';
 
     /* ---------------------------------------------------------------------------------------- */
 
@@ -46,6 +53,17 @@
     $routes['blogs'] = 'admin/blog/index';
 
     $routes['blogs-create'] = 'admin/blog/create';
+
+    $routes['blogs-store'] = 'admin/blog/store';
+
+    $routes['blogs-edit/.+-(\d+)'] = 'admin/blog/edit/$1';
+
+    $routes['blogs-update/.+-(\d+)'] = 'admin/blog/update/$1';
+
+    $routes['blogs-status'] = 'admin/blog/status';
+
+    $routes['blogs-destroy'] = 'admin/blog/destroy';
+
     
     // routes blogs categories
 

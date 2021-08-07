@@ -90,7 +90,7 @@ class Product extends Controller{
             //Set message
             $this->request->message([
                 'productName.required'          => 'Tên sản phẩm không được để trống',
-                'weightName.required'           => 'khối lượng sản phẩm không được để trống',
+                'weightName.required'           => 'Khối lượng sản phẩm không được để trống',
                 'productPrice.required'         => 'Giá sản phẩm không được để trống',
                 'supplierProductId.required'    => 'Nhà cung cấp không dược để trống',
                 'categoryProductId.required'    => 'Loại sản phẩm không được để trống',

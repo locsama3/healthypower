@@ -96,8 +96,8 @@ class Customer extends Controller
 
                 //Set message
                 $this->request->message([
-                    'firstName.required'    => 'Tên danh mục không được để trống',
-                    'lastName.required'     => 'Tên danh mục không được để trống',
+                    'firstName.required'    => 'Tên khách hàng không được để trống',
+                    'lastName.required'     => 'Họ khách hàng không được để trống',
                     'email.required'        => 'Email không được để trống',
                     'email.unique'          => 'Email đã tồn tại',
                     'phone.unique'          => 'Số điện thoại đã tồn tại',

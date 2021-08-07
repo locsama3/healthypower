@@ -222,10 +222,18 @@
                     </li>
                     <li class="level0 nav-7 level-top parent"> <a class="level-top" href="grid.html"> <span>Fashion</span> </a> </li>
                     <li class="level0 nav-8 level-top parent"> <a class="level-top" href="grid.html"> <span>Women</span> </a> </li>
-                    <li class="level0 parent drop-menu"><a href="blog.html"><span>Blog</span> </a>
+                    <li class="level0 parent drop-menu">
+                      <a href="{{_WEB_ROOT.'/bai-viet'}}">
+                        <span>Bài viết</span> 
+                      </a>
                       <ul class="level1">
-                        <li class="level1 first"><a href="blog_posts_table_view.html"><span>Table View</span></a></li>
-                        <li class="level1 nav-10-2"> <a href="blog_single_post.html"> <span>Single Post</span> </a> </li>
+                        @foreach ($header_blog_categories as $key => $value)
+                        <li class="level1 first">
+                          <a href="{{_WEB_ROOT.'/danh-muc-bai-viet/'.$value['slug']}}">
+                            <span>{{$value['name']}}</span>
+                          </a>
+                        </li>
+                        @endforeach
                       </ul>
                     </li>
                     <li class="level0 nav-9 level-top last parent "> <a class="level-top" href="contact.html"> <span>Contact</span> </a> </li>
@@ -567,10 +575,20 @@
               <!--level0-wrapper2--> 
             </div>
           </li>
-          <li class="level0 parent drop-menu"><a href="blog.html"><span>Bài viết</span> </a>
+          <li class="level0 parent drop-menu">
+            <a href="{{_WEB_ROOT.'/bai-viet'}}">
+              <span>Bài viết</span> 
+            </a>
+
             <ul style="display: none;" class="level1">
-              <li class="level1 first"><a href="blog_posts_table_view.html"><span>Table View</span></a> </li>
-              <li class="level1 parent"><a href="blog_single_post.html"><span>Single Post</span></a> </li>
+              @foreach ($header_blog_categories as $key => $value)
+              <li class="level1 first">
+                <a href="{{_WEB_ROOT.'/danh-muc-bai-viet/'.$value['slug']}}">
+                  <span>{{$value['name']}}</span>
+                </a> 
+              </li>
+              
+              @endforeach
             </ul>
           </li>
           <li class="nav-custom-link level0 level-top parent"> <a class="level-top" href="#"><span>Custom</span></a>

@@ -1609,13 +1609,13 @@
             <!-- Dropdown -->
             <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
               <li>
-                <a class="dropdown-item" href="index.html">
-                  <span class="tio-circle nav-indicator-icon"></span> Default
+                <a class="dropdown-item" href="{{_WEB_ROOT.'/dashboard'}}">
+                  <span class="tio-circle nav-indicator-icon"></span> Trang quản trị
                 </a>
               </li>
               <li>
                 <a class="dropdown-item" href="dashboard-alternative.html">
-                  <span class="tio-circle nav-indicator-icon"></span> Alternative
+                  <span class="tio-circle nav-indicator-icon"></span> Cấu hình chung
                 </a>
               </li>
             </ul>
@@ -1966,13 +1966,8 @@
 
                 <ul id="navLinkOrderMngDropdownShipFee" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownShipFee" style="min-width: 16rem;">
                   <li>
-                    <a class="dropdown-item" href="account-settings.html">
-                      <span class="tio-circle-outlined nav-indicator-icon"></span> Thiết lập phí vận chuyển
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="account-billing.html">
-                      <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách phí vận chuyển
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/deliveries'}}">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Tra cứu phí vận chuyển
                     </a>
                   </li>
                 </ul>
@@ -2865,13 +2860,13 @@
               <!-- Dropdown -->
               <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
                 <li>
-                  <a class="dropdown-item" href="index.html">
-                    <span class="tio-circle nav-indicator-icon"></span> Default
+                  <a class="dropdown-item" href="{{_WEB_ROOT.'/dashboard'}}">
+                    <span class="tio-circle nav-indicator-icon"></span> Trang quản trị
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="dashboard-alternative.html">
-                    <span class="tio-circle nav-indicator-icon"></span> Alternative
+                    <span class="tio-circle nav-indicator-icon"></span> Cấu hình chung
                   </a>
                 </li>
               </ul>
@@ -2916,12 +2911,12 @@
 
                   <ul id="navLinkAdminDropdownRoles" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownRoles" style="min-width: 16rem;">
                     <li>
-                      <a class="dropdown-item" href="{{_WEB_ROOT.'/products-category-create'}}">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/roles-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới chức vụ
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{_WEB_ROOT.'/products-category'}}">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/roles'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách chức vụ
                       </a>
                     </li>
@@ -2937,12 +2932,12 @@
 
                   <ul id="adminDropdownPermissions" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownPermissions" style="min-width: 16rem;">
                     <li>
-                      <a class="dropdown-item" href="{{_WEB_ROOT.'/supplier-create'}}">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/permissions-create'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới quyền hạn
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{_WEB_ROOT.'/supplier'}}">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/permissions'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách quyền hạn
                       </a>
                     </li>
@@ -3220,13 +3215,8 @@
 
                   <ul id="navLinkOrderMngDropdownShipFee" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownShipFee" style="min-width: 16rem;">
                     <li>
-                      <a class="dropdown-item" href="account-settings.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Thêm mới Phí vận chuyển
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="account-billing.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Phí vận chuyển
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/deliveries'}}">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Tra cứu phí vận chuyển
                       </a>
                     </li>
                   </ul>
@@ -3393,15 +3383,15 @@
 
             <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
               <li class="nav-item">
-                <a class="nav-link active" href="index.html" title="Default">
+                <a class="nav-link active" href="{{_WEB_ROOT.'/dashboard'}}" title="Default">
                   <span class="tio-circle nav-indicator-icon"></span>
-                  <span class="text-truncate">Default</span>
+                  <span class="text-truncate">Trang quản trị</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="dashboard-alternative.html" title="Alternative">
                   <span class="tio-circle nav-indicator-icon"></span>
-                  <span class="text-truncate">Alternative</span>
+                  <span class="text-truncate">Cấu hình chung</span>
                 </a>
               </li>
             </ul>
@@ -3490,7 +3480,7 @@
 
           <!-- Sản phẩm -->
           <li class="navbar-vertical-aside-has-menu ">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Product">
+            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Products">
               <i class="tio-pages-outlined nav-icon"></i>
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý sản phẩm</span>
             </a>
@@ -3498,7 +3488,7 @@
             <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
               <!-- Sản phẩm -->
               <li class="navbar-vertical-aside-has-menu ">
-                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Product">
+                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Products">
                   <span class="tio-circle nav-indicator-icon"></span>
                   <span class="text-truncate">Sản phẩm </span>
                 </a>
@@ -3528,13 +3518,13 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="Add CateProd">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="Add Category Product">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới danh mục</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/products-category'}}" title="List CateProd">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/products-category'}}" title="List Category Product">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách danh mục</span>
                     </a>
@@ -3581,7 +3571,7 @@
                   </li>
 
                   <li class="navbar-vertical-aside-has-menu ">
-                    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Comment">
+                    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="List Comment Product">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách Bình luận</span>
                     </a>
@@ -3770,15 +3760,9 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="user-profile.html" title="Add Ship fee">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/deliveries'}}" title="Search Ship fee">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
-                      <span class="text-truncate">Thêm mới phí vận chuyển</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " href="user-profile-teams.html" title="List Ship fee">
-                      <span class="tio-circle-outlined nav-indicator-icon"></span>
-                      <span class="text-truncate">Danh sách phí vận chuyển</span>
+                      <span class="text-truncate">Tra cứu phí vận chuyển</span>
                     </a>
                   </li>
                 </ul>
@@ -3811,7 +3795,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="{{_WEB_ROOT.'/customer-create'}}" title="Statiscal Customer">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/customer-create'}}" title="Add Customer">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Thêm mới khách hàng </span>
                     </a>
@@ -4149,15 +4133,15 @@
 
           <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
             <li class="nav-item">
-              <a class="nav-link " href="index.html" title="Default">
+              <a class="nav-link " href="{{_WEB_ROOT.'/dashboard'}}" title="Default">
                 <span class="tio-circle nav-indicator-icon"></span>
-                <span class="text-truncate">Default</span>
+                <span class="text-truncate">Trang quản trị</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="dashboard-alternative.html" title="Alternative">
                 <span class="tio-circle nav-indicator-icon"></span>
-                <span class="text-truncate">Alternative</span>
+                <span class="text-truncate">Cấu hình chung</span>
               </a>
             </li>
           </ul>
@@ -4284,13 +4268,13 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="Add CatePro">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="Add Category Product">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Thêm mới danh mục</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="{{_WEB_ROOT.'/products-category'}}" title="List CateProd">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/products-category'}}" title="List Category Product">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách danh mục</span>
                   </a>
@@ -4526,15 +4510,9 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="Add Ship fee">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/deliveries'}}" title="Search Ship fee">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
-                    <span class="text-truncate">Thiết lập phí vận chuyển</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="user-profile-teams.html" title="List Ship fee">
-                    <span class="tio-circle-outlined nav-indicator-icon"></span>
-                    <span class="text-truncate">Danh sách phí vận chuyển</span>
+                    <span class="text-truncate">Tra cứu phí vận chuyển</span>
                   </a>
                 </li>
               </ul>

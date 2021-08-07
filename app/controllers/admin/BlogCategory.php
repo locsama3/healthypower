@@ -91,7 +91,15 @@ class BlogCategory extends Controller{
 
         if(!empty($dataFields['parentCate'])){
             $data['parent_id'] = $dataFields['parentCate'];
+
+            $get_position_child = $this->blogCateModel->get_position_child($dataFields['parentCate']);
+
+            $data['position'] = $get_position_child['this_position'] + 1;
         }
+
+        $get_position = $this->blogCateModel->get_position();
+
+        $data['position'] = $get_position['this_position'] + 1;
 
         $get_image = $dataFile['image_cate'];
 
@@ -236,5 +244,8 @@ class BlogCategory extends Controller{
             'jquery' => 'jquery.js'
         ];  
     }
+
+    // controller clients
+    
 
 }

@@ -32,7 +32,7 @@
     // load quận huyện
     function load_district(province_id, district_html) {
       var url = "https://online-gateway.ghn.vn/shiip/public-api/master-data/district";
-      $('#' + district_html).html('<option value="" disabled="" selected="">---Chọn Quận/Huyện---</option>');
+      $('#' + district_html).html('<option value="" disabled="" selected="">Hãy chọn Quận/Huyện</option>');
       fetch(url, {
           method:"POST",
           body:JSON.stringify({
@@ -76,7 +76,7 @@
     // load xã phường
     function load_ward(district_id, ward_html) {
       var url = "https://online-gateway.ghn.vn/shiip/public-api/master-data/ward?district_id";
-      $('#' + ward_html).html('<option value="" disabled="" selected="">---Chọn Xã/Phường/Thị trấn---</option>');
+      $('#' + ward_html).html('<option value="" disabled="" selected="">Hãy chọn Xã/Phường/Thị trấn</option>');
 
       fetch(url, {
           method:"POST",

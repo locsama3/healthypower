@@ -36,4 +36,30 @@ class BlogCategoryModel extends Model {
     {
         return $this->db->table('tbl_blogs_categories');
     }
+
+    function get_position()
+    {
+        return $this->db->table('tbl_blogs_categories')->select("COUNT(*) as this_position")->first();
+    }
+
+    function get_position_child($id)
+    {
+        return $this->db->table('tbl_blogs_categories')->select("COUNT(*) as this_position")->where('parent_id', '=', $id)->first();
+    }
+
+    function get_parent()
+    {
+        return $this->db->table('tbl_blogs_categories')->whereIs('parent_id', 'NULL')->get();
+    }
+
+    function get_children()
+    {
+        return $this->db->table('tbl_blogs_categories')->whereIs('parent_id', 'NOT NULL')->get();
+    }
+
+    // model clients
+    function find_by_slug($slug)
+    {
+        return $this->db->table('tbl_blogs_categories')->whereLike('slug', $slug)->first();
+    }
 }
