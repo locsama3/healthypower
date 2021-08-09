@@ -209,7 +209,7 @@ class Cart extends Controller{
         Session::data('total', $total);
         
     }
-    public function update($id){
+    public function update(){
         $dataFields = $this->request->getFields();
        
         $cart = Session::data('cart');
@@ -217,7 +217,7 @@ class Cart extends Controller{
         foreach($dataFields['qty'] as $productId => $qty){
             $cart[$productId]['qty'] = $qty;
           
-            Session::data('cart', $cart, $id);  
+            Session::data('cart', $cart);  
             $this->totalProduct();
         }
      

@@ -232,8 +232,8 @@
     <div class="navbar-brand-wrapper">
       <!-- Logo -->
       <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
-        <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo.svg'}}" alt="Logo">
-        <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo-short.svg'}}" alt="Logo">
+        <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo_chu_trang.png'}}" alt="Logo">
+        <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/volt.png'}}" alt="Logo">
       </a>
       <!-- End Logo -->
     </div>
@@ -986,7 +986,7 @@
       
       
         <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
-          <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo.svg'}}" alt="Logo">
+          <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo_chu_xanh.svg'}}" alt="Logo">
         </a>
       
       <!-- End Logo -->
@@ -2108,7 +2108,7 @@
         <div class="navbar-brand-wrapper">
           <!-- Logo -->
           <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
-            <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo-white.svg'}}" alt="Logo">
+            <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo_chu_xanh.png'}}" alt="Logo">
           </a>
           <!-- End Logo -->
         </div>
@@ -3358,8 +3358,8 @@
         
         
           <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
-            <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo.svg'}}" alt="Logo">
-            <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo-short.svg'}}" alt="Logo">
+            <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo_chu_trang.png'}}" alt="Logo">
+            <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/volt.png'}}" alt="Logo">
           </a>
         
         <!-- End Logo -->
@@ -4115,7 +4115,7 @@
       
       
         <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
-          <img class="navbar-brand-logo-short" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo-short.svg'}}" alt="Logo">
+          <img class="navbar-brand-logo-short" src="{{_WEB_ROOT.'/public/admin/svg/logos/volt.png'}}" alt="Logo">
         </a>
       
       <!-- End Logo -->

@@ -291,7 +291,7 @@
                             </li>
                             @foreach ($list_prod_cates as $category)
                             <!--level 0-->
-                            <li> <a href="?danhmuc={{ $category['id'] }}">{{ $category['category_name'] }}</a> </li>
+                            <li> <a  style="text-transform: capitalize;" href="?danhmuc={{ $category['id'] }}">{{ $category['category_name'] }}</a> </li>
                             @endforeach
                         </ul>
                     </div>

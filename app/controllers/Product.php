@@ -68,11 +68,11 @@ class Product extends Controller{
     
         $data['sub_content']['list_products'] = $this->productModel->findByField($conditions, '', '15:0');
 
-        $data['sub_content']['list_reviews'] = $this->productReviewModel->all();
+        $data['sub_content']['list_reviews'] = $this->productReviewModel->findByField([]);
 
-        $data['sub_content']['list_discounts'] = $this->productDiscountModel->all();
+        $data['sub_content']['list_discounts'] = $this->productDiscountModel->findByField([]);
 
-        $data['sub_content']['list_suppliers'] = $this->supplierModel->all();
+        $data['sub_content']['list_suppliers'] = $this->supplierModel->findByField([]);
 
         $data['dataMeta'] = $this->loadMetaTag();
 
