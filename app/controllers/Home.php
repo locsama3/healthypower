@@ -88,7 +88,7 @@ class Home extends Controller{
         $data['page_title'] = $this->loadTitle();
 
         $data['data_slider']['list_slider'] = $this->loadSlider();
-
+        
         return $this->view('layouts.client_layout', $data);
     }
 

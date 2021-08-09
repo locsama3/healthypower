@@ -2,14 +2,14 @@
  <div class="offer-banner-section">
     <div class="container">
       <div class="row">
-        @for ( $i = 0; $i < 3; $i++)
-        <div class="col-lg-4 col-xs-12 col-md-4 col-sm-4 wow">
-          <h3 style="text-align: center;">{{ $list_categories[$i]['category_name'] }}</h3>
-          <a href="danh-sach-san-pham?danhmuc={{ $list_categories[$i]['id'] }}">
-            <img alt="{{ $list_categories[$i]['category_name'] }}" src="{{ _WEB_ROOT }}/public/uploads/prod_category/{{ $list_categories[$i]['image'] }}">
+        @foreach ( $list_categories as $category)
+        <div class="col-lg-2 col-xs-12 col-md-3 col-sm-3 wow">
+          <h3 style="text-align: center; text-transform: capitalize; font-size: 14px">{{ $category['category_name'] }}</h3>
+          <a href="danh-sach-san-pham?danhmuc={{ $category['id'] }}">
+            <img style="width:100%" alt="{{ $category['category_name'] }}" src="{{ _WEB_ROOT }}/public/uploads/prod_category/{{ $category['image'] }}">
           </a>
         </div>
-        @endfor
+        @endforeach
       </div>
     </div>
   </div>
@@ -325,12 +325,12 @@
   <!-- End Recommend slider -->
 
   <!-- banner section -->
-  <div class="top-offer-banner wow">
+  <!-- <div class="top-offer-banner wow">
     <div class="container">
       <div class="row">
-        <div class="offer-inner col-lg-12">
+        <div class="offer-inner col-lg-12"> -->
           <!--newsletter-wrap-->
-          <div class="left">
+          <!-- <div class="left">
             <div class="col-1">
               <div class="block-subscribe" style="background-color: green;">
                 <div class="newsletter">
@@ -343,33 +343,26 @@
                 </div>
               </div>
             </div>
-            <div class="col mid">
-              <div class="inner-text">
-                <h3>{{ $list_categories[3]['category_name'] }}</h3>
-              </div>
-              <a href="danh-sach-san-pham/id-{{ $list_categories[3]['id'] }}"><img src="{{ _WEB_ROOT }}/public/uploads/prod_category/{{ $list_categories[3]['image'] }}" alt="offer banner2"></a>
+            <div class="col mid" style="width:50%">
+              <a href=""><img style="width: 100%;" src="{{ _WEB_ROOT }}/public/clients/images/banner_health3.png" alt="offer banner2"></a>
             </div>
-            <div class="col last">
-              <div class="inner-text">
-                <h3>{{ $list_categories[4]['category_name'] }}</h3>
-              </div>
-              <a href="danh-sach-san-pham/id-{{ $list_categories[4]['id'] }}"><img src="{{ _WEB_ROOT }}/public/uploads/prod_category/{{ $list_categories[4]['image'] }}" alt="offer banner2"></a>
+            <div class="col last" style="width:50%">
+              <a href=""><img style="width: 100%;" src="{{ _WEB_ROOT }}/public/clients/images/banner_health2.png" alt="offer banner2"></a>
             </div>
           </div>
           <div class="right">
             <div class="col">
               <div class="inner-text">
-                <h4 style="">Danh mục nổi bật</h4>
-                <h3 style="">{{ $list_categories[5]['category_name'] }}</h3>
-                <a href="danh-sach-san-pham/id-{{ $list_categories[5]['id'] }}" class="shop-now1">Tìm hiểu</a>
+                <h3 style="">Ngày sức khỏe tinh thần thế giới</h3>
+                <a href="" class="shop-now1">Tìm hiểu</a>
               </div>
-              <a href="danh-sach-san-pham/id-{{ $list_categories[5]['id'] }}" title=""><img style="width: 100%; filter: brightness(70%)" src="{{ _WEB_ROOT }}/public/uploads/prod_category/{{ $list_categories[5]['image'] }}" alt=""></a>
+              <a href="" title=""><img style="width: 100%; height:auto; filter: brightness(70%)" src="{{ _WEB_ROOT }}/public/clients/images/banner_health.png" alt=""></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- End banner section -->
   
   <!-- promo banner section -->

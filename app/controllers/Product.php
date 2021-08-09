@@ -66,11 +66,11 @@ class Product extends Controller{
 
         $data['content'] = 'clients.products.list';
 
-        $data['sub_content']['list_reviews'] = $this->productReviewModel->all();
+        $data['sub_content']['list_reviews'] = $this->productReviewModel->findByField([]);
 
-        $data['sub_content']['list_discounts'] = $this->productDiscountModel->all();
+        $data['sub_content']['list_discounts'] = $this->productDiscountModel->findByField([]);
 
-        $data['sub_content']['list_suppliers'] = $this->supplierModel->all();
+        $data['sub_content']['list_suppliers'] = $this->supplierModel->findByField([]);
 
         $data['dataMeta'] = $this->loadMetaTag();
 
