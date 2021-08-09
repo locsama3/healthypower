@@ -105,6 +105,7 @@
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/revslider.js'}}"></script>
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/owl.carousel.min.js'}}"></script>
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/cloudzoom.js'}}"></script>
+  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/sweetalert.js'}}"></script>
   <script type='text/javascript'>
     jQuery(document).ready(function() {
       jQuery('#rev_slider_4').show().revolution({

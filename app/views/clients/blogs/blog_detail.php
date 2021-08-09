@@ -29,25 +29,15 @@
                       {! $blogs_by_slug['content'] !}
                     </div>
                   </div>
-                  <footer class="entry-meta"> This entry was posted						in <a rel="category tag" title="View all posts in First Category" href="#first-category">First Category</a> On
-                    <time datetime="2014-07-10T06:53:43+00:00" class="entry-date">Jul 10, 2014</time>
+                  <footer class="entry-meta"> Ngày đăng						 <a rel="category tag" title="View all posts in First Category" href="#first-category"></a>
+                    <time datetime="2014-07-10T06:53:43+00:00" class="entry-date">{! $blogs_by_slug['created_at'] !}</time>
                     . </footer>
                 </article>
-                <div class="comment-content wow">
+                <div class="comment-content wow" data-blog_id = "{{$blogs_by_slug['id']}}">
                   <div class="comments-wrapper">
-                    <h3> Comments </h3>
+                    <h3> Bình luận </h3>
                     <ul class="commentlist">
-                      <li class="comment">
-                        <div class="comment-wrapper" id="post-29">
-                          <div class="comment-author vcard"> <p class="gravatar"><a href="#"><img width="60" height="60" alt="avatar" src="images/avatar60x60.jpg"></a></p><span class="author">John Doe</span> </div>
-                          <!--comment-author vcard-->
-                          <div class="comment-meta">
-                            <time datetime="2014-07-10T07:26:28+00:00" class="entry-date">Thu, Jul 10, 2014 07:26:28 am</time>
-                            . </div>
-                          <!--comment-meta-->
-                          <div class="comment-body"> Curabitur at vestibulum sem. Aliquam vehicula neque ac nibh suscipit ultrices. Morbi interdum accumsan arcu nec scelerisque ellentesque id erat sem, ut commodo nulla. Sed a nulla et eros fringilla. Phasellus eget purus nulla. </div>
-                        </div>
-                      </li>
+                      
                       <!--comment-->
                     </ul>
                     <!--commentlist--> 
@@ -55,24 +45,39 @@
                   <!--comments-wrapper-->
                   
                   <div class="comments-form-wrapper clearfix">
-                    <h3>Leave A reply</h3>
+                    <h3>Để lại bình luận của bạn</h3>
+                    @php
+                        $user_data = Session::data('user_data');
+                    @endphp
                     <form class="comment-form" method="post" id="postComment" action="#">
                       <div class="field">
-                        <label for="name">Name<em class="required">*</em></label>
-                        <input type="text" class="input-text" title="Name" value="" id="user" name="user_name">
+                        <label for="name">Họ và tên<em class="required">*</em></label>
+                        <input type="text" class="input-text" title="Name" id="user" name="user_name"
+                        @if($user_data != null)
+                            {! 'value="'. $user_data['username'] . '"' !}
+                        @else
+                            {! 'placeholder="Họ và tên"' !}
+                        @endif
+                        />
                       </div>
                       <div class="field">
-                        <label for="email">Email<em class="required">*</em></label>
-                        <input type="text" class="input-text validate-email" title="Email" value="" id="email" name="user_email">
+                        <label for="email">Địa chỉ Email<em class="required">*</em></label>
+                        <input type="text" class="input-text validate-email" title="Email" id="email" name="user_email"
+                        @if($user_data != null)
+                            {! 'value="'. $user_data['user_email'] . '"' !}
+                        @else
+                            {! 'placeholder = "Địa chỉ Email"' !}
+                        @endif
+                        />
                       </div>
                       <div class="clear"></div>
                       <div class="field aw-blog-comment-area">
-                        <label for="comment">Comment<em class="required">*</em></label>
-                        <textarea rows="5" cols="50" class="input-text" title="Comment" id="comment" name="comment"></textarea>
+                        <label for="comment">Bình luận<em class="required">*</em></label>
+                        <textarea rows="5" cols="50" class="input-text" title="Comment" id="blog_comment" name="comment"></textarea>
                       </div>
                       <div style="width:96%" class="button-set">
-                        <input type="hidden" value="1" name="blog_id">
-                        <button type="submit" class="bnt-comment"><span><span>Add Comment</span></span></button>
+                        <input type="hidden" class="user_id" value="{{ $user_data['id_user'] }}">
+                        <button type="button" class="bnt-comment send-comment"><span><span>Bình luận</span></span></button>
                       </div>
                     </form>
                   </div>
@@ -139,7 +144,7 @@
             </div>
             <!-- Banner Ad Block -->
             <div class="ad-spots widget widget__sidebar">
-              <h3 class="widget-title"><span>Ad Spots</span></h3>
+              <h3 class="widget-title"><span></span></h3>
               <div class="widget-content"><a target="_self" href="#" title=""><img alt="offer banner" src="{{_WEB_ROOT.'/public/clients/images/RHS-banner-img.jpg'}}"></a></div>
             </div>
             <!-- Banner Text Block -->

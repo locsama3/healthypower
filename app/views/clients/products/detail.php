@@ -139,11 +139,10 @@
                     <div class="product-collateral">
                         <div class="col-sm-12 wow">
                             <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                                <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Mô tả sản phẩm </a> </li>
-                                <!-- <li><a href="#product_tabs_tags" data-toggle="tab">Tags</a></li> -->
+                                <li class="active"> 
+                                    <a href="#product_tabs_description" data-toggle="tab"> Mô tả sản phẩm </a> 
+                                </li>
                                 <li> <a href="#reviews_tabs" data-toggle="tab">Đánh giá</a> </li>
-                                <!-- <li> <a href="#product_tabs_custom" data-toggle="tab">Custom Tab</a> </li>
-                                <li> <a href="#product_tabs_custom1" data-toggle="tab">Custom Tab1</a> </li> -->
                             </ul>
                             <div id="productTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="product_tabs_description">
@@ -151,96 +150,125 @@
                                        {! $product['description'] !}
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="product_tabs_tags">
-                                    <div class="box-collateral box-tags">
-                                        <div class="tags">
-                                            <form id="addTagForm" action="#" method="get">
-                                                <div class="form-add-tags">
-                                                    <label for="productTagName">Add Tags:</label>
-                                                    <div class="input-box">
-                                                        <input class="input-text required-entry" name="productTagName" id="productTagName" type="text" style="width:35%;">
-                                                        <button type="button" title="Add Tags" class=" button btn-add" onClick="submitTagForm()"> <span>Add Tags</span> </button>
-                                                    </div>
-                                                    <!--input-box-->
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!--tags-->
-                                        <p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="reviews_tabs">
-                                    <div class="box-collateral box-reviews" id="customer-reviews">
-                                        
-                                        <div class="box-reviews2">
-                                            <h3>Khách hàng đánh giá</h3>
-                                            <div class="box visible">
-                                                <ul>
-                                                    @if (!empty($customers))
-                                                    @foreach ($customers as $customer)
-                                                    @foreach ($reviews as $review)
-                                                    @if ($review['customer_id'] == $customer['id'])
-                                                    <li>
-                                                        <table class="ratings-table">
-                                                            <colgroup>
-                                                                <col width="1">
-                                                                <col>
-                                                            </colgroup>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style="width:<?php echo $review['rating']*20 ?>%;"></div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <div class="review">
-                                                            <strong>{{ $customer['fullname'] }}</strong>
-                                                            <small> {{ $review['created_at'] }} </small>
-                                                            <div class="review-txt"> {{ $review['comment'] }} </div>
-                                                        </div>
-                                                    </li>
-                                                    @endif
-                                                    @endforeach
-                                                    @endforeach
-                                                    @endif
-                                                </ul>
-                                            </div>
-                                            <div class="actions"> <a class="button view-all" id="revies-button"><span><span>View all</span></span></a> </div>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="product_tabs_custom">
-                                    <div class="product-tabs-content-inner clearfix">
-                                        <p><strong>Lorem Ipsum</strong><span>&nbsp;is
-                                                simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                                has been the industry's standard dummy text ever since the 1500s, when
-                                                an unknown printer took a galley of type and scrambled it to make a type
-                                                specimen book. It has survived not only five centuries, but also the
-                                                leap into electronic typesetting, remaining essentially unchanged. It
-                                                was popularised in the 1960s with the release of Letraset sheets
-                                                containing Lorem Ipsum passages, and more recently with desktop
-                                                publishing software like Aldus PageMaker including versions of Lorem
-                                                Ipsum.</span></p>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="product_tabs_custom1">
-                                    <div class="product-tabs-content-inner clearfix">
-                                        <p> <strong> Comfortable </strong><span>&nbsp;preshrunk shirts. Highest Quality Printing. 6.1 oz. 100% preshrunk heavyweight cotton Shoulder-to-shoulder taping Double-needle sleeves and bottom hem
 
-                                                Lorem Ipsumis
-                                                simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                                has been the industry's standard dummy text ever since the 1500s, when
-                                                an unknown printer took a galley of type and scrambled it to make a type
-                                                specimen book. It has survived not only five centuries, but also the
-                                                leap into electronic typesetting, remaining essentially unchanged. It
-                                                was popularised in the 1960s with the release of Letraset sheets
-                                                containing Lorem Ipsum passages, and more recently with desktop
-                                                publishing software like Aldus PageMaker including versions of Lorem
-                                                Ipsum.</span></p>
+                                <div class="tab-pane fade" id="reviews_tabs" >
+                                    <div class="col-sm-12">
+                                        <ul class="data-user-detail">
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                  <circle cx="12" cy="7" r="4" />
+                                                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                                </svg>
+                                                @php
+                                                    $user_data = Session::data('user_data');
+                                                @endphp
+                                                @if($user_data != null)
+                                                    {{$user_data['username']}}
+                                                @else
+                                                    Người dùng
+                                                @endif
+                                            </li>
+                                            <!-- <li><a href=""><i class="fa fa-clock-o"></i>11:47 PM</a></li>
+                                            -->
+                                            <li>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+                                                  <circle cx="18" cy="18" r="4" />
+                                                  <path d="M15 3v4" />
+                                                  <path d="M7 3v4" />
+                                                  <path d="M3 11h16" />
+                                                  <path d="M18 16.496v1.504l1 1" />
+                                                </svg>
+                                                {{ date('d-m-Y h:i:s') }}
+                                            </li>
+                                        </ul>
+
+                                        <style>
+                                            .style_comment {
+                                                border: 1px solid #ddd;
+                                                background: #eeeeee47;
+                                                margin: 0;
+                                                margin-bottom: 16px;
+                                            }
+                                        </style>    
+
+                                        <div class="row style_comment" data-prod_id = "{{ $product['id'] }}">
+                                            
+                                        </div>
+
+                                        <p><b style="font-size: 16px; ">Để lại đánh giá của bạn</b></p>
+                                        <!-- Rating here -->
+                                        <ul class="list-inline" title="Average Rating">
+                                            @php 
+                                                for ($countRate=1; $countRate <=5 ; $countRate++) { 
+                                                    if($countRate <= $product_rating){
+                                                        $color = 'color:#ffcc00;';
+                                                    }else{
+                                                        $color = 'color:#ccc;';
+                                                    }
+                                            @endphp
+                                            <li title = "star_rating" data-index = "{{ $countRate }}" 
+                                            data-prod_id = "{{ $product['id'] }}" 
+                                            data-rating = "{{ $product_rating }}" style = "{{ $color }}"
+                                            class = "rating" id = "{{ $product['id'].'-'.$countRate }}"
+                                            >
+                                                &#9733;
+                                            </li>
+                                            @php 
+                                                }
+                                            @endphp
+                                        </ul>
+
+                                        <form>
+                                            <div class="review1">
+                                              <span>
+                                                <ul class="form-list">
+                                                  <li>
+                                                    <label class="required my-label" for="nickname_field">Họ và tên<em>*</em></label>
+                                                    <div class="input-box">
+                                                      <input type="text" 
+                                                        @if($user_data != null)
+                                                            {! 'value="'. $user_data['username'] . '"' !}
+                                                        @else
+                                                            {! 'placeholder="Họ và tên"' !}
+                                                        @endif
+                                                      id = "nickname_field"/>
+                                                    </div>
+                                                  </li>
+                                                  <li>
+                                                    <label class="required my-label" for="email_field">Email<em>*</em></label>
+                                                    <div class="input-box">
+                                                      <input type="email" 
+                                                        @if($user_data != null)
+                                                            {! 'value="'. $user_data['user_email'] . '"' !}
+                                                        @else
+                                                            {! 'placeholder = "Địa chỉ Email"' !}
+                                                        @endif
+                                                      id = "email_field"/>
+                                                    </div>
+                                                  </li>
+                                                </ul>
+                                              </span>
+                                            </div>
+                                            <div class="review2">
+                                                <ul>
+                                                  <li>
+                                                    <label class="required label-wide my-label" for="review_field">Đánh giá<em>*</em></label>
+                                                    <div class="input-box">
+                                                      <textarea name="comment_content" class="comment_content" placeholder="Nhập đánh giá"></textarea>
+                                                    </div>
+                                                  </li>
+                                                </ul>
+                                                <input type="hidden" class="user_id" value="{{ $user_data['id_user'] }}">
+                                                <div class="buttons-set">
+                                                  <button type="button" class="btn btn-default send-comment">
+                                                    Bình luận
+                                                  </button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -305,10 +333,10 @@
                                                                             @endif
                                                                         @endforeach
                                                                         @if($count != 0)
-                                                                            <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
-                                                                            @else
-                                                                            <div style="width:0%" class="rating"></div>
-                                                                            @endif
+                                                                        <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                                                                        @else
+                                                                        <div style="width:0%" class="rating"></div>
+                                                                        @endif
                                                                     </div>
                                                                     <div class="price-box">
                                                                         <p class="special-price"> 
@@ -403,8 +431,11 @@
                                                                             @endphp
                                                                             @endif
                                                                         @endforeach
-                                                                        <div style="width:<?php echo $total/$count*20; ?>%" class="rating"></div>
-                                                                        </div>
+                                                                        @if($count != 0)
+                                                                        <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                                                                        @else
+                                                                        <div style="width:0%" class="rating"></div>
+                                                                        @endif
                                                                     </div>
                                                                     <div class="price-box">
                                                                     <p class="special-price"> 
@@ -450,4 +481,4 @@
         </div>
     </div>
 </section>
-<!--End main-container -->
+<!--End main-container

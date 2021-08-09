@@ -1,6 +1,6 @@
 <?php
 class Home extends Controller{
-    public $productModel;
+    public $productModel, $blogModel;
     public $productReviewModel;
     public $productDiscountModel;
     public $productCategoryModel;
@@ -15,6 +15,7 @@ class Home extends Controller{
         $this->productCategoryModel = $this->model('ProductCategoryModel');
         $this->importModel = $this->model('ImportModel');
         $this->exportModel = $this->model('ExportModel');
+        $this->blogModel = $this->model('BlogModel');
         $this->request = new Request();
         $this->response = new Response();
     }
@@ -75,6 +76,9 @@ class Home extends Controller{
         $conditions = ['product_id {in}' . $str_product_id, "start_date <= ".date('Y-m-d H:i:s'), "end_date >= ".date('Y-m-d H:i:s')];
 
         $data['sub_content']['list_discounts'] = $this->productDiscountModel->findByField($conditions);
+
+        // truy vấn blogs
+        $data['sub_content']['latest_blogs'] = $this->blogModel->get_latest();
 
         // Load
         $data['content'] = 'clients.index';

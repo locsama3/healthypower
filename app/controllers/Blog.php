@@ -201,6 +201,10 @@ class Blog extends Controller{
             'blogmate' => 'blogmate.css'
         ];
 
+        $data['data_js'] = [
+            'ajax' => 'clients.blogs.js_detail'
+        ];
+
         $sessionKey = 'post_' . $get_blogs['id'];
         $sessionView = Session::data($sessionKey);
 

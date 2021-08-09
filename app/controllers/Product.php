@@ -65,8 +65,6 @@ class Product extends Controller{
         }
 
         $data['content'] = 'clients.products.list';
-    
-        $data['sub_content']['list_products'] = $this->productModel->findByField($conditions, '', '15:0');
 
         $data['sub_content']['list_reviews'] = $this->productReviewModel->all();
 
@@ -81,6 +79,37 @@ class Product extends Controller{
         $data['data_js'] = [
             'ajax' => 'clients.products.js_list'
         ];
+
+        // xử lý phân trang
+
+        $current_page = 1;
+
+        if ($this->request->isGet()) {
+            $dataFields = $this->request->getFields();
+
+            if (!empty($dataFields['trang'])) {
+                $current_page = $dataFields['trang'];
+            }
+        }
+
+        $getProductTotal = $this->productModel->findByField($conditions); // Lấy tổng số sản phẩm.
+
+        $productTotal = count($getProductTotal);
+
+        $productOnePage = 15; // Số bài viết hiển thị trong 1 trang.
+
+        // Khi đã có tổng số bài viết và số bài viết trong một trang ta có thể tính ra được tổng số trang
+        $pageTotal = ceil($productTotal / $productOnePage);
+
+        $offset = ($current_page - 1) * $productOnePage;
+
+        $sqlLimit = $productOnePage . ':' . $offset;
+
+        $data['sub_content']['list_products'] = $this->productModel->findByField($conditions, '', $sqlLimit);
+          
+        $data['sub_content']['current_page'] = $current_page;
+
+        $data['sub_content']['pageTotal'] = $pageTotal;
 
         return $this->view('layouts.client_layout', $data);
     }
@@ -202,6 +231,17 @@ class Product extends Controller{
         $data['data_js'] = [
             'ajax' => 'clients.products.js_detail'
         ];
+
+        //load rating
+        $rating_result = $this->productReviewModel->getAvgRating($id);
+        
+        $rating = 0;
+
+        foreach ($rating_result as $key => $value) {
+            $rating = round($value['danhgia']);
+        }
+        
+        $data['sub_content']['product_rating'] = $rating;
 
         return $this->view('layouts.client_layout', $data);
     }

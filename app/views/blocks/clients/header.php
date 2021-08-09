@@ -213,7 +213,9 @@
                     <li class="level0 nav-6 level-top"> 
                       <a class="level-top" href="#"> <span>Giới thiệu</span> </a>
                     </li>
-                    <li class="level0 nav-7 level-top parent"> <a class="level-top" href="grid.html"> <span>Sản phẩm</span> </a> </li>
+                    <li class="level0 nav-7 level-top parent"> 
+                      <a class="level-top" href="{{_WEB_ROOT}}/danh-sach-san-pham"> <span>Sản phẩm</span> </a> 
+                    </li>
                     <li class="level0 nav-8 level-top parent"> <a class="level-top" href="grid.html"> <span>Liên hệ</span> </a> </li>
                     <li class="level0 parent drop-menu">
                       <a href="{{_WEB_ROOT.'/bai-viet'}}">
@@ -272,7 +274,8 @@
               <li class="level1"><a href="404error.html"><span>404 Error Page</span></a> </li>
             </ul>
           </li>
-          <li class="level0 nav-5 level-top first"> <a href="grid.html" class="level-top"> <span>Sản phẩm</span> </a>
+          <li class="level0 nav-5 level-top first"> 
+            <a href="{{_WEB_ROOT}}/danh-sach-san-pham" class="level-top"> <span>Sản phẩm</span> </a>
             <div class="level0-wrapper dropdown-6col" style="display:none;">
               <div class="level0-wrapper2">
                 <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">

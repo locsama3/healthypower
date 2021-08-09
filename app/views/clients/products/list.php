@@ -78,14 +78,31 @@
                             </div>
                             <div class="pages">
                                 <label>Page:</label>
-                                <ul class="pagination">
-                                    <li><a href="#">&laquo;</a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&raquo;</a></li>
+                                <ul class="pagination hidden-xs">
+                                  @php
+                                    $curURL = getCurURL();
+                                    $pos = strpos($curURL, '?danhmuc');
+
+                                    if ($pos !== false) {
+                                        $myURL = $curURL . "&";
+                                    } else {
+                                        $myURL = '?';
+                                    }
+                                    
+                                  @endphp
+                                  @if($current_page > 1)
+                                  <li><a href="{{$myURL. 'trang=' .($current_page - 1)}}">«</a></li>
+                                  @endif
+
+                                  @for($i = 1; $i <= $pageTotal; $i++)
+                                  <li class="{{($current_page == $i) ? 'active' : ''}}">
+                                    <a href="{{$myURL. 'trang=' .$i}}">{{$i}}</a>
+                                  </li>
+                                  @endfor
+
+                                  @if($current_page < $pageTotal)
+                                  <li><a href="{{$myURL. 'trang=' .($current_page + 1)}}">»</a></li>
+                                  @endif
                                 </ul>
                             </div>
                         </div>
@@ -226,14 +243,31 @@
                             </div>
                             <div class="pages">
                                 <label>Page:</label>
-                                <ul class="pagination">
-                                    <li><a href="#">&laquo;</a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&raquo;</a></li>
+                                <ul class="pagination hidden-xs">
+                                  @php
+                                    $curURL = getCurURL();
+                                    $pos = strpos($curURL, '?danhmuc');
+
+                                    if ($pos !== false) {
+                                        $myURL = $curURL . "&";
+                                    } else {
+                                        $myURL = '?';
+                                    }
+                                    
+                                  @endphp
+                                  @if($current_page > 1)
+                                  <li><a href="{{$myURL. 'trang=' .($current_page - 1)}}">«</a></li>
+                                  @endif
+
+                                  @for($i = 1; $i <= $pageTotal; $i++)
+                                  <li class="{{($current_page == $i) ? 'active' : ''}}">
+                                    <a href="{{$myURL. 'trang=' .$i}}">{{$i}}</a>
+                                  </li>
+                                  @endfor
+
+                                  @if($current_page < $pageTotal)
+                                  <li><a href="{{$myURL. 'trang=' .($current_page + 1)}}">»</a></li>
+                                  @endif
                                 </ul>
                             </div>
                         </div>

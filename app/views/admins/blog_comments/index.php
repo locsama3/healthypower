@@ -22,7 +22,7 @@
         <div class="page-header">
           <div class="row align-items-center mb-3">
             <div class="col-sm mb-2 mb-sm-0">
-              <h1 class="page-header-title">Bình luận và đánh giá sản phẩm </h1>
+              <h1 class="page-header-title">Bình luận về bài viết </h1>
             </div>
           </div>
           <!-- End Row -->
@@ -44,7 +44,7 @@
             <!-- Nav -->
             <ul class="nav nav-tabs page-header-tabs" id="pageHeaderTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Danh sách đánh giá</a>
+                <a class="nav-link active" href="#">Danh sách bình luận</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Đã lưu</a>
@@ -279,15 +279,14 @@
                       <label class="custom-control-label" for="datatableCheckAll"></label>
                     </div>
                   </th>
-                  <th class="table-column-pl-0">Tên sản phẩm</th>
-                  <th>Số lượt bình luận và đánh giá</th>
-                  <th>Sao</th>
+                  <th class="table-column-pl-0">Tiêu đề bài viết</th>
+                  <th>Số lượt bình luận</th>
                   <th>Hành động</th>
                 </tr>
               </thead>
 
               <tbody>
-                @foreach ($list_product_review as $key => $value)
+                @foreach ($list_blogs_comment as $key => $value)
                 <tr id = "prod_category_{{$value['id']}}">
                   <td class="table-column-pr-0">
                     <div class="custom-control custom-checkbox">
@@ -296,21 +295,20 @@
                     </div>
                   </td>
                   <td class="table-column-pl-0">
-                    <a class="media align-items-center" href="{{_WEB_ROOT}}/chi-tiet-san-pham/sanpham-{{$value['id']}}">
-                      <img class="avatar avatar-lg mr-3" src="{{_WEB_ROOT.'/public/uploads/products/'.$value['image']}}" alt="{{$value['product_name']}}">
+                    <a class="media align-items-center" href="{{_WEB_ROOT}}/bai-viet/{{$value['slug']}}">
+                      <img class="avatar avatar-lg mr-3" src="{{_WEB_ROOT.'/public/uploads/blogs/'.$value['thumbnail']}}" alt="{{$value['title']}}">
                       <div class="media-body">
-                        <h5 class="text-hover-primary mb-0">{{$value['product_name']}}</h5>
+                        <h5 class="text-hover-primary mb-0">{{$value['title']}}</h5>
                       </div>
                     </a>
                   </td>
                   <td style="text-align: center;">
-                    {{$value['soluotrv']}} lượt
+                    {{$value['soluotbl']}} lượt
                   </td>
-                  <td>{{$value['danhgia']}} <i class="tio-star" style="color: #FFF200;"></i></td>
                   <td>
                     <div class="btn-group" role="group">
                       <a class="btn btn-sm btn-white" 
-                      href="{{_WEB_ROOT.'/view-comment/prodid-'.$value['id']}}">
+                      href="{{_WEB_ROOT.'/view-blog-comment/blogid-'.$value['id']}}">
                         <i class="tio-book-outlined"></i> Xem chi tiết
                       </a>
                     </div>

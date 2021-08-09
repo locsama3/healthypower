@@ -41,6 +41,8 @@
 
     $routes['chinh-sua-mat-khau-moi'] = 'customer/update_pass';
 
+    $routes['thong-tin-tai-khoan'] = 'customer/index';
+
     // routes bài viết
     
     $routes['bai-viet'] = 'blog/show_blogs';
@@ -51,7 +53,17 @@
     
     $routes['danh-muc-bai-viet/(.+)'] = 'blog/show_category_home/$1';
 
-    $routes['thong-tin-tai-khoan'] = 'customer/index';
+    $routes['load-blog-comment'] = 'admin/blogcomment/load_comment';
+
+    $routes['send-blog-comment'] = 'admin/blogcomment/send_comment';
+
+    $routes['manage-blog-comment'] = 'admin/blogcomment/manage_review';
+
+    $routes['view-blog-comment/.+-(\d+)'] = 'admin/blogcomment/view_comment/$1';
+
+    $routes['status-blog-comment'] = 'admin/blogcomment/status_comment';
+
+    $routes['destroy-blog-comment'] = 'admin/blogcomment/destroy_comment';
     
     // routes cart
 
@@ -86,6 +98,25 @@
     $routes['ket-thuc-thanh-toan-online'] = 'cart/clearpayment';
 
     $routes['hoan-tat-don-hang'] = 'cart/success';
+
+    //comment and rating product
+    $routes['load-comment'] = 'admin/productreview/load_comment';
+
+    $routes['send-comment'] = 'admin/productreview/send_comment';
+
+    $routes['manage-review'] = 'admin/productreview/manage_review';
+
+    $routes['view-comment/.+-(\d+)'] = 'admin/productreview/view_comment/$1';
+
+    $routes['reply-comment'] = 'admin/productreview/reply_comment';
+
+    $routes['status-comment'] = 'admin/productreview/status_comment';
+
+    $routes['comment-destroy'] = 'admin/productreview/destroy_comment';
+
+    $routes['view-child-comment/.+-(\d+)'] = 'admin/productreview/child_comment/$1';
+
+    $routes['insert-rating'] = 'admin/productreview/insert_rating';
 
     /* ---------------------------------------------------------------------------------------- */
 

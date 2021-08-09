@@ -41,4 +41,15 @@ class ProductModel extends Model {
                 WHERE id = $id";
         $this->db->query($sql);
     }
+
+    function count_product()
+    {
+        $result = $this->db->table('shop_products')->select('count(*) as total')->where('status', '=', 1)->whereIs('deleted_at', 'NULL')->first();
+
+        if($result){
+            return $result['total'];
+        }
+
+        return 0;
+    }   
 }

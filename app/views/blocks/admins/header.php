@@ -1779,13 +1779,8 @@
 
                 <ul id="navLinkProdMngDropdownReviews" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownReviews" style="min-width: 16rem;">
                   <li>
-                    <a class="dropdown-item" href="account-settings.html">
-                      <span class="tio-circle-outlined nav-indicator-icon"></span> Đánh giá sao
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="account-billing.html">
-                      <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách bình luận
+                    <a class="dropdown-item" href="{{_WEB_ROOT}}/manage-review">
+                      <span class="tio-circle-outlined nav-indicator-icon"></span> Chi tiết đánh giá
                     </a>
                   </li>
                 </ul>
@@ -2077,7 +2072,7 @@
 
                 <ul id="navLinkBlogsMngDropdownComments" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownComments" style="min-width: 16rem;">
                   <li>
-                    <a class="dropdown-item" href="account-settings.html">
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/manage-blog-comment'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách bình luận
                     </a>
                   </li>
@@ -3029,13 +3024,8 @@
 
                   <ul id="navLinkProdMngDropdownReviews" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownReviews" style="min-width: 16rem;">
                     <li>
-                      <a class="dropdown-item" href="account-settings.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Đánh giá sao
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="account-billing.html">
-                        <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách bình luận
+                      <a class="dropdown-item" href="{{_WEB_ROOT}}/manage-review">
+                        <span class="tio-circle-outlined nav-indicator-icon"></span> Chi tiết đánh giá
                       </a>
                     </li>
                   </ul>
@@ -3330,7 +3320,7 @@
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="account-billing.html">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/manage-blog-comment'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách bình luận
                       </a>
                     </li>
@@ -3564,16 +3554,9 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="ecommerce.html" title="Rating">
+                    <a class="nav-link " href="{{_WEB_ROOT}}/manage-review" title="Rating">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
-                      <span class="text-truncate">Đánh giá sao</span>
-                    </a>
-                  </li>
-
-                  <li class="navbar-vertical-aside-has-menu ">
-                    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="List Comment Product">
-                      <span class="tio-circle-outlined nav-indicator-icon"></span>
-                      <span class="text-truncate">Danh sách Bình luận</span>
+                      <span class="text-truncate">Chi tiết đánh giá</span>
                     </a>
                   </li>
                 </ul>
@@ -3881,8 +3864,8 @@
                     </a>
                   </li>
 
-                  <li class="navbar-vertical-aside-has-menu ">
-                    <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="List Comment">
+                  <li class="nav-item">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/manage-blog-comment'}}" title="List Comment">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách Bình luận</span>
                     </a>
@@ -4314,16 +4297,9 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="ecommerce.html" title="Rating">
+                  <a class="nav-link " href="{{_WEB_ROOT}}/manage-review" title="Rating">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
-                    <span class="text-truncate">Đánh giá sao</span>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link " href="ecommerce-manage-reviews.html" title="Comment">
-                    <span class="tio-circle-outlined nav-indicator-icon"></span>
-                    <span class="text-truncate">Danh sách Bình luận</span>
+                    <span class="text-truncate">Chi tiết đánh giá</span>
                   </a>
                 </li>
               </ul>
@@ -4625,7 +4601,7 @@
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 
                 <li class="nav-item">
-                  <a class="nav-link " href="ecommerce-manage-reviews.html" title="List Comment">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/manage-blog-comment'}}" title="List Comment">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách Bình luận</span>
                   </a>

@@ -83,6 +83,11 @@ class BlogModel extends Model {
         return $this->db->table('tbl_blogs')->orderBy('view', 'DESC')->where('status', '=', 1)->limit(5)->get();
     }
 
+    function get_latest()
+    {
+        return $this->db->table('tbl_blogs')->orderBy('id', 'DESC')->where('status', '=', 1)->limit(3)->get();
+    }
+
     function get_blogs_by_slug($slug)
     {
         return $this->db->table('tbl_blogs')->whereLike('slug', $slug)->first();
@@ -95,7 +100,7 @@ class BlogModel extends Model {
 
     function count_blogs()
     {
-        $result = $this->db->table('tbl_blogs')->select('count(*) as total')->first();
+        $result = $this->db->table('tbl_blogs')->select('count(*) as total')->where('status', '=', 1)->first();
 
         if($result){
             return $result['total'];

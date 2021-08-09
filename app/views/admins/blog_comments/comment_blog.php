@@ -22,7 +22,8 @@
         <div class="page-header">
           <div class="row align-items-center mb-3">
             <div class="col-sm mb-2 mb-sm-0">
-              <h1 class="page-header-title">Bình luận và đánh giá sản phẩm </h1>
+              <h1 class="page-header-title">$title </h1>
+
             </div>
           </div>
           <!-- End Row -->
@@ -44,7 +45,7 @@
             <!-- Nav -->
             <ul class="nav nav-tabs page-header-tabs" id="pageHeaderTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" href="#">Danh sách đánh giá</a>
+                <a class="nav-link active" href="#">$subtitle</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Đã lưu</a>
@@ -139,7 +140,7 @@
                     <div class="card card-sm">
                       <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                          <span class="mr-2">Danh mục sản phẩm</span>
+                          <span class="mr-2">Danh mục bài viết</span>
 
                           <!-- Checkbox Switch -->
                           <label class="toggle-switch toggle-switch-sm" for="toggleColumn_product">
@@ -256,7 +257,7 @@
           <div class="table-responsive datatable-custom">
             <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
                      "columnDefs": [{
-                        "targets": [0, 4, 6],
+                        "targets": [0, 4, 9],
                         "width": "5%",
                         "orderable": false
                       }],
@@ -279,15 +280,16 @@
                       <label class="custom-control-label" for="datatableCheckAll"></label>
                     </div>
                   </th>
-                  <th class="table-column-pl-0">Tên sản phẩm</th>
-                  <th>Số lượt bình luận và đánh giá</th>
-                  <th>Sao</th>
+                  <th class="table-column-pl-0">Tên khách hàng</th>
+                  <th>Nội dung bình luận</th>
+                  <th>Ngày đánh giá</th>
+                  <th>Trạng thái</th>
                   <th>Hành động</th>
                 </tr>
               </thead>
 
               <tbody>
-                @foreach ($list_product_review as $key => $value)
+                @foreach ($list_comment as $key => $value)
                 <tr id = "prod_category_{{$value['id']}}">
                   <td class="table-column-pr-0">
                     <div class="custom-control custom-checkbox">
@@ -296,22 +298,29 @@
                     </div>
                   </td>
                   <td class="table-column-pl-0">
-                    <a class="media align-items-center" href="{{_WEB_ROOT}}/chi-tiet-san-pham/sanpham-{{$value['id']}}">
-                      <img class="avatar avatar-lg mr-3" src="{{_WEB_ROOT.'/public/uploads/products/'.$value['image']}}" alt="{{$value['product_name']}}">
+                    <a class="media align-items-center" href="{{_WEB_ROOT}}/customer-edit/cusid-{{$value['id']}}">
+                      <img class="avatar avatar-lg mr-3" src="{{_WEB_ROOT.'/public/uploads/customer/'.$value['avatar']}}" alt="Image Description">
                       <div class="media-body">
-                        <h5 class="text-hover-primary mb-0">{{$value['product_name']}}</h5>
+                        <h5 class="text-hover-primary mb-0">{{$value['fullname']}}</h5>
                       </div>
                     </a>
                   </td>
-                  <td style="text-align: center;">
-                    {{$value['soluotrv']}} lượt
+                  <td>{{$value['content']}}</td>
+                  <td>{{$value['comment_day']}}</td>
+                  <td>
+                    <label class="toggle-switch toggle-switch-sm" for="stockStatus{{$value['id_bl']}}">
+                      <input type="checkbox" class="toggle-switch-input stockStatus" value="{{$value['id_bl']}}" id="stockStatus{{$value['id_bl']}}" 
+                      {{ $value['cmt_status'] == 1 ? 'checked' : '' }}>
+                      <span class="toggle-switch-label">
+                        <span class="toggle-switch-indicator"></span>
+                      </span>
+                    </label>
                   </td>
-                  <td>{{$value['danhgia']}} <i class="tio-star" style="color: #FFF200;"></i></td>
                   <td>
                     <div class="btn-group" role="group">
-                      <a class="btn btn-sm btn-white" 
-                      href="{{_WEB_ROOT.'/view-comment/prodid-'.$value['id']}}">
-                        <i class="tio-book-outlined"></i> Xem chi tiết
+                      <a class="btn btn-sm btn-white delete_item" data-delid = "{{$value['id_bl']}}"
+                      id = "cate_{{$value['id_bl']}}">
+                        <i class="tio-delete-outlined"></i> Xóa
                       </a>
                     </div>
                   </td>
