@@ -145,7 +145,7 @@
             <!-- Banner Ad Block -->
             <div class="ad-spots widget widget__sidebar">
               <h3 class="widget-title"><span></span></h3>
-              <div class="widget-content"><a target="_self" href="#" title=""><img alt="offer banner" src="{{_WEB_ROOT.'/public/clients/images/RHS-banner-img.jpg'}}"></a></div>
+              <div class="widget-content"><a target="_self" href="#" title=""><img alt="offer banner" src="{{_WEB_ROOT.'/public/clients/images/banner_health.png'}}"></a></div>
             </div>
             <!-- Banner Text Block -->
             <!-- <div class="text-widget widget widget__sidebar">

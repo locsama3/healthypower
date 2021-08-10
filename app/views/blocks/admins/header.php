@@ -3370,7 +3370,7 @@
         <ul class="navbar-nav navbar-nav-lg nav-tabs">
           <!-- Dashboards -->
           <li class="navbar-vertical-aside-has-menu">
-            <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{_WEB_ROOT.'/dashboard'}}" title="Trang chủ">
+            <a class="js-navbar-vertical-aside-menu-link nav-link" href="javascript:;" title="Trang chủ">
               <i class="tio-home-vs-1-outlined nav-icon"></i>
 
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboards</span>
@@ -3390,10 +3390,6 @@
                 </a>
               </li>
             </ul>
-
-              <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Trang chủ</span>
-            </a> 
->>>>>>> Stashed changes
           </li>
           <!-- End Dashboards -->
 

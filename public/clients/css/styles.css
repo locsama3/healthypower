@@ -434,7 +434,7 @@ a.block-currency:focus {
 /* search */
 .search-box {
 	width: 100%;
-	margin: 22px auto 0px;
+	/* margin: 22px auto 0px; */
 	float: right;
 	position: relative;
 	background: #fff url("../images/search-icon.png") no-repeat scroll 10px 7px;
@@ -484,6 +484,7 @@ a.block-currency:focus {
 	width: 25px;
 }
 .search-btn-bg {
+	width: 90px;
 	background-color: green;
 	border: 1px solid green;
 	border-radius: 0 1px 1px 0;
@@ -7734,11 +7735,11 @@ a.forgot-word {
 	letter-spacing: 0.5px;
 }
 input.input-text, select, textarea {
-	background-color: #f0f0f0;
-	border: 1px #f1f1f1 solid;
+	background-color: white;
+	border: 1px #ddd solid;
 	padding: 8px 10px;
 	outline: none;
-	color: #aaa;
+	/* color: #aaa; */
 }
 #wishlist-table textarea {
 	padding: 8px 10px;
@@ -11152,11 +11153,10 @@ ol#compare-items li a.product-name {
     width: 100%;
     padding: 2%;
     background-color: rgb(242, 246, 250);
-
 }
 .block-user-left{
-        height: auto;
-        padding: 1.5%;
+	height: auto;
+	padding: 1.5%;
 }
 .avatar{
     display: block;

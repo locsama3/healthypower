@@ -377,7 +377,7 @@
                         </dl>
                     </div>
                 </div>
-                <div class="block block-banner"><a href="#"><img src="{{ _WEB_ROOT }}/public/clients/images/block-banner.png" alt="block-banner"></a></div>
+                <div class="block block-banner"><a href="#"><img src="{{ _WEB_ROOT }}/public/clients/images/banner_health.png" alt="block-banner"></a></div>
             </aside>
         </div>
     </div>

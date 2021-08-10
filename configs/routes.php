@@ -43,6 +43,8 @@
 
     $routes['thong-tin-tai-khoan'] = 'customer/index';
 
+    $routes['cap-nhat-thong-tin-khach-hang'] = 'customer/update';
+
     // routes bài viết
     
     $routes['bai-viet'] = 'blog/show_blogs';

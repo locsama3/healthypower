@@ -19,7 +19,7 @@
     </div>
     <div class="footer-middle container">
       <div class="col-md-3 col-sm-4">
-        <div class="footer-logo"><a href="index.html" title="Logo"><img src="{{_WEB_ROOT.'/public/clients/images/footer-logo.png'}}" alt="logo"></a></div>
+        <div class="footer-logo"><a href="index.html" title="Logo"><img style="width: auto; height: 36px" src="{{_WEB_ROOT.'/public/clients/images/logo_client_chu.png'}}" alt="logo"></a></div>
         <p>Heathy Power hỗ trợ mọi giải pháp thanh toán một cách dễ dàng nhất</p>
         <div class="payment-accept">
           <div><img src="{{_WEB_ROOT.'/public/clients/images/payment-1.png'}}" alt="payment"> <img src="{{_WEB_ROOT.'/public/clients/images/payment-2.png'}}" alt="payment"> <img src="{{_WEB_ROOT.'/public/clients/images/payment-3.png'}}" alt="payment"> <img src="{{_WEB_ROOT.'/public/clients/images/payment-4.png'}}" alt="payment"></div>
@@ -81,10 +81,12 @@
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/jquery.min.js'}}"></script>
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/bootstrap.min.js'}}"></script>
 
+  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/jquery.jcarousel.min.js'}}"></script> 
+
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/common.js'}}"></script>
+  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/cloudzoom.js'}}"></script>
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/revslider.js'}}"></script>
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/owl.carousel.min.js'}}"></script>
-  <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/cloudzoom.js'}}"></script>
   <script type="text/javascript" src="{{_WEB_ROOT.'/public/clients/js/sweetalert.js'}}"></script>
   <script type='text/javascript'>
     jQuery(document).ready(function() {

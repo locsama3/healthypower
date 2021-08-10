@@ -23,11 +23,12 @@ class Customer extends Controller{
         $data['page_title'] = "Thông tin khách hàng";
 
         $data['data_js'] = [
-            'ajax' => 'admins.customers.js_index'
+            'ajax' => 'clients.customers.js_index'
         ];
 
         $data['libraryJS']['list_js'] = [
-            'functions' => 'functions.js'
+            'functions' => 'functions.js',
+            'validate' => 'validate.js',
         ];
 
         return $this->view('layouts.client_layout', $data);
@@ -522,98 +523,56 @@ class Customer extends Controller{
         }
     }
 
-    public function edit($id)
-    {
-        $data['sub_content']['customer_by_id'] = $this->customerModel->find($id);
-
-        $data['content'] = 'admins.customers.edit';
-
-        $data['dataMeta'] = $this->loadMetaTag();
-
-        $data['page_title'] = "Cập nhật thông tin khách hàng";
-
-        $data['data_js'] = [
-            'ajax' => 'admins.customers.js_edit'
-        ];
-
-        $data['libraryJS']['list_js'] = [
-            'functions' => 'functions.js'
-        ];
-
-        return $this->view('layouts.admin_layout', $data);
-    }
-
-    public function update($id)
+    public function update()
     {
         if ($this->request->isPost()){
             $dataFields = $this->request->getFields();
 
-            if (array_key_exists("phone", $dataFields)) {
-                /*Set rules*/
-                $this->request->rules([
-                    'phone' => 'required|min:8|max:11|unique:shop_customers:phone:id='.$id
-                ]);
+            debug($dataFields);
 
-                //Set message
-                $this->request->message([
-                    'phone.required' => 'Số điện thoại không được để trống',
-                    'phone.min' => 'Số điện thoại phải lớn hơn 8 ký tự',
-                    'phone.max' => 'Số điện thoại phải nhỏ hơn 11 ký tự',
-                    'phone.unique' => 'Số điện thoại đã tồn tại trong hệ thống'
-                ]);
+            /*Set rules*/
+            $this->request->rules([
+                'phone' => 'required|unique:shop_customers:phone:id='.$dataFields['customer-id']
+            ]);
 
-                $validate = $this->request->validate();
-                if (!$validate){
-                    $message = [
-                        'status' => '0',
-                        'message' => "Đã có lỗi xảy ra. Vui lòng kiểm tra lại.",
-                    ];
+            //Set message
+            $this->request->message([
+                'phone.required'    => 'Số điện thoại không được để trống',
+                'phone.unique'      => 'Số điện thoại đã tồn tại trong hệ thống'
+            ]);
 
-                    $sessionKey = Session::isInvalid();
-                    $error = Session::flash($sessionKey.'_errors');
-                    $message['error'] = $error;
-                    exit(json_encode($message));
-                }
-
-                $data = ['phone' => $dataFields['phone']];
-                $result = $this->customerModel->edit($id, $data);
+            $validate = $this->request->validate();
+            if (!$validate){
                 $message = [
-                    "status" => "1",
-                    'message' => "Cập nhật số điện thoại khách hàng thành công!"
+                    'status'    => '0',
+                    'message'   => "Đã có lỗi xảy ra. Vui lòng kiểm tra lại.",
                 ];
+
+                $sessionKey = Session::isInvalid();
+                $error = Session::flash($sessionKey.'_errors');
+                $message['error'] = $error;
                 exit(json_encode($message));
             }
 
-            if (array_key_exists("shipping_address", $dataFields)) {
-                $data = ['shipping_address' => $dataFields['shipping_address']];
-                $result = $this->customerModel->edit($id, $data);
-                $message = [
-                    "status" => "1",
-                    'message' => "Cập nhật địa chỉ giao hàng khách hàng thành công!"
-                ];
-                exit(json_encode($message));
-            }
+            $data = [
+                'phone'             => $dataFields['phone'],
+                'fullname'          => !empty($dataFields['username']) ? $dataFields['username'] : '',
+                'shipping_address'  => !empty($dataFields['address']) ? $dataFields['address'] : '',
+                'province_id'       => !empty($dataFields['province']) ? $dataFields['province'] : null,
+                'ward_id'           => !empty($dataFields['ward']) ? $dataFields['ward'] : null,
+                'district_id'       => !empty($dataFields['district']) ? $dataFields['district'] : null,
+                'gender'            => !empty($dataFields['gender']) ? $dataFields['gender'] : null,
+                'birthday'          => date($dataFields['birthday'])
+            ];
 
-            if (array_key_exists("billing_address", $dataFields)) {
-                $data = ['billing_address' => $dataFields['billing_address']];
-                $result = $this->customerModel->edit($id, $data);
-                $message = [
-                    "status" => "1",
-                    'message' => "Cập nhật địa chỉ giao hàng khách hàng thành công!"
-                ];
-                exit(json_encode($message));
-            }
+            $result = $this->customerModel->edit($dataFields['customer-id'], $data);
 
-            if (array_key_exists("fullname", $dataFields)) {
-                $data = ['fullname' => $dataFields['fullname']];
-                $result = $this->customerModel->edit($id, $data);
-                $message = [
-                    "status" => "1",
-                    'message' => "Cập nhật địa chỉ giao hàng khách hàng thành công!"
-                ];
-                exit(json_encode($message));
-            }
+            $message = [
+                "status" => "1",
+                'message' => "Cập nhật thông tin của bạn thành công!",
+            ];
 
+            exit(json_encode($message));
         }
     }  
 
