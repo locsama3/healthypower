@@ -6,7 +6,7 @@ $config['app'] = [
         OrderHelper::class
     ],
     'routeAdminMiddleware' => [
-        AuthAdminMiddleware::class,
+        // AuthAdminMiddleware::class,
     ],
     'routeMiddleware' => [
         'san-pham'  => AuthMiddleware::class,

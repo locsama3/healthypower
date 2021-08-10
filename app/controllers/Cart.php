@@ -6,10 +6,12 @@ class Cart extends Controller{
     public $productModel;
     public $voucherModel;
     public $configPayment;
+    public $productDiscountModel;
 
     public function __construct(){
         $this->productModel = $this->model('ProductModel');
         $this->voucherModel = $this->model('VoucherModel');
+        $this->productDiscountModel = $this->model('ProductDiscountModel');
         $this->request = new Request();
         $this->response = new Response();
         global $config;
@@ -47,22 +49,7 @@ class Cart extends Controller{
             
             $data['sub_content']['packing_data'] = $packingData;
         }
-        if(!empty(Session::data('voucher'))){
-            $total_price = Session::data('total') ?? null;
-            $data['sub_content']['voucher'] = Session::data('voucher');
-    
-            foreach($data['sub_content']['voucher'] as $value){
-                if($value['voucher_type'] == 1){
-                    $total_price -= $value['voucher_amount'];
-                }
-                if($value['voucher_type'] == 0){
-                    $value['voucher_amount'] = $value['voucher_amount']/100;
-                    $total_price -= $total_price*$value['voucher_amount'];
-                }
-            }
-            Session::data('total_after_voucher', $total_price);
-            $data['sub_content']['total_after_voucher'] = Session::data('total_after_voucher') ?? null;
-        }
+        
     
     
         $data['data_js'] = [
@@ -80,8 +67,23 @@ class Cart extends Controller{
     public function store($id){
         
         $data = Session::data('cart');
-       
         $product = $this->productModel->find($id);
+        $productDiscount = $this->productDiscountModel->findByField(['product_id :'.$id]);
+        $productDiscount = $productDiscount[0];
+        if($productDiscount['discount_percentage'] != 0){
+            $dis_per = $productDiscount['discount_percentage']/100;
+            $product['sub_price'] = $product['list_price'];
+            $product['list_price'] = $product['list_price'] - $product['list_price']*$dis_per;
+            
+            $product['discount_percentage'] = $productDiscount['discount_percentage'];
+            $product['discount_amount'] = 0;
+        }else{
+            $product['sub_price'] = $product['list_price'];
+            $product['list_price'] = $product['list_price'] - $productDiscount['discount_amount'];
+            $product['discount_amount'] = $productDiscount['discount_amount'];
+            $product['discount_percentage'] = 0;
+        }
+        
         $dataFields = $this->request->getFields();
         if(!empty($dataFields['qty'])){
             $product['qty'] = $data[$id]['qty'] + $dataFields['qty'];
@@ -97,7 +99,7 @@ class Cart extends Controller{
                 
                 
                 $this->totalProduct(); 
-                        
+
             }else{
                 $product['qty'] = $data[$id]['qty'] + 1;
                
@@ -108,6 +110,7 @@ class Cart extends Controller{
             }
         }
            
+
         return $this->response->redirect('gio-hang');
     }
 
@@ -120,6 +123,7 @@ class Cart extends Controller{
             'ward'     => $dataFields['ward']
         ]);
     }
+
    
 
     public function handlingDeliveryFee($array){
@@ -272,7 +276,7 @@ class Cart extends Controller{
             exit(json_encode($message));
         }
         $over_voucher = $this->voucherModel->findByField(['voucher_code: '.$code]);
-        
+   
         if ($over_voucher[0]['uses'] == $over_voucher[0]['max_uses']) {
             $message = [
                 'status'    => '0',
@@ -311,11 +315,37 @@ class Cart extends Controller{
                     'voucher_type'   => $voucher[0]['type'],
                     'voucher_amount' => $voucher[0]['discount_amount']
                 ], $voucher_id);
+                if(!empty(Session::data('voucher'))){
+                    $total_price = Session::data('total') ?? null;
+                    $data['sub_content']['voucher'] = Session::data('voucher');
+            
+                    foreach($data['sub_content']['voucher'] as $value){
+                        if($value['voucher_type'] == 1){
+                            $total_price -= $value['voucher_amount'];
+                        }
+                        if($value['voucher_type'] == 0){
+                            $value['voucher_amount'] = $value['voucher_amount']/100;
+                            $total_price -= $total_price*$value['voucher_amount'];
+                        }
+                    }
+                    Session::data('total_after_voucher', $total_price);
+                }
                 $load_data = $this->load();
+                $voucher = Session::data('voucher') ?? null;
+                $voucher_price = Session::data('total_after_voucher') ?? null;
+                
+                $fee = Session::data('shipping_fee') ?? 0;
+                $sub_total =  Session::data('total') ?? 0;
+                $price_vc = $sub_total - $voucher_price;
+                $total = $voucher_price + $fee;
                 $message = [
                     'status'    => '1',
                     'message'   => "Chúc mừng, bạn đã thêm Voucher thành công !",
-                    'load'      => $load_data
+                    'load'      => $load_data,
+                    'price' =>  [
+                        'price_vc' => $price_vc,
+                        'total'    => $total
+                    ]
                 ];
                 
 
@@ -335,7 +365,7 @@ class Cart extends Controller{
     public function load(){
         $output = '';
         
-        $output .= '<table id="table_voucher" class="table table-hover">
+        $output .= '
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -357,22 +387,38 @@ class Cart extends Controller{
                             </tr>';
             }
         }
-        $output .= '</tbody>
-                </table>';
-        
+        $output .= '</tbody>';
         return $output;
        
     }
+    public function loadPrice(){
+        $output = '';
+
+    }
+
 
     public function deleteVoucher(){
         $dataFields = $this->request->getFields();
         $id = $dataFields['code'];
         Session::delete('voucher', $id);
+        $voucher = Session::data('voucher') ?? null;
+        $voucher_price = Session::data('total_after_voucher') ?? null;
+        $fee = Session::data('shipping_fee') ?? 0;
+        $sub_total =  Session::data('total') ?? 0;
         $load_data = $this->load();
+        $price_vc = ($voucher) ? ($sub_total - $voucher_price) : 0;
+        $total    = $voucher ? ($voucher_price + $fee) : ($sub_total + $fee);
+
+       
         $message = [
             'status'    => '1',
             'message'   => "Xóa Voucher thành công",
-            'load'      => $load_data
+            'load'      => $load_data,
+            'price'  =>  [
+                        'price_vc' => $price_vc,
+                        'total'    => $total
+                    ]
+
         ];
         exit(json_encode($message));
         
@@ -436,13 +482,14 @@ class Cart extends Controller{
             ]);
             $last_id_order = $this->db->lastInsertId();
             foreach($order_detail as $data){
+                if(!empty($data['sub_price'])) $data['list_price'] = $data['sub_price'];
                 $this->db->insertData('shop_order_details',[
                     'order_id'       => $last_id_order,
                     'product_id'     => $data['id'],
                     'quantity'       => $data['qty'],
                     'unit_price'     => $data['list_price'],
-                    'discount_percentage' => 0,
-                    'discount_amount'=> 0,
+                    'discount_percentage' => $data['discount_percentage'],
+                    'discount_amount'=> $data['discount_amount'],
                     'order_detail_status' => '',
                     'date_allocated' => ''
                 ]);
@@ -562,13 +609,14 @@ class Cart extends Controller{
                 'time'               => $time
             ]);
             foreach($order_detail as $data){
+                if(!empty($data['sub_price'])) $data['list_price'] = $data['sub_price'];
                 $this->db->insertData('shop_order_details',[
                     'order_id'       => $last_id_order,
                     'product_id'     => $data['id'],
                     'quantity'       => $data['qty'],
                     'unit_price'     => $data['list_price'],
-                    'discount_percentage' => 0,
-                    'discount_amount'=> 0,
+                    'discount_percentage' => $data['discount_percentage'],
+                    'discount_amount'=> $data['discount_amount'],
                     'order_detail_status' => '',
                     'date_allocated' => ''
                 ]);
@@ -656,6 +704,10 @@ class Cart extends Controller{
             App::$app->loadError('404');
         }else{
             $data['content'] = 'clients.cart.success';
+            $data['sub_content']['user'] = Session::data('user_data') ?? null;
+            $data['sub_content']['price'] = Session::data('total') ?? null;
+            $data['sub_content']['total_after_voucher'] = Session::data('total_after_voucher') ?? null;
+            $data['sub_content']['ship'] = Session::data('shipping_fee') ?? null;
             return $this->view('layouts.payment_layout', $data);
         }
         

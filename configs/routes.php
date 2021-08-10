@@ -224,6 +224,8 @@
 
     $routes['warehouse-destroy'] = 'admin/warehouse/destroy';
 
+    $routes['warehouse-export'] = 'admin/warehouse/export';
+
     // routes vouchers
 
     $routes['vouchers'] = 'admin/voucher/index';

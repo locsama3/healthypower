@@ -23,6 +23,10 @@
                     }
                     if(result.load){
                         $('#table_voucher').html(result.load);
+                        if(result.price){
+                            $('#voucher').html(formatNumber(result.price.price_vc));
+                            $('#total').html(formatNumber(result.price.total));
+                        }
                     }
                 } else {
                     if (result.message) {
@@ -59,6 +63,10 @@
                     }
                     if(result.load){
                         $('#table_voucher').html(result.load);
+                        if(result.price){
+                            $('#voucher').html(formatNumber(result.price.price_vc));
+                            $('#total').html(formatNumber(result.price.total));
+                        }
                     }
                 } else {
                     if (result.message) {

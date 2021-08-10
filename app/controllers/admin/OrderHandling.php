@@ -4,6 +4,10 @@ class OrderHandling extends Controller{
     public $orderModel;
     public $customerModel;
     public $productModel;
+    public $importModel;
+    public $importDetailModel;
+    public $exportModel;
+    public $exportDetailModel;
     public $orderDetailModel;
     public $request, $response;
 
@@ -11,6 +15,10 @@ class OrderHandling extends Controller{
         $this->orderModel = $this->model('OrderModel');
         $this->customerModel = $this->model('CustomerModel');
         $this->productModel = $this->model('ProductModel');
+        $this->importModel = $this->model('ImportModel');
+        $this->importDetailModel = $this->model('ImportDetailModel');
+        $this->exportModel = $this->model('ExportModel');
+        $this->exportDetailModel = $this->model('ExportDetailModel');
         $this->request = new Request();
         $this->response = new Response();
     }
@@ -37,11 +45,18 @@ class OrderHandling extends Controller{
             $detailById = $this->orderModel->getOrderDetailById($dataField['order_id']);
             $statusCurrent = OrderHelper::status($dataField['order_status']);
             $total =  OrderHelper::totalPrice($detailById, $dataField['shipping_fee']);
+            if($dataField['voucher_percentage'] != 0){
+                $precen = $dataField['voucher_percentage']/100;
+                $total[0] += ($total[0]*$precen); 
+            }
+            if($dataField['voucher_amount'] != 0){
+                $total[0] += $dataField['voucher_amount']; 
+            }
             $data['sub_content']['list_orders'][$i]['total'] = $total[0];
             $data['sub_content']['list_orders'][$i]['status'] = $statusCurrent;
             $i++;
         }
-    
+        
         
         $data['libraryJS']['list_js'] = $this->loadLibJS();
 
@@ -71,10 +86,9 @@ class OrderHandling extends Controller{
     {
         $data['content'] = 'admins.order_detail.index';
         $data['sub_content']['detailById'] = $this->orderModel->getOrderDetailById($id);
-     
         $data['sub_content']['orderById'] = $this->orderModel->getOrderById($id);
-      
-        
+        $order = $data['sub_content']['orderById'];
+       
         $total = OrderHelper::totalPrice($data['sub_content']['detailById'], $data['sub_content']['orderById'][0]['shipping_fee']);
 
         $data['sub_content']['orderById'] = $data['sub_content']['orderById'][0];
@@ -92,9 +106,20 @@ class OrderHandling extends Controller{
     
         $data['sub_content']['orderById']['count_order'] = $this->orderModel->getRow($data['sub_content']['orderById']['customer_id']);
 
-        
-
         $data['sub_content']['orderById']['total'] = $data['sub_content']['orderById'][0]['total'];
+
+        $voucher_price = $data['sub_content']['orderById']['total'];
+        if($order[0]['voucher_percentage'] != 0){
+            $precen = $order[0]['voucher_percentage']/100;
+            $voucher_price -= ($voucher_price*$precen); 
+        }
+        if($order[0]['voucher_amount'] != 0){
+            $voucher_price -= $order[0]['voucher_amount']; 
+        }
+
+        $data['sub_content']['orderById']['total_after_voucher'] = $voucher_price;
+
+       
 
         $data['page_title'] = "Chi tiết đơn hàng";
        
@@ -135,16 +160,47 @@ class OrderHandling extends Controller{
             $array = explode( ',', $dataField['_id']);
             foreach($array as $id){
                 $orderDetailById = $this->orderModel->getOrderDetailById($id);
-               
+                
                 if($dataField['_content'] == 2){
                     foreach($orderDetailById as $orderDetail){
                         $quantity = $orderDetail['quantity'];
-                        $this->productModel->updateQuantity($orderDetail['product_id'], $quantity, "-");
+                        // tìm kiếm lượng hàng có số lượng ít nhất sử dụng trước
+                        $productGetItFirst = $this->importDetailModel->getProduct($orderDetail['product_id'], $quantity);
+                        $importId = $productGetItFirst[0]['id'];
+                        // xử lý trường hợp nếu hết hàng thì xóa bản ghi, xài nguồn hàng tiếp theo
+                        if($productGetItFirst[0]['quantity'] - $quantity == 0){
+                            $this->importDetailModel->destroy($importId);
+                            $productGetItFirst = $this->importDetailModel->getProduct($orderDetail['product_id'], $quantity);
+                            $importId = $productGetItFirst[0]['id'];
+                        }
+                        if($productGetItFirst[0]['quantity'] - $quantity < 0){
+                            $quantity = $quantity - $productGetItFirst[0]['quantity'];
+                            $this->importDetailModel->destroy($importId);
+                            $productGetItFirst = $this->importDetailModel->getProduct($orderDetail['product_id'], $quantity);
+                            $importId = $productGetItFirst[0]['id'];
+                        }
+                            $this->importDetailModel->updateQuantity($importId, $quantity, '-');
+                            $this->db->insertData('shop_exports',[
+                                'store_id'    => '1',
+                                'employee_id' => '1',
+                                'export_date' => date("Y-m-d H:i:s"),
+                                'created_at'  => date("Y-m-d H:i:s"),
+                            ]);
+                            $last_id_export = $this->db->lastInsertId();
+                
+                            $this->db->insertData('shop_export_detail',[
+                                'export_id'   => $last_id_export,
+                                'product_id'  => $orderDetail['product_id'],
+                                'quantity'    => $orderDetail['quantity'],
+                                'unit_price'  => $productGetItFirst[0]['unit_price']
+                            ]);
                     }
                 }else{
                     foreach($orderDetailById as $orderDetail){
                         $quantity = $orderDetail['quantity'];
-                        $this->productModel->updateQuantity($orderDetail['product_id'], $quantity, "+");
+                        $productGetItFirst = $this->importDetailModel->getProduct($orderDetail['product_id'], $quantity);
+                        $importId = $productGetItFirst[0]['id'];
+                        $this->importDetailModel->updateQuantity($importId, $quantity, '+');
                     }
                 }
             }

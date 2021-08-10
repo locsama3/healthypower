@@ -167,7 +167,6 @@ function displayError(Selectorform, error) {
 
 
 function updateListItems(url, location) {
-    console.log(1);
     const _token = $('meta[name=csrf-token]').attr("content")
     let id_array = []
 

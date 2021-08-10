@@ -107,7 +107,7 @@ class Customer extends Controller{
             }
 
             $count = $this->customerModel->countRow('email',$dataFields['email']);
-
+           
             if (!$count) {
                 $message = [
                     'status'    => '0',
@@ -119,7 +119,7 @@ class Customer extends Controller{
             } 
             
             $user = $this->customerModel->findOne(["email: ".$dataFields['email']]);
-
+           
             if ($user['password'] != md5($dataFields['password'])) {
                 $message = [
                     'status'    => '0',

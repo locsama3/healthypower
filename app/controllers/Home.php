@@ -25,18 +25,18 @@ class Home extends Controller{
         // truy vấn danh mục sản phẩm
         $random = mt_rand(0,3);
         $data['sub_content']['list_categories'] = $this->productCategoryModel->findByField([], '', "6:$random");
-
+        
         // truy vấn những sản phẩm mới nhất
         $conditions = ["deleted_at: null", 'status: 1', 'is_new: 1'];
 
         $data['sub_content']['list_lastest'] = $this->productModel->findByField($conditions, 'created_at:desc');
-
+        
         // truy vấn những sản phẩm nổi bật
         $conditions = ["deleted_at: null", 'status: 1', 'is_featured: 1'];
         $random = mt_rand(0,2);
 
         $data['sub_content']['list_featured'] = $this->productModel->findByField($conditions, '', "8:$random");
-
+        
         // truy vấn những sản phẩm bán chạy nhất
         $lastmonth = mktime(0, 0, 0, date("m")-1, date("d"), date("Y"));
         $startDate = date('Y-m-d H:i:s', $lastmonth);
@@ -52,7 +52,7 @@ class Home extends Controller{
         $str_product_id = substr($str_product_id, 1);
 
         $data['sub_content']['list_bestseller'] = $this->productModel->findByField(['id {in}' . $str_product_id]);
-
+        
         // truy vấn danh sách đánh giá cho nhiều sản phẩm
         $str_product_id = [];
 
@@ -71,14 +71,16 @@ class Home extends Controller{
         $str_product_id = implode(',',array_unique($str_product_id));
 
         $data['sub_content']['list_reviews'] = $this->productReviewModel->findByField(['product_id {in}' . $str_product_id]);
-
+    
         // truy vấn danh sách giảm giá cho nhiều sản phẩm
         $conditions = ['product_id {in}' . $str_product_id, "start_date <= ".date('Y-m-d H:i:s'), "end_date >= ".date('Y-m-d H:i:s')];
 
         $data['sub_content']['list_discounts'] = $this->productDiscountModel->findByField($conditions);
 
+
         // truy vấn blogs
         $data['sub_content']['latest_blogs'] = $this->blogModel->get_latest();
+
 
         // Load
         $data['content'] = 'clients.index';
@@ -103,6 +105,7 @@ class Home extends Controller{
         $data['page_title'] = $this->loadTitle();
 
         $data['data_slider']['list_slider'] = $this->loadSlider();
+        
 
         // $data['libraryCSS']['list_css'] = $this->loadLibCSS();
 

@@ -35,4 +35,12 @@ class ImportDetailModel extends Model {
     {
         $this->db->table('shop_import_detail')->where('id','=',$id)->delete();
     }
+    public function getProduct($id){
+        return $this->db->table('shop_import_detail')->where('product_id', '=', $id)->orderBy('quantity', 'ASC')->limit(1)->get();
+    }
+    public function updateQuantity($id, $quantity, $compare){
+        $sql = "UPDATE ".$this->tableFill()." SET quantity = quantity ".$compare." $quantity 
+                WHERE id = $id";
+        $this->db->query($sql);
+    }
 }

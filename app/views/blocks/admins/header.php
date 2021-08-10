@@ -232,8 +232,10 @@
     <div class="navbar-brand-wrapper">
       <!-- Logo -->
       <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
+
         <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo_chu_trang.png'}}" alt="Logo">
         <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/volt.png'}}" alt="Logo">
+
       </a>
       <!-- End Logo -->
     </div>
@@ -1602,7 +1604,7 @@
         <ul class="navbar-nav flex-grow-1">
           <!-- Dashboards -->
           <li class="hs-has-sub-menu">
-            <a id="dashboardsDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
+            <a class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="{{_WEB_ROOT.'/dashboard'}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
               <i class="tio-home-vs-1-outlined nav-icon"></i> Dashboards
             </a>
 
@@ -1620,6 +1622,7 @@
               </li>
             </ul>
             <!-- End Dropdown -->
+
           </li>
           <!-- End Dashboards -->
 
@@ -1850,7 +1853,7 @@
 
                 <ul id="navLinkWarehousesDropdownExport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownExport" style="min-width: 16rem;">
                   <li>
-                    <a class="dropdown-item" href="user-profile.html">
+                    <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-export'}}">
                       <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Xuất kho
                     </a>
                   </li>
@@ -2848,7 +2851,7 @@
           <ul class="navbar-nav flex-grow-1">
             <!-- Dashboards -->
             <li class="hs-has-sub-menu navbar-nav-item">
-              <a id="dashboardsDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
+              <a class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="{{_WEB_ROOT.'/dashboard'}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
                 <i class="tio-home-vs-1-outlined nav-icon"></i> Dashboards
               </a>
 
@@ -2866,6 +2869,7 @@
                 </li>
               </ul>
               <!-- End Dropdown -->
+
             </li>
             <!-- End Dashboards -->
 
@@ -3095,7 +3099,7 @@
 
                   <ul id="navLinkWarehousesDropdownExport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownExport" style="min-width: 16rem;">
                     <li>
-                      <a class="dropdown-item" href="user-profile.html">
+                      <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-export'}}">
                         <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Xuất
                       </a>
                     </li>
@@ -3365,9 +3369,10 @@
       <div class="navbar-vertical-content">
         <ul class="navbar-nav navbar-nav-lg nav-tabs">
           <!-- Dashboards -->
-          <li class="navbar-vertical-aside-has-menu show">
-            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle active" href="javascript:;" title="Dashboards">
+          <li class="navbar-vertical-aside-has-menu">
+            <a class="js-navbar-vertical-aside-menu-link nav-link" href="{{_WEB_ROOT.'/dashboard'}}" title="Trang chủ">
               <i class="tio-home-vs-1-outlined nav-icon"></i>
+
               <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboards</span>
             </a>
 
@@ -3385,6 +3390,10 @@
                 </a>
               </li>
             </ul>
+
+              <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Trang chủ</span>
+            </a> 
+>>>>>>> Stashed changes
           </li>
           <!-- End Dashboards -->
 
@@ -3628,7 +3637,7 @@
 
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
-                    <a class="nav-link " href="user-profile.html" title="List Export">
+                    <a class="nav-link " href="{{_WEB_ROOT.'/warehouse-export'}}" title="List Export">
                       <span class="tio-circle-outlined nav-indicator-icon"></span>
                       <span class="text-truncate">Danh sách Xuất</span>
                     </a>
@@ -4109,10 +4118,11 @@
       <ul class="navbar-nav nav-compact">
         <!-- Dashboards -->
         <li class="navbar-vertical-aside-has-menu nav-item">
-          <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Dashboards">
+          <a class="js-navbar-vertical-aside-menu-link nav-link " href="{{_WEB_ROOT.'/dashboard'}}" title="Trang chủ">
             <i class="tio-home-vs-1-outlined nav-icon"></i>
             <span class="nav-compact-title text-truncate">Dashboards</span>
           </a>
+
 
           <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
             <li class="nav-item">
@@ -4128,6 +4138,7 @@
               </a>
             </li>
           </ul>
+
         </li>
         <!-- End Dashboards -->
 
@@ -4371,7 +4382,7 @@
 
               <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                 <li class="nav-item">
-                  <a class="nav-link " href="users.html" title="List Export">
+                  <a class="nav-link " href="{{_WEB_ROOT.'/warehouse-export'}}" title="List Export">
                     <span class="tio-circle-outlined nav-indicator-icon"></span>
                     <span class="text-truncate">Danh sách Xuất</span>
                   </a>

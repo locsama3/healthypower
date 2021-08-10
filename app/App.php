@@ -177,25 +177,25 @@ class App{
         }
     }
     
-    // public function handleGlobalMiddleware($db){
-    //     global $config;
-    //     if (!empty($config['app']['globalMiddleware'])){
-    //         $globalMiddleWareArr = $config['app']['globalMiddleware'];
+    // // public function handleGlobalMiddleware($db){
+    // //     global $config;
+    // //     if (!empty($config['app']['globalMiddleware'])){
+    // //         $globalMiddleWareArr = $config['app']['globalMiddleware'];
            
-    //         foreach ($globalMiddleWareArr as $key=>$middleWareItem){
-    //             if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
-    //                 require_once 'app/middlewares/'.$middleWareItem.'.php';
-    //                 if (class_exists($middleWareItem)){
-    //                     $middleWareObject = new $middleWareItem();
-    //                     if (!empty($db)){
-    //                         $middleWareObject->db = $db;
-    //                     }
-    //                     $middleWareObject->handle();
-    //                 }
-    //             }
-    //         }
+    // //         foreach ($globalMiddleWareArr as $key=>$middleWareItem){
+    // //             if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
+    // //                 require_once 'app/middlewares/'.$middleWareItem.'.php';
+    // //                 if (class_exists($middleWareItem)){
+    // //                     $middleWareObject = new $middleWareItem();
+    // //                     if (!empty($db)){
+    // //                         $middleWareObject->db = $db;
+    // //                     }
+    // //                     $middleWareObject->handle();
+    // //                 }
+    // //             }
+    // //         }
             
-    //     }
+    // //     }
         
     // }
     public function handleGlobalMiddleware($url, $db){

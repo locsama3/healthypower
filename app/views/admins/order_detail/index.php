@@ -140,10 +140,12 @@
                       <dd class="col-sm-6">{{number_format($orderById['shipping_fee'])}} đ</dd>
                       <dt class="col-sm-6">Thuế:</dt>
                       <dd class="col-sm-6">0 đ</dd>
+                      <dt class="col-sm-6">Đã giảm (Voucher):</dt>
+                      <dd class="col-sm-6">{! number_format($orderById['total'] - $orderById['total_after_voucher']) !} đ</dd>
                       <dt class="col-sm-6">Tổng cộng:</dt>
-                      <dd class="col-sm-6">{{number_format($orderById['total'])}} đ</dd>
+                      <dd class="col-sm-6">{! number_format($orderById['total_after_voucher']) !} đ</dd>
                       <dt class="col-sm-6">Đã trả:</dt>
-                      <dd class="col-sm-6">{{number_format($orderById['total'])}} đ</dd>
+                      <dd class="col-sm-6">{! number_format($orderById['total_after_voucher']) !} đ</dd>
                     </dl>
                     <!-- End Row -->
                   </div>
@@ -155,141 +157,7 @@
             <!-- End Card -->
 
             <!-- Card -->
-            <div class="card">
-              <!-- Header -->
-              <div class="card-header">
-                <h4 class="card-header-title">
-                  Shipping activity
-                  <span class="badge badge-soft-dark ml-1">
-                    <span class="legend-indicator bg-dark"></span>Marked as fulfilled
-                  </span>
-                </h4>
-              </div>
-              <!-- End Header -->
-          
-              <!-- Body -->
-              <div class="card-body">
-                <!-- Step -->
-                <ul class="step step-icon-xs">
-                  <!-- Step Item -->
-                  <li class="step-item">
-                    <div class="step-content-wrapper">
-                      <small class="step-divider">Wednesday, 19 August</small>
-                    </div>
-                  </li>
-                  <!-- End Step Item -->
-
-                  <!-- Step Item -->
-                  <li class="step-item">
-                    <div class="step-content-wrapper">
-                      <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
-
-                      <div class="step-content">
-                        <h5 class="mb-1">
-                          <a class="text-dark" href="#">Delivered</a>
-                        </h5>
-
-                        <p class="font-size-sm mb-0">4:17 AM</p>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- End Step Item -->
-
-                  <!-- Step Item -->
-                  <li class="step-item">
-                    <div class="step-content-wrapper">
-                      <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
-
-                      <div class="step-content">
-                        <h5 class="mb-1">
-                          <a class="text-dark" href="#">Out for delivery</a>
-                        </h5>
-
-                        <p class="font-size-sm mb-0">2:38 AM</p>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- End Step Item -->
-
-                  <!-- Step Item -->
-                  <li class="step-item">
-                    <div class="step-content-wrapper">
-                      <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
-
-                      <div class="step-content">
-                        <h5 class="mb-1">
-                          <a class="text-dark" href="#">Package arrived at the final delivery station</a>
-                        </h5>
-
-                        <p class="font-size-sm mb-0">2:00 AM</p>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- End Step Item -->
-
-                  <!-- Step Item -->
-                  <li class="step-item">
-                    <div class="step-content-wrapper">
-                      <small class="step-divider">Tuesday, 18 August</small>
-                    </div>
-                  </li>
-                  <!-- End Step Item -->
-
-                  <!-- Step Item -->
-                  <li class="step-item">
-                    <div class="step-content-wrapper">
-                      <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
-
-                      <div class="step-content">
-                        <h5 class="mb-1">
-                          <a class="text-dark" href="#">Tracking number</a>
-                        </h5>
-
-                        <a class="link" href="#">3981241023109293</a>
-                        <p class="font-size-sm mb-0">6:29 AM</p>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- End Step Item -->
-
-                  <!-- Step Item -->
-                  <li class="step-item">
-                    <div class="step-content-wrapper">
-                      <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
-
-                      <div class="step-content">
-                        <h5 class="mb-1">
-                          <a class="text-dark" href="#">Package has dispatched</a>
-                        </h5>
-
-                        <p class="font-size-sm mb-0">6:29 AM</p>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- End Step Item -->
-
-                  <!-- Step Item -->
-                  <li class="step-item">
-                    <div class="step-content-wrapper">
-                      <span class="step-icon step-icon-soft-dark step-icon-pseudo"></span>
-
-                      <div class="step-content">
-                        <h5 class="mb-1">
-                          <a class="text-dark" href="#">Order was placed</a>
-                        </h5>
-
-                        <p class="font-size-sm mb-0">Đơn hàng #{{$orderById['order_id']}}</p>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- End Step Item -->
-                </ul>
-                <!-- End Step -->
-
-                <small>Times are shown in the local time zone.</small>
-              </div>
-              <!-- End Body -->
-            </div>
+           
             <!-- End Card -->
           </div>
 

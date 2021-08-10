@@ -4,33 +4,36 @@
 	{
 	    public $province;
 	    public $request, $response;
+		public $customerModel;
+		public $orderModel;
 
 	    public function __construct(){
-	        $request = new Request();
-	        $response = new Response();
+	        $this->request = new Request();
+	        $this->response = new Response();
+			$this->customerModel = $this->model('CustomerModel');
+			$this->orderModel = $this->model('OrderModel');
 	    }
 
 	    public function index()
 	    {
 	    	$data['content'] = 'admins.dashboard';
-
-	    	/* 
-	    	$data['sub_content']['...'] = ...;
-
-	    	$data['dataMeta'] = $this->loadMetaTag();
-
-	    	$data['page_title'] = $this->loadTitle();
-
-	    	$data['libraryCSS']['list_css'] = $this->loadLibCSS();
-
-	    	$data['libraryJS']['list_js'] = $this->loadLibJS();
-
-	    	$data['data_js'] = [
-				'load_image' => '...',
-				'check_coupon' => 'checkcoupon',
-	    	];
-
-	    	*/
+			$conditionForOrder = ['order_date <=>'. date('Y-m'), 'order_status :'. 3];
+			$orderInMonth = $this->orderModel->findByField($conditionForOrder);
+			$data['sub_content']['total_order'] = count($orderInMonth);
+			$customerHasOrder = $this->orderModel->findHasGroupBy('customer_id');
+			$data['sub_content']['total_customer'] = count($customerHasOrder);
+			$total = 0;
+			foreach($orderInMonth as $value){
+				$detailById = $this->orderModel->getOrderDetailById($value['id']);
+				$total += OrderHelper::totalPrice($detailById, $value['shipping_fee'])[0];
+				
+			}
+			$data['page_title'] = 'Trang chủ';
+			$data['sub_content']['total_price'] = $total;
+			$data['sub_content']['customer'] = $this->customerModel->all();
+			$data['data_js'] = [
+				'js' => 'admins.js_dash'
+			];
 
     		return $this->view('layouts.admin_layout', $data);
 	    }

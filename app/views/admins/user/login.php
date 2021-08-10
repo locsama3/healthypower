@@ -8,7 +8,7 @@
             <div class="position-absolute top-0 left-0 right-0 mt-3 mx-3">
               <div class="d-none d-lg-flex justify-content-between">
                 <a href="index.html">
-                  <img class="w-100" src="public\admin\svg\logos\logo.svg" alt="Image Description" style="min-width: 7rem; max-width: 7rem;">
+
                 </a>
 
                 <!-- Select -->
@@ -101,7 +101,6 @@
                   <label class="input-label" for="signupSrPassword" tabindex="0">
                     <span class="d-flex justify-content-between align-items-center">
                       Mật khẩu
-                      <a class="input-label-secondary" href="authentication-reset-password-cover.html">Quên mật khẩu?</a>
                     </span>
                   </label>
 

@@ -1,7 +1,7 @@
 <div class="main-container col2-right-layout">
     <div class="main container">
       <div class="row">
-        <section class="col-main col-sm-9 wow">
+        <section class="col-main col-sm-8 wow">
           <div class="page-title">
             <h1>Thanh toán</h1>
           </div>
@@ -53,7 +53,7 @@
            
           </ol>
         </section>
-        <aside class="col-right sidebar col-sm-3 wow">
+        <aside class="col-right sidebar col-sm-4 wow">
           <div class="block block-progress">
             <div class="block-title ">Thông tin hóa đơn</div>
             

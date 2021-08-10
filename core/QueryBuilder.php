@@ -69,14 +69,13 @@
         public function count()
         {
             $sqlQuery = "SELECT $this->selectField 
-                         FROM $this->tableName 
-                         $this->innerJoin
-                         $this->where 
-                         $this->orderBy
-                         $this->limit";
+                    FROM $this->tableName 
+                    $this->innerJoin
+                    $this->where
+                    $this->orderBy
+                    $this->limit";
             $sqlQuery = trim($sqlQuery);
             $query = $this->query($sqlQuery);
-
             // reset field
             $this->resetQuery();
 
@@ -140,7 +139,7 @@
             }else{
                 $this->operator = 'AND';
             }
-            $this->where .= "$this->operator $field LIKE '$value' ";
+            $this->where .= "$this->operator $field LIKE '%$value%' ";
             return $this;
         }
 

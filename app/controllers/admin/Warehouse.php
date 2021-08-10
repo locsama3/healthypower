@@ -3,11 +3,19 @@ class Warehouse extends Controller{
 
     public $warehouseModel;
     public $request, $response;
+    public $importModel;
+    public $importDetailModel;
+    public $exportModel;
+    public $exportDetailModel;
 
     public function __construct(){
         $this->warehouseModel = $this->model('WarehouseModel');
         $this->request = new Request();
         $this->response = new Response();
+        $this->importModel = $this->model('ImportModel');
+        $this->importDetailModel = $this->model('ImportDetailModel');
+        $this->exportModel = $this->model('ExportModel');
+        $this->exportDetailModel = $this->model('ExportDetailModel');
     }
 
     public function index()
@@ -200,6 +208,21 @@ class Warehouse extends Controller{
 
         // $this->blogCateModel->destroy($id);
     }   
+
+    public function export(){
+        $data['content'] = 'admins.warehouse.export';
+        $data['sub_content']['export_list'] = $this->exportModel->getExport();
+        foreach($data['sub_content']['export_list'] as $value){
+            $data['sub_content']['export_detail'][$value['id']] = $this->exportDetailModel->getExportDetail($value['id']);
+        }
+        $data['page_title'] = 'Danh sách xuất kho';
+
+        $data['data_js'] = [
+            'js'       => 'admins.order.js_index',
+        ];
+    
+        return $this->view('layouts.admin_layout', $data);
+    }
 
     public function loadMetaTag()
     {

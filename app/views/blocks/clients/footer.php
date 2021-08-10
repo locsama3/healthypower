@@ -5,10 +5,12 @@
         <div class="slider-items-products">
           <div id="brand-logo-slider" class="product-flexslider hidden-buttons">
             <div class="slider-items slider-width-col6">
-              @foreach ($list_suppliers as $supplier)
-              <!-- Item -->
+              @foreach ($list_suppliers as $key => $supplier)
+              <!-- Item -->   
+              
               <div class="item"> <a href="#x"><img style="width: 100%;" src="{{ _WEB_ROOT }}/public/uploads/brands/{{ $supplier['image'] }}" alt="Image"></a> </div>
               <!-- End Item -->
+              
               @endforeach
             </div>
           </div>
@@ -171,4 +173,16 @@
         formSearch.submit()
       })
     });
+  </script>
+   <script>
+  
+    updateVisitCount();
+
+    function updateVisitCount() {
+        fetch('https://api.countapi.xyz/update/healthypower.com/youtube/?amount=1')
+        .then(res => res.json())
+    }
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
   </script>

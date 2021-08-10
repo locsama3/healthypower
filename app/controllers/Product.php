@@ -151,7 +151,6 @@ class Product extends Controller{
             $user = $customerModel->findOne(["email: ".Session::data('user_data')['user_email']]);
     
             $list_viewed_id = $this->productViewModel->findByField(["customer_id:". $user['id'], 'product_id != '.$id], 'viewed_at:desc');
-    
             $str_product_id = '';
             foreach ($list_viewed_id as $viewed) {
                 $str_product_id .= ','.$viewed['product_id'];

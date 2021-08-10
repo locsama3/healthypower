@@ -18,7 +18,6 @@ class Route{
                     $handleUrl = preg_replace('~'.$key.'~is', $value, $url);
                     $this->__keyRoute = $key;
                 }
-                
             }
         }
 

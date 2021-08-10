@@ -1,4 +1,3 @@
-<!-- breadcrumbs -->
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
@@ -28,11 +27,9 @@
                                         <span class="roll-over">Di chuyển chuột vào hình ảnh để phóng to</span> 
                                         <img style="position: absolute;" class="zoomImg" src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}">
                                     </li>
-
                                     @php
                                         $i = 1;
                                     @endphp
-
                                     @foreach ($list_gallary as $image)
                                     @php
                                         $i++;
@@ -50,9 +47,7 @@
                                     <a style="right: 42px;" href="javascript:void(0)" class="moreview-next"></a> 
                                 </div>
                             </div>
-
                             <!-- end: more-images -->
-
                             <div class="product-shop col-lg-6 col-sm-6 col-xs-12">
                                 <div class="product-name">
                                     <h1>{{ $product['product_name'] }}</h1>
@@ -96,7 +91,7 @@
                                         @foreach ($list_discounts as $discount)
                                             @if ($discount['product_id'] == $product['id'])
                                             <p class="old-price"> <span class="price-label">Special Price</span> <span class="price"> {{ number_format($product['list_price'], 0, ',', '.') }} đ</span> </p>
-                                            <p class="special-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{ number_format($product['list_price']*(1 - $discount['discount_amount']), 0, ',', '.') }} đ</span> </p>
+                                            <p class="special-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{ number_format($product['list_price']*(1 - $discount['discount_percentage']/100), 0, ',', '.') }} đ</span> </p>
                                             @php
                                                 $check = true;
                                             @endphp
@@ -150,7 +145,6 @@
                                        {! $product['description'] !}
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="reviews_tabs" >
                                     <div class="col-sm-12">
                                         <ul class="data-user-detail">
@@ -184,7 +178,6 @@
                                                 {{ date('d-m-Y h:i:s') }}
                                             </li>
                                         </ul>
-
                                         <style>
                                             .style_comment {
                                                 border: 1px solid #ddd;
@@ -193,11 +186,9 @@
                                                 margin-bottom: 16px;
                                             }
                                         </style>    
-
                                         <div class="row style_comment" data-prod_id = "{{ $product['id'] }}">
                                             
                                         </div>
-
                                         <p><b style="font-size: 16px; ">Để lại đánh giá của bạn</b></p>
                                         <!-- Rating here -->
                                         <ul class="list-inline" title="Average Rating">
@@ -220,7 +211,6 @@
                                                 }
                                             @endphp
                                         </ul>
-
                                         <form>
                                             <div class="review1">
                                               <span>
@@ -282,7 +272,6 @@
                                         </div>
                                         <div id="related-products-slider" class="product-flexslider hidden-buttons">
                                             <div class="slider-items slider-width-col4">
-
                                                 <!-- Item -->
                                                 @foreach ($list_related_products as $product)
                                                 <div class="item">
@@ -360,16 +349,13 @@
                                                                 <!--item-content-->
                                                             </div>
                                                             <!--info-inner-->
-
                                                             <!--actions-->
-
                                                             <div class="clearfix"> </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 @endforeach
                                                 <!-- End Item -->
-
                                             </div>
                                         </div>
                                     </div>
@@ -459,9 +445,7 @@
                                                                 <!--item-content-->
                                                             </div>
                                                             <!--info-inner-->
-
                                                             <!--actions-->
-
                                                             <div class="clearfix"> </div>
                                                         </div>
                                                     </div>

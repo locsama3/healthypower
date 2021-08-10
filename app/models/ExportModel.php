@@ -51,4 +51,11 @@ class ExportModel extends Model {
             ->where('a.status', '=', '1')->where('b.export_date', '>=', $startDate)->where('b.export_date', '<=', $endDate)
             ->groupBy('c.product_id')->orderBy('sum(c.quantity)', 'DESC')->limit(10, 0)->get();
     }
+    public function getExport(){
+        return $this->db->table('shop_exports')->select('shop_exports.*, acl_users.fullname, shop_stores.store_name')
+               ->join('shop_stores', 'shop_stores.id = shop_exports.store_id')
+               ->join('acl_users', 'acl_users.id = shop_exports.employee_id')
+               ->orderBy('shop_exports.id','DESC')
+               ->get();
+    }
 }

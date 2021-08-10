@@ -38,11 +38,10 @@ class Customer extends Controller
                 $total += OrderHelper::totalPrice($orderDetailById, $customerById[$j]['shipping_fee'])[0];
                 $j++;
             }
-            
             $data['sub_content']['list_customers'][$i]['total_order_price'] = $total;
             $i++;
         }
-
+        
         $data['dataMeta'] = $this->loadMetaTag();
 
         $data['page_title'] = "Danh sách khách hàng";
@@ -110,7 +109,7 @@ class Customer extends Controller
                     $message = [
                         'status'    => '0',
                         'message'   => "Đã có lỗi xảy ra. Vui lòng kiểm tra lại.",
-                        'form'      => '#form-info-account'
+                        'form'      => 'form-info-account'
                     ];
 
                     $sessionKey = Session::isInvalid();
@@ -200,6 +199,8 @@ class Customer extends Controller
             $data['sub_content']['order_by_id'][$i]['total'] = $total[0];
             $i++;
         }
+        
+        
 
      
         $data['content'] = 'admins.customers.edit';

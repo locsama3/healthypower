@@ -220,6 +220,8 @@
       }, cb);
 
       cb(start, end);
+      
+
 
       // INITIALIZATION OF CLIPBOARD
       // =======================================================
@@ -233,3 +235,4 @@
   <script>
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{_WEB_ROOT.'/public/admin/vendor/babel-polyfill/polyfill.min.js'}}"><\/script>');
   </script>
+ 

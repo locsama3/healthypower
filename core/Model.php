@@ -149,10 +149,10 @@ abstract class Model extends Database {
             $arr = explode(':', $condition);
             $field = trim($arr[0]);
             $value = trim($arr[1]);
-        
             $this->db->where($field, '=', $value);
         }
         
         return $this->db->select($fieldSelect)->table($tableName)->count();
     }
+ 
 }

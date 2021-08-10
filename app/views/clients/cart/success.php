@@ -2,7 +2,7 @@
    
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 body-main" style="background: #ffffff;
+            <div class="col-md-8 col-md-offset-3 body-main" style="background: #ffffff;
                 border-bottom: 15px solid #1E1F23;
                 border-top: 15px solid #1E1F23;
                 margin-top: 30px;
@@ -16,14 +16,14 @@
                         <div class="col-md-4"> <img height="100px" class="img" alt="Invoce Template" src="http://pngimg.com/uploads/shopping_cart/shopping_cart_PNG59.png" /> </div>
                         <div class="col-md-8 text-right">
                             <h4 style="color: #F81D2D;"><strong>HealthyPower</strong></h4>
-                            <p>221 ,Baker Street</p>
-                            <p>1800-234-124</p>
-                            <p>example@gmail.com</p>
+                            <p>Bình Tân</p>
+                            <p>0907 234 980</p>
+                            <p>healthypower@gmail.com</p>
                         </div>
                     </div> <br />
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h2>HÓA ĐƠN</h2>
+                            <h2>ĐẶT HÀNG THÀNH CÔNG</h2>
                         </div>
                     </div> <br />
                     <div>
@@ -39,22 +39,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="col-md-9">Samsung Galaxy 8 64 GB</td>
-                                    <td class="col-md-3"><i class="fas fa-rupee-sign" area-hidden="true"></i> 50,000 </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-9">JBL Bluetooth Speaker</td>
-                                    <td class="col-md-3"><i class="fas fa-rupee-sign" area-hidden="true"></i> 5,200 </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-9">Apple Iphone 6s 16GB</td>
-                                    <td class="col-md-3"><i class="fas fa-rupee-sign" area-hidden="true"></i> 25,000 </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-9">MI Smartwatch 2</td>
-                                    <td class="col-md-3"><i class="fas fa-rupee-sign" area-hidden="true"></i> 2,200 </td>
-                                </tr>
+                                @if(!empty(Session::data('cart')))
+                                    @foreach(Session::data('cart') as $data)
+                                    <tr>
+                                        <td class="col-md-9">{{$data['product_name']}} x {{$data['qty']}}</td>
+                                        <td class="col-md-3"><i class="fas fa-rupee-sign" area-hidden="true"></i> {! number_format($data['list_price']*$data['qty']) !} đ</td>
+                                    </tr>
+                                    @endforeach
+                                @endif
+                              
                                 <tr>
                                     <td class="text-right">
                                         <p> <strong>Phí giao hàng:</strong> </p>
@@ -63,10 +56,10 @@
                                         <p> <strong>Tổng cộng: </strong> </p>
                                     </td>
                                     <td>
-                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> 500 </strong> </p>
-                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> 82,900</strong> </p>
-                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> 3,000 </strong> </p>
-                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> 79,900</strong> </p>
+                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! number_format($ship ?? null) !} đ</strong> </p>
+                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! number_format($price ?? null) !} đ</strong> </p>
+                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! ($total_after_voucher ?? null)  ? (number_format(($price ?? null) - ($total_after_voucher ?? null))) : 0 !} đ</strong> </p>
+                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! ($total_after_voucher ?? null) ? number_format(($total_after_voucher ?? null) + $ship) : number_format(($price ?? null) + $ship) !} đ</strong> </p>
                                     </td>
                                 </tr>
                                 <tr style="color: #F81D2D;">
@@ -74,7 +67,7 @@
                                         <h4><strong>Tổng cộng:</strong></h4>
                                     </td>
                                     <td class="text-left">
-                                        <h4><strong><i class="fas fa-rupee-sign" area-hidden="true"></i> 79,900 </strong></h4>
+                                        <h4><strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! ($total_after_voucher ?? null) ? number_format(($total_after_voucher ?? null) + $ship) : number_format(($price ?? null) + $ship) !}đ </strong></h4>
                                     </td>
                                 </tr>
                             </tbody>

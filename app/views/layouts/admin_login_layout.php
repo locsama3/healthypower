@@ -34,7 +34,7 @@
     <header class="position-absolute top-0 left-0 right-0 mt-3 mx-3">
       <div class="d-flex d-lg-none justify-content-between">
         <a href="index.html">
-          <img class="w-100" src="<?php echo _WEB_ROOT ?>\public\admin\svg\logos\logo.svg" alt="Image Description" style="min-width: 7rem; max-width: 7rem;">
+          <img class="w-100" src="<?php echo _WEB_ROOT ?>\public\admin\svg\logos\logo_chuxanh.svg" alt="Image Description" style="min-width: 7rem; max-width: 7rem;">
         </a>
 
         <!-- Select -->

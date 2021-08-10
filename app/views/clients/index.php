@@ -35,14 +35,14 @@
                     @endphp
                     <div class="col-item">
                       @foreach ($list_discounts as $discount)
-                          @if ($discount['product_id'] == $product['id'])
-                          <div class="sale-label sale-top-right">{{ $discount['discount_amount']*100}} %</div>
-                          @php
-                          $check = true;
-                          $discount_amount = $discount['discount_amount'];
-                          break;
-                          @endphp
-                          @endif
+                        @if ($discount['product_id'] == $product['id'])
+                        <div class="sale-label sale-top-right">{{ $discount['discount_percentage'] }} %</div>
+                        @php
+                        $check = true;
+                        $discount_amount = $discount['discount_percentage']/100;
+                        break;
+                        @endphp
+                        @endif
                       @endforeach
                       <div class="images-container"> <a class="product-image" title="Sample Product" href="chi-tiet-san-pham/id-{{ $product['id'] }}"> <img src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}" class="img-responsive" alt="a" /> </a>
                         <div class="actions">
@@ -74,11 +74,13 @@
                                   @endphp
                                   @endif
                               @endforeach
+
                               @if($count != 0)
                               <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
                               @else
                               <div style="width:0%" class="rating"></div>
                               @endif
+
                               </div>
                             </div>
                             <div class="price-box"> 
@@ -134,10 +136,10 @@
                     <div class="col-item">
                       @foreach ($list_discounts as $discount)
                           @if ($discount['product_id'] == $product['id'])
-                          <div class="sale-label sale-top-right">{{ $discount['discount_amount']*100}} %</div>
+                          <div class="sale-label sale-top-right">{{ $discount['discount_percentage'] }} %</div>
                           @php
                           $check = true;
-                          $discount_amount = $discount['discount_amount'];
+                          $discount_amount = $discount['discount_percentage']/100;
                           break;
                           @endphp
                           @endif
@@ -172,11 +174,13 @@
                                   @endphp
                                   @endif
                               @endforeach
+
                               @if($count != 0)
                               <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
                               @else
                               <div style="width:0%" class="rating"></div>
                               @endif
+
                               </div>
                             </div>
                             <div class="price-box"> 
@@ -239,14 +243,14 @@
             @endphp
             <div class="col-item">
               @foreach ($list_discounts as $discount)
-                  @if ($discount['product_id'] == $product['id'])
-                  <div class="sale-label sale-top-right">{{ $discount['discount_amount']*100}} %</div>
-                  @php
-                  $check = true;
-                  $discount_amount = $discount['discount_amount'];
-                  break;
-                  @endphp
-                  @endif
+                @if ($discount['product_id'] == $product['id'])
+                <div class="sale-label sale-top-right">{{ $discount['discount_percentage'] }} %</div>
+                @php
+                $check = true;
+                $discount_amount = $discount['discount_percentage']/100;
+                break;
+                @endphp
+                @endif
               @endforeach
               <div class="images-container"> <a class="product-image" title="Sample Product" href="chi-tiet-san-pham/id-{{ $product['id'] }}"> <img src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}" class="img-responsive" alt="a" /> </a>
                 <div class="actions">
@@ -278,10 +282,12 @@
                           @endphp
                           @endif
                       @endforeach
+
                       @if($count != 0)
                       <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
                       @else
                       <div style="width:0%" class="rating"></div>
+
                       @endif
                       </div>
                     </div>
@@ -424,14 +430,14 @@
               @endphp
               <div class="col-item">
                 @foreach ($list_discounts as $discount)
-                    @if ($discount['product_id'] == $product['id'])
-                    <div class="sale-label sale-top-right">{{ $discount['discount_amount']*100}} %</div>
-                    @php
-                    $check = true;
-                    $discount_amount = $discount['discount_amount'];
-                    break;
-                    @endphp
-                    @endif
+                  @if ($discount['product_id'] == $product['id'])
+                  <div class="sale-label sale-top-right">{{ $discount['discount_percentage'] }} %</div>
+                  @php
+                  $check = true;
+                  $discount_amount = $discount['discount_percentage']/100;
+                  break;
+                  @endphp
+                  @endif
                 @endforeach
                 <div class="images-container"> <a class="product-image" title="Sample Product" href="chi-tiet-san-pham/id-{{ $product['id'] }}"> <img src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}" class="img-responsive" alt="a" /> </a>
                   <div class="actions">
@@ -463,10 +469,12 @@
                             @endphp
                             @endif
                         @endforeach
+
                         @if($count != 0)
                         <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
                         @else
                         <div style="width:0%" class="rating"></div>
+
                         @endif
                         </div>
                       </div>

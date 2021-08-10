@@ -1,11 +1,11 @@
-    <main id="content" role="main" class="main">
+<main id="content" role="main" class="main">
       <!-- Content -->
       <div class="content container-fluid">
         <!-- Page Header -->
         <div class="page-header">
           <div class="row align-items-center mb-3">
             <div class="col-sm">
-              <h1 class="page-header-title">Danh sách đơn hàng</h1>
+              <h1 class="page-header-title">Danh sách xuất hàng</h1>
 
               <div class="mt-2">
                 <a class="text-body mr-3" href="javascript:;" data-toggle="modal" data-target="#exportOrdersModal">
@@ -36,31 +36,14 @@
                 <!-- End Unfold -->
               </div>
             </div>
-            <div class="dflex" id="datatableCounterInfo" style="display: none">
-              <div class="p-2 bd-highlight">
-                  <button class="btn btn-success" id="btn-update-all" onclick="updateListItems('{{_WEB_ROOT}}/order-update', '{!getCurURL()!}')">Cập nhật trạng thái</button>
-              </div>
-              <div class="p-2 bd-highlight">
-                <select id="selectorStatus" class="form-select form-select-sm" aria-label=".form-select-sm example" style="padding: 8px; border-radius: 6px; font-weight: 520;">
-                  <option selected>Hãy chọn trạng thái</option>
-                  <option value="0">Đang chờ xử lý</option>
-                  <option value="1">Đang xử lý</option>
-                  <option value="2">Đang giao</option>
-                  <option value="3">Đã hoàn thành</option>
-                  <option value="4">Đã hủy</option>
-                </select>
-              </div>
-            </div>
+            
           </div>
           <!-- Nav -->
           <ul class="nav nav-tabs page-header-tabs">
             <li class="nav-item">
-              <a class="nav-link active" id="btn-all-order" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Tổng đơn hàng</a>
+              <a class="nav-link active" id="btn-all-order" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Tổng đơn xuất</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" tabindex="-1" id="btn-cancel" aria-disabled="true" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">Đơn đã hủy</a>
-            </li>
-           
+         
           </ul>
           
           <!-- End Row -->
@@ -78,27 +61,8 @@
                 <i class="tio-chevron-right"></i>
               </a>
             </span>
-            <div class="dflex" id="datatableCounterInfo" style="display: none">
-              <div class="p-2 bd-highlight">
-                  <button class="btn btn-success" id="btn-update-all" onclick="updateListItems('{{_WEB_ROOT}}/order-update', '{!getCurURL()!}')">Cập nhật trạng thái</button>
-              </div>
-              <div class="p-2 bd-highlight">
-                <select id="selectorStatus" class="form-select form-select-sm" aria-label=".form-select-sm example" style="padding: 8px; border-radius: 6px; font-weight: 520;">
-                  <option selected>Hãy chọn trạng thái</option>
-                  <option value="0">Đang chờ xử lý</option>
-                  <option value="1">Đang xử lý</option>
-                  <option value="2">Đang giao</option>
-                  <option value="3">Đã hoàn thành</option>
-                  <option value="4">Đã hủy</option>
-                </select>
-              </div>
-            </div>
-           
             
-           
 
-                        
-            
             
             <!-- End Nav -->
           </div>
@@ -120,7 +84,7 @@
                         <i class="tio-search"></i>
                       </div>
                     </div>
-                    <input id="datatableSearch" type="search" class="form-control" placeholder="Tìm kiếm đơn hàng" aria-label="Search orders">
+                    <input id="datatableSearch" type="search" class="form-control" placeholder="Tìm kiếm đơn xuất" aria-label="Search orders">
                   </div>
                   <!-- End Search -->
                 </form>
@@ -309,7 +273,7 @@
           <!-- End Header -->
 
           <!-- Table -->
-          <div class="table-responsive datatable-custom collapse show" id="collapseExample">
+          <div class="table-responsive datatable-custom">
             <table id="datatable" class="table table-hover table-borderless table-thead-bordered table-nowrap table-align-middle card-table" style="width: 100%" data-hs-datatables-options='{
                      "columnDefs": [{
                         "targets": [0],
@@ -334,185 +298,53 @@
                       <label class="custom-control-label" for="datatableCheckAll"></label>
                     </div>
                   </th>
-                  <th class="table-column-pl-0">Mã đơn hàng</th>
-                  <th>Ngày</th>
-                  <th>Khách hàng</th>
-                  <th>Trạng thái</th>
-                  <th>Fulfillment status</th>
-                  <th>phương thức thanh toán</th>
-                  <th>Tổng tiền</th>
+                  <th class="table-column-pl-0">Mã xuất hàng</th>
+                  <th>Ngày xuất hàng</th>
+                  <th>Tên kho</th>
+                  
+                  <th>Nhân viên</th>
+                 
                   <th>Tùy chọn</th>
+                
                 </tr>
               </thead>
 
               <tbody>
                 @php $i = 0; @endphp
-                @foreach($list_orders as $data)
+                @foreach($export_list as $data)
                 @php $i++ @endphp
                 <tr>
                   <td class="table-column-pr-0">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" value="{{$data['order_id']}}" class="custom-control-input checked-update" id="ordersCheck{{$i}}">
+                      <input type="checkbox" value="{{$data['id']}}" class="custom-control-input checked-update" id="ordersCheck{{$i}}">
                       <label class="custom-control-label" for="ordersCheck{{$i}}"></label>
                     </div>
                   </td>
                   <td class="table-column-pl-0">
-                    <a href="{{_WEB_ROOT.'/order-detail/id-'.$data['order_id']}}">#{{$data['order_id']}}</a>
-                  </td>
-                  <td>{{$data['order_date']}}</td>
-                  <td>
-                    <a class="text-body" href="{{_WEB_ROOT.'/customer-edit/id-'.$data['customer_id']}}">{{$data['fullname']}}</a>
+                    <a style="color:blue; cursor: pointer;" data-toggle="modal" data-target="#exampleModal{{$data['id']}}">#{{$data['id']}}</a>
                   </td>
                   <td>
-                    
-                    {! $data['status'] !}
+                    {{$data['export_date']}}
                   </td>
                   <td>
-                    <span class="badge badge-soft-info">
-                      <span class="legend-indicator bg-info"></span>Fulfilled
-                    </span>
+                    <a class="text-body" href="">{{$data['store_name']}}</a>
+                  </td>
+            
+                  <td>
+                    {{$data['fullname']}}
                   </td>
                   <td>
                     <div class="d-flex align-items-center">
-                      <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\brands\mastercard.svg" alt="Image Description">
-                      <span class="text-dark">{{$data['email']}}</span>
+                     
+                      <span class="text-dark"></span>
                     </div>
-                  </td>
-                  <td>
-                 
-                  {!number_format($data['total'])!} đ
-                  </td>
-                  <td>
-                    <div class="btn-group" role="group">
-                      <a class="btn btn-sm btn-white" href="{{ _WEB_ROOT.'/order-detail/id-'.$data['order_id']}}">
-                        <i class="tio-visible-outlined"></i> View
-                      </a>
-                      
-                      <!-- Unfold -->
-                      <div style="z-index: 9;" class="hs-unfold btn-group">
-                        <a class="js-hs-unfold-invoker btn btn-icon btn-sm btn-white dropdown-toggle dropdown-toggle-empty" href="javascript:;" data-hs-unfold-options='{
-                             "target": "#ordersExportDropdown1",
-                             "type": "css-animation",
-                             "smartPositionOffEl": "#datatable"
-                           }'></a>
-
-                        <div id="ordersExportDropdown1" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right mt-1">
-                          <span class="dropdown-header">Options</span>
-                          <a class="js-export-copy dropdown-item" href="javascript:;">
-                            <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\illustrations\copy.svg" alt="Image Description">
-                            Copy
-                          </a>
-                          <a class="js-export-print dropdown-item" href="javascript:;">
-                            <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\illustrations\print.svg" alt="Image Description">
-                            Print
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <span class="dropdown-header">Download options</span>
-                          <a class="js-export-excel dropdown-item" href="javascript:;">
-                            <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\brands\excel.svg" alt="Image Description">
-                            Excel
-                          </a>
-                          <a class="js-export-csv dropdown-item" href="javascript:;">
-                            <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\components\placeholder-csv-format.svg" alt="Image Description">
-                            .CSV
-                          </a>
-                          <a class="js-export-pdf dropdown-item" href="javascript:;">
-                            <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\brands\pdf.svg" alt="Image Description">
-                            PDF
-                          </a>
-                         
-                          
-                        </div>
-                      </div>
-                      <!-- End Unfold -->
-                      
-                    </div>
-                  </td>
-                </tr>
-                
-                @endforeach
-
-                
-               
-              
-
-              </tbody>
-            </table>
-          </div>
-
-          <div class="table-responsive datatable-custom collapse" id="collapseExample1">
-            <table id="datatable2" class="table table-hover table-borderless table-thead-bordered table-nowrap table-align-middle card-table" style="width: 100%" data-hs-datatables-options='{
-                     "columnDefs": [{
-                        "targets": [0],
-                        "orderable": false
-                      }],
-                     "order": [],
-                     "info": {
-                       "totalQty": "#datatableWithPaginationInfoTotalQty"
-                     },
-                     "search": "#datatableSearch",
-                     "entries": "#datatableEntries",
-                     "pageLength": 8,
-                     "isResponsive": false,
-                     "isShowPaging": false,
-                     "pagination": "datatablePagination"
-                   }'>
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" class="table-column-pr-0">
-                    <div class="custom-control custom-checkbox">
-                      <input id="datatableCheckAll2" type="checkbox" class="custom-control-input">
-                      <label class="custom-control-label" for="datatableCheckAll2"></label>
-                    </div>
-                  </th>
-                  <th class="table-column-pl-0">Mã đơn hàng</th>
-                  <th>Ngày</th>
-                  <th>Khách hàng</th>
-                  <th>Trạng thái</th>
-                 
-                  <th>phương thức thanh toán</th>
-                  <th>Tổng tiền</th>
-                  <th>Tùy chọn</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                @foreach($list_orders as $data)
-                @if($data['order_status'] == 4)
-                @php $i++ @endphp
-                <tr>
-                  <td class="table-column-pr-0">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" value="{{$data['order_id']}}" class="custom-control-input checked-update" id="ordersCheck{{$i}}">
-                      <label class="custom-control-label" for="ordersCheck{{$i}}"></label>
-                    </div>
-                  </td>
-                  <td class="table-column-pl-0">
-                    <a href="{{_WEB_ROOT.'/order-detail/id-'.$data['order_id']}}">#{{$data['order_id']}}</a>
-                  </td>
-                  <td>{{$data['order_date']}}</td>
-                  <td>
-                    <a class="text-body" href="{{_WEB_ROOT.'/customer-edit/id-'.$data['customer_id']}}">{{$data['fullname']}}</a>
-                  </td>
-                  <td>
-                    
-                    {! $data['status'] !}
-                  </td>
                   
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <img class="avatar avatar-xss avatar-4by3 mr-2" src="{{ _WEB_ROOT }}\public\admin\svg\brands\mastercard.svg" alt="Image Description">
-                      <span class="text-dark">&bull;&bull;&bull;&bull; {{substr($data['payment_code'], -4)}}</span>
-                    </div>
-                  </td>
-                  <td>
                  
-                  {!number_format($data['total'])!} đ
-                  </td>
-                  <td>
+                 
+                  
                     <div class="btn-group" role="group">
-                      <a class="btn btn-sm btn-white" href="{{ _WEB_ROOT.'/order-detail/id-'.$data['order_id']}}">
-                        <i class="tio-visible-outlined"></i> View
+                      <a class="btn btn-sm btn-white" href="#">
+                        <i class="tio-visible-outlined"></i>
                       </a>
                       
                       <!-- Unfold -->
@@ -556,8 +388,9 @@
                     </div>
                   </td>
                 </tr>
-                @endif
+    
                 @endforeach
+               
 
                 
                
@@ -566,6 +399,8 @@
               </tbody>
             </table>
           </div>
+
+        
           <!-- End Table -->
 
           <!-- Footer -->
@@ -1198,7 +1033,55 @@
     </div>
     <!-- End Product Filter Modal -->
     <!-- ========== END SECONDARY CONTENTS ========== -->
-    
 
+    <!-- Modal export detail -->
 
+    <!-- Modal -->
+
+@foreach($export_list as $data)
+
+<div class="modal fade" id="exampleModal{{$data['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Chi tiết xuất kho</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">SL</th>
+                <th scope="col">Giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($export_detail as $value)
+                    @php $i = 0; @endphp
+                    @foreach($value as $product)
+                        @if($product['export_id'] == $data['id'])
+                        @php $i++; @endphp
+                        <tr>
+                        <th scope="row">{{$i}}</th>
+                        <td>{{$product['product_name']}}</td>
+                        <td>{{number_format($product['quantity'])}}</td>
+                        <td>{! number_format($product['unit_price']) !} đ</td>
+                        </tr>
+                        @endif
+                    @endforeach
+               @endforeach
+            </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
     
