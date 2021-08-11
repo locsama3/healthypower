@@ -53,13 +53,20 @@
 	margin-bottom: 5px;
 }
 .blog_entry-title {
-	font-size: 26px;
+	font-size: 30px;
 	line-height: 1.2em;
 	text-transform: none;
 	margin-bottom: 6px;
 	text-align: left;
 	font-family: "Open Sans", sans-serif;
 	margin-top: auto;
+	font-weight: bold;
+}
+.hr-title{
+	border-top: 2px solid black;
+    width: 14%;
+    margin-left: 0px;
+    margin-top: -4px;
 }
 .blog_entry-title a {
 	font-family: "Open Sans", sans-serif;
@@ -237,6 +244,10 @@
     text-align: center;
     width: 80%;
     margin: 0 auto;
+}
+
+.posts-list img {
+    width: 80px;
 }
 .popular-posts h4 {
 	font-size: 13px;
@@ -886,7 +897,8 @@ blockquote cite a, blockquote cite a:visited, blockquote cite a:visited {
 }
 .container-paper-table .post-container img {
 	margin: 0 auto;
-	width: 100%
+	width: 100%;
+	height: 245px;
 }
 .container-paper-table .post-container .text {
 	padding: 15px 12px 8px;

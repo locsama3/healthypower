@@ -382,7 +382,7 @@
   <!-- Latest Blog -->
   <section class="latest-blog container wow">
     <div class="blog-title">
-      <h2><span>Bài viết xem nhiều</span></h2>
+      <h2><span>Bài viết mới nhất</span></h2>
     </div>
     <div class="row">
       @php
@@ -400,11 +400,17 @@
           <img src="{{_WEB_ROOT.'/public/uploads/blogs/'.$thumbnail}}" alt="{{$value['title']}}">
           <!--<div class="mask"> <a class="info" href="blog-detail.html">Read More</a> </div>-->
         </div>
-        <h3>
+        <p>
           <a href="{{_WEB_ROOT.'/bai-viet/'.$value['slug']}}">{{$value['title']}}</a> 
-        </h3>
-        <p>{! textShorten($value['subtitle'], 100) !}</p>
-        <div class="post-date"><i class="icon-calendar"></i> {{ $value['created_at'] }}</div>
+        </p>
+        <div class="post-date">
+          <i class="icon-calendar"></i> 
+          @php
+            $strtime = strtotime($value['created_at']);
+            $time = date('D d/m/Y', $strtime);
+          @endphp
+          {{ format_date_vie($time) }}
+        </div>
       </div>
       @endforeach
     </div>

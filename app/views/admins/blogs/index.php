@@ -240,7 +240,7 @@
                     </div>
                   </td>
                   <td class="table-column-pl-0">
-                    <a class="d-flex align-items-center" href="{{'bai-viet-'.$value['slug']}}">
+                    <a class="d-flex align-items-center" href="{{'bai-viet/'.$value['slug']}}">
                       <div class="avatar avatar-circle">
                         <img class="avatar-img" alt="{{$value['slug']}}"
                         src="{{_WEB_ROOT.'/public/uploads/blogs/'.$value['thumbnail']}}" >

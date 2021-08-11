@@ -6,7 +6,7 @@
       var customFile = new HSFileAttach($(this)).init();
     });
 
-    const _token = $('meta[name=csrf-token]').attr("content");
+    // const _token = $('meta[name=csrf-token]').attr("content");
     const url = "{{ _WEB_ROOT }}/blogs-store";
     let checkSubmitSuccess = false;
 
@@ -48,7 +48,6 @@
         })
 
         let formData = new FormData(document.getElementById('form-ce'));
-        formData.append('_token', _token);
 
         formData.append('main_content', CKEDITOR.instances['ckeditor1'].getData());
 

@@ -9,6 +9,7 @@
       <!-- Content -->
       <form id ="form-ce" class="content container-fluid" method="POST" action = ""
       enctype="multipart/form-data">
+        {! csrf_field() !}
         <!-- Page Header -->
         <div class="page-header">
           <div class="row align-items-center">

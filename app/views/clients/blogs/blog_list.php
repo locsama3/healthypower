@@ -27,7 +27,7 @@
                         <li><span class="icon-user">&nbsp;</span>Tác giả {{$value['author']}}</li>
                         <li><span class="icon-time">&nbsp;</span>{{ $value['created_at'] }}</li>
                       </ul>
-                      <p class="post-excerpt">{{$value['subtitle']}} </p>
+                      <p class="post-excerpt">{{ textShorten($value['subtitle'], 135)}} </p>
                       <a href="{{_WEB_ROOT.'/bai-viet/'.$value['slug']}}" class="btn btn-mega">Đọc tiếp &nbsp; <span class="icon icon-arrow-right-5"></span></a>
                       <ul class="list-info">
                         <li><span class="icon-eye-open">&nbsp;</span>{{$value['view']}} lượt xem</li>

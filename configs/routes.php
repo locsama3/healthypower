@@ -49,15 +49,15 @@
     
     $routes['bai-viet'] = 'blog/show_blogs';
 
-    $routes['muc-bai-viet/trang-(.+)'] = 'blog/blog_on_page/$1';
-
     $routes['bai-viet/(.+)'] = 'blog/show_blog_detail/$1';
     
     $routes['danh-muc-bai-viet/(.+)'] = 'blog/show_category_home/$1';
 
-    $routes['load-blog-comment'] = 'admin/blogcomment/load_comment';
+    $routes['muc-bai-viet/trang-(.+)'] = 'blog/blog_on_page/$1';
 
-    $routes['send-blog-comment'] = 'admin/blogcomment/send_comment';
+    $routes['load-blog-comment'] = 'blogcomment/load_comment';
+
+    $routes['send-blog-comment'] = 'blogcomment/send_comment';
 
     $routes['manage-blog-comment'] = 'admin/blogcomment/manage_review';
 
@@ -102,9 +102,11 @@
     $routes['hoan-tat-don-hang'] = 'cart/success';
 
     //comment and rating product
-    $routes['load-comment'] = 'admin/productreview/load_comment';
+    $routes['load-comment'] = 'productreview/load_comment';
 
-    $routes['send-comment'] = 'admin/productreview/send_comment';
+    $routes['send-comment'] = 'productreview/send_comment';
+
+    $routes['insert-rating'] = 'productreview/insert_rating';
 
     $routes['manage-review'] = 'admin/productreview/manage_review';
 
@@ -117,8 +119,6 @@
     $routes['comment-destroy'] = 'admin/productreview/destroy_comment';
 
     $routes['view-child-comment/.+-(\d+)'] = 'admin/productreview/child_comment/$1';
-
-    $routes['insert-rating'] = 'admin/productreview/insert_rating';
 
     /* ---------------------------------------------------------------------------------------- */
 

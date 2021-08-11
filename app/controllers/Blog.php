@@ -39,7 +39,7 @@ class Blog extends Controller{
         ];
 
         $data['data_js'] = [
-            'ajax' => 'admins.customers.js_index'
+            'ajax' => 'admins.customers.js_list'
         ];
         
         $current_page = 1;
@@ -62,8 +62,31 @@ class Blog extends Controller{
         return $this->view('layouts.client_layout', $data);
     }
 
-    function blog_on_page($page)
+    public function blog_on_page($page)
     {
+        $data['content'] = 'clients.blogs.blog_list';
+
+        $data['sub_content']['most_view'] = $this->blogModel->get_most_view();
+
+        $data['sub_content']['parent_category'] = $this->blogCateModel->get_parent();
+
+        $data['sub_content']['child_category'] = $this->blogCateModel->get_children();
+
+        $data['dataMeta'] = [
+            'meta_title' => 'Bài viết',
+            'meta_desc' => 'blogs, bài viết, dinh dưỡng, sức khỏe',
+            'meta_keywords' => 'heathy, whey, vitamin, oars',
+            'url_canonical' => _WEB_ROOT.'/bai-viet',
+            'meta_author' => 'Lộc sama',
+            'image_og' => 'favicon.ico'
+        ];
+
+        $data['page_title'] = 'Bài viết';
+
+        $data['libraryCSS']['list_css'] = [
+            'blogmate' => 'blogmate.css'
+        ];
+
         $current_page = $page;
 
         $postTotal = $this->blogModel->count_blogs(); // Lấy tổng số bài viết.
@@ -75,65 +98,87 @@ class Blog extends Controller{
 
         $limit = ($current_page - 1) * $postOnePage;
           
-        $blogOnPage = $this->blogModel->get_all_post($limit, $postOnePage);
+        $data['sub_content']['blogs_list'] = $this->blogModel->get_all_post($limit, $postOnePage);
 
-        $output = '';
+        $data['sub_content']['current_page'] = $current_page;
 
-        foreach($blogs_list as $key => $value){  
-            $output =' 
-            <!-- Blog post -->
-            <div class="col-sm-6 col-md-6">
-              <article class="container-paper-table">
-                <div class="title">
-                  <h2 class="entry-title">
-                    <a href="' ._WEB_ROOT. '/bai-viet/'. $value['slug']. '">
-                      ' .$value['title']. '
-                    </a>
-                  </h2>
-                </div>
-                <div class="post-container"> 
-                  <a href="blog_single_post.html">
-                    <img class="img-responsive" src="'. _WEB_ROOT. '/public/uploads/blogs/' .$value['thumbnail']. '" alt="' .$value['title']. '">
-                  </a>
-                  <div class="text">
-                    <ul class="list-info">
-                      <li><span class="icon-user">&nbsp;</span>Tác giả ' .$value['author']. '</li>
-                      <li><span class="icon-time">&nbsp;</span>' .$value['created_at']. '</li>
-                    </ul>
-                    <p class="post-excerpt">' .$value['subtitle']. ' </p>
-                    <a href="' ._WEB_ROOT. '/bai-viet/'. $value['slug']. '" class="btn btn-mega">Đọc tiếp &nbsp; <span class="icon icon-arrow-right-5"></span></a>
-                    <ul class="list-info">
-                      <li><span class="icon-eye-open">&nbsp;</span>' .$value['view']. ' lượt xem</li>
-                      <li><span class="icon-comments">&nbsp;</span><a href="#"></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <!-- //end Blog post -->';
-        }
+        $data['sub_content']['pageTotal'] = $pageTotal;
 
-        // Phân trang
-        $output .= '<div class="col col-xs-8">
-                        <ul class="pagination hidden-xs pull-right">';
-        if ($current_page > 1) {
-            $output .= '<li><a href="' ._WEB_ROOT. '/muc-bai-viet/trang-' . ($current_page - 1) . '">«</a></li>';
-        }
-        for ($i = 1; $i <= $pageTotal; $i++) {
-            $class = ($current_page == $i) ? 'active' : '';
-            $output .= '<li class="' . $class . '">';
-            $output .= '<a href="' ._WEB_ROOT. '/muc-bai-viet/trang-' . $i . '">' . $i . '</a>';
-            $output .= '</li>';
-        }
-        if ($current_page < $pageTotal) {
-            $output .= '<li><a href ="' ._WEB_ROOT. '/muc-bai-viet/trang-'.($current_page + 1).'">»</a></li>';
-        }
-        $output .= '</ul>
-                    </div>
-                    </div>
-                    </div>';
-        die($output);
+        return $this->view('layouts.client_layout', $data);
     }
+
+    // function blog_on_page($page)
+    // {
+    //     $current_page = $page;
+
+    //     $postTotal = $this->blogModel->count_blogs(); // Lấy tổng số bài viết.
+
+    //     $postOnePage = 6; // Số bài viết hiển thị trong 1 trang.
+
+    //     // Khi đã có tổng số bài viết và số bài viết trong một trang ta có thể tính ra được tổng số trang
+    //     $pageTotal = ceil($postTotal / $postOnePage);
+
+    //     $limit = ($current_page - 1) * $postOnePage;
+          
+    //     $blogOnPage = $this->blogModel->get_all_post($limit, $postOnePage);
+
+    //     $output = '';
+
+    //     foreach($blogs_list as $key => $value){  
+    //         $output =' 
+    //         <!-- Blog post -->
+    //         <div class="col-sm-6 col-md-6">
+    //           <article class="container-paper-table">
+    //             <div class="title">
+    //               <h2 class="entry-title">
+    //                 <a href="' ._WEB_ROOT. '/bai-viet/'. $value['slug']. '">
+    //                   ' .$value['title']. '
+    //                 </a>
+    //               </h2>
+    //             </div>
+    //             <div class="post-container"> 
+    //               <a href="blog_single_post.html">
+    //                 <img class="img-responsive" src="'. _WEB_ROOT. '/public/uploads/blogs/' .$value['thumbnail']. '" alt="' .$value['title']. '">
+    //               </a>
+    //               <div class="text">
+    //                 <ul class="list-info">
+    //                   <li><span class="icon-user">&nbsp;</span>Tác giả ' .$value['author']. '</li>
+    //                   <li><span class="icon-time">&nbsp;</span>' .$value['created_at']. '</li>
+    //                 </ul>
+    //                 <p class="post-excerpt">' .$value['subtitle']. ' </p>
+    //                 <a href="' ._WEB_ROOT. '/bai-viet/'. $value['slug']. '" class="btn btn-mega">Đọc tiếp &nbsp; <span class="icon icon-arrow-right-5"></span></a>
+    //                 <ul class="list-info">
+    //                   <li><span class="icon-eye-open">&nbsp;</span>' .$value['view']. ' lượt xem</li>
+    //                   <li><span class="icon-comments">&nbsp;</span><a href="#"></a></li>
+    //                 </ul>
+    //               </div>
+    //             </div>
+    //           </article>
+    //         </div>
+    //         <!-- //end Blog post -->';
+    //     }
+
+    //     // Phân trang
+    //     $output .= '<div class="col col-xs-8">
+    //                     <ul class="pagination hidden-xs pull-right">';
+    //     if ($current_page > 1) {
+    //         $output .= '<li><a href="' ._WEB_ROOT. '/muc-bai-viet/trang-' . ($current_page - 1) . '">«</a></li>';
+    //     }
+    //     for ($i = 1; $i <= $pageTotal; $i++) {
+    //         $class = ($current_page == $i) ? 'active' : '';
+    //         $output .= '<li class="' . $class . '">';
+    //         $output .= '<a href="' ._WEB_ROOT. '/muc-bai-viet/trang-' . $i . '">' . $i . '</a>';
+    //         $output .= '</li>';
+    //     }
+    //     if ($current_page < $pageTotal) {
+    //         $output .= '<li><a href ="' ._WEB_ROOT. '/muc-bai-viet/trang-'.($current_page + 1).'">»</a></li>';
+    //     }
+    //     $output .= '</ul>
+    //                 </div>
+    //                 </div>
+    //                 </div>';
+    //     die($output);
+    // }
 
     public function show_category_home($slug)
     {

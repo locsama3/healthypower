@@ -24,7 +24,7 @@ function format_date($str_date, $date_format)
 function format_date_vie($datetime)
 {
     $timeEng = ['Sun','Mon','Tue','Wed', 'Thu', 'Fri', 'Sat', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    $timeVie = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy','Một', 'Hai', 'Ba', 'Tư', 'Năm', 'Sáu', 'Bảy', 'Tám', 'Chín', 'Mười', 'Mười Một', 'Mười Hai'];
+    $timeVie = ['Chủ Nhật,', 'Thứ Hai,', 'Thứ Ba,', 'Thứ Tư,', 'Thứ Năm,', 'Thứ Sáu,', 'Thứ Bảy,','Tháng Một', 'Tháng Hai', 'Tháng Ba', 'Tháng Tư', 'Tháng Năm', 'Tháng Sáu', 'Tháng Bảy', 'Tháng Tám', 'Tháng Chín', 'Tháng Mười', 'Tháng Mười Một', 'Tháng Mười Hai'];
     $time = str_replace( $timeEng, $timeVie, $datetime);
 
     return $time;

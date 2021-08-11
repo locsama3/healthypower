@@ -13,6 +13,7 @@
                     <div class="blog_entry-header-inner">
                       <h2 class="blog_entry-title"> {{$blogs_by_slug['title']}} </h2>
                     </div>
+                    <hr class="hr-title">
                     <!--blog_entry-header-inner--> 
                     <div class="blog_entry-header-inner">
                       <h3 class="blog_entry-title" style="font-size: 18px"> {{$blogs_by_slug['subtitle']}} </h2>
