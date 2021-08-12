@@ -101,7 +101,14 @@
                             @else 
                             <p>Giới tính: <span>Nữ</span></p>
                             @endif
-                            <p>Ngày sinh: <span>{{ $customer['birthday'] }}</span></p>
+                            @if (!empty($customer['birthday']))
+                                @php
+                                $date = date_create($customer['birthday']);
+                                @endphp
+                                <p>Ngày sinh: <span>{{ date_format($date, "d - m - Y") }}</span></p>
+                            @else
+                                <p>Ngày sinh: <span></span></p>
+                            @endif
                             <p>Địa chỉ: <span>{{ $customer['shipping_address'] }}</span></p>
                         </div>
     
@@ -128,21 +135,21 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Tỉnh / Thành phố: </label>
-                                    <select class="form-select load_province" id="province" style="width: 100%;" name="province" value="{{ $customer['province_id'] }}">
+                                    <select class="form-select load_province" id="province" style="width: 100%;" name="province" data-id="{{ $customer['province_id'] }}">
                                         <option value="">--- Tỉnh, TP ---</option>
                                     </select>
                                     <div class="form-message"></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Quận / Huyện: </label>
-                                    <select class="form-select" id="district" style="width: 100%;" name="district"  value="{{ $customer['district_id'] }}">
+                                    <select class="form-select" id="district" style="width: 100%;" name="district"  data-id="{{ $customer['district_id'] }}">
                                         <option value="">--- Quận, huyện ---</option>
                                     </select>
                                     <div class="form-message"></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phường / Xã: </label>
-                                    <select class="form-select" id="ward" style="width: 100%;" name="ward"  value="{{ $customer['ward_id'] }}">
+                                    <select class="form-select" id="ward" style="width: 100%;" name="ward"  data-id="{{ $customer['ward_id'] }}">
                                         <option value="">--- Phường, xã ---</option>
                                     </select>
                                     <div class="form-message"></div>

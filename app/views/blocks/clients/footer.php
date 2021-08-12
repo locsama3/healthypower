@@ -8,7 +8,7 @@
               @foreach ($list_suppliers as $key => $supplier)
               <!-- Item -->   
               
-              <div class="item"> <a href="#x"><img style="width: 100%;" src="{{ _WEB_ROOT }}/public/uploads/brands/{{ $supplier['image'] }}" alt="Image"></a> </div>
+              <div class="item"> <a href="#x"><img style="width: 100%;" src="{{ _WEB_ROOT }}/public/uploads/supplier/{{ $supplier['image'] }}" alt="Image"></a> </div>
               <!-- End Item -->
               
               @endforeach

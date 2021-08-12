@@ -20,7 +20,9 @@ class Customer extends Controller
         $data['content'] = 'admins.customers.index';
 
          
-        $data['sub_content']['list_customers'] = $this->customerModel->all();
+        $data['sub_content']['list_customers'] = $this->customerModel->findByField(['deleted_at : null']);
+
+        $data['sub_content']['customersCount'] = $this->customerModel->countIf(['deleted_at : null']);
 
         $i = 0;
         

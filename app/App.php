@@ -160,13 +160,9 @@ class App{
         }
     }
     public function handleRouteAdminMiddleware($url, $db){
-        global $config;
-        
-        if (!empty($config['app']['routeAdminMiddleware'])){
-            
-     
-            if (strpos($url, 'admin') !== false && $url != 'admin/user/login' && $url != 'admin/user/validatelogin') {
-                
+        global $config;     
+        if (!empty($config['app']['routeAdminMiddleware'])){     
+            if (strpos($url, 'admin') !== false && $url != 'admin/user/login' && $url != 'admin/user/validatelogin') {             
                 require_once 'app/middlewares/AuthAdminMiddleware.php';
                 $middleWareObject = new AuthAdminMiddleware();
                 if (!empty($db)){
@@ -177,50 +173,51 @@ class App{
         }
     }
     
-    // // public function handleGlobalMiddleware($db){
-    // //     global $config;
-    // //     if (!empty($config['app']['globalMiddleware'])){
-    // //         $globalMiddleWareArr = $config['app']['globalMiddleware'];
+    // public function handleGlobalMiddleware($db){
+    //     global $config;
+    //     if (!empty($config['app']['globalMiddleware'])){
+    //         $globalMiddleWareArr = $config['app']['globalMiddleware'];
            
-    // //         foreach ($globalMiddleWareArr as $key=>$middleWareItem){
-    // //             if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
-    // //                 require_once 'app/middlewares/'.$middleWareItem.'.php';
-    // //                 if (class_exists($middleWareItem)){
-    // //                     $middleWareObject = new $middleWareItem();
-    // //                     if (!empty($db)){
-    // //                         $middleWareObject->db = $db;
-    // //                     }
-    // //                     $middleWareObject->handle();
-    // //                 }
-    // //             }
-    // //         }
+    //         foreach ($globalMiddleWareArr as $key=>$middleWareItem){
+    //             if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
+    //                 require_once 'app/middlewares/'.$middleWareItem.'.php';
+    //                 if (class_exists($middleWareItem)){
+    //                     $middleWareObject = new $middleWareItem();
+    //                     if (!empty($db)){
+    //                         $middleWareObject->db = $db;
+    //                     }
+    //                     $middleWareObject->handle();
+    //                 }
+    //             }
+    //         }
             
-    // //     }
-        
+    //     }   
     // }
+
     public function handleGlobalMiddleware($url, $db){
         global $config;
         if (!empty($config['app']['globalMiddleware'])){
             $globalMiddleWareArr = $config['app']['globalMiddleware'];
            
-            foreach ($globalMiddleWareArr as $key=>$middleWareItem){
-                if($middleWareItem == 'VerifyCsrfToken' && strpos($url, 'admin') !== false && $url != 'admin/user/login' && $url != 'admin/user/validatelogin'){
-                    if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
-                        require_once 'app/middlewares/'.$middleWareItem.'.php';
-                        if (class_exists($middleWareItem)){
-                            $middleWareObject = new $middleWareItem();
-                            if (!empty($db)){
-                                $middleWareObject->db = $db;
-                            }
-                            $middleWareObject->handle();
+            foreach ($globalMiddleWareArr as $key=> $middleWareItem){
+                if($middleWareItem == 'VerifyCsrfToken' && strpos($url, 'admin') !== false && $url == 'admin/user/login' || $url == 'admin/user/validatelogin'){
+                    continue;
+                }
+                if ($middleWareItem == 'ParamsMiddleware' && strpos($url, 'admin') === false) {
+                    continue;
+                }                 
+                if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
+                    require_once 'app/middlewares/'.$middleWareItem.'.php';
+                    if (class_exists($middleWareItem)){
+                        $middleWareObject = new $middleWareItem();
+                        if (!empty($db)){
+                            $middleWareObject->db = $db;
                         }
+                        $middleWareObject->handle();
                     }
                 }
-                    
             }
-            
-        }
-        
+        }        
     }
     
    

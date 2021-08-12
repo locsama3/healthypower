@@ -528,8 +528,6 @@ class Customer extends Controller{
         if ($this->request->isPost()){
             $dataFields = $this->request->getFields();
 
-            debug($dataFields);
-
             /*Set rules*/
             $this->request->rules([
                 'phone' => 'required|unique:shop_customers:phone:id='.$dataFields['customer-id']
@@ -570,6 +568,8 @@ class Customer extends Controller{
             $message = [
                 "status" => "1",
                 'message' => "Cập nhật thông tin của bạn thành công!",
+                'location' => _WEB_ROOT.'/thong-tin-tai-khoan',
+                'time' => 1000
             ];
 
             exit(json_encode($message));

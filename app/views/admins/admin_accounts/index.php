@@ -43,13 +43,17 @@
 
                 <div class="row align-items-center gx-2">
                   <div class="col">
-                    <span class="js-counter display-4 text-dark">24</span>
-                    <span class="text-body font-size-sm ml-1">từ 22</span>
+                    <span class="js-counter display-4 text-dark"> {{ $adminsCount }} </span>
+                    <span class="text-body font-size-sm ml-1">từ {{ $adminsCountOld }}</span>
                   </div>
 
                   <div class="col-auto">
                     <span class="badge badge-soft-success p-1">
-                      <i class="tio-trending-up"></i> 5.0%
+                      @if (!empty($adminsCountOld))
+                      <i class="tio-trending-up"></i> {{ ($adminsCount - $adminsCountOld)/$adminsCountOld }}%
+                      @else 
+                      <i class="tio-trending-up"></i> 0%
+                      @endif
                     </span>
                   </div>
                 </div>
@@ -67,13 +71,17 @@
 
                 <div class="row align-items-center gx-2">
                   <div class="col">
-                    <span class="js-counter display-4 text-dark">12</span>
-                    <span class="text-body font-size-sm ml-1">từ 11</span>
+                    <span class="js-counter display-4 text-dark">{{ $adminsCountActive }}</span>
+                    <span class="text-body font-size-sm ml-1">từ {{ $adminsCountActiveOld }}</span>
                   </div>
 
                   <div class="col-auto">
                     <span class="badge badge-soft-success p-1">
-                      <i class="tio-trending-up"></i> 1.2%
+                      @if (!empty($adminsCountActiveOld))
+                      <i class="tio-trending-up"></i> {{ ($adminsCountActive - $adminsCountActiveOld)/$adminsCountActiveOld }}%
+                      @else 
+                      <i class="tio-trending-up"></i> 0%
+                      @endif
                     </span>
                   </div>
                 </div>

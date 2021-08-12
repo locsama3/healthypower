@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <ul>
-                <li class="home"> <a href="index.html" title="Go to Home Page">Trang chủ</a><span>&mdash;›</span></li>
+                <!-- <li class="home"> <a href="index.html" title="Go to Home Page">Trang chủ</a><span>&mdash;›</span></li>
                 <li class=""> <a href="grid.html" title="Go to Home Page">Danh mục sản phẩm</a><span>&mdash;›</span></li>
-                <li class="category13"><strong> Sản phẩm chi tiết </strong></li>
+                <li class="category13"><strong> Sản phẩm chi tiết </strong></li> -->
             </ul>
         </div>
     </div>
@@ -109,7 +109,7 @@
                                             <div class="custom pull-left">
                                                 <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
                                                 <!-- <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty"> -->
-                                                <input type="number" class="input-text" id="qty" min="1" name="qty">
+                                                <input type="number" class="input-text" style="padding: 12px 4px; width:40px; font-size: 16px; font-weight: bold" id="qty" min="1" name="qty" value="1">
                                                 <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
                                             </div>
                                         </div>
@@ -265,7 +265,242 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="box-additional">
-                                
+                                <div class="related-pro wow">
+                                    <div class="slider-items-products">
+                                    <div class="new_title center">
+                                        <h2>Sản phẩm liên quan</h2>
+                                    </div>
+                                    <div id="related-products-slider" class="product-flexslider hidden-buttons">
+                                        <div class="slider-items slider-width-col4"> 
+                                        @foreach ($list_related_products as $product)
+                                        <!-- Item -->
+                                        <div class="item">
+                                            @php
+                                            $check = false;
+                                            $discount_amount = 0;
+                                            @endphp
+                                            <div class="col-item">
+                                                @foreach ($list_discounts as $discount)
+                                                    @if ($discount['product_id'] == $product['id'])
+                                                    <div class="sale-label sale-top-right">{{ $discount['discount_percentage'] }} %</div>
+                                                    @php
+                                                    $check = true;
+                                                    $discount_amount = $discount['discount_percentage']/100;
+                                                    break;
+                                                    @endphp
+                                                    @endif
+                                                @endforeach
+                                                <div class="images-container"> 
+                                                    <a class="product-image" title="Sample Product" href="chi-tiet-san-pham/id-{{ $product['id'] }}"> 
+                                                        <img src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}" class="img-responsive" alt="a" /> 
+                                                    </a>
+                                                    <div class="actions">
+                                                        <div class="actions-inner">
+                                                            <button type="button" title="Thêm vào giỏ hàng" class="button btn-cart" onclick="location.href=`{{_WEB_ROOT}}/them-gio-hang/id-{{ $product['id'] }}`;"><span>Thêm vào giỏ</span></button>
+                                                            <ul class="add-to-links">
+                                                                <li>
+                                                                    <a href="wishlist.html" title="Thêm vào mục yêu thích" class="link-wishlist">
+                                                                        <span>Add to Wishlist</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="compare.html" title="Thêm vào so sánh" class="link-compare ">
+                                                                        <span>Add to Compare</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="qv-button-container"> 
+                                                        <a class="qv-e-button btn-quickview-1" href="quick_view.html">
+                                                            <span>Quick View</span>
+                                                        </a> 
+                                                    </div>
+                                                </div>
+                                                <div class="info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title"> 
+                                                            <a title="{{ $product['product_name'] }}" href="chi-tiet-san-pham/san-pham-{{ $product['id'] }}">{{ $product['product_name'] }}</a> 
+                                                        </div>
+                                                        <!--item-title-->
+                                                        <div class="item-content">
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                @php
+                                                                $total = 0;
+                                                                $count = 0;
+                                                                @endphp
+                                                                @foreach ($list_reviews as $review)
+                                                                    @if ($review['product_id'] == $product['id'])
+                                                                    @php
+                                                                        $total += $review['rating'];
+                                                                        $count ++;
+                                                                    @endphp
+                                                                    @endif
+                                                                @endforeach
+
+                                                                @if($count != 0)
+                                                                <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                                                                @else
+                                                                <div style="width:0%" class="rating"></div>
+
+                                                                @endif
+                                                                </div>
+                                                            </div>
+                                                            <div class="price-box">
+                                                                <p class="special-price"> 
+                                                                    <span class="price">
+                                                                    @if ($check == true)
+                                                                    {{ number_format($product['list_price']*(1-$discount_amount), 0, ',', '.') }}
+                                                                    @endif
+                                                                    @if ($check == false)
+                                                                    {{ number_format($product['list_price'], 0, ',', '.') }}
+                                                                    @endif
+                                                                    </span> 
+                                                                </p>
+                                                                @if ($check == true)
+                                                                <p class="old-price"> 
+                                                                    <span class="price-sep">-</span> 
+                                                                    <span class="price">{{ number_format($product['list_price'], 0, ',', '.') }}</span>
+                                                                </p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                        <!--item-content-->
+                                                    </div>
+                                                    <!--info-inner-->
+
+                                                    <!--actions-->
+
+                                                    <div class="clearfix"> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Item --> 
+                                        @endforeach
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                @if (!empty($list_viewed_products))
+                                <div class="upsell-pro wow">
+                                    <div class="slider-items-products">
+                                    <div class="new_title center">
+                                        <h2>Sản phẩm bạn đã xem</h2>
+                                    </div>
+                                    <div id="upsell-products-slider" class="product-flexslider hidden-buttons">
+                                        <div class="slider-items slider-width-col4"> 
+                                        @foreach ($list_viewed_products as $product)
+                                        <!-- Item -->
+                                        <div class="item">
+                                            @php
+                                            $check = false;
+                                            $discount_amount = 0;
+                                            @endphp
+                                            <div class="col-item">
+                                                @foreach ($list_discounts as $discount)
+                                                    @if ($discount['product_id'] == $product['id'])
+                                                    <div class="sale-label sale-top-right">{{ $discount['discount_percentage'] }} %</div>
+                                                    @php
+                                                    $check = true;
+                                                    $discount_amount = $discount['discount_percentage']/100;
+                                                    break;
+                                                    @endphp
+                                                    @endif
+                                                @endforeach
+                                                <div class="images-container"> 
+                                                    <a class="product-image" title="Sample Product" href="chi-tiet-san-pham/id-{{ $product['id'] }}"> 
+                                                        <img src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}" class="img-responsive" alt="a" /> 
+                                                    </a>
+                                                    <div class="actions">
+                                                        <div class="actions-inner">
+                                                            <button type="button" title="Thêm vào giỏ hàng" class="button btn-cart" onclick="location.href=`{{_WEB_ROOT}}/them-gio-hang/id-{{ $product['id'] }}`;"><span>Thêm vào giỏ</span></button>
+                                                            <ul class="add-to-links">
+                                                                <li>
+                                                                    <a href="wishlist.html" title="Thêm vào mục yêu thích" class="link-wishlist">
+                                                                        <span>Add to Wishlist</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="compare.html" title="Thêm vào so sánh" class="link-compare ">
+                                                                        <span>Add to Compare</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="qv-button-container"> 
+                                                        <a class="qv-e-button btn-quickview-1" href="quick_view.html">
+                                                            <span>Quick View</span>
+                                                        </a> 
+                                                    </div>
+                                                </div>
+                                                <div class="info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title"> 
+                                                            <a title="{{ $product['product_name'] }}" href="chi-tiet-san-pham/san-pham-{{ $product['id'] }}">{{ $product['product_name'] }}</a> 
+                                                        </div>
+                                                        <!--item-title-->
+                                                        <div class="item-content">
+                                                            <div class="ratings">
+                                                                <div class="rating-box">
+                                                                @php
+                                                                $total = 0;
+                                                                $count = 0;
+                                                                @endphp
+                                                                @foreach ($list_reviews as $review)
+                                                                    @if ($review['product_id'] == $product['id'])
+                                                                    @php
+                                                                        $total += $review['rating'];
+                                                                        $count ++;
+                                                                    @endphp
+                                                                    @endif
+                                                                @endforeach
+
+                                                                @if($count != 0)
+                                                                <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
+                                                                @else
+                                                                <div style="width:0%" class="rating"></div>
+
+                                                                @endif
+                                                                </div>
+                                                            </div>
+                                                            <div class="price-box">
+                                                                <p class="special-price"> 
+                                                                    <span class="price">
+                                                                    @if ($check == true)
+                                                                    {{ number_format($product['list_price']*(1-$discount_amount), 0, ',', '.') }}
+                                                                    @endif
+                                                                    @if ($check == false)
+                                                                    {{ number_format($product['list_price'], 0, ',', '.') }}
+                                                                    @endif
+                                                                    </span> 
+                                                                </p>
+                                                                @if ($check == true)
+                                                                <p class="old-price"> 
+                                                                    <span class="price-sep">-</span> 
+                                                                    <span class="price">{{ number_format($product['list_price'], 0, ',', '.') }}</span>
+                                                                </p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                        <!--item-content-->
+                                                    </div>
+                                                    <!--info-inner-->
+
+                                                    <!--actions-->
+
+                                                    <div class="clearfix"> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Item -->  
+                                        @endforeach
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>

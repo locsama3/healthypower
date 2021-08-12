@@ -15,7 +15,9 @@ class ProductCategory extends Controller{
         $data['content'] = 'admins.product_categories.index';
 
          
-        $data['sub_content']['list_prod_cate'] = $this->prodCateModel->all();
+        $data['sub_content']['list_prod_cate'] = $this->prodCateModel->findByField([]);
+
+        $data['sub_content']['prod_cate_count'] = $this->prodCateModel->countIf([]);
 
         $data['dataMeta'] = $this->loadMetaTag();
 

@@ -13,9 +13,10 @@ class Permission extends Controller{
     public function index()
     {
         $data['content'] = 'admins.permissions.index';
-
          
         $data['sub_content']['list_permissions'] = $this->permissionModel->all();
+
+        $data['sub_content']['permissionsCount'] = $this->permissionModel->countIf([]);
 
         $data['dataMeta'] = $this->loadMetaTag();
 

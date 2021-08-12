@@ -19,6 +19,17 @@ class AdminAccount extends Controller{
         // truy van co so du lieu
         $data['sub_content']['list_admins'] = $this->adminModel->list_user();
 
+        $data['sub_content']['adminsCount'] = $this->adminModel->countIf([]);
+
+        $lastmonth = mktime(0, 0, 0, date("m"), 1, date("Y"));
+        $startDate = date('Y-m-d H:i:s', $lastmonth);
+
+        $data['sub_content']['adminsCountOld'] = $this->adminModel->countIf(['created_at <= '. $startDate]);
+        
+        $data['sub_content']['adminsCountActive'] = $this->adminModel->countIf(['status : 1']);
+
+        $data['sub_content']['adminsCountActiveOld'] = $this->adminModel->countIf(['status : 1', 'created_at <= '. $startDate]);
+
         $data['sub_content']['list_jobtitles'] = $this->adminModel->list_jobtitle();
 
         $data['sub_content']['roles'] = $this->roleModel->all();

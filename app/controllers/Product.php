@@ -152,13 +152,25 @@ class Product extends Controller{
     
             $list_viewed_id = $this->productViewModel->findByField(["customer_id:". $user['id'], 'product_id != '.$id], 'viewed_at:desc');
             $str_product_id = '';
-            foreach ($list_viewed_id as $viewed) {
-                $str_product_id .= ','.$viewed['product_id'];
-            }
-            $str_product_id = substr($str_product_id, 1);
-            $conditions = [ 'id {in}' . $str_product_id, "deleted_at: null" ];
+            if(!empty($list_viewed_id)) {
+                foreach ($list_viewed_id as $viewed) {
+                    $str_product_id .= ','.$viewed['product_id'];
+                }
+
+                $str_product_id = substr($str_product_id, 1);
+                $conditions = [ 'id {in}' . $str_product_id, "deleted_at: null" ];
+        
+                $list_viewed_products = $this->productModel->findByField($conditions);
+                $data['sub_content']['list_viewed_products'] = [];
     
-            $data['sub_content']['list_viewed_products'] = $this->productModel->findByField($conditions);
+                foreach ($list_viewed_id as $viewed) {
+                    foreach ($list_viewed_products as $product) {
+                        if ($viewed['product_id'] == $product['id']) {
+                            array_push($data['sub_content']['list_viewed_products'], $product);
+                        }
+                    }
+                }
+            }
         }
 
         // truy vấn hình ảnh gallary
@@ -185,9 +197,11 @@ class Product extends Controller{
         }
 
         if (Session::data('user_login') == true) {
-            foreach ($data['sub_content']['list_viewed_products'] as $viewed) {
-                $str_product_id .= ','.$viewed['id'];
-            } 
+            if (!empty($list_viewed_id)) {
+                foreach ($data['sub_content']['list_viewed_products'] as $viewed) {
+                    $str_product_id .= ','.$viewed['id'];
+                } 
+            }
         }
 
         $data['sub_content']['list_reviews'] = $this->productReviewModel->findByField(['product_id {in}' . $str_product_id]);

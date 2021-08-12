@@ -6,7 +6,7 @@ $config['app'] = [
         OrderHelper::class
     ],
     'routeAdminMiddleware' => [
-        // AuthAdminMiddleware::class,
+        AuthAdminMiddleware::class,
     ],
     'routeMiddleware' => [
         'san-pham'  => AuthMiddleware::class,
@@ -15,7 +15,7 @@ $config['app'] = [
         'thong-tin-tai-khoan' => AuthUserMiddleware::class,
     ],
     'globalMiddleware' => [
-        // ParamsMiddleware::class,
+        ParamsMiddleware::class,
         VerifyCsrfToken::class,
         LoginMiddleware::class,
     ],

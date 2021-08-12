@@ -17,6 +17,8 @@ class Role extends Controller{
          
         $data['sub_content']['list_roles'] = $this->roleModel->all();
 
+        $data['sub_content']['rolesCount'] = $this->roleModel->countIf([]);
+
         $data['dataMeta'] = $this->loadMetaTag();
 
         $data['page_title'] = "Danh sách chức vụ";

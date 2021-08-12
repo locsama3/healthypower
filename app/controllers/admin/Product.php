@@ -20,7 +20,9 @@ class Product extends Controller{
     {
         $data['content'] = 'admins.products.index';
 
-        $data['sub_content']['list_products'] = $this->productModel->all();
+        $data['sub_content']['list_products'] = $this->productModel->findByField(['deleted_at : null']);
+
+        $data['sub_content']['productsCount'] = $this->productModel->countIf(['deleted_at : null']);
 
         $data['sub_content']['list_prod_cates'] = $this->prodCateModel->all();
 

@@ -15,7 +15,9 @@ class PaymentType extends Controller{
         $data['content'] = 'admins.payment_types.index';
 
          
-        $data['sub_content']['list_payment'] = $this->paymentTypeModel->all();
+        $data['sub_content']['list_payment'] = $this->paymentTypeModel->findByField([]);
+
+        $data['sub_content']['paymentCount'] = $this->paymentTypeModel->countIf([]);
 
         $data['dataMeta'] = $this->loadMetaTag();
 

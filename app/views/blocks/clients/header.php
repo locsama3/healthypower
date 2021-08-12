@@ -39,9 +39,9 @@
             <!-- Header Top Links -->
             <div class="toplinks">
               <div class="links">
-                <div class="myaccount"><a title="My Account" href="login.html"><span class="hidden-xs">Tài khoản</span></a></div>
-                <div class="wishlist"><a title="My Wishlist" href="wishlist.html"><span class="hidden-xs">Danh sách yêu thích</span></a></div>
-                <div class="check"><a title="Checkout" href="checkout.html"><span class="hidden-xs">Thanh toán</span></a></div>
+                <div class="myaccount"><a title="My Account" href="#"><span class="hidden-xs">Tài khoản</span></a></div>
+                <div class="wishlist"><a title="My Wishlist" href="#"><span class="hidden-xs">Danh sách yêu thích</span></a></div>
+                <div class="check"><a title="Checkout" href="#"><span class="hidden-xs">Thanh toán</span></a></div>
                 <div class="phone hidden-xs">0123 456 789</div>
               </div>
             </div>
@@ -126,9 +126,17 @@
         <div class="top-cart-contain">
           <div class="mini-cart">
             <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> 
-              <a href="shopping_cart.html" class="d-flex justify-content-center align-items-center"> 
-                <i class="icon-cart"></i>
-                <div class="cart-box"><span class="title">Giỏ hàng</span>
+              <a href="shopping_cart.html" style="display:flex; align-item:center"> 
+                <div class="image-cart">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="6" cy="19" r="2" />
+                    <circle cx="17" cy="19" r="2" />
+                    <path d="M17 17h-11v-14h-2" />
+                    <path d="M6 5l14 1l-1 7h-13" />
+                  </svg>
+                </div>
+                <div class="cart-box">
                   <span id="cart-total">  
                     @php
                   

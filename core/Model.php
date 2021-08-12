@@ -145,11 +145,43 @@ abstract class Model extends Database {
             $fieldSelect = '*';
         }
 
-        foreach($conditions as $condition) { 
-            $arr = explode(':', $condition);
+        $arrayCompare = [
+            '<=>', '>=' , '<=', '!=', '>', '<' , ':', '{in}'
+        ];
+        $compare = '';
+
+        foreach($conditions as $condition) {
+            foreach ($arrayCompare as $comp) {
+                $find = strpos($condition, $comp);
+                if ($find != false) {
+                    $compare = $comp;
+                    break;
+                }
+            } 
+
+            $arr = explode($compare, $condition);
             $field = trim($arr[0]);
             $value = trim($arr[1]);
-            $this->db->where($field, '=', $value);
+
+            if ($compare == ':') {
+                $compare = '=';
+            }
+
+            if ($compare == '!=') {
+                $compare = '<>';
+            }
+
+            if ($compare == '{in}') {
+                $this->db->whereIn($field, "($value)");
+                continue;
+            }
+
+            if ($compare == '<=>') {
+                $this->db->whereLike($field, "%$value%");
+                continue;
+            }
+        
+            $this->db->where($field, $compare, $value);
         }
         
         return $this->db->select($fieldSelect)->table($tableName)->count();

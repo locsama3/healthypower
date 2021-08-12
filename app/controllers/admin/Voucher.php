@@ -17,6 +17,8 @@ class Voucher extends Controller{
          
         $data['sub_content']['list_voucher'] = $this->voucherModel->show_voucher();
 
+        $data['sub_content']['voucherCount'] = $this->voucherModel->countIf(['deleted_at : null']);
+
         $data['dataMeta'] = $this->loadMetaTag();
 
         $data['page_title'] = "Danh sách Mã khuyến mãi";

@@ -16,6 +16,8 @@ class Supplier extends Controller{
          
         $data['sub_content']['list_supplier'] = $this->supplierModel->all();
 
+        $data['sub_content']['supplierCount'] = $this->supplierModel->countIf([]);
+
         $data['dataMeta'] = $this->loadMetaTag();
 
         $data['page_title'] = "Danh sách nhà cung ứng";

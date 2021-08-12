@@ -15,7 +15,9 @@ class BlogCategory extends Controller{
         $data['content'] = 'admins.blog_categories.index';
 
          
-        $data['sub_content']['list_blog_cate'] = $this->blogCateModel->all();
+        $data['sub_content']['list_blog_cate'] = $this->blogCateModel->findByField([]);
+
+        $data['sub_content']['blog_cate_count'] = $this->blogCateModel->countIf([]);
 
         $data['dataMeta'] = $this->loadMetaTag();
 

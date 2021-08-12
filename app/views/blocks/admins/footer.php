@@ -228,6 +228,36 @@
       $('.js-clipboard').each(function() {
         var clipboard = $.HSCore.components.HSClipboard.init(this);
       });
+
+      // Xử lý hiển thị vị trí navbar-vertical
+      var fullUrl = window.location.href;
+      var originUrl = window.location.origin
+      var cutUrl = fullUrl.replace(originUrl, '')
+      var newUrl = cutUrl.slice(1); 
+      arr = newUrl.split('/')
+      mainUrl = arr[1];
+
+      classLinkEffectNavbar = 'active-' + mainUrl;
+      console.log(classLinkEffectNavbar);
+
+      var itemLinkEffect = document.querySelector(`.${classLinkEffectNavbar}`)
+      console.log(itemLinkEffect);
+      if(itemLinkEffect) {
+        itemLinkEffect.classList.add('active')
+  
+        while (itemLinkEffect.parentElement) {
+          if (itemLinkEffect.parentElement.matches(".class-open-effect-top")) {
+            classOpenEffectTop = itemLinkEffect.parentElement
+            classOpenEffectTop.classList.add('show') 
+            break;
+          }
+          if (itemLinkEffect.parentElement.matches(".class-open-effect")) {
+            classOpenEffect = itemLinkEffect.parentElement
+            classOpenEffect.classList.add('show') 
+          }
+          itemLinkEffect = itemLinkEffect.parentElement
+        }
+      }
     });
   </script>
 

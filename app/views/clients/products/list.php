@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row">
             <ul>
-                <li class="home"> <a href="index.html" title="Go to Home Page">Trang chủ</a><span>&mdash;›</span></li>
+                <!-- <li class="home"> <a href="index.html" title="Go to Home Page">Trang chủ</a><span>&mdash;›</span></li>
                 <li class=""> <a href="grid.html" title="Go to Home Page">Tên danh mục</a><span>&mdash;›</span></li>
-                <li class="category13"><strong>Tên tìm kiếm</strong></li>
+                <li class="category13"><strong>Tên tìm kiếm</strong></li> -->
             </ul>
         </div>
     </div>

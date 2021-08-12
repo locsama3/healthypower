@@ -23,7 +23,9 @@ class Warehouse extends Controller{
         $data['content'] = 'admins.warehouse.index';
 
          
-        $data['sub_content']['list_warehouse'] = $this->warehouseModel->all();
+        $data['sub_content']['list_warehouse'] = $this->warehouseModel->findByField([]);
+
+        $data['sub_content']['warehouseCount'] = $this->warehouseModel->countIf([]);
 
         $data['dataMeta'] = $this->loadMetaTag();
 
