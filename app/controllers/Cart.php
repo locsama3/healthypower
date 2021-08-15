@@ -65,7 +65,7 @@ class Cart extends Controller{
         return $this->view('layouts.client_layout', $data);
     }
     public function store($id){
-        
+             
         $data = Session::data('cart');
         $product = $this->productModel->find($id);
         $productDiscount = $this->productDiscountModel->findByField(['product_id :'.$id]);

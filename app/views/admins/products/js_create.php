@@ -24,8 +24,8 @@ $(document).on('ready', function() {
     $('.js-add-field').each(function() {
       new HSAddField($(this), {
         addedField: function() {
-          $('.js-add-field .js-quantity-counter-dynamic').each(function() {
-            var quantityCounter = new HSQuantityCounter($(this)).init();
+          $('.js-add-field .js-select2-custom-dynamic').each(function() {
+            var select2dynamic = $.HSCore.components.HSSelect2.init($(this));
           });
         }
       }).init();
@@ -36,13 +36,18 @@ $(document).on('ready', function() {
     const url = "{{ _WEB_ROOT }}/products-store"
     const urlListProduct = "{{ _WEB_ROOT }}/products"
 
+    var productNameInput = document.querySelector('#title')
+    productNameInput.addEventListener('change', () => {
+      ChangeToSlug()
+    })
+
     // Mong muốn của chúng ta
     Validator({
       form: '#formInsertProduct',
       formGroupSelector: '.form-group',
       errorSelector: '.form-message',
       rules: [
-        Validator.isRequired('#productNameLabel', 'Vui lòng nhập tên sản phẩm'),
+        Validator.isRequired('#title', 'Vui lòng nhập tên sản phẩm'),
         Validator.isRequired('#weightLabel', 'Vui lòng nhập khối lượng sản phẩm'),
         Validator.isRequired('#priceNameLabel', 'Vui lòng nhập giá sản phẩm'),
         Validator.isRequired('#supplierLabel', 'Vui lòng nhập nhà cung cấp sản phẩm'),
@@ -53,10 +58,12 @@ $(document).on('ready', function() {
         Validator.isRequired('#heightLabel', 'Vui lòng nhập chiều cao sản phẩm'),
       ],
       onSubmit: function(data) {
+        arr = data.productPrice.split('.')
+        data.productPrice = Number(arr.join(''))
         formData = handleDataUpload(data, _token, "card-img-top");
         formData.description = CKEDITOR.instances['ckeditor1'].getData();
 
-        console.log(data);
+        console.log(formData);
 
         /**
          * không dùng fetch ở đây vì fetch bắt buộc dùng FormData hoặc Json

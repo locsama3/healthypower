@@ -33,7 +33,7 @@ class Home extends Controller{
         
         // truy vấn những sản phẩm nổi bật
         $conditions = ["deleted_at: null", 'status: 1', 'is_featured: 1'];
-        $random = mt_rand(0,2);
+        $random = mt_rand(0,5);
 
         $data['sub_content']['list_featured'] = $this->productModel->findByField($conditions, '', "8:$random");
         

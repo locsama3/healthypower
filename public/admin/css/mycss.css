@@ -152,3 +152,14 @@
     left: -0.2rem!important;
 }
 
+.text-shorten {
+    overflow: hidden;
+    max-width: 150px;
+    max-height: 50px;
+    text-overflow: ellipsis;
+}
+
+.modal-large {
+    max-width: 80% !important;
+}
+

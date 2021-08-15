@@ -152,8 +152,6 @@ function displayError(Selectorform, error) {
 
     var keys = Object.keys(error)
 
-
-
     // lặp qua từng form group và so sánh field name của input rồi gán lỗi
     formGroup.forEach(element => {
         keys.forEach(key => {

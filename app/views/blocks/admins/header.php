@@ -3373,7 +3373,7 @@
             <div class="navbar-vertical-content">
               <ul class="navbar-nav navbar-nav-lg nav-tabs">
                 <!-- Dashboards -->
-                <li class="navbar-vertical-aside-has-menu class-open-effect">
+                <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link" href="javascript:;" title="Trang chủ">
                     <i class="tio-home-vs-1-outlined nav-icon"></i>
 
@@ -3403,7 +3403,8 @@
                     <i class="tio-user nav-icon"></i>
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản trị viên</span>
                   </a>
-
+                  @foreach ($AdminHasPermissions as $permission)
+                  @if ($permission['permission_id'] == '1')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <!-- Tài khoản -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
@@ -3474,6 +3475,8 @@
                       </ul>
                     </li>
                   </ul>
+                  @endif
+                  @endforeach
                 </li>
                 <!-- End Tài khoản Admin -->
 
@@ -3483,7 +3486,8 @@
                     <i class="tio-pages-outlined nav-icon"></i>
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý sản phẩm</span>
                   </a>
-
+                  @foreach ($AdminHasPermissions as $permission)
+                  @if ($permission['permission_id'] == '2')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <!-- Sản phẩm -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
@@ -3571,6 +3575,8 @@
                       </ul>
                     </li>
                   </ul>
+                  @endif
+                  @endforeach
                 </li>
                 <!-- End Sản phẩm -->
 
@@ -3581,6 +3587,8 @@
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý xuất nhập kho</span>
                   </a>
 
+                  @foreach ($AdminHasPermissions as $permission)
+                  @if ($permission['permission_id'] == '4')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <!-- Kho hàng -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
@@ -3652,6 +3660,8 @@
                     </li>
 
                   </ul>
+                  @endif
+                  @endforeach
                 </li>
                 <!-- End Xuất nhập kho -->
 
@@ -3696,6 +3706,8 @@
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý Đặt hàng</span>
                   </a>
 
+                  @foreach ($AdminHasPermissions as $permission)
+                  @if ($permission['permission_id'] == '5')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <!-- Đơn hàng -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
@@ -3761,6 +3773,8 @@
                     </li>
 
                   </ul>
+                  @endif
+                  @endforeach
                 </li>
                 <!-- End Đặt hàng -->
 
@@ -3770,7 +3784,8 @@
                     <i class="tio-group-equal nav-icon"></i>
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý khách hàng</span>
                   </a>
-
+                  @foreach ($AdminHasPermissions as $permission)
+                  @if ($permission['permission_id'] == '3')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <!-- khách hàng -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
@@ -3801,6 +3816,8 @@
                       </ul>
                     </li>
                   </ul>
+                  @endif
+                  @endforeach
                 </li>
                 <!-- End Khách hàng -->
 
@@ -3811,6 +3828,8 @@
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý bài viết</span>
                   </a>
 
+                  @foreach ($AdminHasPermissions as $permission)
+                  @if ($permission['permission_id'] == '6')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <!-- Blog -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
@@ -3882,6 +3901,8 @@
                       </ul>
                     </li>
                   </ul>
+                  @endif
+                  @endforeach
                 </li>
                 <!-- End Blogs -->
 

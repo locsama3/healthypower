@@ -49,8 +49,10 @@ class App{
         $this->handleRouteMiddleware($this->__routes->getUri(), $this->__db);
         $this->handleRouteAdminMiddleware($url, $this->__db);
         //App Service Provider
-        $this->handleAppServiceProvider($this->__db);
-        
+        $this->handleAppServiceProvider($url,$this->__db);
+
+        // Decentralization Middleware
+        $this->handleRouteDecentralizationMiddleware($url, $this->__db);
 
         $urlArr = array_filter(explode('/',$url));
         $urlArr = array_values($urlArr);
@@ -137,6 +139,7 @@ class App{
     public function loadError($name='404', $data = []){
         extract($data);
         require_once 'errors/'.$name.'.php';
+        exit;
     }
    
     public function handleRouteMiddleware($routeKey, $db){
@@ -153,12 +156,37 @@ class App{
                         if (!empty($db)){
                             $middleWareObject->db = $db;
                         }
-                        $middleWareObject->handle();
+                        $middleWareObject->handle();                       
                     }
                 }
             }
         }
     }
+
+    public function handleRouteDecentralizationMiddleware($url, $db){
+        global $config;
+        $url = trim($url);
+
+        if (!empty($config['app']['routeDecentralizationMiddleware'])){
+            $routeMiddleWareArr = $config['app']['routeDecentralizationMiddleware'];
+            if (strpos($url, 'admin') !== false && $url != 'admin/user/login' && $url != 'admin/user/validatelogin') {
+                foreach ($routeMiddleWareArr as $middleWareItem){
+                    require_once 'app/middlewares/'.$middleWareItem.'.php';
+                    if (class_exists($middleWareItem)){
+                        $middleWareObject = new $middleWareItem();
+                        if (!empty($db)){
+                            $middleWareObject->db = $db;
+                        }
+                        $checkDecentralization = $middleWareObject->handle($url);
+                        if ($checkDecentralization === false) {
+                            $this->loadError('decentralization');
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public function handleRouteAdminMiddleware($url, $db){
         global $config;     
         if (!empty($config['app']['routeAdminMiddleware'])){     
@@ -222,8 +250,9 @@ class App{
     
    
 
-    public function handleAppServiceProvider($db){
+    public function handleAppServiceProvider($url, $db){
         global $config;
+        
         if (!empty($config['app']['boot'])){
             $serviceProviderArr = $config['app']['boot'];
             foreach ($serviceProviderArr as $serviceName){
@@ -234,11 +263,10 @@ class App{
                         if (!empty($db)){
                             $serviceObject->db = $db;
                         }
-                        $serviceObject->boot();
+                        $serviceObject->boot($url);
                     }
                 }
             }
         }
     }
-
 }

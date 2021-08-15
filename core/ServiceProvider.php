@@ -1,5 +1,5 @@
 <?php
 abstract class ServiceProvider{
     public $db = null;
-    abstract public function boot();
+    abstract public function boot($url);
 }

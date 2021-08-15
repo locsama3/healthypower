@@ -20,7 +20,7 @@ class Product extends Controller{
     {
         $data['content'] = 'admins.products.index';
 
-        $data['sub_content']['list_products'] = $this->productModel->findByField(['deleted_at : null']);
+        $data['sub_content']['list_products'] = $this->productModel->findByField(['deleted_at : null'], 'created_at:desc');
 
         $data['sub_content']['productsCount'] = $this->productModel->countIf(['deleted_at : null']);
 
@@ -37,9 +37,10 @@ class Product extends Controller{
         ];
 
         $data['libraryJS']['list_js'] = [
-            'functions' => 'functions.js'
+            'functions'     => 'functions.js',
+            'uploadExcel'   => 'uploadExcel.js'
         ];
-
+        
         return $this->view('layouts.admin_layout', $data);
     }
 
@@ -63,6 +64,7 @@ class Product extends Controller{
             'validate'      => 'validate.js',
             'function'      => 'functions.js',
             'upload'        => 'uploadImg.js',
+            'changtoslug'   => 'ChangeToSlug.js',
         ];
 
         $data['page_title'] = "Thêm mới sản phẩm";
@@ -126,7 +128,7 @@ class Product extends Controller{
                 'length'            => (int)$dataFields['length'],
                 'width'             => (int)$dataFields['width'],
                 'height'            => (int)$dataFields['height'],
-                'product_slug'      => '',
+                'product_slug'      => !empty($dataFields['slug']) ? $dataFields['slug'] : '',
                 'description'       => !empty($dataFields['description']) ? $dataFields['description'] : "",
                 'standard_cost'     => !empty($dataFields['standard_cost']) ? $dataFields['standard_cost'] : null,
                 'quantity_per_unit' => !empty($dataFields['quantity_per_unit']) ? $dataFields['quantity_per_unit'] : 0,
@@ -193,6 +195,7 @@ class Product extends Controller{
             'ckeditor'      => 'ckeditor/ckeditor.js',
             'changeEditor'  => 'changeEditor.js',
             'upload'        => 'uploadImg.js',
+            'changtoslug'   => 'ChangeToSlug.js',
         ];
 
         return $this->view('layouts.admin_layout', $data);
@@ -255,6 +258,7 @@ class Product extends Controller{
                 'length'            => (int)$dataFields['length'],
                 'width'             => (int)$dataFields['width'],
                 'height'            => (int)$dataFields['height'],
+                'product_slug'      => !empty($dataFields['slug']) ? $dataFields['slug'] : '',
                 'description'       => !empty($dataFields['description']) ? $dataFields['description'] : "",
                 'discontinued'      => ($dataFields['discontinued'] != '') ? 1 : 0,
                 'status'            => ($dataFields['status'] != '') ? 1 : 0,
@@ -293,7 +297,9 @@ class Product extends Controller{
                     
                     if ($pos === false) {
                         if ($image['image'] == $productById['image']) {
-                            unlink("public/uploads/products/".$productById['image']);
+                            if ($image['image'] != 'no-image.png') {
+                                unlink("public/uploads/products/".$productById['image']);
+                            }
                         } else {
                             $this->productGalleryModel->destroy($image['id']);
                             unlink("public/uploads/products/".$image['image']);
@@ -409,6 +415,80 @@ class Product extends Controller{
             'message'   => "Xóa sản phẩm thành công!"
         ];
         exit(json_encode($message));
+    }
+
+    public function uploadExcel() {
+        if ($this->request->isPost()){
+            // Lấy dữ liệu từ form
+            $dataFields = $this->request->getFields();
+            
+            $products = $dataFields['data'];
+
+            $categories = $this->prodCateModel->findByField([]);
+
+            $suppliers = $this->supplierModel->findByField([]);
+
+            foreach ($products as $product) {
+                if (!empty(($product['Nhà cung cấp']))) {
+                    foreach ($suppliers as $supplier) {
+                        if ($supplier['supplier_name'] == trim($product['Nhà cung cấp'])) {
+                            $product['Nhà cung cấp'] = $supplier['id'];
+                        }
+                    }
+                }
+
+                if (!empty(($product['Loại']))) {
+                    foreach ($categories as $category) {
+                        if ($category['category_name'] == trim($product['Loại'])) {
+                            $product['Loại'] = $category['id'];
+                        }
+                    }
+                }
+
+                if (!empty($product['Tình trạng'])) {
+                    $product['Tình trạng'] = (trim($product['Tình trạng']) == 'còn hàng') ? 1 : 0;
+                }
+
+                if (!empty($product['Hàng nổi bật'])) {
+                    $product['Hàng nổi bật'] = (trim($product['Hàng nổi bật']) == 'có') ? 1 : 0;
+                }
+
+                if (!empty($product['Hàng mới'])) {
+                    $product['Hàng mới'] = (trim($product['Hàng mới']) == 'có') ? 1 : 0;
+                }
+
+                $data = [
+                    'product_name'      => !empty($product['Sản phẩm']) ? $product['Sản phẩm'] : '',
+                    'product_code'      => !empty($product['SKU']) ? $product['SKU'] : '',
+                    'product_slug'      => !empty($product['Sản phẩm']) ? to_slug($product['Sản phẩm']) : '',
+                    'image'             => !empty($product['image']) ? $product['image'] : 'no-image.png',
+                    'list_price'        => !empty($product['Giá niêm yết']) ? $product['Giá niêm yết'] : null,
+                    'supplier_id'       => !empty($product['Nhà cung cấp']) ? $product['Nhà cung cấp'] : null,
+                    'category_id'       => !empty($product['Loại']) ? $product['Loại'] : null,
+                    'weight'            => !empty($product['Nặng']) ? $product['Nặng'] : null,
+                    'length'            => !empty($product['Dài']) ? (int)$product['Dài'] : null,
+                    'width'             => !empty($product['Rộng']) ? (int)$product['Rộng'] : null,
+                    'height'            => !empty($product['Cao']) ? (int)$product['Cao'] : null,
+                    'description'       => !empty($product['Mô tả']) ? $product['Mô tả'] : "",
+                    'discontinued'      => 1,
+                    'status'            => 0,
+                    'is_featured'       => !empty($product['Hàng nổi bật']) ? $product['Hàng nổi bật'] : 0,
+                    'is_new'            => !empty($product['Hàng mới'])  ? $product['Hàng mới'] : 0
+                ];
+
+                // thêm sản phẩm mới
+                $result = $this->productModel->create($data);
+            }
+
+            $message = [
+                "status"    => "1",
+                'message'   => "Thêm danh sách sản phẩm mới thành công!",
+                'location'  => _WEB_ROOT.'/products',
+                'time'      => 1000
+            ];
+    
+            exit(json_encode($message));
+        }
     }
 
     public function loadMetaTag()

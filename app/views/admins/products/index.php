@@ -349,7 +349,11 @@
               </td>
               <td class="table-column-pl-0" style=" max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
                 <a class="media align-items-center" href="{{ _WEB_ROOT }}/products-edit/proid-{{ $product['id'] }}">
+                  @if (!empty($product['image']))
                   <img class="avatar avatar-lg mr-3" src="{{ _WEB_ROOT }}/public/uploads/products/{{ $product['image'] }}" alt="Image Description">
+                  @else
+                  <img class="avatar avatar-lg mr-3" src="{{ _WEB_ROOT }}/public/uploads/products/no-image.png" alt="Image Description">
+                  @endif
                   <div class="media-body">
                     <h5 class="text-hover-primary mb-0">{{ $product['product_name'] }}</h5>
                   </div>
@@ -846,56 +850,79 @@
 <div class="modal fade" id="importProductsModal" tabindex="-1" role="dialog" aria-labelledby="importProductsModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <!-- Header -->
-      <div class="modal-header">
-        <h4 id="importProductsModalTitle" class="modal-title">Import products by CSV</h4>
+      <form action="" id="importExel">
+        <!-- Header -->
+        <div class="modal-header">
+          <h4 id="importProductsModalTitle" class="modal-title">Thêm sản phẩm bằng file excel</h4>
 
-        <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close">
-          <i class="tio-clear tio-lg"></i>
-        </button>
-      </div>
-      <!-- End Header -->
+          <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close">
+            <i class="tio-clear tio-lg"></i>  
+          </button>
+        </div>
+        <!-- End Header -->
 
-      <!-- Body -->
-      <div class="modal-body">
-        <p><a href="#">Download a sample CSV template</a> to see an example of the format required.</p>
+        <!-- Body -->
+        <div class="modal-body">
+          <!-- <p><a href="#">Download a sample CSV template</a> to see an example of the format required.</p> -->
 
-        <!-- Form Group -->
-        <div class="form-group">
-          <!-- Dropzone -->
-          <div id="attachFilesNewProjectLabel" class="js-dropzone dropzone-custom custom-file-boxed">
-            <div class="dz-message custom-file-boxed-label">
-              <img class="avatar avatar-xl avatar-4by3 mb-3" src="{{ _WEB_ROOT }}\public\admin\svg\illustrations\browse.svg" alt="Image Description">
-              <h5 class="mb-1">Choose files to upload</h5>
-              <p class="mb-2">or</p>
-              <span class="btn btn-sm btn-primary">Browse files</span>
+          <!-- Form Group -->
+          <div class="form-group">
+            <!-- Dropzone -->
+            <div class="form-group">
+              <div id="drop-area">
+                <img class="avatar avatar-xl avatar-4by3 mb-3" src="{{ _WEB_ROOT }}/public/admin/svg/illustrations/excel.svg" alt="Image Description">
+                <p>Thêm hoặc thả tệp để upload</p>
+                <input type="file" id="fileElem" name="fileExel">
+                <label class="button-input-files">Tìm kiếm tệp</label>  
+              </div>
+              <span class="form-message"></span>
+            </div>
+            <!-- End Dropzone -->
+          </div>
+          <!-- End Form Group -->
+          <span class="form-message"></span>
+          <div class="display-file d-none align-items-center">
+            <div class="icon-excel mr-2">
+             <img style="width: 20px; height: 20px" src="{{ _WEB_ROOT }}/public/admin/svg/illustrations/excel.svg" alt="excel icon">
+            </div>
+            <div class="name-file">
             </div>
           </div>
-          <!-- End Dropzone -->
         </div>
-        <!-- End Form Group -->
+        <!-- End Body -->
 
-        <!-- Custom Checkbox -->
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="overwriteCurrentProductsCheckbox">
-          <label class="custom-control-label" for="overwriteCurrentProductsCheckbox">Overwrite any current products
-            that have the same handle. Existing values will be used for any missing columns.<a href="#">Learn
-              more</a></label>
+        <!-- Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-white mr-2" data-dismiss="modal" aria-label="Close">Hủy</button>
+          <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
         </div>
-        <!-- End Custom Checkbox -->
-      </div>
-      <!-- End Body -->
-
-      <!-- Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-white mr-2" data-dismiss="modal" aria-label="Close">Cancel</button>
-        <button type="button" class="btn btn-primary">Upload and continue</button>
-      </div>
-      <!-- End Footer -->
+        <!-- End Footer -->
+      </form>
     </div>
   </div>
 </div>
 <!-- End Import Products Modal -->
+
+<!-- Modal Review Products -->
+<div class="modal fade bd-example-modal-lg" id="previewImportProducts" tabindex="-1" role="dialog" aria-labelledby="previewImportProductsTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-large" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="previewImportProductsTitle">Danh sách sản phẩm</h5>
+        <button type="button" class="btn btn-xs btn-icon btn-ghost-secondary" data-dismiss="modal" aria-label="Close">
+          <i class="tio-clear tio-lg"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary btn-save-products">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal Review Products -->
 
 <!-- Product Filter Modal -->
 <div id="datatableFilterSidebar" class="hs-unfold-content sidebar sidebar-bordered sidebar-box-shadow">
@@ -1102,3 +1129,4 @@
 </div>
 <!-- End Product Filter Modal -->
 <!-- ========== END SECONDARY CONTENTS ========== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>

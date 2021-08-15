@@ -175,8 +175,9 @@
 
     $routes['products-status'] = 'admin/product/status';
 
-
     $routes['products-destroy'] = 'admin/product/destroy';
+
+    $routes['products-upload-excel'] = 'admin/product/uploadexcel';
 
     // routes products categories
 

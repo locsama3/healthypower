@@ -42,10 +42,11 @@
                             <div class="form-group">
                                 <label for="productNameLabel" class="input-label">Tên <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Products are the goods or services you sell."></i></label>
 
-                                <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Whey protein, thực phẩm bổ sung, v..v.." aria-label="Shirt, t-shirts, etc." value="{{ $product_by_id['product_name'] }}">
+                                <input type="text" class="form-control" name="productName" id="title" placeholder="Whey protein, thực phẩm bổ sung, v..v.." aria-label="Shirt, t-shirts, etc." value="{{ $product_by_id['product_name'] }}">
                                 <span class="form-message"></span>
                             </div>
                             <!-- End Form Group -->
+                            <input type="hidden" name="slug" id="convert_slug">
 
                             <div class="row">
                                 <div class="col-sm-6">
@@ -172,6 +173,7 @@
                             <div id="fancyboxGallery" class="js-fancybox row justify-content-sm-center gx-2" data-hs-fancybox-options='{
                                 "selector": "#fancyboxGallery .js-fancybox-item"
                             }'>
+                                @if (!empty($product_by_id['image']))
                                 <div class="col-6 col-sm-4 col-md-3 mb-3 mb-lg-5 card-image-wrapper">
                                     <!-- Card -->
                                     <div class="card card-sm">
@@ -196,6 +198,7 @@
                                     </div>
                                     <!-- End Card -->
                                 </div>
+                                @endif
                                 @if (!empty($list_gallery))
                                 @foreach ($list_gallery as $img)
                                 <div class="col-6 col-sm-4 col-md-3 mb-3 mb-lg-5 card-image-wrapper">
@@ -283,7 +286,7 @@
                                             <!-- Select2 -->
                                             <select class="js-select2-custom custom-select" size="1" style="opacity: 0;" multiple="" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity",
-                                  "placeholder": "Separate options with enter",
+                                  "placeholder": "Nhập vào phân loại",
                                   "tags": true
                                 }'>
                                                 <option label="empty"></option>
@@ -311,8 +314,8 @@
                                             <div class="input-group-prepend">
                                                 <!-- Select -->
                                                 <select class="js-select2-custom-dynamic custom-select" size="1" style="opacity: 0;" data-hs-select2-options='{
-                                    "minimumResultsForSearch": "Infinity"
-                                  }'>
+                                                        "minimumResultsForSearch": "Infinity"
+                                                    }'>
                                                     <option value="Size">Size</option>
                                                     <option value="Color">Màu sắc</option>
                                                     <option value="Material">Chất liệu</option>
@@ -326,10 +329,10 @@
                                         <div class="col-8">
                                             <!-- Select2 -->
                                             <select class="js-select2-custom-dynamic custom-select" size="1" style="opacity: 0;" multiple="" data-hs-select2-options='{
-                                  "minimumResultsForSearch": "Infinity",
-                                  "placeholder": "Separate options with enter",
-                                  "tags": true
-                                }'>
+                                                "minimumResultsForSearch": "Infinity",
+                                                "placeholder": "Nhập vào phân loại",
+                                                "tags": true
+                                                }'>
                                                 <option label="empty"></option>
                                             </select>
                                             <!-- End Select2 -->
@@ -361,7 +364,7 @@
                                 <label for="priceNameLabel" class="input-label">Giá</label>
 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="productPrice" id="priceNameLabel" placeholder="0.00" aria-label="0.00" value="{{ number_format($product_by_id['list_price'], 0, ',', '.') }}">
+                                    <input type="text" class="form-control js-masked-input" name="productPrice" id="priceNameLabel" placeholder="10.000" aria-label="10.000" value="{{ number_format($product_by_id['list_price'], 0, ',', '.') }}">
 
                                     <div class="input-group-append">
                                         <!-- Select -->
@@ -517,12 +520,12 @@
 
                             <div class="mb-2">
                                 <a class="d-inline-block" href="javascript:;" data-toggle="modal" data-target="#productsAdvancedFeaturesModal">
-                                    <i class="tio-star tio-lg text-warning mr-1"></i> Set "Compare to" price
+                                    <i class="tio-star tio-lg text-warning mr-1"></i> Theo dõi tồn kho
                                 </a>
                             </div>
 
                             <a class="d-inline-block" href="javascript:;" data-toggle="modal" data-target="#productsAdvancedFeaturesModal">
-                                <i class="tio-star tio-lg text-warning mr-1"></i> Bulk discount pricing
+                                <i class="tio-star tio-lg text-warning mr-1"></i> Giảm giá sản phẩm
                             </a>
 
                             <hr class="my-4">
@@ -660,12 +663,12 @@
 
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label for="collectionsLabel" class="input-label">Collections</label>
+                                <label for="collectionsLabel" class="input-label">Bộ sưu tập</label>
 
                                 <!-- Select -->
                                 <select class="js-select2-custom custom-select" size="1" style="opacity: 0;" id="collectionsLabel" data-hs-select2-options='{
                             "minimumResultsForSearch": "Infinity",
-                            "placeholder": "Select collections"
+                            "placeholder": "Lựa chọn bộ sưu tập"
                           }'>
                                     <option label="empty"></option>
                                     <option value="Winter">Winter</option>
@@ -675,11 +678,11 @@
                                 </select>
                                 <!-- End Select -->
 
-                                <span class="form-text">Add this product to a collection so it’s easy to find in your store.</span>
+                                <span class="form-text">Thêm sản phẩm này vào bộ sưu tập để dễ dàng tìm thấy trong cửa hàng của bạn. </span>
                             </div>
                             <!-- Form Group -->
                             <div class="form-group">
-                                <label for="tagsLabel" class="input-label">Tags</label>
+                                <label for="tagsLabel" class="input-label">Nhãn</label>
 
                                 <input type="text" class="js-tagify tagify-form-control form-control" name="tagsName" id="tagsLabel" placeholder="Thêm vào nhãn" aria-label="Enter tags here">
                                 <span class="form-message"></span>

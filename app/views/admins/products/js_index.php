@@ -127,9 +127,15 @@
         // Khai báo biến xài cho toàn file
         const url = `{{ _WEB_ROOT }}/products-destroy`
         const urlStatus = `{{ _WEB_ROOT }}/products-status`
+        const urlUploadExcel = `{{ _WEB_ROOT }}/products-upload-excel`
         const currentUrl = "{! getCurURL() !}"
         const btnSwitchStatus = document.querySelectorAll('.btn-switch-status')
         const _token = $('meta[name=csrf-token]').attr("content")
+        const btnSaveProducts = document.querySelector(".btn-save-products")
+        const formExcel = document.querySelector("#importExel")
+        let productsData;
+
+        console.log(_token);
         
         btnSwitchStatus.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -163,6 +169,31 @@
                 deleteItem(element, url, "sản phẩm", currentUrl)
             })
         });
+
+        // xử lý gửi thêm sản phẩm bằng file excel
+        formExcel.addEventListener("submit", (e) => {
+            e.preventDefault()
+            UploadExel()
+                .then(data => {
+                    productsData = data;
+                    shorten()
+                })
+                .catch((error) => {
+                    console.error(error)
+                })
+        });
+
+        btnSaveProducts.addEventListener("click", () => {
+            $('#previewImportProducts').modal('hide')
+            data = {
+                _token,
+                data: productsData,
+            }
+
+            sendDataByJSON(urlUploadExcel, data);
+        })
+
+        
 
     });
 </script>

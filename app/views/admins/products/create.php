@@ -42,10 +42,11 @@
               <div class="form-group">
                 <label for="productNameLabel" class="input-label">Tên <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Products are the goods or services you sell."></i></label>
 
-                <input type="text" class="form-control" name="productName" id="productNameLabel" placeholder="Whey protein, thực phẩm bổ sung, v..v.." aria-label="Shirt, t-shirts, etc.">
+                <input type="text" class="form-control" name="productName" id="title" placeholder="Whey protein, thực phẩm bổ sung, v..v.." aria-label="Shirt, t-shirts, etc.">
                 <span class="form-message"></span>
               </div>
               <!-- End Form Group -->
+              <input type="hidden" name="slug" id="convert_slug">
 
               <div class="row">
                 <div class="col-sm-6">
@@ -214,7 +215,7 @@
                     <div class="col-4">
                       <div class="input-group-prepend">
                         <!-- Select -->
-                        <select class="js-select2-custom custom-select" size="1" style="opacity: 0;" data-hs-select2-options='{
+                        <select class="js-select2-custom custom-select" name="nameTypeProduct[]" size="1" style="opacity: 0;" data-hs-select2-options='{
                                     "minimumResultsForSearch": "Infinity"
                                   }'>
                           <option value="Size">Size</option>
@@ -229,9 +230,9 @@
 
                     <div class="col-8">
                       <!-- Select2 -->
-                      <select class="js-select2-custom custom-select" size="1" style="opacity: 0;" multiple="" data-hs-select2-options='{
+                      <select class="js-select2-custom custom-select" size="1" name="valueTypeProduct[]" style="opacity: 0;" multiple="" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity",
-                                  "placeholder": "Separate options with enter",
+                                  "placeholder": "Nhập vào phân loại",
                                   "tags": true
                                 }'>
                         <option label="empty"></option>
@@ -258,7 +259,7 @@
                     <div class="col-4">
                       <div class="input-group-prepend">
                         <!-- Select -->
-                        <select class="js-select2-custom-dynamic custom-select" size="1" style="opacity: 0;" data-hs-select2-options='{
+                        <select class="js-select2-custom-dynamic custom-select" name="nameTypeProduct[]" size="1" style="opacity: 0;" data-hs-select2-options='{
                                     "minimumResultsForSearch": "Infinity"
                                   }'>
                           <option value="Size">Size</option>
@@ -273,9 +274,9 @@
 
                     <div class="col-8">
                       <!-- Select2 -->
-                      <select class="js-select2-custom-dynamic custom-select" size="1" style="opacity: 0;" multiple="" data-hs-select2-options='{
+                      <select class="js-select2-custom-dynamic custom-select" name="valueTypeProduct[]" size="1" style="opacity: 0;" multiple="" data-hs-select2-options='{
                                   "minimumResultsForSearch": "Infinity",
-                                  "placeholder": "Separate options with enter",
+                                  "placeholder": "Nhập vào phân loại",
                                   "tags": true
                                 }'>
                         <option label="empty"></option>
@@ -309,7 +310,7 @@
                 <label for="priceNameLabel" class="input-label">Giá</label>
 
                 <div class="input-group">
-                  <input type="text" class="form-control" name="productPrice" id="priceNameLabel" placeholder="0.00" aria-label="0.00">
+                  <input type="text" class="form-control js-masked-input" name="productPrice" id="priceNameLabel" placeholder="10.000" aria-label="10.000">
 
                   <div class="input-group-append">
                     <!-- Select -->
@@ -319,7 +320,7 @@
                                     "dropdownAutoWidth": true,
                                     "width": true
                                   }'>
-                        <option value="USD" selected="">USD</option>
+                        <option value="USD">USD</option>
                         <option value="AED">AED</option>
                         <option value="AFN">AFN</option>
                         <option value="ALL">ALL</option>
@@ -444,7 +445,7 @@
                         <option value="UGX">UGX</option>
                         <option value="UYU">UYU</option>
                         <option value="UZS">UZS</option>
-                        <option value="VND">VND</option>
+                        <option value="VND" selected="">VND</option>
                         <option value="VUV">VUV</option>
                         <option value="WST">WST</option>
                         <option value="XAF">XAF</option>
@@ -465,12 +466,12 @@
 
               <div class="mb-2">
                 <a class="d-inline-block" href="javascript:;" data-toggle="modal" data-target="#productsAdvancedFeaturesModal">
-                  <i class="tio-star tio-lg text-warning mr-1"></i> Set "Compare to" price
+                  <i class="tio-star tio-lg text-warning mr-1"></i> Theo dõi hàng tồn kho
                 </a>
               </div>
 
               <a class="d-inline-block" href="javascript:;" data-toggle="modal" data-target="#productsAdvancedFeaturesModal">
-                <i class="tio-star tio-lg text-warning mr-1"></i> Bulk discount pricing
+                <i class="tio-star tio-lg text-warning mr-1"></i> Giảm giá sản phẩm
               </a>
 
               <hr class="my-4">
@@ -599,11 +600,11 @@
                 </select>
                 <!-- End Select -->
 
-                <span class="form-text">Add this product to a collection so it’s easy to find in your store.</span>
+                <span class="form-text">Thêm sản phẩm này vào bộ sưu tập để dễ dàng tìm thấy trong cửa hàng của bạn. </span>
               </div>
               <!-- Form Group -->
               <div class="form-group">
-                <label for="tagsLabel" class="input-label">Tags</label>
+                <label for="tagsLabel" class="input-label">Nhãn</label>
 
                 <input type="text" class="js-tagify tagify-form-control form-control" name="tagsName" id="tagsLabel" placeholder="Thêm vào nhãn" aria-label="Enter tags here">
                 <span class="form-message"></span>

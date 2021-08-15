@@ -55,6 +55,9 @@ require_once 'core/Load.php';
 //Middleware
 require_once 'core/Middlewares.php';
 
+// Decentralization
+require_once 'core/Decentralization.php';
+
 require_once 'core/Route.php'; //Load Route class
 
 //Kiểm tra config và load Database

@@ -24,6 +24,8 @@
         //         })
         //     })
 
+        loadAddress()
+
         // cách 2: load bằng async await
         async function loadAddress() {
             var provinceId = await load_province()
@@ -174,7 +176,6 @@
                 document.querySelector('.user-info-edit').style.display = 'block';
                 btnComeBack.style.display = 'block';
                 buttonEdit.innerText = 'Cập nhật hồ sơ';
-                loadAddress()
             }
 
         })
