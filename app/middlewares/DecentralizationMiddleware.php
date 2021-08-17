@@ -11,7 +11,7 @@ class DecentralizationMiddleware extends Decentralization {
         
         if(!empty($config['decentralization'])) {
             $decentralization = $config['decentralization'];
-            if (View::$dataShare){
+            if (!empty(View::$dataShare)){
                 foreach($decentralization[0] as $urlForAll) {
                     if ($url == $urlForAll) {
                         return true;

@@ -2828,7 +2828,7 @@
                         </a>
                         <ul id="navLinkWarehousesDropdownImport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownImport" style="min-width: 16rem;">
                           <li>
-                            <a class="dropdown-item" href="user-profile.html">
+                            <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-import'}}">
                               <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách Nhập
                             </a>
                           </li>
@@ -3316,7 +3316,7 @@
                       </a>
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
-                          <a class="nav-link active-" href="user-profile.html" title="List Import">
+                          <a class="nav-link active-warehouse-import" href="{{_WEB_ROOT.'/warehouse-import'}}" title="List Import">
                             <span class="tio-circle-outlined nav-indicator-icon"></span>
                             <span class="text-truncate">Danh sách Nhập</span>
                           </a>
@@ -3337,7 +3337,7 @@
                       </a>
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
-                          <a class="nav-link active-" href="{{_WEB_ROOT.'/warehouse-export'}}" title="List Export">
+                          <a class="nav-link active-warehouse-export" href="{{_WEB_ROOT.'/warehouse-export'}}" title="List Export">
                             <span class="tio-circle-outlined nav-indicator-icon"></span>
                             <span class="text-truncate">Danh sách Xuất</span>
                           </a>

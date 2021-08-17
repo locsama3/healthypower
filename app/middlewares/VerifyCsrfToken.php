@@ -7,14 +7,10 @@ class VerifyCsrfToken extends Middlewares {
             $dataToken = $request->getFields();
             if(!empty($dataToken)){
                 $_token = $dataToken['_token'];
-                // echo $_token;
-                // echo '-'.Session::data('_token');
-                // die();
                 if(Session::data('_token') != $_token){
                     Session::flash('errors', 'Đã có lỗi xảy ra. Vui lòng kiểm tra lại token!');
                     $response->back();
                 }
-
             } 
             else{
                 Session::flash('errors', 'Không tìm thấy dữ liệu. Vui lòng kiểm tra lại!');

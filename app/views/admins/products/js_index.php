@@ -95,7 +95,7 @@
             datatable.columns(2).visible(e.target.checked)
         })
 
-        datatable.columns(3).visible(false)
+        // datatable.columns(3).visible(false)
 
         $('#toggleColumn_vendor').change(function(e) {
             datatable.columns(3).visible(e.target.checked)
@@ -117,6 +117,8 @@
         $('#toggleColumn_quantity').change(function(e) {
             datatable.columns(7).visible(e.target.checked)
         })
+
+        datatable.columns(7).visible(false)
 
         datatable.columns(8).visible(false)
 
@@ -192,8 +194,7 @@
 
             sendDataByJSON(urlUploadExcel, data);
         })
-
-        
+         
 
     });
 </script>

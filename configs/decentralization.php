@@ -92,6 +92,10 @@ $config['decentralization'] = [
         'admin/warehouse/status',
         'admin/warehouse/destroy',
         'admin/warehouse/export',
+        'admin/warehouse/import',
+        'admin/warehouse/getProduct',
+        'admin/warehouse/createImport',
+        'admin/warehouse/insertImport',
     ],
     '5' => [
         'admin/orderhandling/index',

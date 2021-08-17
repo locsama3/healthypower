@@ -88,5 +88,17 @@ $(document).on('ready', function() {
       }
     });
 
+    CKEDITOR.config.toolbarGroups = [
+         
+         { name: 'document',    groups: [ 'mode', 'document' ] },          
+      
+         { name: 'my_clipboard',   groups: [ 'clipboard', 'undo' ] },
+         '/',
+         { name: 'styles' },
+          
+         { name: 'links' }
+     ];
+      
+     CKEDITOR.config.height = '300px';
 });
 </script>

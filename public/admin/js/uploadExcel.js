@@ -30,6 +30,7 @@ function UploadExel() {
                         workbook.SheetNames.forEach(sheet => {
                             let rowObject = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet])
                             let productsData = rowObject
+                            console.log(rowObject)
 
                             $('#importProductsModal').modal('hide')
                             reviewExcelFile(rowObject)
@@ -49,16 +50,12 @@ function UploadExel() {
 
 function reviewExcelFile(objectFile) {
     var keys = Object.keys(objectFile[0])
-    var dataHead = keys.map(key => {
-        return `<th scope="col">${key}</th>`
-    }).join('')
+    var dataHead = keys.map(key => `<th scope="col">${key}</th>`).join('')
     dataHead = `<th scope="col">stt</th>` + dataHead;
 
     var dataBody = objectFile.reduce((total,item, index) => {
         let values = Object.values(item);
-        let dataRow = values.map(column => {
-            return `<td class="text-shorten">${column}</td>`
-        }).join('');
+        let dataRow = values.map(column => `<td class="text-shorten">${column}</td>`).join('');
         dataRow = `<th class="text-shorten" scope="row">${index + 1}</th>` + dataRow
         let row = `<tr>${dataRow}</tr>`
 
