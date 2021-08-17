@@ -7,8 +7,8 @@
             <h2>Giỏ hàng</h2>
           </div>
           <div class="table-responsive">
-            <form method="post" action="{{_WEB_ROOT.'/cap-nhat-gio-hang'}}">
-                {! csrf_field() !}
+            <form method="post">
+        
               <input type="hidden" value="Vwww7itR3zQFe86m" name="form_key">
               <fieldset>
                 <table class="data-table cart-table" id="shopping-cart-table">
@@ -33,9 +33,9 @@
                     </tr>
                   </thead>
                   <tfoot>
-                    <tr class="first last">
+                    <tr class="first last">  
                       <td class="a-right last" colspan="50"><button onclick="location.href=`{{_WEB_ROOT}}`;" class="button btn-continue" title="Continue Shopping" type="button"><span><span>Tiếp tục mua hàng</span></span></button>
-                        <button class="button btn-update" title="Update Cart" value="update_qty" name="update_cart_action" type="submit"><span><span>Cập nhật giỏ hàng</span></span></button>
+                        <button class="button btn-update" type="button" title="Update Cart" value="update_qty" name="update_cart_action" onclick="updateCart()"><span><span>Cập nhật giỏ hàng</span></span></button>
                         <a style="cursor:pointer; background:red; color: white; font-weight: bold" onclick="location.href=`{{_WEB_ROOT.'/xoa-het-gio-hang'}}`;" id="empty_cart_button" class="button btn-empty"><span><span>Xóa giỏ hàng</span></span></a></td>
                     </tr>
                   </tfoot>
@@ -47,7 +47,7 @@
                       <td><h2 class="product-name"> <a href="#/women-s-crepe-printed-black/">{{$data['product_name']}}</a> </h2></td>
     
                       <td class="a-right"><span class="cart-price"> <span class="price">{! number_format($data['list_price']) !} đ</span> </span></td>
-                      <td class="a-center movewishlist"><input type="number" class="input-text" id="qty" min="1" value="{{$data['qty']}}" name="qty[<?=$data['id']?>]"></td>
+                      <td class="a-center movewishlist"><input type="number" class="input-text qty-cl" id="qty" min="1" value="{{$data['qty']}}" data-id="<?=$data['id']?>" name="qty[<?=$data['id']?>]"></td>
                       <td class="a-right movewishlist"><span class="cart-price"> <span class="price"></span>{! number_format($data['list_price']*$data['qty']) !}đ</span></td>
                       <td class="a-center last"><a class="button remove-item" title="Remove item" href="{{_WEB_ROOT.'/xoa-tung-san-pham/id-'.$data['id']}}"><span><span>Remove item</span></span></a></td>
                     </tr>
@@ -65,11 +65,24 @@
                 <h3>Nơi vận chuyển</h3>
                 <div class="shipping-form">
                   <form id="shipping-zip-form" method="post" action="#estimatePost/">
-                    <p>Nhập điểm đến của bạn để nhận ước tính vận chuyển.</p>
+                    @if(!empty($customer_address_info) || !empty(Session::data('address_code')))
+                    <input type="hidden" value="{{$ward}}" id="hidden_ward">
+                    <h5>Địa chỉ nhận hàng:</h5>
                     
-                    <div class="buttons-set11">
-                      <button class="button get-quote" data-toggle="modal" data-target="#exampleModal" title="Get a Quote" type="button"><span>Điền thông tin tại đây</span></button>
+                    <div style="font-weight:bold; padding: 6px 0" id="load_address" data-street="{{Session::data('address_code')['street'] ?? $customer_address_info['street']}}" data-ward="{{Session::data('address_code')['ward'] ?? $customer_address_info['ward_id']}}" data-district="{{Session::data('address_code')['district'] ?? $customer_address_info['district_id']}}" data-province="{{Session::data('address_code')['province'] ?? $customer_address_info['province_id']}}">
+                      {{Session::data('address_code')['address'] ?? $customer_address_info['address']}}
                     </div>
+                    <!-- <p>Nhập điểm đến của bạn để nhận ước tính vận chuyển.</p> -->
+                    <div class="buttons-set11">
+                      <button class="button get-quote" data-toggle="modal" data-target="#exampleModal" title="Get a Quote" type="button"><span>Thay đổi địa chỉ</span></button>
+                    </div>
+                    @else
+                    <input type="hidden" id="load_address" data-street="" data-ward="" data-district="" data-province="">
+                    <p>Nhập điểm đến của bạn để nhận ước tính vận chuyển.</p>
+                    <div class="buttons-set11">
+                      <button class="button get-quote" data-toggle="modal" data-target="#exampleModal" title="Get a Quote" type="button"><span>CHỌN địa chỉ để tính cước phí</span></button>
+                    </div>
+                    @endif
                     <!--buttons-set11-->
                   </form>
                 </div>
@@ -105,7 +118,7 @@
                   <tbody>
                     <tr>
                       <td colspan="1" class="a-left" style=""> TẠM TÍNH </td>
-                      <td class="a-right" style=""><span class="price" data-price="{{Session::data('total') ?? NULL}}" value="{{Session::data('total') ?? NULL}}" id="sub-total">{! number_format(Session::data('total') ?? NULL) !} đ</span></td>
+                      <td class="a-right" style=""><span class="price" data-price="{{Session::data('total') ?? NULL}}" value="{{Session::data('total') ?? NULL}}" id="sub-total">{! ($sub_total ?? null) ? number_format($sub_total ?? null) : (number_format($price)) !} đ</span></td>
                     </tr>
                     <tr>
                       <td colspan="1" class="a-left" style=""> PHÍ GIAO HÀNG </td>
@@ -114,7 +127,7 @@
                     </tr>
                     <tr>
                       <td colspan="1" class="a-left" style="">ĐÃ GIẢM (VOUCHER):  </td>
-                      <td class="a-right" ><span id="voucher" data-voucher="{{ ($total_after_voucher ?? null)  ? (($price ?? null) - ($total_after_voucher ?? null)) : 0 }}"  class="price">{! ($total_after_voucher ?? null)  ? (number_format(($price ?? null) - ($total_after_voucher ?? null))) : 0 !}</span> đ</td>
+                      <td class="a-right" ><span id="voucher" data-voucher="{{ ($total_after_voucher ?? null)  ? (($price ?? null) - ($total_after_voucher ?? null)) : 0 }}"  class="price">{! (empty($amount)) ? 0 : number_format($amount ?? null) !}</span> đ</td>
                     </tr>
                   </tbody>
                 </table>
@@ -143,7 +156,7 @@
   </section>
 
   <!-- modal phí vận chuyện -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -156,7 +169,7 @@
           <input type="hidden" id="provinceShop" value="202">
           <input type="hidden" id="districtShop" value="1458">
           <input type="hidden" id="wardShop" value="21904">
-
+    
           <div class="row">
             <div class="mx-auto col-lg-12">
   
@@ -244,6 +257,22 @@
                     </div>
                   </div>
                   <!-- End Xã - Phường - Thị trấn -->
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-4">
+                        <label for="ward" class="input-label">Số nhà/Đường <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip" data-placement="top" title="Tỉnh/Thành phố"></i></label>
+                      </div>
+                      
+                      <div class="col-8">
+                        <div class="input-group-prepend">
+                          <input type="text" class="form-control" name="street" id="street">
+                        </div>
+                        <span class="form-message">
+                          
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <!-- Body -->
               </div>
@@ -317,7 +346,7 @@
 
 <!-- Modal Voucher -->
 
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal " id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">

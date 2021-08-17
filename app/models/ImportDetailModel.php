@@ -43,4 +43,9 @@ class ImportDetailModel extends Model {
                 WHERE id = $id";
         $this->db->query($sql);
     }
+    public function getImportDetail($condition){
+        return $this->db->table('shop_import_detail')->select('shop_import_detail.*, shop_products.product_name')
+               ->join('shop_products', 'shop_products.id = shop_import_detail.product_id')
+               ->where('import_id', '=', $condition)->get();
+    }
 }

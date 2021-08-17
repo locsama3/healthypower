@@ -18,7 +18,6 @@ $config['app'] = [
     ],
     'routeMiddleware' => [
         'san-pham'  => AuthMiddleware::class,
-        'them-gio-hang/.+-(\d+)' => CartLogin::class,
         'dang-nhap' => CheckLogin::class,
         'thong-tin-tai-khoan' => AuthUserMiddleware::class,
     ],

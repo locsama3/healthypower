@@ -20,7 +20,6 @@ class Route{
                 }
             }
         }
-
         return $handleUrl;
     }
 

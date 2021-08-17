@@ -37,7 +37,7 @@ class ProductModel extends Model {
     } 
 
     function updateQuantity($id, $quantity, $compare){
-        $sql = "UPDATE ".$this->tableFill()." SET quantity_per_unit = quantity_per_unit ".$compare." $quantity 
+        $sql = "UPDATE ".$this->tableFill()." SET product_quantity = product_quantity ".$compare." $quantity 
                 WHERE id = $id";
         $this->db->query($sql);
     }

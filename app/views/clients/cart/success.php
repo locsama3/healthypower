@@ -57,8 +57,8 @@
                                     </td>
                                     <td>
                                         <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! number_format($ship ?? null) !} đ</strong> </p>
-                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! number_format($price ?? null) !} đ</strong> </p>
-                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! ($total_after_voucher ?? null)  ? (number_format(($price ?? null) - ($total_after_voucher ?? null))) : 0 !} đ</strong> </p>
+                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! ($sub_total ?? null) ? number_format($sub_total ?? null) : (number_format($price)) !} đ</strong> </p>
+                                        <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! (empty($amount)) ? 0 : number_format($amount ?? null) !} đ</strong> </p>
                                         <p> <strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {! ($total_after_voucher ?? null) ? number_format(($total_after_voucher ?? null) + $ship) : number_format(($price ?? null) + $ship) !} đ</strong> </p>
                                     </td>
                                 </tr>

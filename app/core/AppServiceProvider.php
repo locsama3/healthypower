@@ -1,7 +1,6 @@
 <?php
 class AppServiceProvider extends ServiceProvider {
     public function boot($url){
-
         if (strpos($url, 'admin') !== false) {
             if(!empty(Session::data('user_data_admin'))) {
                 $adminModel = Load::model('AdminAccountModel');

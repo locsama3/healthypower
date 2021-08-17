@@ -106,7 +106,7 @@
                         </div>
                         <!--info-inner-->
                         <div class="actions">
-                          <button type="button" title="Thêm vào giỏ" class="button btn-cart"><span>Thêm vào giỏ</span></button>
+                          <button type="button" title="Thêm vào giỏ" value="{{$product['id']}}" onclick="addToCart(this.value)" class="button btn-cart"><span>Thêm vào giỏ</span></button>
                         </div>
                         <!--actions-->
                         <div class="clearfix"> </div>
@@ -206,7 +206,7 @@
                         </div>
                         <!--info-inner-->
                         <div class="actions">
-                          <button type="button" title="Thêm vào giỏ" class="button btn-cart"><span>Thêm vào giỏ</span></button>
+                          <button type="button" value="{{$product['id']}}" onclick="addToCart(this.value)" title="Thêm vào giỏ" class="button btn-cart"><span>Thêm vào giỏ</span></button>
                         </div>
                         <!--actions-->
                         <div class="clearfix"> </div>
@@ -314,7 +314,7 @@
                 </div>
                 <!--info-inner-->
                 <div class="actions">
-                  <button type="button" title="Thêm vào giỏ" class="button btn-cart"><span>Thêm vào giỏ</span></button>
+                  <button type="button" value="{{$product['id']}}" onclick="addToCart(this.value)" title="Thêm vào giỏ" class="button btn-cart"><span>Thêm vào giỏ</span></button>
                 </div>
                 <!--actions-->
                 <div class="clearfix"> </div>
@@ -507,7 +507,7 @@
                   </div>
                   <!--info-inner-->
                   <div class="actions">
-                    <button type="button" title="Thêm vào giỏ" class="button btn-cart"><span>Thêm vào giỏ</span></button>
+                    <button type="button" value="{{$product['id']}}" onclick="addToCart(this.value)" title="Thêm vào giỏ" class="button btn-cart"><span>Thêm vào giỏ</span></button>
                   </div>
                   <!--actions-->
                   <div class="clearfix"> </div>

@@ -1,4 +1,4 @@
-    <!-- ONLY DEV -->
+<!-- ONLY DEV -->
 
     <!-- Builder -->
     <div id="styleSwitcherDropdown" class="hs-unfold-content sidebar sidebar-bordered sidebar-box-shadow" style="width: 35rem;">
@@ -8,7 +8,6 @@
             <h3 class="card-header-title">Dashboard</h3>
             <p>Tùy chỉnh bố cục trang tổng quan của bạn. Chọn giao diện phù hợp nhất với nhu cầu của bạn.</p>
           </div>
-
           <!-- Toggle Button -->
           <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark" href="javascript:;" data-hs-unfold-options='{
                   "target": "#styleSwitcherDropdown",
@@ -22,12 +21,10 @@
           </a>
           <!-- End Toggle Button -->
         </div>
-
         <!-- Body -->
         <div class="card-body sidebar-scrollbar">
           <h4 class="mb-1">Bố cục giao diện <span id="js-builder-disabled" class="badge badge-soft-danger" style="opacity: 0">Đã vô hiệu</span></h4>
           <p>Bạn hãy lựa chọn 1 trong 3 loại giao diện sau.</p>
-
           <div class="row gx-2 mb-5">
             <!-- Custom Radio -->
             <div class="col-4 text-center">
@@ -42,7 +39,6 @@
               </div>
             </div>
             <!-- End Custom Radio -->
-
             <!-- Custom Radio -->
             <div class="col-4 text-center">
               <div class="text-center">
@@ -56,7 +52,6 @@
               </div>
             </div>
             <!-- End Custom Radio -->
-
             <!-- Custom Radio -->
             <div class="col-4 text-center">
               <div class="text-center">
@@ -72,10 +67,8 @@
             <!-- End Custom Radio -->
           </div>
           <!-- End Row -->
-
           <h4 class="mb-1">Tùy chọn bố cục Sidebars</h4>
           <p>Chọn giữa kích thước điều hướng tiêu chuẩn, nhỏ hoặc thậm chí nhỏ gọn với các biểu tượng.</p>
-
           <div class="row gx-2 mb-5">
             <!-- Custom Radio -->
             <div class="col-4 text-center">
@@ -90,7 +83,6 @@
               </div>
             </div>
             <!-- End Custom Radio -->
-
             <!-- Custom Radio -->
             <div class="col-4 text-center">
               <div class="text-center">
@@ -104,7 +96,6 @@
               </div>
             </div>
             <!-- End Custom Radio -->
-
             <!-- Custom Radio -->
             <div class="col-4 text-center">
               <div class="text-center">
@@ -120,10 +111,8 @@
             <!-- End Custom Radio -->
           </div>
           <!-- End Row -->
-
           <h4 class="mb-1">Tùy chọn bố cục tiêu đề</h4>
           <p>Chọn điều hướng chính trên bố cục tiêu đề</p>
-
           <div class="row gx-2">
             <!-- Custom Radio -->
             <div class="col-4 text-center">
@@ -138,7 +127,6 @@
               </div>
             </div>
             <!-- End Custom Radio -->
-
             <!-- Custom Radio -->
             <div class="col-4 text-center">
               <div class="text-center">
@@ -152,7 +140,6 @@
               </div>
             </div>
             <!-- End Custom Radio -->
-
             <!-- Custom Radio -->
             <div class="col-4 text-center">
               <div class="text-center">
@@ -166,7 +153,6 @@
               </div>
             </div>
             <!-- End Custom Radio -->
-
             <!-- Custom Radio -->
             <div class="col-4 text-center mt-2">
               <div class="text-center">
@@ -184,7 +170,6 @@
           <!-- End Row -->
         </div>
         <!-- End Body -->
-
         <!-- Footer -->
         <div class="card-footer">
           <div class="row gx-2">
@@ -205,7 +190,6 @@
       </div>
     </div>
     <!-- End Builder -->
-
     <!-- Builder Toggle -->
     <div class="d-none d-md-block position-fixed bottom-0 right-0 mr-5 mb-10" style="z-index: 3;">
       <div style="position: fixed; top: 50%; right: 0; margin-right: -.25rem; transform: translateY(-50%); writing-mode: vertical-rl; text-orientation: sideways;">
@@ -225,7 +209,6 @@
       </div>
     </div>
     <!-- End Builder Toggle -->
-
     <!-- JS Preview mode only -->
     <div id="headerMain" class="d-none">
       <header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-flush navbar-container navbar-bordered">
@@ -233,14 +216,11 @@
           <div class="navbar-brand-wrapper">
             <!-- Logo -->
             <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
-
               <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo_chu_trang.png'}}" alt="Logo">
               <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/volt.png'}}" alt="Logo">
-
             </a>
             <!-- End Logo -->
           </div>
-
           <div class="navbar-nav-wrap-content-left">
             <!-- Navbar Vertical Toggle -->
             <button type="button" class="js-navbar-vertical-aside-toggle-invoker close mr-3">
@@ -248,7 +228,6 @@
               <i class="tio-last-page navbar-vertical-aside-toggle-full-align" data-template='<div class="tooltip d-none d-sm-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-toggle="tooltip" data-placement="right" title="Expand"></i>
             </button>
             <!-- End Navbar Vertical Toggle -->
-
             <!-- Search Form -->
             <div class="d-none d-md-block">
               <form class="position-relative">
@@ -273,13 +252,11 @@
                   </a>
                 </div>
                 <!-- End Input Group -->
-
                 <!-- Card Search Content -->
                 <div id="searchDropdownMenu" class="hs-form-search-menu-content card dropdown-menu dropdown-card overflow-hidden">
                   <!-- Body -->
                   <div class="card-body-height py-3">
                     <small class="dropdown-header mb-n2">Tìm kiếm gần đây</small>
-
                     <div class="dropdown-item bg-transparent text-wrap my-2">
                       <span class="h4 mr-1">
                         <a class="btn btn-xs btn-soft-dark btn-pill" href="index.html">
@@ -292,39 +269,30 @@
                         </a>
                       </span>
                     </div>
-
                     <div class="dropdown-divider my-3"></div>
-
                     <small class="dropdown-header mb-n2">Hướng dẫn</small>
-
                     <a class="dropdown-item my-2" href="index.html">
                       <div class="media align-items-center">
                         <span class="icon icon-xs icon-soft-dark icon-circle mr-2">
                           <i class="tio-tune"></i>
                         </span>
-
                         <div class="media-body text-truncate">
                           <span>Làm thế nào để thiết lập Gulp?</span>
                         </div>
                       </div>
                     </a>
-
                     <a class="dropdown-item my-2" href="index.html">
                       <div class="media align-items-center">
                         <span class="icon icon-xs icon-soft-dark icon-circle mr-2">
                           <i class="tio-paint-bucket"></i>
                         </span>
-
                         <div class="media-body text-truncate">
                           <span>Cách thay đổi màu nền?</span>
                         </div>
                       </div>
                     </a>
-
                     <div class="dropdown-divider my-3"></div>
-
                     <small class="dropdown-header mb-n2">Thành viên</small>
-
                     <a class="dropdown-item my-2" href="index.html">
                       <div class="media align-items-center">
                         <img class="avatar avatar-xs avatar-circle mr-2" src="{{_WEB_ROOT.'/public/admin/img/160x160/img10.jpg'}}" alt="Image Description">
@@ -333,7 +301,6 @@
                         </div>
                       </div>
                     </a>
-
                     <a class="dropdown-item my-2" href="index.html">
                       <div class="media align-items-center">
                         <img class="avatar avatar-xs avatar-circle mr-2" src="{{_WEB_ROOT.'/public/admin/img/160x160/img3.jpg'}}" alt="Image Description">
@@ -342,7 +309,6 @@
                         </div>
                       </div>
                     </a>
-
                     <a class="dropdown-item my-2" href="index.html">
                       <div class="media align-items-center">
                         <div class="avatar avatar-xs avatar-soft-info avatar-circle mr-2">
@@ -355,7 +321,6 @@
                     </a>
                   </div>
                   <!-- End Body -->
-
                   <!-- Footer -->
                   <a class="card-footer text-center" href="index.html">
                     Xem tất cả kết quả
@@ -368,7 +333,6 @@
             </div>
             <!-- End Search Form -->
           </div>
-
           <!-- Secondary Content -->
           <div class="navbar-nav-wrap-content-right">
             <!-- Navbar -->
@@ -388,7 +352,6 @@
                 </div>
                 <!-- End Search Trigger -->
               </li>
-
               <li class="nav-item d-none d-sm-inline-block">
                 <!-- Notification -->
                 <div class="hs-unfold">
@@ -399,12 +362,10 @@
                     <i class="tio-notifications-on-outlined"></i>
                     <span class="btn-status btn-sm-status btn-status-danger"></span>
                   </a>
-
                   <div id="notificationDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu" style="width: 25rem;">
                     <!-- Header -->
                     <div class="card-header">
                       <span class="card-title h4">Thông báo</span>
-
                       <!-- Unfold -->
                       <div class="hs-unfold">
                         <a class="js-hs-unfold-invoker btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="javascript:;" data-hs-unfold-options='{
@@ -437,7 +398,6 @@
                       <!-- End Unfold -->
                     </div>
                     <!-- End Header -->
-
                     <!-- Nav -->
                     <ul class="nav nav-tabs nav-justified" id="notificationTab" role="tablist">
                       <li class="nav-item">
@@ -448,7 +408,6 @@
                       </li>
                     </ul>
                     <!-- End Nav -->
-
                     <!-- Body -->
                     <div class="card-body-height">
                       <!-- Tab Content -->
@@ -479,7 +438,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -507,7 +465,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -532,7 +489,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -557,7 +513,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -584,7 +539,6 @@
                             <!-- End Item -->
                           </ul>
                         </div>
-
                         <div class="tab-pane fade" id="notificationNavTwo" role="tabpanel" aria-labelledby="notificationNavTwo-tab">
                           <ul class="list-group list-group-flush navbar-card-list-group">
                             <!-- Item -->
@@ -611,7 +565,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -636,7 +589,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -661,7 +613,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -686,7 +637,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -717,7 +667,6 @@
                       <!-- End Tab Content -->
                     </div>
                     <!-- End Body -->
-
                     <!-- Card Footer -->
                     <a class="card-footer text-center" href="#">
                       Xem tất cả thông báo
@@ -728,7 +677,6 @@
                 </div>
                 <!-- End Notification -->
               </li>
-
               <li class="nav-item d-none d-sm-inline-block">
                 <!-- Apps -->
                 <div class="hs-unfold">
@@ -738,14 +686,12 @@
                }'>
                     <i class="tio-menu-vs-outlined"></i>
                   </a>
-
                   <div id="appsDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu" style="width: 25rem;">
                     <!-- Header -->
                     <div class="card-header">
                       <span class="card-title h4">Web apps &amp; services</span>
                     </div>
                     <!-- End Header -->
-
                     <!-- Body -->
                     <div class="card-body card-body-height">
                       <!-- Nav -->
@@ -761,7 +707,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="mr-3">
@@ -773,7 +718,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="mr-3">
@@ -785,7 +729,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="mr-3">
@@ -797,7 +740,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="mr-3">
@@ -809,7 +751,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="avatar avatar-xs avatar-soft-dark mr-3">
@@ -825,7 +766,6 @@
                       <!-- End Nav -->
                     </div>
                     <!-- End Body -->
-
                     <!-- Footer -->
                     <a class="card-footer text-center" href="#">
                       View all apps
@@ -836,7 +776,6 @@
                 </div>
                 <!-- End Apps -->
               </li>
-
               <li class="nav-item d-none d-sm-inline-block">
                 <!-- Activity -->
                 <div class="hs-unfold">
@@ -853,7 +792,6 @@
                 </div>
                 <!-- Activity -->
               </li>
-
               <li class="nav-item">
                 <!-- Account -->
                 <div class="hs-unfold">
@@ -866,7 +804,6 @@
                       <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                     </div>
                   </a>
-
                   <div id="accountNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account" style="width: 16rem;">
                     <div class="dropdown-item-text">
                       <div class="media align-items-center">
@@ -876,9 +813,7 @@
                         </div>
                       </div>
                     </div>
-
                     <div class="dropdown-divider"></div>
-
                     <!-- Unfold -->
                     <div class="hs-unfold w-100">
                       <a class="js-hs-unfold-invoker navbar-dropdown-submenu-item dropdown-item d-flex align-items-center" href="javascript:;" data-hs-unfold-options='{
@@ -888,7 +823,6 @@
                         <span class="text-truncate pr-2" title="Set status">Thiết lập trạng thái</span>
                         <i class="tio-chevron-right navbar-dropdown-submenu-item-invoker ml-auto"></i>
                       </a>
-
                       <div id="navSubmenuPagesAccountDropdown1" class="hs-unfold-content hs-unfold-has-submenu dropdown-unfold dropdown-menu navbar-dropdown-sub-menu">
                         <a class="dropdown-item" href="#">
                           <span class="legend-indicator bg-success mr-1"></span>
@@ -909,17 +843,13 @@
                       </div>
                     </div>
                     <!-- End Unfold -->
-
                     <a class="dropdown-item" href="#">
                       <span class="text-truncate pr-2" title="Profile &amp; account">Hồ sơ &amp; tài khoản</span>
                     </a>
-
                     <a class="dropdown-item" href="#">
                       <span class="text-truncate pr-2" title="Settings">Cài đặt</span>
                     </a>
-
                     <div class="dropdown-divider"></div>
-
                     <a class="dropdown-item" href="#">
                       <div class="media align-items-center">
                         <div class="avatar avatar-sm avatar-dark avatar-circle mr-2">
@@ -931,9 +861,7 @@
                         </div>
                       </div>
                     </a>
-
                     <div class="dropdown-divider"></div>
-
                     <!-- Unfold -->
                     <div class="hs-unfold w-100">
                       <a class="js-hs-unfold-invoker navbar-dropdown-submenu-item dropdown-item d-flex align-items-center" href="javascript:;" data-hs-unfold-options='{
@@ -943,7 +871,6 @@
                         <span class="text-truncate pr-2" title="Customization">Tùy chỉnh</span>
                         <i class="tio-chevron-right navbar-dropdown-submenu-item-invoker  ml-auto"></i>
                       </a>
-
                       <div id="navSubmenuPagesAccountDropdown2" class="hs-unfold-content hs-unfold-has-submenu dropdown-unfold dropdown-menu navbar-dropdown-sub-menu">
                         <a class="dropdown-item" href="#">
                           <span class="text-truncate pr-2" title="Invite people">Mời bạn bè</span>
@@ -959,13 +886,10 @@
                       </div>
                     </div>
                     <!-- End Unfold -->
-
                     <a class="dropdown-item" href="#">
                       <span class="text-truncate pr-2" title="Manage team">Quản lý nhóm</span>
                     </a>
-
                     <div class="dropdown-divider"></div>
-
                     <a class="dropdown-item" href="{{_WEB_ROOT.'/admin/user/logout'}}">
                       <span class="text-truncate pr-2" title="Sign out">Đăng xuất</span>
                     </a>
@@ -985,15 +909,11 @@
         <div class="js-mega-menu navbar-nav-wrap">
           <div class="navbar-brand-wrapper">
             <!-- Logo -->
-
-
             <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
               <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo_chu_xanh.svg'}}" alt="Logo">
             </a>
-
             <!-- End Logo -->
           </div>
-
           <!-- Secondary Content -->
           <div class="navbar-nav-wrap-content-right">
             <!-- Navbar -->
@@ -1008,12 +928,10 @@
                     <i class="tio-notifications-on-outlined"></i>
                     <span class="btn-status btn-sm-status btn-status-danger"></span>
                   </a>
-
                   <div id="notificationDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu" style="width: 25rem;">
                     <!-- Header -->
                     <div class="card-header">
                       <span class="card-title h4">Thông báo</span>
-
                       <!-- Unfold -->
                       <div class="hs-unfold">
                         <a class="js-hs-unfold-invoker btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="javascript:;" data-hs-unfold-options='{
@@ -1046,7 +964,6 @@
                       <!-- End Unfold -->
                     </div>
                     <!-- End Header -->
-
                     <!-- Nav -->
                     <ul class="nav nav-tabs nav-justified" id="notificationTab" role="tablist">
                       <li class="nav-item">
@@ -1057,7 +974,6 @@
                       </li>
                     </ul>
                     <!-- End Nav -->
-
                     <!-- Body -->
                     <div class="card-body-height">
                       <!-- Tab Content -->
@@ -1088,7 +1004,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -1116,7 +1031,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -1141,7 +1055,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -1166,7 +1079,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -1193,7 +1105,6 @@
                             <!-- End Item -->
                           </ul>
                         </div>
-
                         <div class="tab-pane fade" id="notificationNavTwo" role="tabpanel" aria-labelledby="notificationNavTwo-tab">
                           <ul class="list-group list-group-flush navbar-card-list-group">
                             <!-- Item -->
@@ -1220,7 +1131,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -1245,7 +1155,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -1270,7 +1179,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -1295,7 +1203,6 @@
                               <a class="stretched-link" href="#"></a>
                             </li>
                             <!-- End Item -->
-
                             <!-- Item -->
                             <li class="list-group-item custom-checkbox-list-wrapper">
                               <div class="row">
@@ -1326,7 +1233,6 @@
                       <!-- End Tab Content -->
                     </div>
                     <!-- End Body -->
-
                     <!-- Card Footer -->
                     <a class="card-footer text-center" href="#">
                       View all notifications
@@ -1337,7 +1243,6 @@
                 </div>
                 <!-- End Notification -->
               </li>
-
               <li class="nav-item d-none d-sm-inline-block">
                 <!-- Apps -->
                 <div class="hs-unfold">
@@ -1347,14 +1252,12 @@
                }'>
                     <i class="tio-menu-vs-outlined"></i>
                   </a>
-
                   <div id="appsDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu" style="width: 25rem;">
                     <!-- Header -->
                     <div class="card-header">
                       <span class="card-title h4">Web apps &amp; services</span>
                     </div>
                     <!-- End Header -->
-
                     <!-- Body -->
                     <div class="card-body card-body-height">
                       <!-- Nav -->
@@ -1370,7 +1273,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="mr-3">
@@ -1382,7 +1284,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="mr-3">
@@ -1394,7 +1295,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="mr-3">
@@ -1406,7 +1306,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="mr-3">
@@ -1418,7 +1317,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="nav-link" href="#">
                           <div class="media align-items-center">
                             <span class="avatar avatar-xs avatar-soft-dark mr-3">
@@ -1434,7 +1332,6 @@
                       <!-- End Nav -->
                     </div>
                     <!-- End Body -->
-
                     <!-- Footer -->
                     <a class="card-footer text-center" href="#">
                       View all apps
@@ -1445,7 +1342,6 @@
                 </div>
                 <!-- End Apps -->
               </li>
-
               <li class="nav-item d-none d-sm-inline-block">
                 <!-- Activity -->
                 <div class="hs-unfold">
@@ -1462,7 +1358,6 @@
                 </div>
                 <!-- Activity -->
               </li>
-
               <li class="nav-item">
                 <!-- Account -->
                 <div class="hs-unfold">
@@ -1475,7 +1370,6 @@
                       <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                     </div>
                   </a>
-
                   <div id="accountNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account" style="width: 16rem;">
                     <div class="dropdown-item-text">
                       <div class="media align-items-center">
@@ -1488,9 +1382,7 @@
                         </div>
                       </div>
                     </div>
-
                     <div class="dropdown-divider"></div>
-
                     <!-- Unfold -->
                     <div class="hs-unfold w-100">
                       <a class="js-hs-unfold-invoker navbar-dropdown-submenu-item dropdown-item d-flex align-items-center" href="javascript:;" data-hs-unfold-options='{
@@ -1500,7 +1392,6 @@
                         <span class="text-truncate pr-2" title="Set status">Set status</span>
                         <i class="tio-chevron-right navbar-dropdown-submenu-item-invoker ml-auto"></i>
                       </a>
-
                       <div id="navSubmenuPagesAccountDropdown1" class="hs-unfold-content hs-unfold-has-submenu dropdown-unfold dropdown-menu navbar-dropdown-sub-menu">
                         <a class="dropdown-item" href="#">
                           <span class="legend-indicator bg-success mr-1"></span>
@@ -1521,17 +1412,13 @@
                       </div>
                     </div>
                     <!-- End Unfold -->
-
                     <a class="dropdown-item" href="#">
                       <span class="text-truncate pr-2" title="Profile &amp; account">Profile &amp; account</span>
                     </a>
-
                     <a class="dropdown-item" href="#">
                       <span class="text-truncate pr-2" title="Settings">Settings</span>
                     </a>
-
                     <div class="dropdown-divider"></div>
-
                     <a class="dropdown-item" href="#">
                       <div class="media align-items-center">
                         <div class="avatar avatar-sm avatar-dark avatar-circle mr-2">
@@ -1543,9 +1430,7 @@
                         </div>
                       </div>
                     </a>
-
                     <div class="dropdown-divider"></div>
-
                     <!-- Unfold -->
                     <div class="hs-unfold w-100">
                       <a class="js-hs-unfold-invoker navbar-dropdown-submenu-item dropdown-item d-flex align-items-center" href="javascript:;" data-hs-unfold-options='{
@@ -1555,7 +1440,6 @@
                         <span class="text-truncate pr-2" title="Customization">Customization</span>
                         <i class="tio-chevron-right navbar-dropdown-submenu-item-invoker  ml-auto"></i>
                       </a>
-
                       <div id="navSubmenuPagesAccountDropdown2" class="hs-unfold-content hs-unfold-has-submenu dropdown-unfold dropdown-menu navbar-dropdown-sub-menu">
                         <a class="dropdown-item" href="#">
                           <span class="text-truncate pr-2" title="Invite people">Invite people</span>
@@ -1571,13 +1455,10 @@
                       </div>
                     </div>
                     <!-- End Unfold -->
-
                     <a class="dropdown-item" href="#">
                       <span class="text-truncate pr-2" title="Manage team">Manage team</span>
                     </a>
-
                     <div class="dropdown-divider"></div>
-
                     <a class="dropdown-item" href="#">
                       <span class="text-truncate pr-2" title="Sign out">Sign out</span>
                     </a>
@@ -1585,7 +1466,6 @@
                 </div>
                 <!-- End Account -->
               </li>
-
               <li class="nav-item">
                 <!-- Toggle -->
                 <button type="button" class="navbar-toggler btn btn-ghost-secondary rounded-circle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarNavMenu" data-toggle="collapse" data-target="#navbarNavMenu">
@@ -1597,7 +1477,6 @@
             <!-- End Navbar -->
           </div>
           <!-- End Secondary Content -->
-
           <!-- Navbar -->
           <div class="navbar-nav-wrap-content-left collapse navbar-collapse" id="navbarNavMenu">
             <div class="navbar-body">
@@ -1607,7 +1486,6 @@
                   <a class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="{{_WEB_ROOT.'/dashboard'}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
                     <i class="tio-home-vs-1-outlined nav-icon"></i> Dashboards
                   </a>
-
                   <!-- Dropdown -->
                   <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
                     <li>
@@ -1622,16 +1500,13 @@
                     </li>
                   </ul>
                   <!-- End Dropdown -->
-
                 </li>
                 <!-- End Dashboards -->
-
                 <!-- Tài khoản Admin -->
                 <li class="hs-has-sub-menu">
                   <a id="adminDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkAdminDropdown">
                     <i class="tio-user nav-icon"></i> Quản trị viên
                   </a>
-
                   <!-- Dropdown -->
                   <ul id="navLinkAdminDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdown" style="min-width: 16rem;">
                     <!-- Tài khoản -->
@@ -1639,7 +1514,6 @@
                       <a id="adminDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownAccount">
                         <span class="tio-circle nav-indicator-icon"></span> Tài khoản
                       </a>
-
                       <ul id="navLinkAdminDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownAccount" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/admin-accounts-create'}}">
@@ -1654,13 +1528,11 @@
                       </ul>
                     </li>
                     <!-- End Tài khoản -->
-
                     <!-- Chức vụ -->
                     <li class="hs-has-sub-menu">
                       <a id="adminDropdownRoles" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownRoles">
                         <span class="tio-circle nav-indicator-icon"></span> Chức vụ <span class="badge badge-primary badge-pill ml-2">5</span>
                       </a>
-
                       <ul id="navLinkAdminDropdownRoles" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownRoles" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/roles-create'}}">
@@ -1675,13 +1547,11 @@
                       </ul>
                     </li>
                     <!-- End Chức vụ -->
-
                     <!-- Quyền hạn -->
                     <li class="hs-has-sub-menu">
                       <a id="adminDropdownPermissions" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownPermissions">
                         <span class="tio-circle nav-indicator-icon"></span> Quyền hạn
                       </a>
-
                       <ul id="navLinkAdminDropdownPermissions" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownPermissions" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/permissions-create'}}">
@@ -1696,19 +1566,16 @@
                       </ul>
                     </li>
                     <!-- End Quyền hạn -->
-
                     <li class="dropdown-divider"></li>
                   </ul>
                   <!-- End Dropdown -->
                 </li>
                 <!-- End Tài khoản Admin -->
-
                 <!-- Sản phẩm -->
                 <li class="hs-has-sub-menu">
                   <a id="prodManageDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkProdManageDropdown">
                     <i class="tio-pages-outlined nav-icon"></i> Quản lý sản phẩm
                   </a>
-
                   <!-- Dropdown -->
                   <ul id="navLinkProdManageDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodManageDropdown" style="min-width: 16rem;">
                     <!-- Sản phẩm -->
@@ -1716,7 +1583,6 @@
                       <a id="prodMngDropdownProducts" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownProducts">
                         <span class="tio-circle nav-indicator-icon"></span> Sản phẩm
                       </a>
-
                       <ul id="navLinkProdMngDropdownProducts" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProducts" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/products-create'}}">
@@ -1731,13 +1597,11 @@
                       </ul>
                     </li>
                     <!-- End Sản phẩm -->
-
                     <!-- Danh mục sản phẩm -->
                     <li class="hs-has-sub-menu">
                       <a id="prodMngDropdownProdCate" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownProdCate">
                         <span class="tio-circle nav-indicator-icon"></span> Danh mục sản phẩm <span class="badge badge-primary badge-pill ml-2">5</span>
                       </a>
-
                       <ul id="navLinkProdMngDropdownProdCate" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProdCate" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/products-category-create'}}">
@@ -1752,13 +1616,11 @@
                       </ul>
                     </li>
                     <!-- End Danh mục sản phẩm -->
-
                     <!-- Nhà cung ứng -->
                     <li class="hs-has-sub-menu">
                       <a id="prodMngDropdownSuppliers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownSuppliers">
                         <span class="tio-circle nav-indicator-icon"></span> Nhà cung ứng
                       </a>
-
                       <ul id="navLinkProdMngDropdownSuppliers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownSuppliers" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/supplier-create'}}">
@@ -1773,13 +1635,11 @@
                       </ul>
                     </li>
                     <!-- End Nhà cung ứng -->
-
                     <!-- Đánh giá sản phẩm -->
                     <li class="hs-has-sub-menu">
                       <a id="prodMngDropdownReviews" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownReviews">
                         <span class="tio-circle nav-indicator-icon"></span> Đánh giá sản phẩm
                       </a>
-
                       <ul id="navLinkProdMngDropdownReviews" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownReviews" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT}}/manage-review">
@@ -1794,13 +1654,11 @@
                   <!-- End Dropdown -->
                 </li>
                 <!-- End Sản phẩm -->
-
                 <!-- Xuất nhập kho -->
                 <li class="hs-has-sub-menu">
                   <a id="warehousesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkWarehousesDropdown">
                     <i class="tio-import-export nav-icon"></i> Quản lý Xuất Nhập kho
                   </a>
-
                   <!-- Dropdown -->
                   <ul id="navLinkWarehousesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdown" style="min-width: 16rem;">
                     <!-- Kho hàng -->
@@ -1808,7 +1666,6 @@
                       <a id="warehousesDropdownWare" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownWare">
                         <span class="tio-circle nav-indicator-icon"></span> Kho hàng
                       </a>
-
                       <ul id="navLinkWarehousesDropdownWare" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownWare" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-create'}}">
@@ -1823,16 +1680,14 @@
                       </ul>
                     </li>
                     <!-- End Kho hàng -->
-
                     <!-- Nhập kho -->
                     <li class="hs-has-sub-menu">
                       <a id="warehousesDropdownImport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownImport">
                         <span class="tio-circle nav-indicator-icon"></span> Nhập kho <span class="badge badge-primary badge-pill ml-2">5</span>
                       </a>
-
                       <ul id="navLinkWarehousesDropdownImport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownImport" style="min-width: 16rem;">
                         <li>
-                          <a class="dropdown-item" href="user-profile.html">
+                          <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-import'}}">
                             <span class="tio-circle-outlined nav-indicator-icon"></span> Danh sách nhập kho
                           </a>
                         </li>
@@ -1844,13 +1699,11 @@
                       </ul>
                     </li>
                     <!-- End Nhập kho -->
-
                     <!-- Xuất kho -->
                     <li class="hs-has-sub-menu">
                       <a id="warehousesDropdownExport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownExport">
                         <span class="tio-circle nav-indicator-icon"></span> Xuất kho <span class="badge badge-primary badge-pill ml-2">5</span>
                       </a>
-
                       <ul id="navLinkWarehousesDropdownExport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownExport" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-export'}}">
@@ -1865,19 +1718,16 @@
                       </ul>
                     </li>
                     <!-- End Xuất kho -->
-
                     <li class="dropdown-divider"></li>
                   </ul>
                   <!-- End Dropdown -->
                 </li>
                 <!-- End Xuất nhập kho -->
-
                 <!-- Khuyến mãi và giảm giá -->
                 <li class="hs-has-sub-menu">
                   <a id="vouchersDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkVouchersDropdown">
                     <i class="tio-ticket nav-icon"></i> Khuyến mãi và giảm giá
                   </a>
-
                   <!-- Dropdown -->
                   <ul id="navLinkVouchersDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="vouchersDropdown" style="min-width: 16rem;">
                     <!-- Mã giảm giá -->
@@ -1885,7 +1735,6 @@
                       <a id="vouchersDropdownCode" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkVouchersDropdownCode">
                         <span class="tio-circle nav-indicator-icon"></span> Mã giảm giá
                       </a>
-
                       <ul id="navLinkVouchersDropdownCode" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="vouchersDropdownCode" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/vouchers-create'}}">
@@ -1905,13 +1754,11 @@
                   <!-- End Dropdown -->
                 </li>
                 <!-- End Khuyến mãi và giảm giá -->
-
                 <!-- Đặt hàng -->
                 <li class="hs-has-sub-menu">
                   <a id="orderMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkOrderMngDropdown">
                     <i class="tio-book-bookmarked nav-icon"></i> Quản lý đặt hàng
                   </a>
-
                   <!-- Dropdown -->
                   <ul id="navLinkOrderMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdown" style="min-width: 16rem;">
                     <!-- Đơn hàng -->
@@ -1919,7 +1766,6 @@
                       <a id="orderMngDropdownOrder" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownOrder">
                         <span class="tio-circle nav-indicator-icon"></span> Đơn hàng
                       </a>
-
                       <ul id="navLinkOrderMngDropdownOrder" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownOrder" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/order'}}">
@@ -1934,13 +1780,11 @@
                       </ul>
                     </li>
                     <!-- End Đơn hàng -->
-
                     <!-- Phương thức thanh toán -->
                     <li class="hs-has-sub-menu">
                       <a id="orderMngDropdownPaymentTypes" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownPaymentTypes">
                         <span class="tio-circle nav-indicator-icon"></span> Phương thức thanh toán <span class="badge badge-primary badge-pill ml-2">5</span>
                       </a>
-
                       <ul id="navLinkOrderMngDropdownPaymentTypes" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownPaymentTypes" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/payment-types-create'}}">
@@ -1955,13 +1799,11 @@
                       </ul>
                     </li>
                     <!-- End Phương thức thanh toán -->
-
                     <!-- Phí vận chuyển -->
                     <li class="hs-has-sub-menu">
                       <a id="orderMngDropdownShipFee" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownShipFee">
                         <span class="tio-circle nav-indicator-icon"></span> Phí vận chuyển
                       </a>
-
                       <ul id="navLinkOrderMngDropdownShipFee" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownShipFee" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/deliveries'}}">
@@ -1971,19 +1813,16 @@
                       </ul>
                     </li>
                     <!-- End Phí vận chuyển -->
-
                     <li class="dropdown-divider"></li>
                   </ul>
                   <!-- End Dropdown -->
                 </li>
                 <!-- End Đặt hàng -->
-
                 <!-- Quản lý Khách hàng -->
                 <li class="hs-has-sub-menu">
                   <a id="customersMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="{{_WEB_ROOT.'/customer'}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkCustomersMngDropdown">
                     <i class="tio-group-equal nav-icon"></i> Quản lý Khách hàng
                   </a>
-
                   <!-- Dropdown -->
                   <ul id="navLinkCustomersMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdown" style="min-width: 16rem;">
                     <!-- Khách hàng -->
@@ -1991,7 +1830,6 @@
                       <a id="customersMngDropdownCustomers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkCustomersMngDropdownCustomers">
                         <span class="tio-circle nav-indicator-icon"></span> Khách hàng
                       </a>
-
                       <ul id="navLinkCustomersMngDropdownCustomers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdownCustomers" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/customers'}}">
@@ -2016,13 +1854,11 @@
                   <!-- End Dropdown -->
                 </li>
                 <!-- End Quản lý Khách hàng -->
-
                 <!-- Blogs -->
                 <li class="hs-has-sub-menu">
                   <a id="blogsMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkBlogsMngDropdown">
                     <i class="tio-book-opened nav-icon"></i> Quản lý Bài viết
                   </a>
-
                   <!-- Dropdown -->
                   <ul id="navLinkBlogsMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdown" style="min-width: 16rem;">
                     <!-- bài viết -->
@@ -2030,7 +1866,6 @@
                       <a id="blogsMngDropdownBlogs" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownBlogs">
                         <span class="tio-circle nav-indicator-icon"></span> Bài viết
                       </a>
-
                       <ul id="navLinkBlogsMngDropdownBlogs" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownBlogs" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/blogs-create'}}">
@@ -2045,13 +1880,11 @@
                       </ul>
                     </li>
                     <!-- End bài viết -->
-
                     <!-- Danh mục bài viết -->
                     <li class="hs-has-sub-menu">
                       <a id="blogsMngDropdownCategory" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownCategory">
                         <span class="tio-circle nav-indicator-icon"></span> Danh mục bài viết <span class="badge badge-primary badge-pill ml-2">5</span>
                       </a>
-
                       <ul id="navLinkBlogsMngDropdownCategory" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownCategory" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/blogs-category-create'}}">
@@ -2066,13 +1899,11 @@
                       </ul>
                     </li>
                     <!-- End Danh mục bài viết -->
-
                     <!-- Đánh giá bài viết -->
                     <li class="hs-has-sub-menu">
                       <a id="blogsMngDropdownComments" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownComments">
                         <span class="tio-circle nav-indicator-icon"></span> Bình luận bài viết
                       </a>
-
                       <ul id="navLinkBlogsMngDropdownComments" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownComments" style="min-width: 16rem;">
                         <li>
                           <a class="dropdown-item" href="{{_WEB_ROOT.'/manage-blog-comment'}}">
@@ -2093,7 +1924,6 @@
                 </li>
                 <!-- End Blogs -->
               </ul>
-
             </div>
           </div>
           <!-- End Navbar -->
@@ -2112,7 +1942,6 @@
                 </a>
                 <!-- End Logo -->
               </div>
-
               <div class="navbar-nav-wrap-content-left">
                 <!-- Search Form -->
                 <div class="d-none d-lg-block">
@@ -2138,13 +1967,11 @@
                       </a>
                     </div>
                     <!-- End Input Group -->
-
                     <!-- Card Search Content -->
                     <div id="searchDropdownMenu" class="hs-form-search-menu-content card dropdown-menu dropdown-card overflow-hidden">
                       <!-- Body -->
                       <div class="card-body-height py-3">
                         <small class="dropdown-header mb-n2">Recent searches</small>
-
                         <div class="dropdown-item bg-transparent text-wrap my-2">
                           <span class="h4 mr-1">
                             <a class="btn btn-xs btn-soft-dark btn-pill" href="index.html">
@@ -2157,39 +1984,30 @@
                             </a>
                           </span>
                         </div>
-
                         <div class="dropdown-divider my-3"></div>
-
                         <small class="dropdown-header mb-n2">Tutorials</small>
-
                         <a class="dropdown-item my-2" href="index.html">
                           <div class="media align-items-center">
                             <span class="icon icon-xs icon-soft-dark icon-circle mr-2">
                               <i class="tio-tune"></i>
                             </span>
-
                             <div class="media-body text-truncate">
                               <span>How to set up Gulp?</span>
                             </div>
                           </div>
                         </a>
-
                         <a class="dropdown-item my-2" href="index.html">
                           <div class="media align-items-center">
                             <span class="icon icon-xs icon-soft-dark icon-circle mr-2">
                               <i class="tio-paint-bucket"></i>
                             </span>
-
                             <div class="media-body text-truncate">
                               <span>How to change theme color?</span>
                             </div>
                           </div>
                         </a>
-
                         <div class="dropdown-divider my-3"></div>
-
                         <small class="dropdown-header mb-n2">Members</small>
-
                         <a class="dropdown-item my-2" href="index.html">
                           <div class="media align-items-center">
                             <img class="avatar avatar-xs avatar-circle mr-2" src="{{_WEB_ROOT.'/public/admin/img/160x160/img10.jpg'}}" alt="Image Description">
@@ -2198,7 +2016,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="dropdown-item my-2" href="index.html">
                           <div class="media align-items-center">
                             <img class="avatar avatar-xs avatar-circle mr-2" src="{{_WEB_ROOT.'/public/admin/img/160x160/img3.jpg'}}" alt="Image Description">
@@ -2207,7 +2024,6 @@
                             </div>
                           </div>
                         </a>
-
                         <a class="dropdown-item my-2" href="index.html">
                           <div class="media align-items-center">
                             <div class="avatar avatar-xs avatar-soft-info avatar-circle mr-2">
@@ -2220,7 +2036,6 @@
                         </a>
                       </div>
                       <!-- End Body -->
-
                       <!-- Footer -->
                       <a class="card-footer text-center" href="index.html">
                         See all results
@@ -2233,7 +2048,6 @@
                 </div>
                 <!-- End Search Form -->
               </div>
-
               <!-- Secondary Content -->
               <div class="navbar-nav-wrap-content-right">
                 <!-- Navbar -->
@@ -2253,7 +2067,6 @@
                     </div>
                     <!-- End Search Trigger -->
                   </li>
-
                   <li class="nav-item d-none d-sm-inline-block">
                     <!-- Notification -->
                     <div class="hs-unfold">
@@ -2264,12 +2077,10 @@
                         <i class="tio-notifications-on-outlined"></i>
                         <span class="btn-status btn-sm-status btn-status-danger"></span>
                       </a>
-
                       <div id="notificationNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu" style="width: 25rem;">
                         <!-- Header -->
                         <div class="card-header">
                           <span class="card-title h4">Notifications</span>
-
                           <!-- Unfold -->
                           <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker btn btn-icon btn-sm btn-ghost-secondary rounded-circle" href="javascript:;" data-hs-unfold-options='{
@@ -2302,7 +2113,6 @@
                           <!-- End Unfold -->
                         </div>
                         <!-- End Header -->
-
                         <!-- Nav -->
                         <ul class="nav nav-tabs nav-justified" id="notificationTab" role="tablist">
                           <li class="nav-item">
@@ -2313,7 +2123,6 @@
                           </li>
                         </ul>
                         <!-- End Nav -->
-
                         <!-- Body -->
                         <div class="card-body-height">
                           <!-- Tab Content -->
@@ -2344,7 +2153,6 @@
                                   <a class="stretched-link" href="#"></a>
                                 </li>
                                 <!-- End Item -->
-
                                 <!-- Item -->
                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                   <div class="row">
@@ -2372,7 +2180,6 @@
                                   <a class="stretched-link" href="#"></a>
                                 </li>
                                 <!-- End Item -->
-
                                 <!-- Item -->
                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                   <div class="row">
@@ -2397,7 +2204,6 @@
                                   <a class="stretched-link" href="#"></a>
                                 </li>
                                 <!-- End Item -->
-
                                 <!-- Item -->
                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                   <div class="row">
@@ -2422,7 +2228,6 @@
                                   <a class="stretched-link" href="#"></a>
                                 </li>
                                 <!-- End Item -->
-
                                 <!-- Item -->
                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                   <div class="row">
@@ -2449,7 +2254,6 @@
                                 <!-- End Item -->
                               </ul>
                             </div>
-
                             <div class="tab-pane fade" id="notificationNavTwo" role="tabpanel" aria-labelledby="notificationNavTwo-tab">
                               <ul class="list-group list-group-flush navbar-card-list-group">
                                 <!-- Item -->
@@ -2476,7 +2280,6 @@
                                   <a class="stretched-link" href="#"></a>
                                 </li>
                                 <!-- End Item -->
-
                                 <!-- Item -->
                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                   <div class="row">
@@ -2501,7 +2304,6 @@
                                   <a class="stretched-link" href="#"></a>
                                 </li>
                                 <!-- End Item -->
-
                                 <!-- Item -->
                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                   <div class="row">
@@ -2526,7 +2328,6 @@
                                   <a class="stretched-link" href="#"></a>
                                 </li>
                                 <!-- End Item -->
-
                                 <!-- Item -->
                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                   <div class="row">
@@ -2551,7 +2352,6 @@
                                   <a class="stretched-link" href="#"></a>
                                 </li>
                                 <!-- End Item -->
-
                                 <!-- Item -->
                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                   <div class="row">
@@ -2582,7 +2382,6 @@
                           <!-- End Tab Content -->
                         </div>
                         <!-- End Body -->
-
                         <!-- Card Footer -->
                         <a class="card-footer text-center" href="#">
                           View all notifications
@@ -2593,7 +2392,6 @@
                     </div>
                     <!-- End Notification -->
                   </li>
-
                   <li class="nav-item d-none d-sm-inline-block">
                     <!-- Apps -->
                     <div class="hs-unfold">
@@ -2603,14 +2401,12 @@
                    }'>
                         <i class="tio-menu-vs-outlined"></i>
                       </a>
-
                       <div id="appsNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu" style="width: 25rem;">
                         <!-- Header -->
                         <div class="card-header">
                           <span class="card-title h4">Web apps &amp; services</span>
                         </div>
                         <!-- End Header -->
-
                         <!-- Body -->
                         <div class="card-body card-body-height">
                           <!-- Nav -->
@@ -2626,7 +2422,6 @@
                                 </div>
                               </div>
                             </a>
-
                             <a class="nav-link" href="#">
                               <div class="media align-items-center">
                                 <span class="mr-3">
@@ -2638,7 +2433,6 @@
                                 </div>
                               </div>
                             </a>
-
                             <a class="nav-link" href="#">
                               <div class="media align-items-center">
                                 <span class="mr-3">
@@ -2650,7 +2444,6 @@
                                 </div>
                               </div>
                             </a>
-
                             <a class="nav-link" href="#">
                               <div class="media align-items-center">
                                 <span class="mr-3">
@@ -2662,7 +2455,6 @@
                                 </div>
                               </div>
                             </a>
-
                             <a class="nav-link" href="#">
                               <div class="media align-items-center">
                                 <span class="avatar avatar-xs avatar-soft-dark mr-3">
@@ -2678,7 +2470,6 @@
                           <!-- End Nav -->
                         </div>
                         <!-- End Body -->
-
                         <!-- Footer -->
                         <a class="card-footer text-center" href="#">
                           View all apps
@@ -2689,7 +2480,6 @@
                     </div>
                     <!-- End Apps -->
                   </li>
-
                   <li class="nav-item d-none d-sm-inline-block">
                     <!-- Activity -->
                     <div class="hs-unfold">
@@ -2706,7 +2496,6 @@
                     </div>
                     <!-- Activity -->
                   </li>
-
                   <li class="nav-item">
                     <!-- Account -->
                     <div class="hs-unfold">
@@ -2719,7 +2508,6 @@
                           <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                         </div>
                       </a>
-
                       <div id="accountNavbarDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-account" style="width: 16rem;">
                         <div class="dropdown-item-text">
                           <div class="media align-items-center">
@@ -2732,9 +2520,7 @@
                             </div>
                           </div>
                         </div>
-
                         <div class="dropdown-divider"></div>
-
                         <!-- Unfold -->
                         <div class="hs-unfold w-100">
                           <a class="js-hs-unfold-invoker navbar-dropdown-submenu-item dropdown-item d-flex align-items-center" href="javascript:;" data-hs-unfold-options='{
@@ -2744,7 +2530,6 @@
                             <span class="text-truncate pr-2" title="Set status">Set status</span>
                             <i class="tio-chevron-right navbar-dropdown-submenu-item-invoker ml-auto"></i>
                           </a>
-
                           <div id="navSubmenuPagesAccountDropdown1" class="hs-unfold-content hs-unfold-has-submenu dropdown-unfold dropdown-menu navbar-dropdown-sub-menu">
                             <a class="dropdown-item" href="#">
                               <span class="legend-indicator bg-success mr-1"></span>
@@ -2765,17 +2550,13 @@
                           </div>
                         </div>
                         <!-- End Unfold -->
-
                         <a class="dropdown-item" href="#">
                           <span class="text-truncate pr-2" title="Profile &amp; account">Profile &amp; account</span>
                         </a>
-
                         <a class="dropdown-item" href="#">
                           <span class="text-truncate pr-2" title="Settings">Settings</span>
                         </a>
-
                         <div class="dropdown-divider"></div>
-
                         <a class="dropdown-item" href="#">
                           <div class="media align-items-center">
                             <div class="avatar avatar-sm avatar-dark avatar-circle mr-2">
@@ -2787,9 +2568,7 @@
                             </div>
                           </div>
                         </a>
-
                         <div class="dropdown-divider"></div>
-
                         <!-- Unfold -->
                         <div class="hs-unfold w-100">
                           <a class="js-hs-unfold-invoker navbar-dropdown-submenu-item dropdown-item d-flex align-items-center" href="javascript:;" data-hs-unfold-options='{
@@ -2799,7 +2578,6 @@
                             <span class="text-truncate pr-2" title="Customization">Customization</span>
                             <i class="tio-chevron-right navbar-dropdown-submenu-item-invoker  ml-auto"></i>
                           </a>
-
                           <div id="navSubmenuPagesAccountDropdown2" class="hs-unfold-content hs-unfold-has-submenu dropdown-unfold dropdown-menu navbar-dropdown-sub-menu">
                             <a class="dropdown-item" href="#">
                               <span class="text-truncate pr-2" title="Invite people">Invite people</span>
@@ -2815,13 +2593,10 @@
                           </div>
                         </div>
                         <!-- End Unfold -->
-
                         <a class="dropdown-item" href="#">
                           <span class="text-truncate pr-2" title="Manage team">Manage team</span>
                         </a>
-
                         <div class="dropdown-divider"></div>
-
                         <a class="dropdown-item" href="#">
                           <span class="text-truncate pr-2" title="Sign out">Sign out</span>
                         </a>
@@ -2829,7 +2604,6 @@
                     </div>
                     <!-- End Account -->
                   </li>
-
                   <li class="nav-item">
                     <!-- Toggle -->
                     <button type="button" class="navbar-toggler btn btn-ghost-light rounded-circle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarNavMenu" data-toggle="collapse" data-target="#navbarNavMenu">
@@ -2844,7 +2618,6 @@
             </div>
           </div>
         </div>
-
         <div class="container-fluid">
           <nav class="js-mega-menu flex-grow-1">
             <!-- Navbar -->
@@ -2856,7 +2629,6 @@
                     <a class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="{{_WEB_ROOT.'/dashboard'}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkDashboardsDropdown">
                       <i class="tio-home-vs-1-outlined nav-icon"></i> Dashboards
                     </a>
-
                     <!-- Dropdown -->
                     <ul id="navLinkDashboardsDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="dashboardsDropdown" style="min-width: 16rem;">
                       <li>
@@ -2871,16 +2643,13 @@
                       </li>
                     </ul>
                     <!-- End Dropdown -->
-
                   </li>
                   <!-- End Dashboards -->
-
                   <!-- Tài khoản Admin -->
                   <li class="hs-has-sub-menu navbar-nav-item">
                     <a id="adminDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkAdminDropdown">
                       <i class="tio-user nav-icon"></i> Quản trị viên
                     </a>
-
                     <!-- Dropdown -->
                     <ul id="navLinkAdminDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdown" style="min-width: 16rem;">
                       <!-- Tài khoản -->
@@ -2888,7 +2657,6 @@
                         <a id="adminDropdownAccount" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownAccount">
                           <span class="tio-circle nav-indicator-icon"></span> Tài khoản
                         </a>
-
                         <ul id="navLinkAdminDropdownAccount" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownAccount" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/admin-accounts-create'}}">
@@ -2903,13 +2671,11 @@
                         </ul>
                       </li>
                       <!-- End Tài khoản -->
-
                       <!-- Chức vụ -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="adminDropdownRoles" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkAdminDropdownRoles">
                           <span class="tio-circle nav-indicator-icon"></span> Chức vụ <span class="badge badge-primary badge-pill ml-2">5</span>
                         </a>
-
                         <ul id="navLinkAdminDropdownRoles" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownRoles" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/roles-create'}}">
@@ -2924,13 +2690,11 @@
                         </ul>
                       </li>
                       <!-- End Chức vụ -->
-
                       <!-- Quyền hạn -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="adminDropdownPermissions" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="adminDropdownPermissions">
                           <span class="tio-circle nav-indicator-icon"></span> Quyền hạn
                         </a>
-
                         <ul id="adminDropdownPermissions" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="adminDropdownPermissions" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/permissions-create'}}">
@@ -2945,18 +2709,15 @@
                         </ul>
                       </li>
                       <!-- End Quyền hạn -->
-
                       <li class="dropdown-divider"></li>
                     </ul>
                   </li>
                   <!-- End Tài khoản Admin -->
-
                   <!-- Sản phẩm -->
                   <li class="hs-has-sub-menu navbar-nav-item">
                     <a id="prodManageDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkProdManageDropdown">
                       <i class="tio-pages-outlined nav-icon"></i> Quản lý sản phẩm
                     </a>
-
                     <!-- Dropdown -->
                     <ul id="navLinkProdManageDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodManageDropdown" style="min-width: 16rem;">
                       <!-- Sản phẩm -->
@@ -2964,7 +2725,6 @@
                         <a id="prodMngDropdownProducts" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownProducts">
                           <span class="tio-circle nav-indicator-icon"></span> Sản phẩm
                         </a>
-
                         <ul id="navLinkProdMngDropdownProducts" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProducts" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/products-create'}}">
@@ -2979,13 +2739,11 @@
                         </ul>
                       </li>
                       <!-- End Sản phẩm -->
-
                       <!-- Danh mục sản phẩm -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="prodMngDropdownProdCate" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownProdCate">
                           <span class="tio-circle nav-indicator-icon"></span> Danh mục sản phẩm <span class="badge badge-primary badge-pill ml-2">5</span>
                         </a>
-
                         <ul id="navLinkProdMngDropdownProdCate" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownProdCate" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/products-category-create'}}">
@@ -3000,13 +2758,11 @@
                         </ul>
                       </li>
                       <!-- End Danh mục sản phẩm -->
-
                       <!-- Nhà cung ứng -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="prodMngDropdownSuppliers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownSuppliers">
                           <span class="tio-circle nav-indicator-icon"></span> Nhà cung ứng
                         </a>
-
                         <ul id="navLinkProdMngDropdownSuppliers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownSuppliers" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/supplier-create'}}">
@@ -3021,13 +2777,11 @@
                         </ul>
                       </li>
                       <!-- End Nhà cung ứng -->
-
                       <!-- Đánh giá sản phẩm -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="prodMngDropdownReviews" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkProdMngDropdownReviews">
                           <span class="tio-circle nav-indicator-icon"></span> Đánh giá sản phẩm
                         </a>
-
                         <ul id="navLinkProdMngDropdownReviews" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="prodMngDropdownReviews" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT}}/manage-review">
@@ -3037,18 +2791,15 @@
                         </ul>
                       </li>
                       <!-- End Đánh giá sản phẩm -->
-
                       <li class="dropdown-divider"></li>
                     </ul>
                   </li>
                   <!-- End Sản phẩm -->
-
                   <!-- Xuất nhập kho -->
                   <li class="hs-has-sub-menu navbar-nav-item">
                     <a id="warehousesDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkWarehousesDropdown">
                       <i class="tio-import-export nav-icon"></i> Quản lý Xuất Nhập kho
                     </a>
-
                     <!-- Dropdown -->
                     <ul id="navLinkWarehousesDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdown" style="min-width: 16rem;">
                       <!-- Kho hàng -->
@@ -3056,7 +2807,6 @@
                         <a id="warehousesDropdownWare" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownWare">
                           <span class="tio-circle nav-indicator-icon"></span> Kho hàng
                         </a>
-
                         <ul id="navLinkWarehousesDropdownWare" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownWare" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-create'}}">
@@ -3071,13 +2821,11 @@
                         </ul>
                       </li>
                       <!-- End Kho hàng -->
-
                       <!-- Nhập kho -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="warehousesDropdownImport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownImport">
                           <span class="tio-circle nav-indicator-icon"></span> Nhập kho <span class="badge badge-primary badge-pill ml-2">5</span>
                         </a>
-
                         <ul id="navLinkWarehousesDropdownImport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownImport" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="user-profile.html">
@@ -3092,13 +2840,11 @@
                         </ul>
                       </li>
                       <!-- End Nhập kho -->
-
                       <!-- Xuất kho -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="warehousesDropdownExport" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkWarehousesDropdownExport">
                           <span class="tio-circle nav-indicator-icon"></span> Xuất kho <span class="badge badge-primary badge-pill ml-2">5</span>
                         </a>
-
                         <ul id="navLinkWarehousesDropdownExport" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="warehousesDropdownExport" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/warehouse-export'}}">
@@ -3113,18 +2859,15 @@
                         </ul>
                       </li>
                       <!-- End Xuất kho -->
-
                       <li class="dropdown-divider"></li>
                     </ul>
                   </li>
                   <!-- End Xuất nhập kho -->
-
                   <!-- Khuyến mãi và giảm giá -->
                   <li class="hs-has-sub-menu navbar-nav-item">
                     <a id="vouchersDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkVouchersDropdown">
                       <i class="tio-pages-outlined nav-icon"></i> Khuyến mãi và mã giảm giá
                     </a>
-
                     <!-- Dropdown -->
                     <ul id="navLinkVouchersDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="vouchersDropdown" style="min-width: 16rem;">
                       <!-- Mã giảm giá -->
@@ -3132,7 +2875,6 @@
                         <a id="vouchersDropdownCode" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkVouchersDropdownCode">
                           <span class="tio-circle nav-indicator-icon"></span> Mã giảm giá
                         </a>
-
                         <ul id="navLinkVouchersDropdownCode" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="vouchersDropdownCode" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/vouchers-create'}}">
@@ -3147,18 +2889,15 @@
                         </ul>
                       </li>
                       <!-- End Mã giảm giá -->
-
                       <li class="dropdown-divider"></li>
                     </ul>
                   </li>
                   <!-- End Khuyến mãi và giảm giá -->
-
                   <!-- Đặt hàng -->
                   <li class="hs-has-sub-menu navbar-nav-item">
                     <a id="orderMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkOrderMngDropdown">
                       <i class="tio-pages-outlined nav-icon"></i> Quản lý đặt hàng
                     </a>
-
                     <!-- Dropdown -->
                     <ul id="navLinkOrderMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdown" style="min-width: 16rem;">
                       <!-- Đơn hàng -->
@@ -3166,7 +2905,6 @@
                         <a id="orderMngDropdownOrder" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownOrder">
                           <span class="tio-circle nav-indicator-icon"></span> Đơn hàng
                         </a>
-
                         <ul id="navLinkOrderMngDropdownOrder" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownOrder" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/order'}}">
@@ -3181,13 +2919,11 @@
                         </ul>
                       </li>
                       <!-- End đơn hàng -->
-
                       <!-- Phương thức thanh toán -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="orderMngDropdownPaymentTypes" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownPaymentTypes">
                           <span class="tio-circle nav-indicator-icon"></span> Phương thức thanh toán <span class="badge badge-primary badge-pill ml-2">5</span>
                         </a>
-
                         <ul id="navLinkOrderMngDropdownPaymentTypes" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownPaymentTypes" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/payment-types-create'}}">
@@ -3202,13 +2938,11 @@
                         </ul>
                       </li>
                       <!-- End Phương thức thanh toán -->
-
                       <!-- Phí vận chuyển -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="orderMngDropdownShipFee" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkOrderMngDropdownShipFee">
                           <span class="tio-circle nav-indicator-icon"></span> Phí vận chuyển
                         </a>
-
                         <ul id="navLinkOrderMngDropdownShipFee" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="orderMngDropdownShipFee" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/deliveries'}}">
@@ -3218,18 +2952,15 @@
                         </ul>
                       </li>
                       <!-- End Phí vận chuyển -->
-
                       <li class="dropdown-divider"></li>
                     </ul>
                   </li>
                   <!-- End Đặt hàng -->
-
                   <!-- Khách hàng -->
                   <li class="hs-has-sub-menu navbar-nav-item">
                     <a id="customersMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkCustomersMngDropdown">
                       <i class="tio-pages-outlined nav-icon"></i> Quản lý Khách hàng
                     </a>
-
                     <!-- Dropdown -->
                     <ul id="navLinkCustomersMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdown" style="min-width: 16rem;">
                       <!-- Khách hàng -->
@@ -3237,7 +2968,6 @@
                         <a id="customersMngDropdownCustomers" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkCustomersMngDropdownCustomers">
                           <span class="tio-circle nav-indicator-icon"></span> Khách hàng
                         </a>
-
                         <ul id="navLinkCustomersMngDropdownCustomers" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="customersMngDropdownCustomers" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/customers'}}">
@@ -3257,18 +2987,15 @@
                         </ul>
                       </li>
                       <!-- End Khách hàng -->
-
                       <li class="dropdown-divider"></li>
                     </ul>
                   </li>
                   <!-- End Khách hàng -->
-
                   <!-- Blogs -->
                   <li class="hs-has-sub-menu navbar-nav-item">
                     <a id="blogsMngDropdown" class="hs-mega-menu-invoker navbar-nav-link nav-link nav-link-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="navLinkBlogsMngDropdown">
                       <i class="tio-pages-outlined nav-icon"></i> Quản lý bài viết
                     </a>
-
                     <!-- Dropdown -->
                     <ul id="navLinkBlogsMngDropdown" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdown" style="min-width: 16rem;">
                       <!-- Bài viết nhẹ -->
@@ -3276,7 +3003,6 @@
                         <a id="blogsMngDropdownBlogs" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownBlogs">
                           <span class="tio-circle nav-indicator-icon"></span> Bài viết
                         </a>
-
                         <ul id="navLinkBlogsMngDropdownBlogs" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownBlogs" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/blogs-create'}}">
@@ -3291,13 +3017,11 @@
                         </ul>
                       </li>
                       <!-- End Bài viết nhẹ -->
-
                       <!-- Danh mục Bài viết -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="blogsMngDropdownCategory" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownCategory">
                           <span class="tio-circle nav-indicator-icon"></span> Danh mục Bài viết <span class="badge badge-primary badge-pill ml-2">5</span>
                         </a>
-
                         <ul id="navLinkBlogsMngDropdownCategory" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownCategory" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="{{_WEB_ROOT.'/blogs-category-create'}}">
@@ -3312,13 +3036,11 @@
                         </ul>
                       </li>
                       <!-- End Danh mục Bài viết -->
-
                       <!-- Bình luận bài viết -->
                       <li class="hs-has-sub-menu navbar-nav-item">
                         <a id="blogsMngDropdownComments" class="hs-mega-menu-invoker dropdown-item dropdown-item-toggle" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-controls="navLinkBlogsMngDropdownComments">
                           <span class="tio-circle nav-indicator-icon"></span> Bình luận bài viết
                         </a>
-
                         <ul id="navLinkBlogsMngDropdownComments" class="hs-sub-menu dropdown-menu dropdown-menu-lg" aria-labelledby="blogsMngDropdownComments" style="min-width: 16rem;">
                           <li>
                             <a class="dropdown-item" href="account-settings.html">
@@ -3333,13 +3055,11 @@
                         </ul>
                       </li>
                       <!-- End Bình luận bài viết -->
-
                       <li class="dropdown-divider"></li>
                     </ul>
                   </li>
                   <!-- End Blogs -->
                 </ul>
-
               </div>
             </div>
             <!-- End Navbar -->
@@ -3353,22 +3073,17 @@
           <div class="navbar-vertical-footer-offset">
             <div class="navbar-brand-wrapper justify-content-between">
               <!-- Logo -->
-
-
               <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
                 <img class="navbar-brand-logo" src="{{_WEB_ROOT.'/public/admin/svg/logos/logo_chu_trang.png'}}" alt="Logo">
                 <img class="navbar-brand-logo-mini" src="{{_WEB_ROOT.'/public/admin/svg/logos/volt.png'}}" alt="Logo">
               </a>
-
               <!-- End Logo -->
-
               <!-- Navbar Vertical Toggle -->
               <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-toggle btn btn-icon btn-xs btn-ghost-dark">
                 <i class="tio-clear tio-lg"></i>
               </button>
               <!-- End Navbar Vertical Toggle -->
             </div>
-
             <!-- Content -->
             <div class="navbar-vertical-content">
               <ul class="navbar-nav navbar-nav-lg nav-tabs">
@@ -3376,10 +3091,8 @@
                 <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link" href="javascript:;" title="Trang chủ">
                     <i class="tio-home-vs-1-outlined nav-icon"></i>
-
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboards</span>
                   </a>
-
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <li class="nav-item">
                       <a class="nav-link active-dashboard" href="{{_WEB_ROOT.'/dashboard'}}" title="Default">
@@ -3396,7 +3109,6 @@
                   </ul>
                 </li>
                 <!-- End Dashboards -->
-
                 <!-- Tài khoản Admin -->
                 <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Admins">
@@ -3412,7 +3124,6 @@
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Tài khoản </span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-admin-accounts-create" href="{{_WEB_ROOT.'/admin-accounts-create'}}" title="Add Admin Account">
@@ -3428,14 +3139,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Chức vụ -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Roles">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Chức vụ <span class="badge badge-primary badge-pill ml-1"></span></span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-roles-create" href="{{_WEB_ROOT.'/roles-create'}}" title="Add Roles">
@@ -3451,14 +3160,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Quyền hạn -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Permissions">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Quyền hạn</span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-permissions-create" href="{{_WEB_ROOT.'/permissions-create'}}" title="Add Permissions">
@@ -3479,7 +3186,6 @@
                   @endforeach
                 </li>
                 <!-- End Tài khoản Admin -->
-
                 <!-- Sản phẩm -->
                 <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Products">
@@ -3495,7 +3201,6 @@
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Sản phẩm </span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-products-create" href="{{_WEB_ROOT.'/products-create'}}" title="Add Product">
@@ -3511,14 +3216,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Danh mục sản phẩm -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Category Product">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Danh mục sản phẩm <span class="badge badge-primary badge-pill ml-1"></span></span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-products-category-create" href="{{_WEB_ROOT.'/products-category-create'}}" title="Add Category Product">
@@ -3534,14 +3237,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Nhà cung ứng -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Supplier">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Nhà cung ứng</span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-supplier-create" href="{{_WEB_ROOT.'/supplier-create'}}" title="Add Supplier">
@@ -3557,14 +3258,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Đánh giá sản phẩm -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Reviews">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Đánh giá sản phẩm</span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-manage-review" href="{{_WEB_ROOT}}/manage-review" title="Rating">
@@ -3579,14 +3278,12 @@
                   @endforeach
                 </li>
                 <!-- End Sản phẩm -->
-
                 <!-- Xuất nhập kho -->
                 <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage WareHouse">
                     <i class="tio-import-export nav-icon"></i>
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý xuất nhập kho</span>
                   </a>
-
                   @foreach ($AdminHasPermissions as $permission)
                   @if ($permission['permission_id'] == '4')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
@@ -3596,7 +3293,6 @@
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Kho hàng </span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-warehouse-create" href="{{_WEB_ROOT.'/warehouse-create'}}" title="Add WareHouse">
@@ -3612,14 +3308,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Nhập kho -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Import">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Nhập kho <span class="badge badge-primary badge-pill ml-1"></span></span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-" href="user-profile.html" title="List Import">
@@ -3635,14 +3329,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Xuất kho -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Export">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Xuất kho <span class="badge badge-primary badge-pill ml-1"></span></span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-" href="{{_WEB_ROOT.'/warehouse-export'}}" title="List Export">
@@ -3658,20 +3350,17 @@
                         </li>
                       </ul>
                     </li>
-
                   </ul>
                   @endif
                   @endforeach
                 </li>
                 <!-- End Xuất nhập kho -->
-
                 <!-- Khuyến mãi và giảm giá -->
                 <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Vouchers">
                     <i class="tio-ticket nav-icon"></i>
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Khuyến mãi và giảm giá</span>
                   </a>
-
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <!-- Mã giảm giá -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
@@ -3679,7 +3368,6 @@
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Mã giảm giá </span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-vouchers-create" href="{{_WEB_ROOT.'/vouchers-create'}}" title="Add Voucher">
@@ -3698,14 +3386,12 @@
                   </ul>
                 </li>
                 <!-- End Khuyến mãi và giảm giá -->
-
                 <!-- Đặt hàng -->
                 <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Orders">
                     <i class="tio-book-bookmarked nav-icon"></i>
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý Đặt hàng</span>
                   </a>
-
                   @foreach ($AdminHasPermissions as $permission)
                   @if ($permission['permission_id'] == '5')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
@@ -3715,7 +3401,6 @@
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Đơn hàng </span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-order" href="{{_WEB_ROOT.'/order'}}" title="List Orders">
@@ -3731,14 +3416,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Phương thức thanh toán -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Payment Type">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Phương thức thanh toán</span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-payment-types-create" href="{{_WEB_ROOT.'/payment-types-create'}}" title="Add Payment Type">
@@ -3754,14 +3437,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Phí ship -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Ship Fee">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Phí vận chuyển <span class="badge badge-primary badge-pill ml-1"></span></span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-deliveries" href="{{_WEB_ROOT.'/deliveries'}}" title="Search Ship fee">
@@ -3771,13 +3452,11 @@
                         </li>
                       </ul>
                     </li>
-
                   </ul>
                   @endif
                   @endforeach
                 </li>
                 <!-- End Đặt hàng -->
-
                 <!-- Khách hàng -->
                 <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Customer">
@@ -3793,7 +3472,6 @@
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Khách hàng </span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-customers" href="{{_WEB_ROOT.'/customers'}}" title="List Customer">
@@ -3820,14 +3498,12 @@
                   @endforeach
                 </li>
                 <!-- End Khách hàng -->
-
                 <!-- Blogs -->
                 <li class="navbar-vertical-aside-has-menu class-open-effect-top">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Manage Blogs">
                     <i class="tio-book-opened nav-icon"></i>
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Quản lý bài viết</span>
                   </a>
-
                   @foreach ($AdminHasPermissions as $permission)
                   @if ($permission['permission_id'] == '6')
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
@@ -3837,7 +3513,6 @@
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Bài viết </span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-blogs-create" href="{{_WEB_ROOT.'/blogs-create'}}" title="Add Blogs">
@@ -3853,14 +3528,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Danh mục bài viết -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Category Blog">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Danh mục bài viết <span class="badge badge-primary badge-pill ml-1"></span></span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-blogs-category-create" href="{{_WEB_ROOT.'/blogs-category-create'}}" title="Add CateBlog">
@@ -3876,14 +3549,12 @@
                         </li>
                       </ul>
                     </li>
-
                     <!-- Bình luận bài viết -->
                     <li class="navbar-vertical-aside-has-menu class-open-effect">
                       <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Comment Blog">
                         <span class="tio-circle nav-indicator-icon"></span>
                         <span class="text-truncate">Bình luận bài viết</span>
                       </a>
-
                       <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                         <li class="nav-item">
                           <a class="nav-link active-" href="ecommerce.html" title="Statical Comment">
@@ -3891,7 +3562,6 @@
                             <span class="text-truncate">Thống kê bình luận</span>
                           </a>
                         </li>
-
                         <li class="nav-item">
                           <a class="nav-link active-manage-blog-comment" href="{{_WEB_ROOT.'/manage-blog-comment'}}" title="List Comment">
                             <span class="tio-circle-outlined nav-indicator-icon"></span>
@@ -3905,7 +3575,6 @@
                   @endforeach
                 </li>
                 <!-- End Blogs -->
-
                 <!-- Front Builder -->
                 <li class="nav-item nav-footer-item ">
                   <a class="d-none d-md-flex js-hs-unfold-invoker nav-link nav-link-toggle" href="javascript:;" data-hs-unfold-options='{
@@ -3923,14 +3592,12 @@
                   </a>
                 </li>
                 <!-- End Front Builder -->
-
                 <!-- Help -->
                 <li class="navbar-vertical-aside-has-menu nav-footer-item ">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Help">
                     <i class="tio-home-vs-1-outlined nav-icon"></i>
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Help</span>
                   </a>
-
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <li class="nav-item">
                       <a class="nav-link" href="#" title="Resources &amp; tutorials">
@@ -3960,14 +3627,12 @@
                   </ul>
                 </li>
                 <!-- End Help -->
-
                 <!-- Language -->
                 <li class="navbar-vertical-aside-has-menu nav-footer-item ">
                   <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;" title="Language">
                     <img class="avatar avatar-xss avatar-circle" src="{{_WEB_ROOT.'/public/admin/vendor/flag-icon-css/flags/1x1/us.svg'}}" alt="United States Flag">
                     <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Language</span>
                   </a>
-
                   <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                     <li class="nav-item">
                       <a class="nav-link" href="#" title="English (US)">
@@ -4011,7 +3676,6 @@
               </ul>
             </div>
             <!-- End Content -->
-
             <!-- Footer -->
             <div class="navbar-vertical-footer">
               <ul class="navbar-vertical-footer-list">
@@ -4031,7 +3695,6 @@
                   </div>
                   <!-- End Unfold -->
                 </li>
-
                 <li class="navbar-vertical-footer-list-item">
                   <!-- Other Links -->
                   <div class="hs-unfold">
@@ -4043,7 +3706,6 @@
                  }'>
                       <i class="tio-help-outlined"></i>
                     </a>
-
                     <div id="otherLinksDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu navbar-vertical-footer-dropdown">
                       <span class="dropdown-header">Help</span>
                       <a class="dropdown-item" href="#">
@@ -4072,7 +3734,6 @@
                   </div>
                   <!-- End Other Links -->
                 </li>
-
                 <li class="navbar-vertical-footer-list-item">
                   <!-- Language -->
                   <div class="hs-unfold">
@@ -4084,7 +3745,6 @@
                  }'>
                       <img class="avatar avatar-xss avatar-circle" src="{{_WEB_ROOT.'/public/admin/vendor/flag-icon-css/flags/1x1/us.svg'}}" alt="United States Flag">
                     </a>
-
                     <div id="languageDropdown" class="hs-unfold-content dropdown-unfold dropdown-menu navbar-vertical-footer-dropdown">
                       <span class="dropdown-header">Select language</span>
                       <a class="dropdown-item" href="#">
@@ -4127,15 +3787,11 @@
         <div class="navbar-vertical-container">
           <div class="navbar-brand d-flex justify-content-center">
             <!-- Logo -->
-
-
             <a class="navbar-brand" href="{{_WEB_ROOT}}/dashboard" aria-label="Front">
               <img class="navbar-brand-logo-short" src="{{_WEB_ROOT.'/public/admin/svg/logos/volt.png'}}" alt="Logo">
             </a>
-
             <!-- End Logo -->
           </div>
-
           <!-- Content -->
           <div class="navbar-vertical-content">
             <ul class="navbar-nav nav-compact">
@@ -4145,8 +3801,6 @@
                   <i class="tio-home-vs-1-outlined nav-icon"></i>
                   <span class="nav-compact-title text-truncate">Dashboards</span>
                 </a>
-
-
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <li class="nav-item">
                     <a class="nav-link " href="{{_WEB_ROOT.'/dashboard'}}" title="Default">
@@ -4161,17 +3815,14 @@
                     </a>
                   </li>
                 </ul>
-
               </li>
               <!-- End Dashboards -->
-
               <!-- Tài khoản Admin -->
               <li class="navbar-vertical-aside-has-menu nav-item">
                 <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Admins">
                   <i class="tio-user nav-icon"></i>
                   <span class="nav-compact-title text-truncate">Quản trị viên</span>
                 </a>
-
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <!-- Tài khoản -->
                   <li class="navbar-vertical-aside-has-menu ">
@@ -4179,7 +3830,6 @@
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Tài khoản <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/admin-accounts-create'}}" title="Add Admin Account">
@@ -4195,14 +3845,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Chức vụ -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Roles">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Chức vụ</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/roles-create'}}" title="Add Roles">
@@ -4218,14 +3866,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Quyền hạn -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Permissions">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Quyền hạn</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/permissions-create'}}" title="Add Permissions">
@@ -4244,14 +3890,12 @@
                 </ul>
               </li>
               <!-- End Tài khoản Admin -->
-
               <!-- Sản phẩm -->
               <li class="navbar-vertical-aside-has-menu nav-item">
                 <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Product">
                   <i class="tio-pages-outlined nav-icon"></i>
                   <span class="nav-compact-title text-truncate">Quản lý Sản phẩm</span>
                 </a>
-
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <!-- Sản phẩm -->
                   <li class="navbar-vertical-aside-has-menu ">
@@ -4259,7 +3903,6 @@
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Sản phẩm <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/products-create'}}" title="Add Product">
@@ -4275,14 +3918,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Danh mục sản phẩm -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Category Product">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Danh mục sản phẩm</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/products-category-create'}}" title="Add Category Product">
@@ -4298,14 +3939,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Nhà cung ứng -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Supplier">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Nhà cung ứng</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/supplier-create'}}" title="Add Supplier">
@@ -4321,14 +3960,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Đánh giá sản phẩm -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Reviews">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Đánh giá sản phẩm</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT}}/manage-review" title="Rating">
@@ -4341,14 +3978,12 @@
                 </ul>
               </li>
               <!-- End Sản phẩm -->
-
               <!-- Xuất nhập kho -->
               <li class="navbar-vertical-aside-has-menu nav-item">
                 <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage WareHouse">
                   <i class="tio-import-export nav-icon"></i>
                   <span class="nav-compact-title text-truncate">Quản lý Xuất Nhập kho</span>
                 </a>
-
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <!-- Kho hàng -->
                   <li class="navbar-vertical-aside-has-menu ">
@@ -4356,7 +3991,6 @@
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Kho hàng <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/warehouse-create'}}" title="Add WareHouse">
@@ -4372,14 +4006,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Nhập kho -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Import">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Nhập kho</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="users.html" title="List Import">
@@ -4395,14 +4027,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Xuất kho -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Export">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Xuất kho</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/warehouse-export'}}" title="List Export">
@@ -4418,18 +4048,15 @@
                       </li>
                     </ul>
                   </li>
-
                 </ul>
               </li>
               <!-- End Xuất nhập kho -->
-
               <!-- Khuyến mãi và giảm giá -->
               <li class="navbar-vertical-aside-has-menu nav-item">
                 <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Vouchers">
                   <i class="tio-ticket nav-icon"></i>
                   <span class="nav-compact-title text-truncate">Khuyến mãi và giảm giá</span>
                 </a>
-
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <!-- Mã giảm giá -->
                   <li class="navbar-vertical-aside-has-menu ">
@@ -4437,7 +4064,6 @@
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Mã khuyến mãi <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/vouchers-create'}}" title="Add Voucher">
@@ -4456,14 +4082,12 @@
                 </ul>
               </li>
               <!-- End Khuyến mãi và giảm giá -->
-
               <!-- Đặt hàng -->
               <li class="navbar-vertical-aside-has-menu nav-item">
                 <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Orders">
                   <i class="tio-book-bookmarked nav-icon"></i>
                   <span class="nav-compact-title text-truncate">Quản lý đặt hàng</span>
                 </a>
-
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <!-- Đơn hàng -->
                   <li class="navbar-vertical-aside-has-menu ">
@@ -4471,7 +4095,6 @@
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Đơn hàng <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/order'}}" title="List Orders">
@@ -4487,14 +4110,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Phương thức thanh toán -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Payment Type">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Phương thức thanh toán <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/payment-types-create'}}" title="Add Payment Type">
@@ -4510,14 +4131,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Phí ship -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Ship Fee">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Phí vận chuyển <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/deliveries'}}" title="Search Ship fee">
@@ -4530,14 +4149,12 @@
                 </ul>
               </li>
               <!-- End Đặt hàng -->
-
               <!-- Khách hàng -->
               <li class="navbar-vertical-aside-has-menu nav-item">
                 <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Customer">
                   <i class="tio-group-equal nav-icon"></i>
                   <span class="nav-compact-title text-truncate">Quản lý Khách hàng</span>
                 </a>
-
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <!-- khách hàng -->
                   <li class="navbar-vertical-aside-has-menu ">
@@ -4545,7 +4162,6 @@
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Khách hàng <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/customers'}}" title="List Customer">
@@ -4570,14 +4186,12 @@
                 </ul>
               </li>
               <!-- End Khách hàng -->
-
               <!-- Blogs -->
               <li class="navbar-vertical-aside-has-menu nav-item">
                 <a class="js-navbar-vertical-aside-menu-link nav-link " href="javascript:;" title="Manage Blogs">
                   <i class="tio-book-opened nav-icon"></i>
                   <span class="nav-compact-title text-truncate">Quản lý Bài viết</span>
                 </a>
-
                 <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                   <!-- Blog -->
                   <li class="navbar-vertical-aside-has-menu ">
@@ -4585,7 +4199,6 @@
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Bài viết <span class="badge badge-primary badge-pill ml-1"></span></span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/blogs-create'}}" title="Add Blogs">
@@ -4601,14 +4214,12 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- Danh mục bài viết -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Category Blog">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Danh mục Bài viết</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/blogs-category-create'}}" title="Add CateBlog">
@@ -4624,16 +4235,13 @@
                       </li>
                     </ul>
                   </li>
-
                   <!-- bình luận -->
                   <li class="navbar-vertical-aside-has-menu ">
                     <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:;" title="Comment Blog">
                       <span class="tio-circle nav-indicator-icon"></span>
                       <span class="text-truncate">Bình luận bài viết</span>
                     </a>
-
                     <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
-
                       <li class="nav-item">
                         <a class="nav-link " href="{{_WEB_ROOT.'/manage-blog-comment'}}" title="List Comment">
                           <span class="tio-circle-outlined nav-indicator-icon"></span>
@@ -4646,7 +4254,6 @@
                           <span class="text-truncate">Thống kê bình luận</span>
                         </a>
                       </li>
-
                     </ul>
                   </li>
                 </ul>
@@ -4658,11 +4265,8 @@
         </div>
       </aside>
     </div>
-
     <script src="{{_WEB_ROOT.'/public/admin/js/demo.js'}}"></script>
-
     <!-- END ONLY DEV -->
-
     <!-- Search Form -->
     <div id="searchDropdown" class="hs-unfold-content dropdown-unfold search-fullwidth d-md-none">
       <form class="input-group input-group-merge input-group-borderless">
@@ -4671,9 +4275,7 @@
             <i class="tio-search"></i>
           </div>
         </div>
-
         <input class="form-control rounded-0" type="search" placeholder="Search in front" aria-label="Search in front">
-
         <div class="input-group-append">
           <div class="input-group-text">
             <div class="hs-unfold">
@@ -4692,11 +4294,5 @@
       </form>
     </div>
     <!-- End Search Form -->
-
     <!-- ========== HEADER ========== -->
-
-
-
-
-
     <!-- ========== END HEADER ========== -->

@@ -60,7 +60,6 @@ class Request{
                         $dataFields[$key] = filter_input(INPUT_POST, $key);
                     }   
                 }
-
                 return $dataFields;
             }
 

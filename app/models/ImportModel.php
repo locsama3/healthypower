@@ -43,4 +43,11 @@ class ImportModel extends Model {
             ->join('shop_imports b', 'a.id = b.store_id')->join('shop_import_detail c', 'b.id = c.import_id')
             ->where('c.product_id', '=', $id)->where('a.status', '=', '1')->get();
     }
+    public function getImport(){
+        return $this->db->table('shop_imports')->select('shop_imports.*, acl_users.fullname, shop_stores.store_name')
+               ->join('shop_stores', 'shop_stores.id = shop_imports.store_id')
+               ->join('acl_users', 'acl_users.id = shop_imports.employee_id')
+               ->orderBy('shop_imports.id','DESC')
+               ->get();
+    }
 }

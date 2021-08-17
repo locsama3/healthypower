@@ -7,11 +7,12 @@
             formGroupSelector: '.form-group',
             errorSelector: '.form-message',
             rules: [
-                Validator.isRequired('#address', 'Địa chỉ không được để trống'),
+                
             ],
             onSubmit: function(data) {
                 var formPayment = document.querySelector('#co-billing-form')
                 var input = document.querySelector('#payment-hidden')
+                console.log(input);
                 input.value = _token;
                 var url = "{{_WEB_ROOT.'/payment-post'}}"
                 formPayment.action = url;

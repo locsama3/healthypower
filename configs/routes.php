@@ -228,6 +228,14 @@
     $routes['warehouse-destroy'] = 'admin/warehouse/destroy';
 
     $routes['warehouse-export'] = 'admin/warehouse/export';
+    
+    $routes['warehouse-import'] = 'admin/warehouse/import';
+
+    $routes['warehouse-import-create'] = 'admin/warehouse/createImport';
+
+    $routes['warehouse-get-product'] = 'admin/warehouse/getProduct';
+
+    $routes['warehouse-success-import'] = 'admin/warehouse/insertImport';
 
     // routes vouchers
 

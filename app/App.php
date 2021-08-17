@@ -16,7 +16,6 @@ class App{
         if (!empty($routes['default_controller'])){
             $this->__controller = $routes['default_controller'];
         }
-
         $this->__action = 'index';
         $this->__params = [];
 
@@ -24,6 +23,7 @@ class App{
             $dbObject = new DB();
             $this->__db = $dbObject->db;
         }
+        
 
         $this->handleUrl();
     }
@@ -34,12 +34,12 @@ class App{
         }else{
             $url = '/';
         }
-
         return $url;
     }
+    
+  
 
     public function handleUrl(){
-
         $url = $this->getUrl();
 
         $url = $this->__routes->handleRoute($url);
@@ -81,12 +81,11 @@ class App{
 
         //Xử lý controller
         if (!empty($urlArr[0])){
-
             $this->__controller = ucfirst($urlArr[0]);
         }else{
             $this->__controller = ucfirst($this->__controller);
         }
-
+       
         //Xử lý khi $urlCheck rỗng
         if (empty($urlCheck)){
             $urlCheck = $this->__controller;
@@ -189,7 +188,7 @@ class App{
 
     public function handleRouteAdminMiddleware($url, $db){
         global $config;     
-        if (!empty($config['app']['routeAdminMiddleware'])){     
+        if (!empty($config['app']['routeAdminMiddleware'])){
             if (strpos($url, 'admin') !== false && $url != 'admin/user/login' && $url != 'admin/user/validatelogin') {             
                 require_once 'app/middlewares/AuthAdminMiddleware.php';
                 $middleWareObject = new AuthAdminMiddleware();
@@ -201,26 +200,6 @@ class App{
         }
     }
     
-    // public function handleGlobalMiddleware($db){
-    //     global $config;
-    //     if (!empty($config['app']['globalMiddleware'])){
-    //         $globalMiddleWareArr = $config['app']['globalMiddleware'];
-           
-    //         foreach ($globalMiddleWareArr as $key=>$middleWareItem){
-    //             if (file_exists('app/middlewares/'.$middleWareItem.'.php')){
-    //                 require_once 'app/middlewares/'.$middleWareItem.'.php';
-    //                 if (class_exists($middleWareItem)){
-    //                     $middleWareObject = new $middleWareItem();
-    //                     if (!empty($db)){
-    //                         $middleWareObject->db = $db;
-    //                     }
-    //                     $middleWareObject->handle();
-    //                 }
-    //             }
-    //         }
-            
-    //     }   
-    // }
 
     public function handleGlobalMiddleware($url, $db){
         global $config;

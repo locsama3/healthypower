@@ -1,9 +1,8 @@
 <script>
-    
+    const _token = $('meta[name=csrf-token]').attr("content");
     function handleVoucher(){
         var url = "{{_WEB_ROOT.'/kiem-tra-voucher'}}";
         var code = document.getElementById('coupon_code').value;
-        var _token = $('input[name="_token"]').val();
         const form = new FormData();
         form.append('code', code);
         form.append('_token', _token);
@@ -43,7 +42,6 @@
     }
     function deleteVoucher(id){
         var url = "{{_WEB_ROOT.'/xoa-voucher'}}";
-        var _token = $('input[name="_token"]').val();
         const form = new FormData();
         form.append('code', id);
         form.append('_token', _token);
@@ -84,10 +82,27 @@
 
     function handleCart(){
         var url = "{{_WEB_ROOT.'/handle-checkout'}}";
-        var _token = $('input[name="_token"]').val();
         const form = new FormData();
         form.append('_token', _token);
         sendData(url, form);
+    }
+    function updateCart(){
+        var url = "{{_WEB_ROOT.'/cap-nhat-gio-hang'}}";
+        var quantity = $('.qty-cl').map(function(item) {
+                var id = $(this).data('id');
+                var value = $(this).val();
+                return {
+                    'qty'        : value,
+                    'product_id' : id
+                };
+            }).get();
+        var data = {
+            _token,
+            data: quantity
+        };
+        sendDataByJSON(url, data);
+        
+
     }
     
 </script>

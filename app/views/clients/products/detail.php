@@ -18,7 +18,8 @@
             <div class="row">
                 <div class="product-view wow">
                     <div class="product-essential">
-                        <form action="{{_WEB_ROOT }}/them-gio-hang/id-{{ $product['id'] }}" method="post" id="product_addtocart_form">
+                        <form method="post" id="product_addtocart_form">
+                            <input type="hidden" id="id_product" value="{{$product['id']}}">
                             <div class="product-img-box col-lg-6 col-sm-6 col-xs-12">
                                 <ul class="moreview" id="moreview">
                                     <li class="moreview_thumb thumb_1"> 
@@ -117,7 +118,7 @@
                                         <button class="button btn-cart" title="Add to Cart" type="button" disabled><span><i class="icon-basket"></i> Thêm vào giỏ hàng</span></button>
                                         @endif
                                         @if ($product['quantity'] > 0 && $product['discontinued'] == 1)
-                                        <button class="button btn-cart" title="Add to Cart" type="submit"><span><i class="icon-basket"></i> Thêm vào giỏ hàng</span></button>
+                                        <button class="button btn-cart" title="Add to Cart" id="submit-cart" type="button"><span><i class="icon-basket"></i> Thêm vào giỏ hàng</span></button>
                                         @endif
                                     </div>
                                     <div class="email-addto-box">
@@ -338,12 +339,10 @@
                                                                     @endphp
                                                                     @endif
                                                                 @endforeach
-
                                                                 @if($count != 0)
                                                                 <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
                                                                 @else
                                                                 <div style="width:0%" class="rating"></div>
-
                                                                 @endif
                                                                 </div>
                                                             </div>
@@ -369,9 +368,7 @@
                                                         <!--item-content-->
                                                     </div>
                                                     <!--info-inner-->
-
                                                     <!--actions-->
-
                                                     <div class="clearfix"> </div>
                                                 </div>
                                             </div>
@@ -414,7 +411,7 @@
                                                     </a>
                                                     <div class="actions">
                                                         <div class="actions-inner">
-                                                            <button type="button" title="Thêm vào giỏ hàng" class="button btn-cart" onclick="location.href=`{{_WEB_ROOT}}/them-gio-hang/id-{{ $product['id'] }}`;"><span>Thêm vào giỏ</span></button>
+                                                            <button type="button" title="Thêm vào giỏ hàng" class="button btn-cart" value="{{$product['id']}}" onclick="addToCart(this.value)"><span>Thêm vào giỏ</span></button>
                                                             <ul class="add-to-links">
                                                                 <li>
                                                                     <a href="wishlist.html" title="Thêm vào mục yêu thích" class="link-wishlist">
@@ -456,12 +453,10 @@
                                                                     @endphp
                                                                     @endif
                                                                 @endforeach
-
                                                                 @if($count != 0)
                                                                 <div style="width:{{ $total/$count*20 . '%' }}" class="rating"></div>
                                                                 @else
                                                                 <div style="width:0%" class="rating"></div>
-
                                                                 @endif
                                                                 </div>
                                                             </div>
@@ -487,9 +482,7 @@
                                                         <!--item-content-->
                                                     </div>
                                                     <!--info-inner-->
-
                                                     <!--actions-->
-
                                                     <div class="clearfix"> </div>
                                                 </div>
                                             </div>

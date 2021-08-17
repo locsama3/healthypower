@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/admin/vendor/icon-set/style.css">
     <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/admin/css/mycss.css">
     
+    
+    
+    
     <!-- Load thư viện css cần sử dụng -->
      <?php 
 
@@ -85,7 +88,7 @@
         }
             
     ?>
-
+    
     
     <!-- Load thư viện js cần sử dụng -->
      <?php 
@@ -94,7 +97,8 @@
             $this->view('blocks.admins.lib_js', $libraryJS); 
         }
             
-     ?> 
+     ?>
+     
 
     <!-- load script thêm -->
     <?php 

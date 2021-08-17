@@ -36,7 +36,7 @@ class Home extends Controller{
         $random = mt_rand(0,5);
 
         $data['sub_content']['list_featured'] = $this->productModel->findByField($conditions, '', "8:$random");
-        
+       
         // truy vấn những sản phẩm bán chạy nhất
         $lastmonth = mktime(0, 0, 0, date("m")-1, date("d"), date("Y"));
         $startDate = date('Y-m-d H:i:s', $lastmonth);
@@ -50,7 +50,7 @@ class Home extends Controller{
             $str_product_id .= ','.$product['product_id'];
         }
         $str_product_id = substr($str_product_id, 1);
-
+       
         $data['sub_content']['list_bestseller'] = $this->productModel->findByField(['id {in}' . $str_product_id]);
         
         // truy vấn danh sách đánh giá cho nhiều sản phẩm
@@ -69,14 +69,14 @@ class Home extends Controller{
         }
 
         $str_product_id = implode(',',array_unique($str_product_id));
-
+        
         $data['sub_content']['list_reviews'] = $this->productReviewModel->findByField(['product_id {in}' . $str_product_id]);
-    
+        
         // truy vấn danh sách giảm giá cho nhiều sản phẩm
         $conditions = ['product_id {in}' . $str_product_id, "start_date <= ".date('Y-m-d H:i:s'), "end_date >= ".date('Y-m-d H:i:s')];
-
+        
         $data['sub_content']['list_discounts'] = $this->productDiscountModel->findByField($conditions);
-
+        
 
         // truy vấn blogs
         $data['sub_content']['latest_blogs'] = $this->blogModel->get_latest();
@@ -91,6 +91,14 @@ class Home extends Controller{
 
         $data['data_slider']['list_slider'] = $this->loadSlider();
         
+        $data['data_js'] = [
+            'js' => 'clients.products.js_detail'
+        ];
+        $data['libraryJS']['list_js'] = [
+            'functions'     => 'functions.js',
+            'validate'      => 'validate.js'
+        ];
+
         return $this->view('layouts.client_layout', $data);
     }
 

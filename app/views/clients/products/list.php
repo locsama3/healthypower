@@ -131,7 +131,7 @@
                                     </a>
                                     <div class="actions">
                                         <div class="actions-inner">
-                                            <button type="button" title="Thêm vào giỏ hàng" class="button btn-cart" onclick="location.href=`{{_WEB_ROOT}}/them-gio-hang/id-{{ $product['id'] }}`;"><span>Thêm vào giỏ</span></button>
+                                            <button type="button" title="Thêm vào giỏ hàng" class="button btn-cart" value="{{$product['id']}}" onclick="addToCart(this.value)"><span>Thêm vào giỏ</span></button>
                                             <ul class="add-to-links">
                                                 <li>
                                                     <a href="wishlist.html" title="Thêm vào mục yêu thích" class="link-wishlist">

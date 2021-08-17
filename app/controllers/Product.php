@@ -110,6 +110,12 @@ class Product extends Controller{
         $data['sub_content']['current_page'] = $current_page;
 
         $data['sub_content']['pageTotal'] = $pageTotal;
+        $data['data_js'] = [
+            'js' => 'clients.products.js_detail'
+        ];
+        $data['libraryJS']['list_js'] = [
+            'functions' => 'functions.js'
+        ];
 
         return $this->view('layouts.client_layout', $data);
     }
@@ -242,8 +248,12 @@ class Product extends Controller{
         $data['page_title'] = $data['sub_content']['product']['product_name'];
 
         $data['data_js'] = [
-            'ajax' => 'clients.products.js_detail'
+            'js' => 'clients.products.js_detail'
         ];
+        $data['libraryJS']['list_js'] = [
+            'functions' => 'functions.js'
+        ];
+
 
         //load rating
         $rating_result = $this->productReviewModel->getAvgRating($id);

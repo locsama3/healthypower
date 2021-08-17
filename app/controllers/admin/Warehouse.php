@@ -7,6 +7,9 @@ class Warehouse extends Controller{
     public $importDetailModel;
     public $exportModel;
     public $exportDetailModel;
+    public $productModel;
+    public $wareHouseModel;
+    public $userModel;
 
     public function __construct(){
         $this->warehouseModel = $this->model('WarehouseModel');
@@ -16,6 +19,9 @@ class Warehouse extends Controller{
         $this->importDetailModel = $this->model('ImportDetailModel');
         $this->exportModel = $this->model('ExportModel');
         $this->exportDetailModel = $this->model('ExportDetailModel');
+        $this->productModel = $this->model('ProductModel');
+        $this->wareHouseModel = $this->model('WarehouseModel');
+        $this->userModel = $this->model('UserModel');
     }
 
     public function index()
@@ -225,6 +231,83 @@ class Warehouse extends Controller{
     
         return $this->view('layouts.admin_layout', $data);
     }
+    
+    public function import(){
+        $data['content'] = 'admins.warehouse.import';
+        $data['page_title'] = 'Danh sách nhập kho';
+        $data['sub_content']['import_list'] = $this->importModel->getImport();
+        foreach($data['sub_content']['import_list'] as $value){
+            $data['sub_content']['import_detail'][$value['id']] = $this->importDetailModel->getImportDetail($value['id']);
+        }
+        $data['data_js'] = [
+            'js'       => 'admins.order.js_index',
+        ];
+        return $this->view('layouts.admin_layout', $data);
+    }
+
+    public function createImport(){
+        $data['content'] = 'admins.warehouse.create_import';
+        $data['page_title'] = 'Tạo phiếu nhập kho';
+        $data['sub_content']['list_store'] = $this->wareHouseModel->all();
+        $data['sub_content']['list_user'] = $this->userModel->all();
+        $data['data_js'] = [
+            'js' => 'admins.warehouse.js_create_import'
+        ];
+        $data['libraryJS']['list_js'] = [
+            'functions' => 'functions.js'
+        ];
+        return $this->view('layouts.admin_layout', $data);
+    }
+
+    public function insertImport(){
+        $dataFields = $this->request->getFields();
+        $product = explode(',', $dataFields['product']);
+        if(array_search('',$product) !== false ){
+            $message = [
+                "status" => "0",
+                'message' => "Vui lòng nhập đầy đủ dữ liệu!"
+            ];
+            exit(json_encode($message));
+        }
+        $product_length = count($product);
+       
+        $arrayProduct = [];
+        for($i = 0; $i < $product_length; $i++){
+            array_push($arrayProduct,[
+                'id'    => $product[++$i],
+                'qty'   => $product[$i+=2],
+                'price' => $product[$i+=2]
+            ]);
+        }
+       
+
+        $this->db->insertData('shop_imports',[
+            'store_id'    => $dataFields['store_id'],
+            'employee_id' => $dataFields['user_id'],
+            'import_date' => date('Y-m-d h:i:s'),
+            'created_at'  => date('Y-m-d h:i:s')
+        ]);
+        
+        $last_id_imports = $this->db->lastInsertId();
+        for($i = 0; $i < $product_length/6; $i++){
+            $this->db->insertData('shop_import_detail',[
+                'import_id' => $last_id_imports,
+                'product_id'=> $arrayProduct[$i]['id'],
+                'quantity'  => $arrayProduct[$i]['qty'],
+                'unit_price'=> $arrayProduct[$i]['price']
+            ]);
+            $this->productModel->updateQuantity($arrayProduct[$i]['id'], $arrayProduct[$i]['qty'], '+');
+        }
+        $message = [
+            "status"  => "1",
+            'message' => "Nhập hàng thành công!",
+            'location'=> _WEB_ROOT.'/warehouse-import',
+            'time'    => 1000
+        ];
+        exit(json_encode($message));
+        
+        
+    }
 
     public function loadMetaTag()
     {
@@ -236,6 +319,21 @@ class Warehouse extends Controller{
             'meta_author' => 'Lộc sama',
             'image_og' => 'favicon.ico'
         ];  
+    }
+
+    public function getProduct(){
+        $products = $this->productModel->all();
+        $output = [];
+
+        foreach($products as $data){
+            $temp_array = array();
+            $temp_array['value'] = $data['product_name'];
+            $temp_array['id'] = $data['id'];
+            $output[] = $temp_array;
+        }
+        
+
+        echo json_encode($output);
     }
 
     public function loadLibCSS()
@@ -251,4 +349,5 @@ class Warehouse extends Controller{
             'jquery' => 'jquery.js'
         ];  
     }
+    
 }
